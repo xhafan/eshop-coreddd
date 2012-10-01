@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eshop.Domain", "Eshop.Domain\Eshop.Domain.csproj", "{BB2A7F85-EBB7-4143-AF9A-E90C48CB5D28}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{3467BB85-5076-413E-BAB3-CE07B01D0222}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\packages.config = .nuget\packages.config
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eshop.UnitTests", "Eshop.UnitTests\Eshop.UnitTests.csproj", "{A99A62BA-492D-42DF-BC68-523B5A63E478}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BB2A7F85-EBB7-4143-AF9A-E90C48CB5D28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB2A7F85-EBB7-4143-AF9A-E90C48CB5D28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB2A7F85-EBB7-4143-AF9A-E90C48CB5D28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB2A7F85-EBB7-4143-AF9A-E90C48CB5D28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A99A62BA-492D-42DF-BC68-523B5A63E478}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A99A62BA-492D-42DF-BC68-523B5A63E478}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A99A62BA-492D-42DF-BC68-523B5A63E478}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A99A62BA-492D-42DF-BC68-523B5A63E478}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
