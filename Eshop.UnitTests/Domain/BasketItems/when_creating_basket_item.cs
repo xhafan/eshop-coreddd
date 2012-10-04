@@ -3,7 +3,7 @@ using Eshop.Domain;
 using NUnit.Framework;
 using Shouldly;
 
-namespace Ehop.UnitTests.Domain.BasketItems
+namespace Eshop.UnitTests.Domain.BasketItems
 {
     [TestFixture]
     public class when_creating_basket_item : BaseTest
@@ -23,7 +23,7 @@ namespace Ehop.UnitTests.Domain.BasketItems
         [Test]
         public void properties_are_correctly_set()
         {
-            _basketItem.Product.ShouldBeSameAs(_product);
+            _basketItem.Product.ShouldBe(_product);
             _basketItem.Count.ShouldBe(Count);
         }
     }
