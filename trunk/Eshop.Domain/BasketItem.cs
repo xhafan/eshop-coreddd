@@ -2,7 +2,7 @@ using CoreDdd.Domain;
 
 namespace Eshop.Domain
 {
-    public class BasketItem : Entity<BasketItem>
+    public class BasketItem : Entity
     {
         public BasketItem(Product product, int count)
         {
