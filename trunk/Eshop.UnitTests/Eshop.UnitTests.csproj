@@ -39,9 +39,9 @@
     <Reference Include="CoreDdd">
       <HintPath>..\packages\CoreDdd.1.1.0.0\lib\net40\CoreDdd.dll</HintPath>
     </Reference>
-    <Reference Include="CoreTest, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="CoreTest, Version=1.1.2.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\CoreTest.1.1.0.0\lib\net40\CoreTest.dll</HintPath>
+      <HintPath>..\packages\CoreTest.1.1.2.0\lib\net40\CoreTest.dll</HintPath>
     </Reference>
     <Reference Include="FluentNHibernate">
       <HintPath>..\packages\FluentNHibernate.1.3.0.733\lib\FluentNHibernate.dll</HintPath>
@@ -81,7 +81,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Domain\BasketItems\when_adding_count.cs" />
     <Compile Include="Domain\BasketItems\when_creating_basket_item.cs" />
+    <Compile Include="Domain\Customers\when_adding_another_product_of_the_same_type_to_basket.cs" />
     <Compile Include="Domain\Customers\when_adding_product_to_basket.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
