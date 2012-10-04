@@ -31,7 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CoreDdd">
-      <HintPath>..\packages\CoreDdd.1.0.0\lib\net40\CoreDdd.dll</HintPath>
+      <HintPath>..\packages\CoreDdd.1.1.0.0\lib\net40\CoreDdd.dll</HintPath>
     </Reference>
     <Reference Include="CoreTest">
       <HintPath>..\packages\CoreTest.1.0.0.0\lib\net40\CoreTest.dll</HintPath>
