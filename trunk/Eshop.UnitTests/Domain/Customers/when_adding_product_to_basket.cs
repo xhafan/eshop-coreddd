@@ -4,7 +4,7 @@ using Eshop.Domain;
 using NUnit.Framework;
 using Shouldly;
 
-namespace Ehop.UnitTests.Domain.Customers
+namespace Eshop.UnitTests.Domain.Customers
 {
     [TestFixture]
     public class when_adding_product_to_basket : BaseTest
@@ -27,7 +27,7 @@ namespace Ehop.UnitTests.Domain.Customers
         {
             _customer.BasketItems.Count().ShouldBe(1);
             var basketItem = _customer.BasketItems.First();
-            basketItem.Product.ShouldBeSameAs(_product);
+            basketItem.Product.ShouldBe(_product);
             basketItem.Count.ShouldBe(Count);
         }
     }
