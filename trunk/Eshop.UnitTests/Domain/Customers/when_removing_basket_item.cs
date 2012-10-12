@@ -15,7 +15,7 @@ namespace Eshop.UnitTests.Domain.Customers
         {
             _customer = new Customer();
             var basketItem = Stub<BasketItem>();                
-            _customer._basketItems.Add(basketItem);
+            _customer.BasketItems.AsSet().Add(basketItem);
 
             _customer.RemoveFromBasket(basketItem);
         }

@@ -1,18 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A99A62BA-492D-42DF-BC68-523B5A63E478}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{13E0CA76-313C-49BC-A4A4-AA2C112C9178}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Eshop.UnitTests</RootNamespace>
-    <AssemblyName>Eshop.UnitTests</AssemblyName>
+    <RootNamespace>Eshop.DatabaseGenerator</RootNamespace>
+    <AssemblyName>Eshop.DatabaseGenerator</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -21,7 +25,8 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -30,19 +35,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Castle.Core">
-      <HintPath>..\packages\Castle.Core.3.0.0.4001\lib\net40-client\Castle.Core.dll</HintPath>
+    <Reference Include="Castle.Core, Version=3.1.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Core.3.1.0\lib\net40-client\Castle.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Castle.Windsor">
-      <HintPath>..\packages\Castle.Windsor.3.0.0.4001\lib\net40\Castle.Windsor.dll</HintPath>
+    <Reference Include="Castle.Windsor, Version=3.1.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Windsor.3.1.0\lib\net40\Castle.Windsor.dll</HintPath>
     </Reference>
-    <Reference Include="CoreDdd, Version=1.1.4.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\CoreDdd.1.1.4.0\lib\net40\CoreDdd.dll</HintPath>
-    </Reference>
-    <Reference Include="CoreTest, Version=1.1.4.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\CoreTest.1.1.4.0\lib\net40\CoreTest.dll</HintPath>
+    <Reference Include="CoreDdd">
+      <HintPath>..\packages\CoreDdd.1.1.0.0\lib\net40\CoreDdd.dll</HintPath>
     </Reference>
     <Reference Include="FluentNHibernate">
       <HintPath>..\packages\FluentNHibernate.1.3.0.733\lib\FluentNHibernate.dll</HintPath>
@@ -51,7 +51,7 @@
       <HintPath>..\packages\NHibernateProfiler.1.0.0.953\lib\Net40\HibernatingRhinos.Profiler.Appender.v4.0.dll</HintPath>
     </Reference>
     <Reference Include="Iesi.Collections, Version=1.0.1.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
-      <HintPath>..\packages\Iesi.Collections.3.3.1.4000\lib\Net35\Iesi.Collections.dll</HintPath>
+      <HintPath>..\packages\Iesi.Collections.3.2.0.4000\lib\Net35\Iesi.Collections.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
@@ -59,16 +59,6 @@
     </Reference>
     <Reference Include="NHibernate">
       <HintPath>..\packages\NHibernate.3.3.1.4000\lib\Net35\NHibernate.dll</HintPath>
-    </Reference>
-    <Reference Include="nunit.framework, Version=2.6.1.12217, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\NUnit.2.6.1\lib\nunit.framework.dll</HintPath>
-    </Reference>
-    <Reference Include="Rhino.Mocks">
-      <HintPath>..\packages\RhinoMocks.3.6.1\lib\net\Rhino.Mocks.dll</HintPath>
-    </Reference>
-    <Reference Include="Shouldly">
-      <HintPath>..\packages\Shouldly.1.1.1.1\lib\35\Shouldly.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -82,26 +72,28 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Domain\BasketItems\when_adding_count.cs" />
-    <Compile Include="Domain\BasketItems\when_creating_basket_item.cs" />
-    <Compile Include="Domain\Customers\when_adding_another_product_of_the_same_type_to_basket.cs" />
-    <Compile Include="Domain\Customers\when_adding_product_to_basket.cs" />
-    <Compile Include="Domain\Customers\when_placing_order.cs" />
-    <Compile Include="Domain\Customers\when_placing_order_without_delivery_address.cs" />
-    <Compile Include="Domain\Customers\when_removing_basket_item.cs" />
-    <Compile Include="Domain\Customers\when_setting_delivery_address.cs" />
-    <Compile Include="Domain\OrderItems\when_creating_order_item.cs" />
-    <Compile Include="Domain\Orders\when_creating_order.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Eshop.Infrastructure\Eshop.Infrastructure.csproj">
+      <Project>{06FF8D86-972D-42B5-B21A-3BBB3259AA5C}</Project>
+      <Name>Eshop.Infrastructure</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Eshop.IntegrationTests\connectionStrings.config">
+      <Link>connectionStrings.config</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Eshop.Domain\Eshop.Domain.csproj">
-      <Project>{BB2A7F85-EBB7-4143-AF9A-E90C48CB5D28}</Project>
-      <Name>Eshop.Domain</Name>
-    </ProjectReference>
+    <Content Include="..\Eshop.IntegrationTests\hibernate.cfg.xml">
+      <Link>hibernate.cfg.xml</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

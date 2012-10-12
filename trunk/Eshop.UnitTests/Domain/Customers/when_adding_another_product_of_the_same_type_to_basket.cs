@@ -23,7 +23,7 @@ namespace Eshop.UnitTests.Domain.Customers
             _basketItem = Mock<BasketItem>()
                 .Stubs(x => x.Product).Returns(_product)
                 .Stubs(x => x.Count).Returns(1);
-            _customer._basketItems.Add(_basketItem);
+            _customer.BasketItems.AsSet().Add(_basketItem);
 
             _customer.AddProductToBasket(_product, Count);
         }

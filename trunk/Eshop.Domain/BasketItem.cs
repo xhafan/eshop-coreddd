@@ -12,8 +12,8 @@ namespace Eshop.Domain
             Count = count;
         }
 
-        public virtual Product Product { get; private set; }
-        public virtual int Count { get; private set; }
+        public virtual Product Product { get; protected set; }
+        public virtual int Count { get; protected set; }
 
         public virtual void AddCount(int count)
         {

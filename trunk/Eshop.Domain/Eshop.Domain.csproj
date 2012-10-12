@@ -39,12 +39,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Castle.Windsor.3.0.0.4001\lib\net40\Castle.Windsor.dll</HintPath>
     </Reference>
-    <Reference Include="CoreDdd, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="CoreDdd, Version=1.1.4.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\CoreDdd.1.1.0.0\lib\net40\CoreDdd.dll</HintPath>
-    </Reference>
-    <Reference Include="CoreTest">
-      <HintPath>..\packages\CoreTest.1.1.2.0\lib\net40\CoreTest.dll</HintPath>
+      <HintPath>..\packages\CoreDdd.1.1.4.0\lib\net40\CoreDdd.dll</HintPath>
     </Reference>
     <Reference Include="FluentNHibernate, Version=1.3.0.733, Culture=neutral, PublicKeyToken=8aa435e3cb308880, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
