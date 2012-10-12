@@ -1,14 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A99A62BA-492D-42DF-BC68-523B5A63E478}</ProjectGuid>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{ABBAD3A8-4B9B-4795-80E5-7FB9F8DF9A37}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Eshop.UnitTests</RootNamespace>
-    <AssemblyName>Eshop.UnitTests</AssemblyName>
+    <RootNamespace>Eshop.IntegrationTests</RootNamespace>
+    <AssemblyName>Eshop.IntegrationTests</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -60,8 +61,7 @@
     <Reference Include="NHibernate">
       <HintPath>..\packages\NHibernate.3.3.1.4000\lib\Net35\NHibernate.dll</HintPath>
     </Reference>
-    <Reference Include="nunit.framework, Version=2.6.1.12217, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="nunit.framework">
       <HintPath>..\packages\NUnit.2.6.1\lib\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="Rhino.Mocks">
@@ -82,19 +82,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Domain\BasketItems\when_adding_count.cs" />
-    <Compile Include="Domain\BasketItems\when_creating_basket_item.cs" />
-    <Compile Include="Domain\Customers\when_adding_another_product_of_the_same_type_to_basket.cs" />
-    <Compile Include="Domain\Customers\when_adding_product_to_basket.cs" />
-    <Compile Include="Domain\Customers\when_placing_order.cs" />
-    <Compile Include="Domain\Customers\when_placing_order_without_delivery_address.cs" />
-    <Compile Include="Domain\Customers\when_removing_basket_item.cs" />
-    <Compile Include="Domain\Customers\when_setting_delivery_address.cs" />
-    <Compile Include="Domain\OrderItems\when_creating_order_item.cs" />
-    <Compile Include="Domain\Orders\when_creating_order.cs" />
+    <Compile Include="Database\BaseEshopPersistenceTest.cs" />
+    <Compile Include="Database\BaseEshopSimplePersistenceTest.cs" />
+    <Compile Include="Database\EshopAggregateRootTypesToClearProvider.cs" />
+    <Compile Include="RunOncePerTestRun.cs" />
+    <Compile Include="Database\when_persisting_customer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
+    <None Include="connectionStrings.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -102,6 +101,15 @@
       <Project>{BB2A7F85-EBB7-4143-AF9A-E90C48CB5D28}</Project>
       <Name>Eshop.Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Eshop.Infrastructure\Eshop.Infrastructure.csproj">
+      <Project>{06FF8D86-972D-42B5-B21A-3BBB3259AA5C}</Project>
+      <Name>Eshop.Infrastructure</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="hibernate.cfg.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

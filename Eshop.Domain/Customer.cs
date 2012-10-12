@@ -8,12 +8,12 @@ namespace Eshop.Domain
 {
     public class Customer : Entity, IAggregateRoot
     {
-        internal readonly Iesi.Collections.Generic.ISet<BasketItem> _basketItems = new HashedSet<BasketItem>();
-        public IEnumerable<BasketItem> BasketItems { get { return _basketItems; } }
-        
-        public string DeliveryAddress { get; internal set; }
+        private readonly Iesi.Collections.Generic.ISet<BasketItem> _basketItems = new HashedSet<BasketItem>();
+        public virtual IEnumerable<BasketItem> BasketItems { get { return _basketItems; } }
 
-        public void AddProductToBasket(Product product, int count)
+        public virtual string DeliveryAddress { get; protected internal set; }
+
+        public virtual void AddProductToBasket(Product product, int count)
         {
             var basketItemWithTheProduct = _basketItems.FirstOrDefault(x => x.Product == product);
             if (basketItemWithTheProduct != null)
@@ -26,19 +26,19 @@ namespace Eshop.Domain
             }
         }
 
-        public void RemoveFromBasket(BasketItem basketItem)
+        public virtual void RemoveFromBasket(BasketItem basketItem)
         {
             _basketItems.Remove(basketItem);
         }
 
-        public void SetDeliveryAddress(string deliveryAddress)
+        public virtual void SetDeliveryAddress(string deliveryAddress)
         {
             DeliveryAddress = deliveryAddress;
         }
 
         internal const string MissingDeliveryAddressExceptionMessage = "Deliver address is not set";
 
-        public Order PlaceOrder()
+        public virtual Order PlaceOrder()
         {
             Guard.Hope(!string.IsNullOrWhiteSpace(DeliveryAddress), MissingDeliveryAddressExceptionMessage);
 

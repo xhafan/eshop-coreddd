@@ -7,10 +7,12 @@ namespace Eshop.Domain
 {
     public class Order : Entity, IAggregateRoot
     {
-        internal readonly Iesi.Collections.Generic.ISet<OrderItem> _orderItems = new HashedSet<OrderItem>();
-        public IEnumerable<OrderItem> OrderItems { get { return _orderItems; } }
+        private readonly Iesi.Collections.Generic.ISet<OrderItem> _orderItems = new HashedSet<OrderItem>();
+        public virtual IEnumerable<OrderItem> OrderItems { get { return _orderItems; } }
 
-        public string DeliveryAddress { get; private set; }
+        public virtual string DeliveryAddress { get; protected set; }
+
+        protected Order() {}
 
         public Order(IEnumerable<BasketItem> basketItems, string deliveryAddress)
         {
