@@ -14,12 +14,13 @@ namespace Eshop.IntegrationTests.Database
         private Customer _retrievedCustomer;
         private Product _product;
         private BasketItem _basketItem;
+        private const int Count = 23;
 
         protected override void PersistenceContext()
         {
             _product = new Product();
             _customer = new Customer { DeliveryAddress = DeliveryAddress };
-            _basketItem = new BasketItem(_product, 1);
+            _basketItem = new BasketItem(_product, Count);
             _customer.BasketItems.AsSet().Add(_basketItem);
             Save(_product, _customer);
         }
@@ -40,7 +41,10 @@ namespace Eshop.IntegrationTests.Database
         public void basket_items_are_retrieved_correctly()
         {
             _retrievedCustomer.BasketItems.Count().ShouldBe(1);
-            _retrievedCustomer.BasketItems.First().ShouldBe(_basketItem);
+            var basketItem = _retrievedCustomer.BasketItems.First();
+            basketItem.ShouldBe(_basketItem);
+            basketItem.Product.ShouldBe(_product);
+            basketItem.Count.ShouldBe(Count);
         }
     }
 }

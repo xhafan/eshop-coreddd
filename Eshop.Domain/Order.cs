@@ -10,9 +10,9 @@ namespace Eshop.Domain
         private readonly Iesi.Collections.Generic.ISet<OrderItem> _orderItems = new HashedSet<OrderItem>();
         public virtual IEnumerable<OrderItem> OrderItems { get { return _orderItems; } }
 
-        public virtual string DeliveryAddress { get; protected set; }
+        public virtual string DeliveryAddress { get; protected internal set; }
 
-        protected Order() {}
+        protected internal Order() {}
 
         public Order(IEnumerable<BasketItem> basketItems, string deliveryAddress)
         {
