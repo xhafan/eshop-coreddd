@@ -85,6 +85,8 @@
     <Compile Include="Database\BaseEshopPersistenceTest.cs" />
     <Compile Include="Database\BaseEshopSimplePersistenceTest.cs" />
     <Compile Include="Database\EshopAggregateRootTypesToClearProvider.cs" />
+    <Compile Include="Database\when_persisting_order.cs" />
+    <Compile Include="Database\when_persisting_product.cs" />
     <Compile Include="RunOncePerTestRun.cs" />
     <Compile Include="Database\when_persisting_customer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
