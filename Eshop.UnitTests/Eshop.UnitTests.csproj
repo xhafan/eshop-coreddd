@@ -82,6 +82,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\when_handling_add_product_to_basket_command_for_existing_customer.cs" />
+    <Compile Include="Commands\when_handling_add_product_to_basket_command_for_new_customer.cs" />
     <Compile Include="Domain\BasketItems\when_adding_count.cs" />
     <Compile Include="Domain\BasketItems\when_creating_basket_item.cs" />
     <Compile Include="Domain\Customers\when_adding_another_product_of_the_same_type_to_basket.cs" />
@@ -98,11 +100,16 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Eshop.Commands\Eshop.Commands.csproj">
+      <Project>{7741E7CF-D604-479A-8A88-D44F3945170F}</Project>
+      <Name>Eshop.Commands</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Eshop.Domain\Eshop.Domain.csproj">
       <Project>{BB2A7F85-EBB7-4143-AF9A-E90C48CB5D28}</Project>
       <Name>Eshop.Domain</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
