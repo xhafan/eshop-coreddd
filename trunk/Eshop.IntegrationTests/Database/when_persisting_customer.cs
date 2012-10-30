@@ -20,7 +20,7 @@ namespace Eshop.IntegrationTests.Database
         {
             _product = new Product();
             _customer = new Customer { DeliveryAddress = DeliveryAddress };
-            _basketItem = new BasketItem(_product, Count);
+            _basketItem = new BasketItem(_customer, _product, Count);
             _customer.BasketItems.AsSet().Add(_basketItem);
             Save(_product, _customer);
         }
@@ -43,6 +43,7 @@ namespace Eshop.IntegrationTests.Database
             _retrievedCustomer.BasketItems.Count().ShouldBe(1);
             var basketItem = _retrievedCustomer.BasketItems.First();
             basketItem.ShouldBe(_basketItem);
+            basketItem.Customer.ShouldBe(_customer);
             basketItem.Product.ShouldBe(_product);
             basketItem.Count.ShouldBe(Count);
         }
