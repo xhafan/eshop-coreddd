@@ -6,12 +6,14 @@ namespace Eshop.Domain
     {
         protected BasketItem() {}
 
-        public BasketItem(Product product, int count)
+        public BasketItem(Customer customer, Product product, int count)
         {
+            Customer = customer;
             Product = product;
             Count = count;
         }
 
+        public virtual Customer Customer { get; protected set; }
         public virtual Product Product { get; protected set; }
         public virtual int Count { get; protected set; }
 

@@ -20,7 +20,7 @@ namespace Eshop.IntegrationTests.Database
         {
             _product = new Product();
             _order = new Order { DeliveryAddress = DeliveryAddress };
-            _orderItem = new OrderItem(_product, Count);
+            _orderItem = new OrderItem(_order, _product, Count);
             _order.OrderItems.AsSet().Add(_orderItem);
             Save(_product, _order);
         }
@@ -43,6 +43,7 @@ namespace Eshop.IntegrationTests.Database
             _retrievedOrder.OrderItems.Count().ShouldBe(1);
             var orderItem = _retrievedOrder.OrderItems.First();
             orderItem.ShouldBe(_orderItem);
+            orderItem.Order.ShouldBe(_order);
             orderItem.Product.ShouldBe(_product);
             orderItem.Count.ShouldBe(Count);
         }

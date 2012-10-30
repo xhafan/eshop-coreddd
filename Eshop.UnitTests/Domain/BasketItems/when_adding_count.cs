@@ -13,7 +13,7 @@ namespace Eshop.UnitTests.Domain.BasketItems
         [SetUp]
         public void Context()
         {
-            _basketItem = new BasketItem(Stub<Product>(), 1);
+            _basketItem = new BasketItem(Stub<Customer>(), Stub<Product>(), 1);
 
             _basketItem.AddCount(1);
         }

@@ -16,7 +16,7 @@ namespace Eshop.Domain
 
         public Order(IEnumerable<BasketItem> basketItems, string deliveryAddress)
         {
-            _orderItems.AddAll(basketItems.Select(x => new OrderItem(x.Product, x.Count)).ToList());
+            _orderItems.AddAll(basketItems.Select(x => new OrderItem(this, x.Product, x.Count)).ToList());
             DeliveryAddress = deliveryAddress;
         }
     }

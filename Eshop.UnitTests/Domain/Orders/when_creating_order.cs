@@ -30,6 +30,7 @@ namespace Eshop.UnitTests.Domain.Orders
         {
             _order.OrderItems.Count().ShouldBe(1);
             var orderItem = _order.OrderItems.First();
+            orderItem.Order.ShouldBe(_order);
             orderItem.Product.ShouldBe(_product);
             orderItem.Count.ShouldBe(Count);
         }

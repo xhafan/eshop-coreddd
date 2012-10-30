@@ -27,6 +27,7 @@ namespace Eshop.UnitTests.Domain.Customers
         {
             _customer.BasketItems.Count().ShouldBe(1);
             var basketItem = _customer.BasketItems.First();
+            basketItem.Customer.ShouldBe(_customer);
             basketItem.Product.ShouldBe(_product);
             basketItem.Count.ShouldBe(Count);
         }

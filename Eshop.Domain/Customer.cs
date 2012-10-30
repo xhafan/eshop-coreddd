@@ -22,7 +22,7 @@ namespace Eshop.Domain
             }
             else
             {
-                _basketItems.Add(new BasketItem(product, count));
+                _basketItems.Add(new BasketItem(this, product, count));
             }
         }
 
