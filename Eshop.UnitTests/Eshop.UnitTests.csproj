@@ -84,8 +84,9 @@
   <ItemGroup>
     <Compile Include="Commands\when_handling_add_product_to_basket_command_for_existing_customer.cs" />
     <Compile Include="Commands\when_handling_add_product_to_basket_command_for_new_customer.cs" />
-    <Compile Include="Commands\when_handling_set_delivery_address.cs" />
-    <Compile Include="Commands\when_handling_update_product_count_in_basket.cs" />
+    <Compile Include="Commands\when_handling_place_order_command.cs" />
+    <Compile Include="Commands\when_handling_set_delivery_address_command.cs" />
+    <Compile Include="Commands\when_handling_update_product_count_in_basket_command.cs" />
     <Compile Include="Domain\BasketItems\when_adding_count.cs" />
     <Compile Include="Domain\BasketItems\when_creating_basket_item.cs" />
     <Compile Include="Domain\BasketItems\when_updating_count.cs" />

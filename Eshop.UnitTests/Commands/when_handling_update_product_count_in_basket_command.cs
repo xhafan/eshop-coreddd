@@ -8,7 +8,7 @@ using Rhino.Mocks;
 namespace Eshop.UnitTests.Commands
 {
     [TestFixture]
-    public class when_handling_update_product_count_in_basket : BaseTest
+    public class when_handling_update_product_count_in_basket_command : BaseTest
     {
         private const int NewCount = 34;
         private Customer _customer;
