@@ -21,5 +21,10 @@ namespace Eshop.Domain
         {
             Count += count;
         }
+
+        public virtual void UpdateCount(int count)
+        {
+            Count = count;
+        }
     }
 }

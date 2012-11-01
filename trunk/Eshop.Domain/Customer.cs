@@ -26,9 +26,17 @@ namespace Eshop.Domain
             }
         }
 
-        public virtual void RemoveFromBasket(BasketItem basketItem)
+        public virtual void UpdateProductCountInBasket(Product product, int newCount)
         {
-            _basketItems.Remove(basketItem);
+            var basketItem = _basketItems.First(x => x.Product == product);
+            if (newCount == 0)
+            {
+                _basketItems.Remove(basketItem);
+            }
+            else
+            {
+                basketItem.UpdateCount(newCount);
+            }
         }
 
         public virtual void SetDeliveryAddress(string deliveryAddress)
