@@ -20,7 +20,7 @@ namespace Eshop.Infrastructure
 
         protected override INhibernateConfigurator GetNhibernateConfigurator()
         {
-            return UnitOfWorkInitializer.GetNhibernateConfigurator();
+            return UnitOfWorkInitializer.GetNhibernateConfigurator(false);
         }
     }
 }

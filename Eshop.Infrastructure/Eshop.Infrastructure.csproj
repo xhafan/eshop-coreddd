@@ -78,6 +78,10 @@
       <Project>{BB2A7F85-EBB7-4143-AF9A-E90C48CB5D28}</Project>
       <Name>Eshop.Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Eshop.Dtos\Eshop.Dtos.csproj">
+      <Project>{30936409-FE41-4AFC-BD33-643E428CA05E}</Project>
+      <Name>Eshop.Dtos</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

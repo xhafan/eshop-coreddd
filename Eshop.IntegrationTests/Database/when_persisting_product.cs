@@ -12,7 +12,7 @@ namespace Eshop.IntegrationTests.Database
 
         protected override void PersistenceContext()
         {
-            _product = new Product();
+            _product = new Product { Name = "name" };
             Save(_product);
         }
 
