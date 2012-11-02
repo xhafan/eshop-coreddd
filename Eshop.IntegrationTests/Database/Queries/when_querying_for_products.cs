@@ -12,11 +12,13 @@ namespace Eshop.IntegrationTests.Database.Queries
     public class when_querying_for_products : BaseEshopSimplePersistenceTest
     {
         private IEnumerable<ProductDto> _results;
+        private const string ProductOneName = "product one name";
+        private const string ProductTwoName = "product two name";
 
         protected override void PersistenceContext()
         {
-            var productOne = new Product { Name = "product one name"};
-            var productTwo = new Product { Name = "product two name" };
+            var productOne = new Product { Name = ProductOneName};
+            var productTwo = new Product { Name = ProductTwoName };
             Save(productOne, productTwo);
         }
 
@@ -30,8 +32,8 @@ namespace Eshop.IntegrationTests.Database.Queries
         public void product_dto_correctly_retrieved()
         {
             _results.Count().ShouldBe(2);
-            _results.Any(x => x.Name == "product one name").ShouldBe(true);
-            _results.Any(x => x.Name == "product two name").ShouldBe(true);
+            _results.Any(x => x.Name == ProductOneName).ShouldBe(true);
+            _results.Any(x => x.Name == ProductTwoName).ShouldBe(true);
         }
     }
 }
