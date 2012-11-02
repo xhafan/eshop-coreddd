@@ -18,7 +18,7 @@ namespace Eshop.IntegrationTests.Database
 
         protected override void PersistenceContext()
         {
-            _product = new Product();
+            _product = new Product { Name = "name" };
             _order = new Order { DeliveryAddress = DeliveryAddress };
             _orderItem = new OrderItem(_order, _product, Count);
             _order.OrderItems.AsSet().Add(_orderItem);

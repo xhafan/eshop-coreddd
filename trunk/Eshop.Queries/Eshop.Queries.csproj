@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{ABBAD3A8-4B9B-4795-80E5-7FB9F8DF9A37}</ProjectGuid>
+    <ProjectGuid>{C9DC0C78-6CF7-4F49-A408-82C8495D000F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Eshop.IntegrationTests</RootNamespace>
-    <AssemblyName>Eshop.IntegrationTests</AssemblyName>
+    <RootNamespace>Eshop.Queries</RootNamespace>
+    <AssemblyName>Eshop.Queries</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -37,13 +37,8 @@
     <Reference Include="Castle.Windsor">
       <HintPath>..\packages\Castle.Windsor.3.0.0.4001\lib\net40\Castle.Windsor.dll</HintPath>
     </Reference>
-    <Reference Include="CoreDdd, Version=1.1.6.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="CoreDdd">
       <HintPath>..\packages\CoreDdd.1.1.6.0\lib\net40\CoreDdd.dll</HintPath>
-    </Reference>
-    <Reference Include="CoreTest, Version=1.1.6.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\CoreTest.1.1.6.0\lib\net40\CoreTest.dll</HintPath>
     </Reference>
     <Reference Include="FluentNHibernate">
       <HintPath>..\packages\FluentNHibernate.1.3.0.733\lib\FluentNHibernate.dll</HintPath>
@@ -51,8 +46,8 @@
     <Reference Include="HibernatingRhinos.Profiler.Appender.v4.0">
       <HintPath>..\packages\NHibernateProfiler.1.0.0.953\lib\Net40\HibernatingRhinos.Profiler.Appender.v4.0.dll</HintPath>
     </Reference>
-    <Reference Include="Iesi.Collections, Version=1.0.1.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
-      <HintPath>..\packages\Iesi.Collections.3.3.1.4000\lib\Net35\Iesi.Collections.dll</HintPath>
+    <Reference Include="Iesi.Collections">
+      <HintPath>..\packages\Iesi.Collections.3.2.0.4000\lib\Net35\Iesi.Collections.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
@@ -60,15 +55,6 @@
     </Reference>
     <Reference Include="NHibernate">
       <HintPath>..\packages\NHibernate.3.3.2.4000\lib\Net35\NHibernate.dll</HintPath>
-    </Reference>
-    <Reference Include="nunit.framework">
-      <HintPath>..\packages\NUnit.2.6.1\lib\nunit.framework.dll</HintPath>
-    </Reference>
-    <Reference Include="Rhino.Mocks">
-      <HintPath>..\packages\RhinoMocks.3.6.1\lib\net\Rhino.Mocks.dll</HintPath>
-    </Reference>
-    <Reference Include="Shouldly">
-      <HintPath>..\packages\Shouldly.1.1.1.1\lib\35\Shouldly.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -82,47 +68,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Database\BaseEshopPersistenceTest.cs" />
-    <Compile Include="Database\BaseEshopSimplePersistenceTest.cs" />
-    <Compile Include="Database\EshopAggregateRootTypesToClearProvider.cs" />
-    <Compile Include="Database\Queries\when_querying_for_products.cs" />
-    <Compile Include="Database\when_persisting_order.cs" />
-    <Compile Include="Database\when_persisting_product.cs" />
-    <Compile Include="RunOncePerTestRun.cs" />
-    <Compile Include="Database\when_persisting_customer.cs" />
+    <Compile Include="ProductsQuery.cs" />
+    <Compile Include="ProductsQueryHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-    <None Include="connectionStrings.config">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Eshop.Domain\Eshop.Domain.csproj">
-      <Project>{BB2A7F85-EBB7-4143-AF9A-E90C48CB5D28}</Project>
-      <Name>Eshop.Domain</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Eshop.Dtos\Eshop.Dtos.csproj">
       <Project>{30936409-FE41-4AFC-BD33-643E428CA05E}</Project>
       <Name>Eshop.Dtos</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Eshop.Infrastructure\Eshop.Infrastructure.csproj">
-      <Project>{06FF8D86-972D-42B5-B21A-3BBB3259AA5C}</Project>
-      <Name>Eshop.Infrastructure</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Eshop.Queries\Eshop.Queries.csproj">
-      <Project>{C9DC0C78-6CF7-4F49-A408-82C8495D000F}</Project>
-      <Name>Eshop.Queries</Name>
-    </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Content Include="hibernate.cfg.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
