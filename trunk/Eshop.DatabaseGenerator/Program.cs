@@ -6,7 +6,7 @@ namespace Eshop.DatabaseGenerator
     {
         static void Main(string[] args)
         {
-            var schemaGenerator = new EshopDatabaseSchemaGenerator(@"eshop_generated_database_schema.sql");
+            var schemaGenerator = new EshopDatabaseSchemaGenerator(@"..\..\..\Eshop.Database\eshop_generated_database_schema.sql");
             schemaGenerator.Generate();
         }
     }

@@ -68,6 +68,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BasketItemsQuery.cs" />
+    <Compile Include="BasketItemsQueryHandler.cs" />
     <Compile Include="ProductsQuery.cs" />
     <Compile Include="ProductsQueryHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

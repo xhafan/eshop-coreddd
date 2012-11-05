@@ -84,6 +84,7 @@
     <Compile Include="Database\BaseEshopPersistenceTest.cs" />
     <Compile Include="Database\BaseEshopSimplePersistenceTest.cs" />
     <Compile Include="Database\EshopAggregateRootTypesToClearProvider.cs" />
+    <Compile Include="Database\Queries\when_querying_for_basket_items.cs" />
     <Compile Include="Database\Queries\when_querying_for_products.cs" />
     <Compile Include="Database\when_persisting_order.cs" />
     <Compile Include="Database\when_persisting_product.cs" />

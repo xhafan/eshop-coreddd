@@ -69,6 +69,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BasketItemDto.cs" />
+    <Compile Include="BasketItemDtoAutoMap.cs" />
     <Compile Include="ProductDto.cs" />
     <Compile Include="ProductDtoAutoMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

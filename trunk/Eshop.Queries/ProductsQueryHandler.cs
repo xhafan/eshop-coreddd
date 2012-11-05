@@ -6,7 +6,7 @@ namespace Eshop.Queries
 {
     public class ProductsQueryHandler : BaseQueryOverHandler<ProductsQuery>
     {
-        public override IQueryOver GetQueryOver<TResult>(ProductsQuery message)
+        public override IQueryOver GetQueryOver<TResult>(ProductsQuery query)
         {
             return Session.QueryOver<ProductDto>();
         }

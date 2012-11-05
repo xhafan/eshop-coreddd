@@ -29,7 +29,7 @@ namespace Eshop.IntegrationTests.Database.Queries
         }
 
         [Test]
-        public void product_dto_correctly_retrieved()
+        public void product_dtos_correctly_retrieved()
         {
             _results.Count().ShouldBe(2);
             _results.Any(x => x.Name == ProductOneName).ShouldBe(true);
