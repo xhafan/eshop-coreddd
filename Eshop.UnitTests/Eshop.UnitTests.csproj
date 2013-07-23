@@ -31,14 +31,14 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CoreDdd, Version=1.1.7.1, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\CoreDdd.1.1.7.1\lib\net40\CoreDdd.dll</HintPath>
-    </Reference>
-    <Reference Include="CoreTest, Version=1.1.6.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\CoreTest.1.1.6.0\lib\net40\CoreTest.dll</HintPath>
+      <HintPath>..\packagesTemp\CoreDdd\CoreDdd.dll</HintPath>
+    </Reference>
+    <Reference Include="CoreTest">
+      <HintPath>..\packagesTemp\CoreTest\CoreTest.dll</HintPath>
     </Reference>
     <Reference Include="CoreUtils">
-      <HintPath>..\packages\CoreUtils\CoreUtils.dll</HintPath>
+      <HintPath>..\packagesTemp\CoreUtils\CoreUtils.dll</HintPath>
     </Reference>
     <Reference Include="Iesi.Collections, Version=1.0.1.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
       <HintPath>..\packages\Iesi.Collections.3.3.1.4000\lib\Net35\Iesi.Collections.dll</HintPath>
