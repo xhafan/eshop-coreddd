@@ -38,14 +38,15 @@
       <HintPath>..\packages\Castle.Windsor.3.0.0.4001\lib\net40\Castle.Windsor.dll</HintPath>
     </Reference>
     <Reference Include="CoreDdd, Version=1.1.7.1, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\CoreDdd.1.1.7.1\lib\net40\CoreDdd.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packagesTemp\CoreDdd\CoreDdd.dll</HintPath>
     </Reference>
     <Reference Include="CoreDto">
-      <HintPath>..\packages\CoreDto\CoreDto.dll</HintPath>
+      <HintPath>..\packagesTemp\CoreDto\CoreDto.dll</HintPath>
     </Reference>
     <Reference Include="CoreTest, Version=1.1.6.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\CoreTest.1.1.6.0\lib\net40\CoreTest.dll</HintPath>
+      <HintPath>..\packagesTemp\CoreTest\CoreTest.dll</HintPath>
     </Reference>
     <Reference Include="HibernatingRhinos.Profiler.Appender.v4.0">
       <HintPath>..\packages\NHibernateProfiler.1.0.0.953\lib\Net40\HibernatingRhinos.Profiler.Appender.v4.0.dll</HintPath>

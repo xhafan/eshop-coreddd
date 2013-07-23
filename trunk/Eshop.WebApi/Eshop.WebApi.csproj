@@ -41,7 +41,7 @@
   <ItemGroup>
     <Reference Include="CoreDto, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\CoreDto\CoreDto.dll</HintPath>
+      <HintPath>..\packagesTemp\CoreDto\CoreDto.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />

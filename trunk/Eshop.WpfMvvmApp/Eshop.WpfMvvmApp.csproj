@@ -44,13 +44,13 @@
       <HintPath>..\packages\Castle.Windsor.3.2.0\lib\net40\Castle.Windsor.dll</HintPath>
     </Reference>
     <Reference Include="CoreDto">
-      <HintPath>..\packages\CoreDto\CoreDto.dll</HintPath>
+      <HintPath>..\packagesTemp\CoreDto\CoreDto.dll</HintPath>
     </Reference>
     <Reference Include="CoreIoC">
-      <HintPath>..\packages\CoreIoC\CoreIoC.dll</HintPath>
+      <HintPath>..\packagesTemp\CoreIoC\CoreIoC.dll</HintPath>
     </Reference>
     <Reference Include="CoreUtils">
-      <HintPath>..\packages\CoreUtils\CoreUtils.dll</HintPath>
+      <HintPath>..\packagesTemp\CoreUtils\CoreUtils.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Threading.Tasks, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
