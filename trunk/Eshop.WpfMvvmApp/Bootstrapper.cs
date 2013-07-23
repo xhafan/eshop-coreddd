@@ -1,6 +1,6 @@
 ﻿using Castle.Windsor;
 using Castle.Windsor.Installer;
-using CoreDdd.Infrastructure;
+using CoreIoC;
 
 namespace Eshop.WpfMvvmApp
 {

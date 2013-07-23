@@ -1,4 +1,4 @@
-﻿using CoreDdd.Infrastructure;
+﻿using CoreIoC;
 
 namespace CoreMvvm
 {

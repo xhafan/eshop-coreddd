@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using CoreDdd.Domain;
-using CoreDdd.Utilities;
+using CoreUtils;
 using Iesi.Collections.Generic;
 
 namespace Eshop.Domain

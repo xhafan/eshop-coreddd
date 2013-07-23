@@ -31,8 +31,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CoreDdd">
-      <HintPath>..\Eshop.Domain\bin\Debug\CoreDdd.dll</HintPath>
+    <Reference Include="CoreIoC">
+      <HintPath>..\packages\CoreIoC\CoreIoC.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Threading.Tasks">
       <HintPath>..\packages\Microsoft.Bcl.Async.1.0.16\lib\net40\Microsoft.Threading.Tasks.dll</HintPath>
