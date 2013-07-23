@@ -1,6 +1,6 @@
 using System;
-using CoreDdd.Utilities;
 using CoreTest;
+using CoreUtils;
 using Eshop.Domain;
 using NUnit.Framework;
 using Shouldly;

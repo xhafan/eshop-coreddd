@@ -1,13 +1,12 @@
 ﻿using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using CoreDdd.Utilities.Extensions;
 using CoreMvvm;
+using CoreUtils.Extensions;
 using Eshop.WpfMvvmApp.ControllerClients;
 
 namespace Eshop.WpfMvvmApp
 {
-    // todo: remove reference to CoreDdd (remove Dto class)
     public class MainViewModel : NotifyingObject
     {
         private readonly IProductControllerClient _productControllerClient;

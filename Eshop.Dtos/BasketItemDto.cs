@@ -1,8 +1,8 @@
-using CoreDdd.Dtos;
+using CoreDto;
 
 namespace Eshop.Dtos
 {
-    public class BasketItemDto : Dto
+    public class BasketItemDto : IDto
     {
         public int Id { get; set; }
         public int CustomerId { get; set; }
