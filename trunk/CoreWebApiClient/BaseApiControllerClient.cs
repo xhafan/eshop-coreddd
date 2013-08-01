@@ -26,91 +26,91 @@ namespace CoreWebApiClient
 
         protected TResult HttpClientGet<TResult>(string controllerActionName, RouteValueDictionary routeValues)
         {
-            var requestContext = new RequestContext(new FakeHttpContext(_serverUrl), new RouteData());
-            var url = _buildUrl(requestContext, _routes, controllerActionName, routeValues);            
+            var url = _buildUrl(_routes, controllerActionName, routeValues);
 
             using (var client = new HttpClient())
             {
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                _addAcceptJsonHeader(client);
                 var response = client.GetAsync(url).Result;
-                response.EnsureSuccessStatusCode(); // Throw on error code.
+                response.EnsureSuccessStatusCode();
                 return response.Content.ReadAsAsync<TResult>().Result;
             }
         }
 
-        protected async Task<TResult> HttpClientGetAsync<TResult>(string controllerActionMethodName, RouteValueDictionary routeValues)
+        protected async Task<TResult> HttpClientGetAsync<TResult>(string controllerActionName, RouteValueDictionary routeValues)
         {
-            var requestContext = new RequestContext(new FakeHttpContext(_serverUrl), new RouteData());
-            var url = _buildUrl(requestContext, _routes, controllerActionMethodName, routeValues);
+            var url = _buildUrl(_routes, controllerActionName, routeValues);
 
             using (var client = new HttpClient())
             {
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                _addAcceptJsonHeader(client);
                 var response = await client.GetAsync(url);
-                response.EnsureSuccessStatusCode(); // Throw on error code.
+                response.EnsureSuccessStatusCode();
                 return await response.Content.ReadAsAsync<TResult>();
             }
         }
 
         protected void HttpClientPost(string controllerActionName, object parameter, RouteValueDictionary routeValues)
         {
-            var requestContext = new RequestContext(new FakeHttpContext(_serverUrl), new RouteData());
-            var url = _buildUrl(requestContext, _routes, controllerActionName, routeValues);
+            var url = _buildUrl(_routes, controllerActionName, routeValues);
 
             using (var client = new HttpClient())
             {
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                _addAcceptJsonHeader(client);
                 var response = client.PostAsJsonAsync(url, parameter).Result;
-                response.EnsureSuccessStatusCode(); // Throw on error code.                
+                response.EnsureSuccessStatusCode();                
             }
         }
 
         protected async Task HttpClientPostAsync(string controllerActionName, object parameter, RouteValueDictionary routeValues)
         {
-            var requestContext = new RequestContext(new FakeHttpContext(_serverUrl), new RouteData());
-            var url = _buildUrl(requestContext, _routes, controllerActionName, routeValues);
+            var url = _buildUrl(_routes, controllerActionName, routeValues);
 
             using (var client = new HttpClient())
             {
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                _addAcceptJsonHeader(client);
                 var response = await client.PostAsJsonAsync(url, parameter);
-                response.EnsureSuccessStatusCode(); // Throw on error code.                
+                response.EnsureSuccessStatusCode();                
             }
         }
 
         protected TResult HttpClientPost<TResult>(string controllerActionName, object parameter, RouteValueDictionary routeValues)
         {
-            var requestContext = new RequestContext(new FakeHttpContext(_serverUrl), new RouteData());
-            var url = _buildUrl(requestContext, _routes, controllerActionName, routeValues);
+            var url = _buildUrl(_routes, controllerActionName, routeValues);
 
             using (var client = new HttpClient())
             {
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                _addAcceptJsonHeader(client);
                 var response = client.PostAsJsonAsync(url, parameter).Result;
-                response.EnsureSuccessStatusCode(); // Throw on error code.                
+                response.EnsureSuccessStatusCode();                
                 return response.Content.ReadAsAsync<TResult>().Result;
             }
         }
 
         protected async Task<TResult> HttpClientPostAsync<TResult>(string controllerActionName, object parameter, RouteValueDictionary routeValues)
         {
-            var requestContext = new RequestContext(new FakeHttpContext(_serverUrl), new RouteData());
-            var url = _buildUrl(requestContext, _routes, controllerActionName, routeValues);
+            var url = _buildUrl(_routes, controllerActionName, routeValues);
 
             using (var client = new HttpClient())
             {
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                _addAcceptJsonHeader(client);
                 var response = await client.PostAsJsonAsync(url, parameter);
-                response.EnsureSuccessStatusCode(); // Throw on error code.
+                response.EnsureSuccessStatusCode();
                 return await response.Content.ReadAsAsync<TResult>();
             }
         }
 
-        private string _buildUrl(RequestContext context, RouteCollection routeCollection, string controllerActionName, RouteValueDictionary routeValues)            
+        private void _addAcceptJsonHeader(HttpClient client)
         {
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+        }
+
+        private string _buildUrl(RouteCollection routeCollection, string controllerActionName, RouteValueDictionary routeValues)            
+        {
+            var requestContext = new RequestContext(new FakeHttpContext(_serverUrl), new RouteData());
             routeValues.Add("Controller", _controllerName);
             routeValues.Add("Action", controllerActionName);
-            return routeCollection.GetVirtualPathForArea(context, routeValues).VirtualPath;
+            return routeCollection.GetVirtualPathForArea(requestContext, routeValues).VirtualPath;
         }
     }
 }
