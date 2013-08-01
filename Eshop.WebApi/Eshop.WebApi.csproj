@@ -204,7 +204,7 @@
     </VisualStudio>
   </ProjectExtensions>
   <PropertyGroup>
-    <PostBuildEvent>..\..\CoreWebApiClient.Generator\bin\Debug\CoreWebApiClient.Generator.exe Eshop.WebApi.dll Eshop.WpfMvvmApp.ControllerClients ..\..\Eshop.WpfMvvmApp\ControllerClients</PostBuildEvent>
+    <PostBuildEvent>..\..\CoreWebApiClient.Generator\bin\Debug\CoreWebApiClient.Generator.exe $(TargetFileName) Eshop.WpfMvvmApp.ControllerClients ..\..\Eshop.WpfMvvmApp\ControllerClients</PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
     <PreBuildEvent>

@@ -21,14 +21,13 @@ namespace CoreWebApiClient
 
             var typeName = GetType().Name;
             var indexOfControllerProxySubstring = typeName.IndexOf(ControllerClientSuffix);
-            _controllerName = typeName.Substring(0, indexOfControllerProxySubstring);
-            
+            _controllerName = typeName.Substring(0, indexOfControllerProxySubstring);            
         }
 
         protected TResult HttpClientGet<TResult>(string controllerActionName, RouteValueDictionary routeValues)
         {
             var requestContext = new RequestContext(new FakeHttpContext(_serverUrl), new RouteData());
-            var url = BuildUrl(requestContext, _routes, controllerActionName, routeValues);            
+            var url = _buildUrl(requestContext, _routes, controllerActionName, routeValues);            
 
             using (var client = new HttpClient())
             {
@@ -42,7 +41,7 @@ namespace CoreWebApiClient
         protected async Task<TResult> HttpClientGetAsync<TResult>(string controllerActionMethodName, RouteValueDictionary routeValues)
         {
             var requestContext = new RequestContext(new FakeHttpContext(_serverUrl), new RouteData());
-            var url = BuildUrl(requestContext, _routes, controllerActionMethodName, routeValues);
+            var url = _buildUrl(requestContext, _routes, controllerActionMethodName, routeValues);
 
             using (var client = new HttpClient())
             {
@@ -56,7 +55,7 @@ namespace CoreWebApiClient
         protected void HttpClientPost(string controllerActionName, object parameter, RouteValueDictionary routeValues)
         {
             var requestContext = new RequestContext(new FakeHttpContext(_serverUrl), new RouteData());
-            var url = BuildUrl(requestContext, _routes, controllerActionName, routeValues);
+            var url = _buildUrl(requestContext, _routes, controllerActionName, routeValues);
 
             using (var client = new HttpClient())
             {
@@ -69,7 +68,7 @@ namespace CoreWebApiClient
         protected async Task HttpClientPostAsync(string controllerActionName, object parameter, RouteValueDictionary routeValues)
         {
             var requestContext = new RequestContext(new FakeHttpContext(_serverUrl), new RouteData());
-            var url = BuildUrl(requestContext, _routes, controllerActionName, routeValues);
+            var url = _buildUrl(requestContext, _routes, controllerActionName, routeValues);
 
             using (var client = new HttpClient())
             {
@@ -82,7 +81,7 @@ namespace CoreWebApiClient
         protected TResult HttpClientPost<TResult>(string controllerActionName, object parameter, RouteValueDictionary routeValues)
         {
             var requestContext = new RequestContext(new FakeHttpContext(_serverUrl), new RouteData());
-            var url = BuildUrl(requestContext, _routes, controllerActionName, routeValues);
+            var url = _buildUrl(requestContext, _routes, controllerActionName, routeValues);
 
             using (var client = new HttpClient())
             {
@@ -96,7 +95,7 @@ namespace CoreWebApiClient
         protected async Task<TResult> HttpClientPostAsync<TResult>(string controllerActionName, object parameter, RouteValueDictionary routeValues)
         {
             var requestContext = new RequestContext(new FakeHttpContext(_serverUrl), new RouteData());
-            var url = BuildUrl(requestContext, _routes, controllerActionName, routeValues);
+            var url = _buildUrl(requestContext, _routes, controllerActionName, routeValues);
 
             using (var client = new HttpClient())
             {
@@ -107,7 +106,7 @@ namespace CoreWebApiClient
             }
         }
 
-        public string BuildUrl(RequestContext context, RouteCollection routeCollection, string controllerActionName, RouteValueDictionary routeValues)            
+        private string _buildUrl(RequestContext context, RouteCollection routeCollection, string controllerActionName, RouteValueDictionary routeValues)            
         {
             routeValues.Add("Controller", _controllerName);
             routeValues.Add("Action", controllerActionName);
