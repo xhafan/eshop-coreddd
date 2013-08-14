@@ -1,16 +1,25 @@
 ﻿using System.Collections.Generic;
-using System.Threading;
+using System.Linq;
 using System.Web.Http;
+using CoreDdd.Queries;
 using Eshop.Dtos;
+using Eshop.Queries;
 
 namespace Eshop.WebApi.Controllers
 {
     public class ProductController : ApiController
     {
+        private readonly IQueryExecutor _queryExecutor;
+
+        public ProductController(IQueryExecutor queryExecutor)
+        {
+            _queryExecutor = queryExecutor;
+        }
+
         public IEnumerable<string> Get()
         {
-            Thread.Sleep(2000);
-            return new string[] { "value1", "value2" };
+            var productDtos = _queryExecutor.Execute<ProductsQuery, ProductDto>(new ProductsQuery());
+            return productDtos.Select(x => x.Name);
         }
 
         public string Get(int id)

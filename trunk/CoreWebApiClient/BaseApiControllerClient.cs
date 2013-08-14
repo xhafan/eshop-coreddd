@@ -31,7 +31,7 @@ namespace CoreWebApiClient
             {
                 _addAcceptJsonHeader(client);
                 var response = client.GetAsync(url).Result;
-                response.EnsureSuccessStatusCode();
+                _ensureSuccessStatusCode(response);
                 return response.Content.ReadAsAsync<TResult>().Result;
             }
         }
@@ -44,9 +44,16 @@ namespace CoreWebApiClient
             {
                 _addAcceptJsonHeader(client);
                 var response = await client.GetAsync(url);
-                response.EnsureSuccessStatusCode();
+                _ensureSuccessStatusCode(response);
                 return await response.Content.ReadAsAsync<TResult>();
             }
+        }
+
+        private void _ensureSuccessStatusCode(HttpResponseMessage response)
+        {
+            if (response.IsSuccessStatusCode) return;
+            var content = response.Content.ReadAsStringAsync().Result;
+            throw new HttpRequestException(string.Format("Response status code does not indicate success: {0} {1}.\n\n{2}", (int)response.StatusCode, response.StatusCode, content));
         }
 
         protected void HttpClientPost(string controllerActionName, object parameter, RouteValueDictionary routeValues)
@@ -57,7 +64,7 @@ namespace CoreWebApiClient
             {
                 _addAcceptJsonHeader(client);
                 var response = client.PostAsJsonAsync(url, parameter).Result;
-                response.EnsureSuccessStatusCode();                
+                _ensureSuccessStatusCode(response);
             }
         }
 
@@ -69,7 +76,7 @@ namespace CoreWebApiClient
             {
                 _addAcceptJsonHeader(client);
                 var response = await client.PostAsJsonAsync(url, parameter);
-                response.EnsureSuccessStatusCode();                
+                _ensureSuccessStatusCode(response);
             }
         }
 
@@ -81,7 +88,7 @@ namespace CoreWebApiClient
             {
                 _addAcceptJsonHeader(client);
                 var response = client.PostAsJsonAsync(url, parameter).Result;
-                response.EnsureSuccessStatusCode();                
+                _ensureSuccessStatusCode(response);
                 return response.Content.ReadAsAsync<TResult>().Result;
             }
         }
@@ -94,7 +101,7 @@ namespace CoreWebApiClient
             {
                 _addAcceptJsonHeader(client);
                 var response = await client.PostAsJsonAsync(url, parameter);
-                response.EnsureSuccessStatusCode();
+                _ensureSuccessStatusCode(response);
                 return await response.Content.ReadAsAsync<TResult>();
             }
         }
