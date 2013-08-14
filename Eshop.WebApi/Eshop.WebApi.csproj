@@ -41,9 +41,24 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Castle.Core">
+      <HintPath>..\packages\Castle.Core.3.2.0\lib\net40-client\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor">
+      <HintPath>..\packages\Castle.Windsor.3.2.0\lib\net40\Castle.Windsor.dll</HintPath>
+    </Reference>
+    <Reference Include="CoreDdd">
+      <HintPath>..\packagesTemp\CoreDdd\CoreDdd.dll</HintPath>
+    </Reference>
     <Reference Include="CoreDto, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packagesTemp\CoreDto\CoreDto.dll</HintPath>
+    </Reference>
+    <Reference Include="CoreIoC">
+      <HintPath>..\packagesTemp\CoreIoC\CoreIoC.dll</HintPath>
+    </Reference>
+    <Reference Include="HibernatingRhinos.Profiler.Appender.v4.0">
+      <HintPath>..\packages\NHibernateProfiler.1.0.0.953\lib\Net40\HibernatingRhinos.Profiler.Appender.v4.0.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
@@ -151,14 +166,19 @@
   <ItemGroup>
     <Compile Include="Config\FilterConfig.cs" />
     <Compile Include="Config\WebApiConfig.cs" />
+    <Compile Include="Controllers\ControllerInstaller.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="IoCHttpControllerActivator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="hibernate.cfg.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -167,7 +187,11 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="connectionStrings.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
@@ -175,6 +199,14 @@
     <ProjectReference Include="..\Eshop.Dtos\Eshop.Dtos.csproj">
       <Project>{30936409-FE41-4AFC-BD33-643E428CA05E}</Project>
       <Name>Eshop.Dtos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Eshop.Infrastructure\Eshop.Infrastructure.csproj">
+      <Project>{06FF8D86-972D-42B5-B21A-3BBB3259AA5C}</Project>
+      <Name>Eshop.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Eshop.Queries\Eshop.Queries.csproj">
+      <Project>{C9DC0C78-6CF7-4F49-A408-82C8495D000F}</Project>
+      <Name>Eshop.Queries</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

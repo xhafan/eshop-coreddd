@@ -1,6 +1,14 @@
 ﻿using System.Web.Http;
+using System.Web.Http.Dispatcher;
 using System.Web.Mvc;
+using Castle.Windsor;
+using Castle.Windsor.Installer;
+using CoreDdd.Queries;
+using CoreIoC;
+using Eshop.Infrastructure;
+using Eshop.Queries;
 using Eshop.WebApi.Config;
+using Eshop.WebApi.Controllers;
 
 namespace Eshop.WebApi
 {
@@ -15,6 +23,17 @@ namespace Eshop.WebApi
 
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+
+            var container = new WindsorContainer();
+            container.Install(
+                FromAssembly.Containing<QueryExecutorInstaller>(),
+                FromAssembly.Containing<QueryHandlerInstaller>(),
+                FromAssembly.Containing<ControllerInstaller>()
+                );
+            IoC.Initialize(container);
+
+            GlobalConfiguration.Configuration.Services.Replace(typeof(IHttpControllerActivator), new IoCHttpControllerActivator());
+            UnitOfWorkInitializer.Initialize();
         }
     }
 }
