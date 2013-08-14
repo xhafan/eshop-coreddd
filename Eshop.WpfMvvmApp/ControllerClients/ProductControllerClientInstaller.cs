@@ -15,9 +15,9 @@ namespace Eshop.WpfMvvmApp.ControllerClients
                          .DependsOn(new
                              {
                                  serverUrl = ConfigurationManager.AppSettings["serverUrl"],
-                                 routes = CoreWebApiClient.Bootstrapper.Routes // todo: is this the best initialisation?
+                                 routes = CoreWebApiClient.RoutesProvider.GetDefaultRoutes()
                              })
-                         .LifeStyle.Singleton);
+                         .LifeStyle.Transient);
         }
     }
 }

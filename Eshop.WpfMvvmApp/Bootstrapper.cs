@@ -8,8 +8,6 @@ namespace Eshop.WpfMvvmApp
     {
         public static void Run()
         {
-            CoreWebApiClient.Bootstrapper.Run();
-
             var container = new WindsorContainer();
             container.Install(
                 FromAssembly.Containing<ViewModelInstaller>()

@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Web;
 
-namespace CoreWebApiClient.WebApiHelpers
+namespace CoreWebApiClient
 {
     // http://www.klopfenstein.net/lorenz.aspx/url-generation-in-asp-net-mvc-without-httpcontext
-    public class FakeHttpContext : HttpContextBase
+    internal class FakeHttpContext : HttpContextBase
     {
         private readonly HttpRequestBase _request;
         private readonly HttpResponseBase _response = new FakeHttpResponse();

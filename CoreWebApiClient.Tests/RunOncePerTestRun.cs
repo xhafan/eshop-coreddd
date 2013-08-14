@@ -13,8 +13,6 @@ namespace CoreWebApiClient.Tests
         [SetUp]
         public void SetUp()
         {
-            Bootstrapper.Run();
-
             var testServerUri = new Uri(TestServerUrl);
             var config = new HttpSelfHostConfiguration(testServerUri);
 
