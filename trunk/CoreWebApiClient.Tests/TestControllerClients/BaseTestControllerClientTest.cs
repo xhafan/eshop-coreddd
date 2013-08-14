@@ -11,7 +11,7 @@ namespace CoreWebApiClient.Tests.TestControllerClients
         [SetUp]
         public void Context()
         {
-            ControllerClient = new TestControllerClient(RunOncePerTestRun.TestServerUrl, Bootstrapper.Routes);
+            ControllerClient = new TestControllerClient(RunOncePerTestRun.TestServerUrl, RoutesProvider.GetDefaultRoutes());
         }
     }
 }

@@ -1,18 +1,20 @@
-using System.Web.Http;
+﻿using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace CoreWebApiClient.WebApiHelpers
+namespace CoreWebApiClient
 {
-    public static class WebApiConfig
+    public static class RoutesProvider
     {
-        public static void RegisterRoute(RouteCollection routes) // todo: do something about this (MapHttpRoute, routeTemplate in web api config)
+        public static RouteCollection GetDefaultRoutes()
         {
+            var routes = new RouteCollection();
             routes.MapRoute(
                 name: "DefaultApi",
                 url: "api/{controller}/{action}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+            return routes;
         }
     }
 }
