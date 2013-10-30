@@ -100,9 +100,9 @@
     <Compile Include="ControllerClients\IProductControllerClient.cs" />
     <Compile Include="ControllerClients\ProductControllerClient.cs" />
     <Compile Include="ControllerClients\ProductControllerClientInstaller.cs" />
-    <Compile Include="MainViewModelLocator.cs" />
+    <Compile Include="Main\MainViewModelLocator.cs" />
     <Compile Include="ViewModelInstaller.cs" />
-    <Page Include="MainView.xaml">
+    <Page Include="Main\MainView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -110,13 +110,13 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainView.xaml.cs">
+    <Compile Include="Main\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MainViewModel.cs" />
+    <Compile Include="Main\MainViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

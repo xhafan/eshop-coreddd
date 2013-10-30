@@ -1,4 +1,4 @@
-﻿<Window x:Class="Eshop.WpfMvvmApp.MainView"
+﻿<Window x:Class="Eshop.WpfMvvmApp.Main.MainView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
         TextOptions.TextFormattingMode="Display" 

@@ -5,7 +5,7 @@ using CoreMvvm;
 using CoreUtils.Extensions;
 using Eshop.WpfMvvmApp.ControllerClients;
 
-namespace Eshop.WpfMvvmApp
+namespace Eshop.WpfMvvmApp.Main
 {
     public class MainViewModel : NotifyingObject
     {

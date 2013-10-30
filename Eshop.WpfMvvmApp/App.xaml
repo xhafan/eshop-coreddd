@@ -1,9 +1,9 @@
 ﻿<Application x:Class="Eshop.WpfMvvmApp.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
-             xmlns:wpfMvvmApp="clr-namespace:Eshop.WpfMvvmApp"
-             StartupUri="MainView.xaml">
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:main="clr-namespace:Eshop.WpfMvvmApp.Main"
+             StartupUri="Main\MainView.xaml">
     <Application.Resources>
-        <wpfMvvmApp:MainViewModelLocator x:Key="MainViewModelLocator" />
+        <main:MainViewModelLocator x:Key="MainViewModelLocator" />
    </Application.Resources>
 </Application>

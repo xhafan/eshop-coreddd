@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace Eshop.WpfMvvmApp
+namespace Eshop.WpfMvvmApp.Main
 {
     public partial class MainView : Window
     {

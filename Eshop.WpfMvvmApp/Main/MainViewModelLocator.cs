@@ -1,6 +1,6 @@
 ﻿using CoreMvvm;
 
-namespace Eshop.WpfMvvmApp
+namespace Eshop.WpfMvvmApp.Main
 {
     public class MainViewModelLocator : BaseViewModelLocator<MainViewModel>
     {
