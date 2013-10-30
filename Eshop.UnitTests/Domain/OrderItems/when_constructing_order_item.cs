@@ -6,7 +6,7 @@ using Shouldly;
 namespace Eshop.UnitTests.Domain.OrderItems
 {
     [TestFixture]
-    public class when_creating_order_item : BaseTest
+    public class when_constructing_order_item : BaseTest
     {
         private const int Count = 23;
         private OrderItem _orderItem;

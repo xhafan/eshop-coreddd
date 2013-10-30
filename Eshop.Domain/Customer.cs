@@ -8,10 +8,12 @@ namespace Eshop.Domain
 {
     public class Customer : Entity, IAggregateRoot
     {
+        public const string MissingDeliveryAddressExceptionMessage = "Deliver address is not set";
+
         private readonly Iesi.Collections.Generic.ISet<BasketItem> _basketItems = new HashedSet<BasketItem>();
         public virtual IEnumerable<BasketItem> BasketItems { get { return _basketItems; } }
 
-        public virtual string DeliveryAddress { get; protected internal set; }
+        public virtual string DeliveryAddress { get; protected set; }
 
         public virtual void AddProductToBasket(Product product, int count)
         {
@@ -43,8 +45,6 @@ namespace Eshop.Domain
         {
             DeliveryAddress = deliveryAddress;
         }
-
-        internal const string MissingDeliveryAddressExceptionMessage = "Deliver address is not set";
 
         public virtual Order PlaceOrder()
         {

@@ -2,6 +2,7 @@
 using System.Linq;
 using Eshop.Domain;
 using Eshop.Dtos;
+using Eshop.IntegrationTests.Database.ObjectMothers;
 using Eshop.Queries;
 using NUnit.Framework;
 using Shouldly;
@@ -17,8 +18,8 @@ namespace Eshop.IntegrationTests.Database.Queries
 
         protected override void PersistenceContext()
         {
-            var productOne = new Product { Name = ProductOneName};
-            var productTwo = new Product { Name = ProductTwoName };
+            var productOne = new ProductObjectMother().NewEntity(ProductOneName);
+            var productTwo = new ProductObjectMother().NewEntity(ProductTwoName);
             Save(productOne, productTwo);
         }
 
