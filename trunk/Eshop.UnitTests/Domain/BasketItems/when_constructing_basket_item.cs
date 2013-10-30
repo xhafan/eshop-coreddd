@@ -6,7 +6,7 @@ using Shouldly;
 namespace Eshop.UnitTests.Domain.BasketItems
 {
     [TestFixture]
-    public class when_creating_basket_item : BaseTest
+    public class when_constructing_basket_item : BaseTest
     {
         private const int Count = 23;
         private BasketItem _basketItem;

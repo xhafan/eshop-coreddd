@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using CoreTest;
 using Eshop.Domain;
+using Eshop.IntegrationTests.Database.ObjectMothers;
 using NUnit.Framework;
 using Shouldly;
 
@@ -9,18 +10,16 @@ namespace Eshop.IntegrationTests.Database
     [TestFixture]
     public class when_persisting_customer : BaseEshopSimplePersistenceTest
     {
-        private const string DeliveryAddress = "delivery address";
         private Customer _customer;
         private Customer _retrievedCustomer;
         private Product _product;
         private BasketItem _basketItem;
-        private const int Count = 23;
 
         protected override void PersistenceContext()
         {
-            _product = new Product { Name = "name"};
-            _customer = new Customer { DeliveryAddress = DeliveryAddress };
-            _basketItem = new BasketItem(_customer, _product, Count);
+            _product = new ProductObjectMother().NewEntity();
+            _customer = new CustomerObjectMother().NewEntity();
+            _basketItem = new BasketItemObjectMother().NewEntity(_customer, _product);
             _customer.BasketItems.AsSet().Add(_basketItem);
             Save(_product, _customer);
         }
@@ -45,7 +44,7 @@ namespace Eshop.IntegrationTests.Database
             basketItem.ShouldBe(_basketItem);
             basketItem.Customer.ShouldBe(_customer);
             basketItem.Product.ShouldBe(_product);
-            basketItem.Count.ShouldBe(Count);
+            basketItem.Count.ShouldBe(BasketItemObjectMother.Count);
         }
     }
 }

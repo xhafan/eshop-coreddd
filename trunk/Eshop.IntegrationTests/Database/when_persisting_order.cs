@@ -1,6 +1,6 @@
 using System.Linq;
-using CoreTest;
 using Eshop.Domain;
+using Eshop.IntegrationTests.Database.ObjectMothers;
 using NUnit.Framework;
 using Shouldly;
 
@@ -9,19 +9,15 @@ namespace Eshop.IntegrationTests.Database
     [TestFixture]
     public class when_persisting_order : BaseEshopSimplePersistenceTest
     {
-        private const string DeliveryAddress = "delivery address";
-        private const int Count = 23;
         private Order _order;
         private Order _retrievedOrder;
         private Product _product;
-        private OrderItem _orderItem;
 
         protected override void PersistenceContext()
         {
-            _product = new Product { Name = "name" };
-            _order = new Order { DeliveryAddress = DeliveryAddress };
-            _orderItem = new OrderItem(_order, _product, Count);
-            _order.OrderItems.AsSet().Add(_orderItem);
+            _product = new ProductObjectMother().NewEntity();
+            var customer = new CustomerObjectMother().NewEntity();
+            _order = new OrderObjectMother().NewEntity(customer, _product);
             Save(_product, _order);
         }
 
@@ -34,7 +30,7 @@ namespace Eshop.IntegrationTests.Database
         public void properties_are_correctly_set()
         {
             _retrievedOrder.ShouldBe(_order);
-            _retrievedOrder.DeliveryAddress.ShouldBe(_order.DeliveryAddress);
+            _retrievedOrder.DeliveryAddress.ShouldBe(OrderObjectMother.DeliveryAddress);
         }
 
         [Test]
@@ -42,10 +38,10 @@ namespace Eshop.IntegrationTests.Database
         {
             _retrievedOrder.OrderItems.Count().ShouldBe(1);
             var orderItem = _retrievedOrder.OrderItems.First();
-            orderItem.ShouldBe(_orderItem);
+            orderItem.ShouldBe(_order.OrderItems.First());
             orderItem.Order.ShouldBe(_order);
             orderItem.Product.ShouldBe(_product);
-            orderItem.Count.ShouldBe(Count);
+            orderItem.Count.ShouldBe(BasketItemObjectMother.Count);
         }
     }
 }

@@ -1,4 +1,5 @@
 using Eshop.Domain;
+using Eshop.IntegrationTests.Database.ObjectMothers;
 using NUnit.Framework;
 using Shouldly;
 
@@ -12,7 +13,7 @@ namespace Eshop.IntegrationTests.Database
 
         protected override void PersistenceContext()
         {
-            _product = new Product { Name = "name" };
+            _product = new ProductObjectMother().NewEntity();
             Save(_product);
         }
 
@@ -25,6 +26,7 @@ namespace Eshop.IntegrationTests.Database
         public void retrieved_product_is_the_same()
         {
             _retrievedProduct.ShouldBe(_product);
+            _retrievedProduct.Name.ShouldBe(ProductObjectMother.ProductName);
         }
     }
 }

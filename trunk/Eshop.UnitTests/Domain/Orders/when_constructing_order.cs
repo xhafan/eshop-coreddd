@@ -8,7 +8,7 @@ using Shouldly;
 namespace Eshop.UnitTests.Domain.Orders
 {
     [TestFixture]
-    public class when_creating_order : BaseTest
+    public class when_constructing_order : BaseTest
     {
         private Product _product;
         private Order _order;

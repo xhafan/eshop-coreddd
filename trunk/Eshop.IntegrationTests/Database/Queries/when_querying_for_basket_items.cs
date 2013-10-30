@@ -3,6 +3,7 @@ using System.Linq;
 using CoreTest;
 using Eshop.Domain;
 using Eshop.Dtos;
+using Eshop.IntegrationTests.Database.ObjectMothers;
 using Eshop.Queries;
 using NUnit.Framework;
 using Shouldly;
@@ -23,16 +24,16 @@ namespace Eshop.IntegrationTests.Database.Queries
 
         protected override void PersistenceContext()
         {
-            _productOne = new Product { Name = ProductOneName};
-            _productTwo = new Product { Name = ProductTwoName };
-            _customer = new Customer();
+            _productOne = new ProductObjectMother().NewEntity(ProductOneName);
+            _productTwo = new ProductObjectMother().NewEntity(ProductTwoName);
+            _customer = new CustomerObjectMother().NewEntity();
             _customer.BasketItems.AsSet().AddAll(new[]
                                                     {
-                                                        new BasketItem(_customer, _productOne, ProductOneCount),
-                                                        new BasketItem(_customer, _productTwo, ProductTwoCount),
+                                                        new BasketItemObjectMother().NewEntity(_customer, _productOne, ProductOneCount),
+                                                        new BasketItemObjectMother().NewEntity(_customer, _productTwo, ProductTwoCount),
                                                     });
-            var anotherCustomer = new Customer();
-            anotherCustomer.BasketItems.AsSet().AddAll(new[] { new BasketItem(anotherCustomer, _productOne, ProductOneCount) });
+            var anotherCustomer = new CustomerObjectMother().NewEntity();
+            anotherCustomer.BasketItems.AsSet().AddAll(new[] { new BasketItemObjectMother().NewEntity(anotherCustomer, _productOne, ProductOneCount) });
 
             Save(_productOne, _productTwo, _customer, anotherCustomer);
         }

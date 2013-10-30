@@ -16,10 +16,10 @@ namespace Eshop.UnitTests.Domain.Customers
         [SetUp]
         public void Context()
         {
-            _customer = new Customer();
             var basketItem = Stub<BasketItem>();
+            _customer = new Customer();
             _customer.BasketItems.AsSet().Add(basketItem);
-            _customer.DeliveryAddress = DeliveryAddress;
+            _customer.SetDeliveryAddress(DeliveryAddress);
 
             _order = _customer.PlaceOrder();
         }
