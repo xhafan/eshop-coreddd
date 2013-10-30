@@ -1,7 +1,6 @@
 using CoreTest;
 using Eshop.Domain;
 using NUnit.Framework;
-using Rhino.Mocks;
 using Shouldly;
 
 namespace Eshop.UnitTests.Domain.Customers
@@ -16,8 +15,7 @@ namespace Eshop.UnitTests.Domain.Customers
         {
             _customer = new Customer();
             var product = Stub<Product>();
-            var basketItem = Stub<BasketItem>().Stubs(x => x.Product).Returns(product);
-            _customer.BasketItems.AsSet().Add(basketItem);
+            _customer.AddProductToBasket(product, 23);
 
             _customer.UpdateProductCountInBasket(product, 0);
         }

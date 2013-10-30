@@ -2,7 +2,6 @@ using System.Linq;
 using CoreTest;
 using Eshop.Domain;
 using NUnit.Framework;
-using Rhino.Mocks;
 using Shouldly;
 
 namespace Eshop.UnitTests.Domain.Customers
@@ -11,7 +10,6 @@ namespace Eshop.UnitTests.Domain.Customers
     public class when_updating_product_count_in_basket : BaseTest
     {
         private Customer _customer;
-        private BasketItem _basketItem;
         private const int NewCount = 34;
 
         [SetUp]
@@ -19,8 +17,7 @@ namespace Eshop.UnitTests.Domain.Customers
         {
             _customer = new Customer();
             var product = Stub<Product>();
-            _basketItem = Mock<BasketItem>().Stubs(x => x.Product).Returns(product);
-            _customer.BasketItems.AsSet().Add(_basketItem);
+            _customer.AddProductToBasket(product, 23);
 
             _customer.UpdateProductCountInBasket(product, NewCount);
         }
@@ -28,7 +25,7 @@ namespace Eshop.UnitTests.Domain.Customers
         [Test]
         public void count_is_updated_for_product()
         {
-            _basketItem.AssertWasCalled(x => x.UpdateCount(NewCount));
+            _customer.BasketItems.First().Count.ShouldBe(NewCount);
         }
     }
 }

@@ -36,6 +36,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreWebApiClient.TestContro
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreWebApiClient.Tests", "CoreWebApiClient.Tests\CoreWebApiClient.Tests.csproj", "{67CC2AFA-E855-461E-9911-BEE64C253F1A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CoreWebApiClients", "CoreWebApiClients", "{121090D5-280D-4FE3-979C-B2D705EBDA64}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -199,5 +201,11 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{55125C74-6B9C-4186-B088-8C4C4258D937} = {121090D5-280D-4FE3-979C-B2D705EBDA64}
+		{55E30B6D-3854-4A50-8820-1D14CC9AE339} = {121090D5-280D-4FE3-979C-B2D705EBDA64}
+		{628CADCA-1F35-4F79-9B39-1AFE88E8AADE} = {121090D5-280D-4FE3-979C-B2D705EBDA64}
+		{67CC2AFA-E855-461E-9911-BEE64C253F1A} = {121090D5-280D-4FE3-979C-B2D705EBDA64}
 	EndGlobalSection
 EndGlobal

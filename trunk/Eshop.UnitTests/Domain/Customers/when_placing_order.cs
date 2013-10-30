@@ -16,9 +16,8 @@ namespace Eshop.UnitTests.Domain.Customers
         [SetUp]
         public void Context()
         {
-            var basketItem = Stub<BasketItem>();
             _customer = new Customer();
-            _customer.BasketItems.AsSet().Add(basketItem);
+            _customer.AddProductToBasket(Stub<Product>(), 1);                
             _customer.SetDeliveryAddress(DeliveryAddress);
 
             _order = _customer.PlaceOrder();
