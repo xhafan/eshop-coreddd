@@ -1,9 +1,8 @@
 using CoreTest;
-using Eshop.Domain;
 using NUnit.Framework;
 using Shouldly;
 
-namespace Eshop.UnitTests.Domain.Customers
+namespace Eshop.Domain.UnitTests.Customers
 {
     [TestFixture]
     public class when_updating_product_count_in_basket_to_zero : BaseTest

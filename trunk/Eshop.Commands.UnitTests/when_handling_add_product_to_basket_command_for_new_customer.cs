@@ -1,11 +1,10 @@
 ﻿using CoreDdd.Domain.Repositories;
 using CoreTest;
-using Eshop.Commands;
 using Eshop.Domain;
 using NUnit.Framework;
 using Rhino.Mocks;
 
-namespace Eshop.UnitTests.Commands
+namespace Eshop.Commands.UnitTests
 {
     [TestFixture]
     public class when_handling_add_product_to_basket_command_for_new_customer : BaseTest

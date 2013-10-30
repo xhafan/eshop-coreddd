@@ -1,9 +1,8 @@
 ﻿using CoreTest;
-using Eshop.Domain;
 using NUnit.Framework;
 using Shouldly;
 
-namespace Eshop.UnitTests.Domain.BasketItems
+namespace Eshop.Domain.UnitTests.BasketItems
 {
     [TestFixture]
     public class when_constructing_basket_item : BaseTest

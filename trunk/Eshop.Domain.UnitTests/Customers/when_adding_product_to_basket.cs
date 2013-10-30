@@ -1,10 +1,9 @@
 ﻿using System.Linq;
 using CoreTest;
-using Eshop.Domain;
 using NUnit.Framework;
 using Shouldly;
 
-namespace Eshop.UnitTests.Domain.Customers
+namespace Eshop.Domain.UnitTests.Customers
 {
     [TestFixture]
     public class when_adding_product_to_basket : BaseTest

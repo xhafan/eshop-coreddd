@@ -4,15 +4,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A99A62BA-492D-42DF-BC68-523B5A63E478}</ProjectGuid>
+    <ProjectGuid>{F4669610-BF66-4C73-A00F-1AC015B69714}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Eshop.UnitTests</RootNamespace>
-    <AssemblyName>Eshop.UnitTests</AssemblyName>
+    <RootNamespace>Eshop.Commands.UnitTests</RootNamespace>
+    <AssemblyName>Eshop.Commands.UnitTests</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
-    <RestorePackages>true</RestorePackages>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -32,21 +30,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CoreDdd, Version=1.1.7.1, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="CoreDdd">
       <HintPath>..\packagesTemp\CoreDdd\CoreDdd.dll</HintPath>
     </Reference>
     <Reference Include="CoreTest">
       <HintPath>..\packagesTemp\CoreTest\CoreTest.dll</HintPath>
     </Reference>
-    <Reference Include="CoreUtils">
-      <HintPath>..\packagesTemp\CoreUtils\CoreUtils.dll</HintPath>
-    </Reference>
-    <Reference Include="Iesi.Collections, Version=1.0.1.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
-      <HintPath>..\packages\Iesi.Collections.3.3.1.4000\lib\Net35\Iesi.Collections.dll</HintPath>
-    </Reference>
-    <Reference Include="nunit.framework, Version=2.6.1.12217, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="nunit.framework">
       <HintPath>..\packages\NUnit.2.6.1\lib\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="Rhino.Mocks">
@@ -64,28 +54,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Commands\when_handling_add_product_to_basket_command_for_existing_customer.cs" />
-    <Compile Include="Commands\when_handling_add_product_to_basket_command_for_new_customer.cs" />
-    <Compile Include="Commands\when_handling_place_order_command.cs" />
-    <Compile Include="Commands\when_handling_set_delivery_address_command.cs" />
-    <Compile Include="Commands\when_handling_update_product_count_in_basket_command.cs" />
-    <Compile Include="Domain\BasketItems\when_adding_count.cs" />
-    <Compile Include="Domain\BasketItems\when_constructing_basket_item.cs" />
-    <Compile Include="Domain\BasketItems\when_updating_count.cs" />
-    <Compile Include="Domain\Customers\when_adding_another_product_of_the_same_type_to_basket.cs" />
-    <Compile Include="Domain\Customers\when_adding_product_to_basket.cs" />
-    <Compile Include="Domain\Customers\when_placing_order.cs" />
-    <Compile Include="Domain\Customers\when_placing_order_without_delivery_address.cs" />
-    <Compile Include="Domain\Customers\when_updating_product_count_in_basket.cs" />
-    <Compile Include="Domain\Customers\when_setting_delivery_address.cs" />
-    <Compile Include="Domain\Customers\when_updating_product_count_in_basket_to_zero.cs" />
-    <Compile Include="Domain\OrderItems\when_constructing_order_item.cs" />
-    <Compile Include="Domain\Orders\when_constructing_order.cs" />
-    <Compile Include="Domain\Products\when_constructing_product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
+    <Compile Include="when_handling_add_product_to_basket_command_for_existing_customer.cs" />
+    <Compile Include="when_handling_add_product_to_basket_command_for_new_customer.cs" />
+    <Compile Include="when_handling_place_order_command.cs" />
+    <Compile Include="when_handling_set_delivery_address_command.cs" />
+    <Compile Include="when_handling_update_product_count_in_basket_command.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Eshop.Commands\Eshop.Commands.csproj">
@@ -97,9 +71,10 @@
       <Name>Eshop.Domain</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
