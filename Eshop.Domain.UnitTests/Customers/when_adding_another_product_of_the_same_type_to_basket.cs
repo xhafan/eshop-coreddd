@@ -1,10 +1,9 @@
 using System.Linq;
 using CoreTest;
-using Eshop.Domain;
 using NUnit.Framework;
 using Shouldly;
 
-namespace Eshop.UnitTests.Domain.Customers
+namespace Eshop.Domain.UnitTests.Customers
 {
     [TestFixture]
     public class when_adding_another_product_of_the_same_type_to_basket : BaseTest

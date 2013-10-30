@@ -1,11 +1,10 @@
 ﻿using System.Linq;
 using CoreTest;
-using Eshop.Domain;
 using NUnit.Framework;
 using Rhino.Mocks;
 using Shouldly;
 
-namespace Eshop.UnitTests.Domain.Orders
+namespace Eshop.Domain.UnitTests.Orders
 {
     [TestFixture]
     public class when_constructing_order : BaseTest

@@ -1,9 +1,8 @@
 ﻿using CoreTest;
-using Eshop.Domain;
 using NUnit.Framework;
 using Shouldly;
 
-namespace Eshop.UnitTests.Domain.OrderItems
+namespace Eshop.Domain.UnitTests.OrderItems
 {
     [TestFixture]
     public class when_constructing_order_item : BaseTest

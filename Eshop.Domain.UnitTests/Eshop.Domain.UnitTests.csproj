@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4E68D143-9F3F-4857-952D-BAD6C5C3F308}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Eshop.Domain.UnitTests</RootNamespace>
+    <AssemblyName>Eshop.Domain.UnitTests</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CoreDdd">
+      <HintPath>..\packagesTemp\CoreDdd\CoreDdd.dll</HintPath>
+    </Reference>
+    <Reference Include="CoreTest">
+      <HintPath>..\packagesTemp\CoreTest\CoreTest.dll</HintPath>
+    </Reference>
+    <Reference Include="CoreUtils">
+      <HintPath>..\packagesTemp\CoreUtils\CoreUtils.dll</HintPath>
+    </Reference>
+    <Reference Include="Eshop.Domain">
+      <HintPath>..\Eshop.WebApi\Bin\Eshop.Domain.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>..\packages\NUnit.2.6.1\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Rhino.Mocks">
+      <HintPath>..\packages\RhinoMocks.3.6.1\lib\net\Rhino.Mocks.dll</HintPath>
+    </Reference>
+    <Reference Include="Shouldly">
+      <HintPath>..\packages\Shouldly.1.1.1.1\lib\35\Shouldly.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BasketItems\when_adding_count.cs" />
+    <Compile Include="BasketItems\when_constructing_basket_item.cs" />
+    <Compile Include="BasketItems\when_updating_count.cs" />
+    <Compile Include="Customers\when_adding_another_product_of_the_same_type_to_basket.cs" />
+    <Compile Include="Customers\when_adding_product_to_basket.cs" />
+    <Compile Include="Customers\when_placing_order.cs" />
+    <Compile Include="Customers\when_placing_order_without_delivery_address.cs" />
+    <Compile Include="Customers\when_setting_delivery_address.cs" />
+    <Compile Include="Customers\when_updating_product_count_in_basket.cs" />
+    <Compile Include="Customers\when_updating_product_count_in_basket_to_zero.cs" />
+    <Compile Include="OrderItems\when_constructing_order_item.cs" />
+    <Compile Include="Orders\when_constructing_order.cs" />
+    <Compile Include="Products\when_constructing_product.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

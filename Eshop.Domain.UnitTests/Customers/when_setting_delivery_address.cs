@@ -1,9 +1,8 @@
 using CoreTest;
-using Eshop.Domain;
 using NUnit.Framework;
 using Shouldly;
 
-namespace Eshop.UnitTests.Domain.Customers
+namespace Eshop.Domain.UnitTests.Customers
 {
     [TestFixture]
     public class when_setting_delivery_address : BaseTest
