@@ -17,10 +17,11 @@
             </Grid.ColumnDefinitions>
             <TextBlock 
                 Grid.Column="0"
-                Text="Search"/>
+                Text="Search"
+                />
             <TextBox 
                 Grid.Column="1"
-                Text="{Binding SearchText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, TargetNullValue=''}"
+                Text="{Binding SearchText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                 />
             <Button 
                 Grid.Column="2"                
