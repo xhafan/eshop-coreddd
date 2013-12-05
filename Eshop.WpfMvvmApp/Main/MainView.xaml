@@ -36,7 +36,14 @@
             ItemsSource="{Binding Products}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock Text="{Binding}"/>
+                    <TextBlock>
+                        <Hyperlink 
+                            Command="" 
+                            TextDecorations="None"
+                            >
+                            <Run Text="{Binding Mode=OneWay}" />
+                        </Hyperlink>
+                    </TextBlock>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
