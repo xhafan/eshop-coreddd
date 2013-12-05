@@ -4,6 +4,16 @@
              xmlns:main="clr-namespace:Eshop.WpfMvvmApp.Main"
              StartupUri="Main\MainView.xaml">
     <Application.Resources>
+        
         <main:MainViewModelLocator x:Key="MainViewModelLocator" />
-   </Application.Resources>
+
+        <Style TargetType="TextBlock" x:Key="HoverUnderlineStyle">
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="TextBlock.TextDecorations" Value="Underline" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+    </Application.Resources>
 </Application>
