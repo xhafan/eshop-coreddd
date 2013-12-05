@@ -13,28 +13,8 @@ namespace Eshop.WpfMvvmApp.ControllerClients {
     
     public interface IProductControllerClient {
         
-        System.Collections.Generic.IEnumerable<string> Get();
+        System.Collections.Generic.IEnumerable<Eshop.Dtos.ProductDto> Get(string searchText);
         
-        System.Threading.Tasks.Task<System.Collections.Generic.IEnumerable<string>> GetAsync();
-        
-        string Get(int id);
-        
-        System.Threading.Tasks.Task<string> GetAsync(int id);
-        
-        string Get(int id, bool flag);
-        
-        System.Threading.Tasks.Task<string> GetAsync(int id, bool flag);
-        
-        void Post1(string value);
-        
-        System.Threading.Tasks.Task Post1Async(string value);
-        
-        void Post2(Eshop.Dtos.ProductDto product);
-        
-        System.Threading.Tasks.Task Post2Async(Eshop.Dtos.ProductDto product);
-        
-        Eshop.Dtos.ProductDto Post4(Eshop.Dtos.ProductDto product, string value);
-        
-        System.Threading.Tasks.Task<Eshop.Dtos.ProductDto> Post4Async(Eshop.Dtos.ProductDto product, string value);
+        System.Threading.Tasks.Task<System.Collections.Generic.IEnumerable<Eshop.Dtos.ProductDto>> GetAsync(string searchText);
     }
 }

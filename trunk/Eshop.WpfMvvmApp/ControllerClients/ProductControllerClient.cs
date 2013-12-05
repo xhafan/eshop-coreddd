@@ -17,72 +17,16 @@ namespace Eshop.WpfMvvmApp.ControllerClients {
                 base(serverUrl, routes) {
         }
         
-        public virtual System.Collections.Generic.IEnumerable<string> Get() {
+        public virtual System.Collections.Generic.IEnumerable<Eshop.Dtos.ProductDto> Get(string searchText) {
             System.Web.Routing.RouteValueDictionary routeValues = new System.Web.Routing.RouteValueDictionary();
-            return this.HttpClientGet<System.Collections.Generic.IEnumerable<string>>("Get", routeValues);
+            routeValues.Add("searchText", searchText);
+            return this.HttpClientGet<System.Collections.Generic.IEnumerable<Eshop.Dtos.ProductDto>>("Get", routeValues);
         }
         
-        public virtual System.Threading.Tasks.Task<System.Collections.Generic.IEnumerable<string>> GetAsync() {
+        public virtual System.Threading.Tasks.Task<System.Collections.Generic.IEnumerable<Eshop.Dtos.ProductDto>> GetAsync(string searchText) {
             System.Web.Routing.RouteValueDictionary routeValues = new System.Web.Routing.RouteValueDictionary();
-            return this.HttpClientGetAsync<System.Collections.Generic.IEnumerable<string>>("Get", routeValues);
-        }
-        
-        public virtual string Get(int id) {
-            System.Web.Routing.RouteValueDictionary routeValues = new System.Web.Routing.RouteValueDictionary();
-            routeValues.Add("id", id);
-            return this.HttpClientGet<string>("Get", routeValues);
-        }
-        
-        public virtual System.Threading.Tasks.Task<string> GetAsync(int id) {
-            System.Web.Routing.RouteValueDictionary routeValues = new System.Web.Routing.RouteValueDictionary();
-            routeValues.Add("id", id);
-            return this.HttpClientGetAsync<string>("Get", routeValues);
-        }
-        
-        public virtual string Get(int id, bool flag) {
-            System.Web.Routing.RouteValueDictionary routeValues = new System.Web.Routing.RouteValueDictionary();
-            routeValues.Add("id", id);
-            routeValues.Add("flag", flag);
-            return this.HttpClientGet<string>("Get", routeValues);
-        }
-        
-        public virtual System.Threading.Tasks.Task<string> GetAsync(int id, bool flag) {
-            System.Web.Routing.RouteValueDictionary routeValues = new System.Web.Routing.RouteValueDictionary();
-            routeValues.Add("id", id);
-            routeValues.Add("flag", flag);
-            return this.HttpClientGetAsync<string>("Get", routeValues);
-        }
-        
-        public virtual void Post1(string value) {
-            System.Web.Routing.RouteValueDictionary routeValues = new System.Web.Routing.RouteValueDictionary();
-            this.HttpClientPost("Post1", value, routeValues);
-        }
-        
-        public virtual System.Threading.Tasks.Task Post1Async(string value) {
-            System.Web.Routing.RouteValueDictionary routeValues = new System.Web.Routing.RouteValueDictionary();
-            return this.HttpClientPostAsync("Post1", value, routeValues);
-        }
-        
-        public virtual void Post2(Eshop.Dtos.ProductDto product) {
-            System.Web.Routing.RouteValueDictionary routeValues = new System.Web.Routing.RouteValueDictionary();
-            this.HttpClientPost("Post2", product, routeValues);
-        }
-        
-        public virtual System.Threading.Tasks.Task Post2Async(Eshop.Dtos.ProductDto product) {
-            System.Web.Routing.RouteValueDictionary routeValues = new System.Web.Routing.RouteValueDictionary();
-            return this.HttpClientPostAsync("Post2", product, routeValues);
-        }
-        
-        public virtual Eshop.Dtos.ProductDto Post4(Eshop.Dtos.ProductDto product, string value) {
-            System.Web.Routing.RouteValueDictionary routeValues = new System.Web.Routing.RouteValueDictionary();
-            routeValues.Add("value", value);
-            return this.HttpClientPost<Eshop.Dtos.ProductDto>("Post4", product, routeValues);
-        }
-        
-        public virtual System.Threading.Tasks.Task<Eshop.Dtos.ProductDto> Post4Async(Eshop.Dtos.ProductDto product, string value) {
-            System.Web.Routing.RouteValueDictionary routeValues = new System.Web.Routing.RouteValueDictionary();
-            routeValues.Add("value", value);
-            return this.HttpClientPostAsync<Eshop.Dtos.ProductDto>("Post4", product, routeValues);
+            routeValues.Add("searchText", searchText);
+            return this.HttpClientGetAsync<System.Collections.Generic.IEnumerable<Eshop.Dtos.ProductDto>>("Get", routeValues);
         }
     }
 }

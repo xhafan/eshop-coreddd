@@ -6,14 +6,31 @@
         DataContext="{Binding ViewModel, Source={StaticResource MainViewModelLocator}}"
         ><!-- http://stackoverflow.com/a/5166585/379279 -->
     <StackPanel>
-        <Button 
-            Content="Get Products" 
-            Command="{Binding GetProductsCommand}"
-            IsEnabled="{Binding IsNotBusy}"
-            />
-        <Button 
-            Content="Another button" 
-            />
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <TextBlock 
+                Grid.Column="0"
+                Text="Search"/>
+            <TextBox 
+                Grid.Column="1"
+                Text="{Binding SearchText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, TargetNullValue=''}"
+                />
+            <Button 
+                Grid.Column="2"                
+                Content="Go" 
+                Command="{Binding SearchProductsCommand}"
+                CommandParameter="{Binding SearchText}"
+                IsEnabled="{Binding IsNotBusy}"
+                IsDefault="True"
+                />
+        </Grid>
         <ItemsControl
             ItemsSource="{Binding Products}">
             <ItemsControl.ItemTemplate>

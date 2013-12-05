@@ -10,32 +10,34 @@ namespace Eshop.WpfMvvmApp.Main
     public class MainViewModel : NotifyingObject
     {
         private readonly IProductControllerClient _productControllerClient;
+        private readonly RelayCommandAsync<string> _searchProductsCommand;
         private readonly ObservableCollection<string> _products = new ObservableCollection<string>();
-        private readonly RelayCommandAsync<string> _getProductsCommand;
 
         public MainViewModel(IProductControllerClient productControllerClient)
         {
             _productControllerClient = productControllerClient;
-            _getProductsCommand = new RelayCommandAsync<string>(async x => await GetProductsAsync(x), CanGetProducts);
+            _searchProductsCommand = new RelayCommandAsync<string>(async x => await SearchProducts(x), CanSearchProductsExecute);
         }
 
         public ObservableCollection<string> Products { get { return _products; } }
-        public ICommand GetProductsCommand { get { return _getProductsCommand; } }
+        public ICommand SearchProductsCommand { get { return _searchProductsCommand; } }
+        public string SearchText { get; set; }
+
         public bool IsBusy { get; private set; }
         public bool IsNotBusy { get { return !IsBusy; } }
 
-        public bool CanGetProducts(string name)
+        public bool CanSearchProductsExecute(string searchText)
         {
             return true;
         }
 
-        public async Task GetProductsAsync(string name)
+        public async Task SearchProducts(string searchText)
         {
             IsBusy = true;
 
-            var products = await _productControllerClient.GetAsync();
+            var products = await _productControllerClient.GetAsync(searchText);
             Products.Clear();
-            products.Each(x => Products.Add(x));
+            products.Each(x => Products.Add(x.Name));
 
             IsBusy = false;
         }
