@@ -8,7 +8,8 @@ namespace Eshop.Queries
     {
         public override IQueryOver GetQueryOver<TResult>(ProductsQuery query)
         {
-            return Session.QueryOver<ProductDto>();
+            return Session.QueryOver<ProductDto>()
+                          .WhereRestrictionOn(x => x.Name).IsLike(string.Format("%{0}%", query.SearchText));
         }
     }
 }
