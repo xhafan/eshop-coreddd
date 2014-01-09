@@ -104,11 +104,19 @@
       <DependentUpon>ProductDetailsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Products\ProductDetailsViewModel.cs" />
+    <Compile Include="Products\ProductSearchResultView.xaml.cs">
+      <DependentUpon>ProductSearchResultView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Products\ProductSearchResultViewModel.cs" />
     <Compile Include="Products\ProductSearchViewModel.cs" />
     <Compile Include="Main\MainViewModelLocator.cs" />
     <Compile Include="Products\ProductSearchView.xaml.cs">
       <DependentUpon>ProductSearchView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Products\ProductsView.xaml.cs">
+      <DependentUpon>ProductsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Products\ProductsViewModel.cs" />
     <Compile Include="Products\ProductViewModel.cs" />
     <Compile Include="ViewModelInstaller.cs" />
     <Page Include="Main\MainView.xaml">
@@ -127,7 +135,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Products\ProductSearchResultView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Products\ProductSearchView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Products\ProductsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
