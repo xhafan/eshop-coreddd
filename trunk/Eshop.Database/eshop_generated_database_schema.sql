@@ -58,6 +58,7 @@ alter table [OrderItem]  drop constraint FK_OrderItem_Product
     create table [Product] (
         Id INT not null,
        Name NVARCHAR(MAX) not null,
+       Description NVARCHAR(MAX) not null,
        primary key (Id)
     )
 

@@ -18,7 +18,7 @@ namespace Eshop.Infrastructure
         public static INhibernateConfigurator GetNhibernateConfigurator(bool mapDtos = true)
         {
             var assembliesToMap = new List<Assembly> { typeof(Customer).Assembly };
-            if (mapDtos) assembliesToMap.Add(typeof(ProductDto).Assembly);
+            if (mapDtos) assembliesToMap.Add(typeof(ProductSummaryDto).Assembly);
             return new NhibernateConfigurator(assembliesToMap.ToArray(), new[] {typeof (Entity<>) }, new Type[0], true, null);
         }
     }

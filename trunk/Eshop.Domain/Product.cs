@@ -6,11 +6,13 @@ namespace Eshop.Domain
     {
         protected Product() {}
 
-        public Product(string name)
+        public Product(string name, string description)
         {
             Name = name;
+            Description = description;
         }
 
         public virtual string Name { get; protected set; }
+        public virtual string Description { get; protected set; }
     }
 }

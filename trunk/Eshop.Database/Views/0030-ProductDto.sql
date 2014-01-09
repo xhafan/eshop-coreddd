@@ -7,6 +7,7 @@ AS
 select
     Id
     , Name
+    , [Description]
 from Product
 
 go

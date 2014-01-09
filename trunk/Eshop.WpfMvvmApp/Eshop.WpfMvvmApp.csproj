@@ -100,7 +100,16 @@
     <Compile Include="ControllerClients\IProductControllerClient.cs" />
     <Compile Include="ControllerClients\ProductControllerClient.cs" />
     <Compile Include="ControllerClients\ProductControllerClientInstaller.cs" />
+    <Compile Include="Products\ProductDetailsView.xaml.cs">
+      <DependentUpon>ProductDetailsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Products\ProductDetailsViewModel.cs" />
+    <Compile Include="Products\ProductSearchViewModel.cs" />
     <Compile Include="Main\MainViewModelLocator.cs" />
+    <Compile Include="Products\ProductSearchView.xaml.cs">
+      <DependentUpon>ProductSearchView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Products\ProductViewModel.cs" />
     <Compile Include="ViewModelInstaller.cs" />
     <Page Include="Main\MainView.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -114,6 +123,14 @@
       <DependentUpon>MainView.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Products\ProductDetailsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Products\ProductSearchView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main\MainViewModel.cs" />

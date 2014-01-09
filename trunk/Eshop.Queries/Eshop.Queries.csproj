@@ -61,6 +61,8 @@
   <ItemGroup>
     <Compile Include="BasketItemsQuery.cs" />
     <Compile Include="BasketItemsQueryHandler.cs" />
+    <Compile Include="ProductDetailsQuery.cs" />
+    <Compile Include="ProductDetailsQueryHandler.cs" />
     <Compile Include="ProductsQuery.cs" />
     <Compile Include="ProductsQueryHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

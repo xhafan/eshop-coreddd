@@ -12,29 +12,32 @@ namespace Eshop.IntegrationTests.Database.Queries
     [TestFixture]
     public class when_querying_for_products : BaseEshopSimplePersistenceTest
     {
-        private IEnumerable<ProductDto> _results;
+        private IEnumerable<ProductSummaryDto> _results;
+        private Product _productOne;
+        private Product _productTwo;
         private const string ProductOneName = "product one name";
         private const string ProductTwoName = "product two name";
 
         protected override void PersistenceContext()
         {
-            var productOne = new ProductObjectMother().NewEntity(ProductOneName);
-            var productTwo = new ProductObjectMother().NewEntity(ProductTwoName);
-            Save(productOne, productTwo);
+            _productOne = new ProductObjectMother().NewEntity(ProductOneName);
+            _productTwo = new ProductObjectMother().NewEntity(ProductTwoName);
+            Save(_productOne, _productTwo);
         }
 
         protected override void PersistenceQuery()
         {
             var handler = new ProductsQueryHandler();
-            _results = handler.Execute<ProductDto>(new ProductsQuery());
+            _results = handler.Execute<ProductSummaryDto>(new ProductsQuery { SearchText = "one" });
         }
 
         [Test]
-        public void product_dtos_correctly_retrieved()
+        public void dtos_correctly_retrieved()
         {
-            _results.Count().ShouldBe(2);
-            _results.Any(x => x.Name == ProductOneName).ShouldBe(true);
-            _results.Any(x => x.Name == ProductTwoName).ShouldBe(true);
+            _results.Count().ShouldBe(1);
+            var dto = _results.First();
+            dto.Id.ShouldBe(_productOne.Id);
+            dto.Name.ShouldBe(ProductOneName);
         }
     }
 }
