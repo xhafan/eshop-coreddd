@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Web.Http;
 using CoreDdd.Queries;
 using Eshop.Dtos;
@@ -16,16 +17,17 @@ namespace Eshop.WebApi.Controllers
             _queryExecutor = queryExecutor;
         }
 
-        public IEnumerable<ProductDto> Get(string searchText = "")
+        public IEnumerable<ProductSummaryDto> Get(string searchText = "")
         {
-            var productDtos = _queryExecutor.Execute<ProductsQuery, ProductDto>(new ProductsQuery { SearchText = searchText });
+            var productDtos = _queryExecutor.Execute<ProductsQuery, ProductSummaryDto>(new ProductsQuery { SearchText = searchText });
             return productDtos.ToArray();
         }
 
-//        public string Get(int id)
-//        {
-//            return "value";
-//        }
+        public ProductDto Get(int productId)
+        {
+            var productDtos = _queryExecutor.Execute<ProductDetailsQuery, ProductDto>(new ProductDetailsQuery { ProductId = productId });
+            return productDtos.Single();
+        }
 //
 //        public string Get(int id, bool flag)
 //        {

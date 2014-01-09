@@ -27,6 +27,7 @@ namespace Eshop.IntegrationTests.Database
         {
             _retrievedProduct.ShouldBe(_product);
             _retrievedProduct.Name.ShouldBe(ProductObjectMother.ProductName);
+            _retrievedProduct.Description.ShouldBe(ProductObjectMother.ProductDescription);
         }
     }
 }

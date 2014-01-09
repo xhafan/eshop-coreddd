@@ -9,17 +9,24 @@ namespace Eshop.Domain.UnitTests.Products
     {
         private Product _product;
         private const string ProductName = "product name";
+        private const string ProductDescription = "product description";
 
         [SetUp]
         public void Context()
         {
-            _product = new Product(ProductName);
+            _product = new Product(ProductName, ProductDescription);
         }
 
         [Test]
         public void name_is_set()
         {
             _product.Name.ShouldBe(ProductName);
+        }
+
+        [Test]
+        public void description_is_set()
+        {
+            _product.Description.ShouldBe(ProductDescription);
         }
     }
 }

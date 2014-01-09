@@ -3,7 +3,7 @@ using FluentNHibernate.Automapping.Alterations;
 
 namespace Eshop.Dtos
 {
-    public class ProductDtoAutoMap : IAutoMappingOverride<ProductSummaryDto>
+    public class ProductSummaryDtoAutoMap : IAutoMappingOverride<ProductSummaryDto>
     {
         public void Override(AutoMapping<ProductSummaryDto> mapping)
         {

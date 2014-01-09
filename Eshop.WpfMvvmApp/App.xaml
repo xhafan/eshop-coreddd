@@ -2,10 +2,18 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:main="clr-namespace:Eshop.WpfMvvmApp.Main"
+             xmlns:productSearch="clr-namespace:Eshop.WpfMvvmApp.Products"
              StartupUri="Main\MainView.xaml">
     <Application.Resources>
         
         <main:MainViewModelLocator x:Key="MainViewModelLocator" />
+
+        <DataTemplate DataType="{x:Type productSearch:ProductSearchViewModel}">
+            <productSearch:ProductSearchView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type productSearch:ProductDetailsViewModel}">
+            <productSearch:ProductDetailsView />
+        </DataTemplate>        
 
         <Style TargetType="TextBlock" x:Key="HoverUnderlineStyle">
             <Style.Triggers>
