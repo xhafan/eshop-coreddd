@@ -5,24 +5,15 @@ namespace Eshop.WpfMvvmApp.Main
 {
     public class MainViewModel : NotifyingObject
     {
-        private readonly ProductSearchViewModel _productSearchViewModel;
-        private readonly ProductDetailsViewModel _productDetailsViewModel;
+        private readonly ProductsViewModel _productsViewModel;
 
         public MainViewModel(
-            ProductSearchViewModel productSearchViewModel,
-            ProductDetailsViewModel productDetailsViewModel
+            ProductsViewModel productsViewModel
             )
         {
-            _productSearchViewModel = productSearchViewModel;
-            _productDetailsViewModel = productDetailsViewModel;
+            _productsViewModel = productsViewModel;
 
-            _productSearchViewModel.OnProductSelected += async productId =>
-                {
-                    await productDetailsViewModel.LoadProduct(productId);
-                    CurrentViewModel = _productDetailsViewModel;
-                };
-            
-            CurrentViewModel = _productSearchViewModel;
+            CurrentViewModel = _productsViewModel;
         }
 
         public NotifyingObject CurrentViewModel { get; private set; }

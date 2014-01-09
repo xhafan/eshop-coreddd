@@ -1,0 +1,30 @@
+﻿<UserControl 
+    x:Class="Eshop.WpfMvvmApp.Products.ProductSearchResultView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:products="clr-namespace:Eshop.WpfMvvmApp.Products"
+    mc:Ignorable="d" 
+    d:DesignHeight="300" d:DesignWidth="300"
+    d:DataContext="{d:DesignInstance products:ProductSearchResultViewModel}"
+    >
+    <Grid>
+        <ItemsControl
+            ItemsSource="{Binding Products}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock>
+                        <Hyperlink 
+                            Command="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ItemsControl}}, Path=DataContext.SelectProductCommand}" 
+                            CommandParameter="{Binding Id}"
+                            TextDecorations="None"
+                            >
+                            <Run Text="{Binding Name, Mode=OneWay}" />
+                        </Hyperlink>
+                    </TextBlock>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>            
+    </Grid>
+</UserControl>
