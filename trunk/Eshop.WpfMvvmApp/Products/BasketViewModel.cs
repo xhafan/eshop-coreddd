@@ -5,13 +5,13 @@ using Eshop.WpfMvvmApp.ControllerClients;
 
 namespace Eshop.WpfMvvmApp.Products
 {
-    public class ProductDetailsViewModel : NotifyingObject
+    public class BasketViewModel : NotifyingObject
     {
         private readonly IProductControllerClient _productControllerClient;
         private readonly RelayCommandAsync<int> _addToBasketCommand;
         private int _productId;
 
-        public ProductDetailsViewModel(IProductControllerClient productControllerClient)
+        public BasketViewModel(IProductControllerClient productControllerClient)
         {
             _productControllerClient = productControllerClient;
 

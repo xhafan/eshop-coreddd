@@ -28,6 +28,10 @@ namespace Eshop.WebApi.Controllers
             var productDtos = _queryExecutor.Execute<ProductDetailsQuery, ProductDto>(new ProductDetailsQuery { ProductId = productId });
             return productDtos.Single();
         }
+
+        public void AddProductToBasket([FromBody]int productId, int quantity)
+        {            
+        }
 //
 //        public string Get(int id, bool flag)
 //        {

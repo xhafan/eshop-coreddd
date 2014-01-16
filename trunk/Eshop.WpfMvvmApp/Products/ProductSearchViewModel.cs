@@ -27,14 +27,14 @@ namespace Eshop.WpfMvvmApp.Products
         public bool IsBusy { get; private set; } // todo: refactor this into some base view model
         public bool IsNotBusy { get { return !IsBusy; } }
 
+        public delegate Task OnProductSearchedHandler(IEnumerable<ProductSummaryDto> products);
+        public event OnProductSearchedHandler OnProductSearched;
+
         public bool CanSearchProductsExecute(string searchText)
         {
             return true;
         }
 
-        public delegate Task OnProductSearchedHandler(IEnumerable<ProductSummaryDto> products);
-        public event OnProductSearchedHandler OnProductSearched;
-       
         public async Task SearchProducts(string searchText)
         {
             IsBusy = true;

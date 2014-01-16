@@ -19,7 +19,10 @@
         </DataTemplate>        
         <DataTemplate DataType="{x:Type products:ProductDetailsViewModel}">
             <products:ProductDetailsView />
-        </DataTemplate>        
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type products:BasketViewModel}">
+            <products:BasketView />
+        </DataTemplate>
 
         <Style TargetType="TextBlock" x:Key="HoverUnderlineStyle">
             <Style.Triggers>

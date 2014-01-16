@@ -20,5 +20,9 @@ namespace Eshop.WpfMvvmApp.ControllerClients {
         Eshop.Dtos.ProductDto Get(int productId);
         
         System.Threading.Tasks.Task<Eshop.Dtos.ProductDto> GetAsync(int productId);
+        
+        void AddProductToBasket(int productId, int quantity);
+        
+        System.Threading.Tasks.Task AddProductToBasketAsync(int productId, int quantity);
     }
 }

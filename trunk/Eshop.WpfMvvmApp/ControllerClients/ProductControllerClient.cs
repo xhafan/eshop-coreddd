@@ -40,5 +40,17 @@ namespace Eshop.WpfMvvmApp.ControllerClients {
             routeValues.Add("productId", productId);
             return this.HttpClientGetAsync<Eshop.Dtos.ProductDto>("Get", routeValues);
         }
+        
+        public virtual void AddProductToBasket(int productId, int quantity) {
+            System.Web.Routing.RouteValueDictionary routeValues = new System.Web.Routing.RouteValueDictionary();
+            routeValues.Add("quantity", quantity);
+            this.HttpClientPost("AddProductToBasket", productId, routeValues);
+        }
+        
+        public virtual System.Threading.Tasks.Task AddProductToBasketAsync(int productId, int quantity) {
+            System.Web.Routing.RouteValueDictionary routeValues = new System.Web.Routing.RouteValueDictionary();
+            routeValues.Add("quantity", quantity);
+            return this.HttpClientPostAsync("AddProductToBasket", productId, routeValues);
+        }
     }
 }

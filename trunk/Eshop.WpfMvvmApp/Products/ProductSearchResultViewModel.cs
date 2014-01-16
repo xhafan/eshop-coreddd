@@ -40,7 +40,7 @@ namespace Eshop.WpfMvvmApp.Products
 
         public async Task SelectProduct(int productId)
         {
-            await OnProductSelected(productId);
+            if (OnProductSelected != null) await OnProductSelected(productId);
         }
     }
 }
