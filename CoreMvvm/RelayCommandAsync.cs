@@ -32,7 +32,7 @@ namespace CoreMvvm
 
         public bool CanExecute(object parameter)
         {
-            return _canExecute == null || _canExecute((TParam)parameter);
+            return _canExecute == null || _canExecute(parameter == null ? default(TParam) : (TParam) parameter);
         }
 
         public async void Execute(object parameter)

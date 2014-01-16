@@ -100,6 +100,10 @@
     <Compile Include="ControllerClients\IProductControllerClient.cs" />
     <Compile Include="ControllerClients\ProductControllerClient.cs" />
     <Compile Include="ControllerClients\ProductControllerClientInstaller.cs" />
+    <Compile Include="Products\BasketView.xaml.cs">
+      <DependentUpon>BasketView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Products\BasketViewModel.cs" />
     <Compile Include="Products\ProductDetailsView.xaml.cs">
       <DependentUpon>ProductDetailsView.xaml</DependentUpon>
     </Compile>
@@ -131,6 +135,10 @@
       <DependentUpon>MainView.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Products\BasketView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Products\ProductDetailsView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

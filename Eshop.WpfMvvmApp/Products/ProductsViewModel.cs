@@ -7,16 +7,19 @@ namespace Eshop.WpfMvvmApp.Products
         private readonly ProductSearchViewModel _productSearch;
         private readonly ProductSearchResultViewModel _productSearchResult;
         private readonly ProductDetailsViewModel _productDetails;
+        private readonly BasketViewModel _basket;
 
         public ProductsViewModel(
             ProductSearchViewModel productSearch,
             ProductSearchResultViewModel productSearchResult,
-            ProductDetailsViewModel productDetails
+            ProductDetailsViewModel productDetails,
+            BasketViewModel basket
             )
         {
             _productSearch = productSearch;
             _productSearchResult = productSearchResult;
             _productDetails = productDetails;
+            _basket = basket;
 
             _productSearch.OnProductSearched += async products =>
                 {
@@ -28,6 +31,11 @@ namespace Eshop.WpfMvvmApp.Products
                 {
                     await productDetails.LoadProduct(productId);
                     CurrentViewModel = _productDetails;
+                };
+
+            _productDetails.OnProductAddedToBasket += async () =>
+                {
+                    CurrentViewModel = _basket;
                 };
         }
 
