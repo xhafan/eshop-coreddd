@@ -33,6 +33,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Castle.Core">
+      <HintPath>..\packages\Castle.Core.3.2.0\lib\net40-client\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor">
+      <HintPath>..\packages\Castle.Windsor.3.2.0\lib\net40\Castle.Windsor.dll</HintPath>
+    </Reference>
     <Reference Include="CoreDdd, Version=1.1.7.1, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packagesTemp\CoreDdd\CoreDdd.dll</HintPath>
@@ -46,8 +52,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddProductCommand.cs" />
-    <Compile Include="AddProductCommandHandler.cs" />
+    <Compile Include="AddProductToBasketCommand.cs" />
+    <Compile Include="AddProductToBasketCommandHandler.cs" />
+    <Compile Include="CommandHandlerInstaller.cs" />
+    <Compile Include="CustomerFactory.cs" />
     <Compile Include="ICustomerFactory.cs" />
     <Compile Include="PlaceOrderCommand.cs" />
     <Compile Include="PlaceOrderCommandHandler.cs" />

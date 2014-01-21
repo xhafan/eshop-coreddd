@@ -118,6 +118,14 @@ namespace CoreWebApiClient.Generator
 
                     var isPost = methodInfo.GetCustomAttributes(typeof(HttpPostAttribute), true).Any();
                     var numberOfHttpBodyParameters = 0;
+                    
+                    var noParameterHasFromBodyAttribute = !parameterInfos.Any(x => x.GetCustomAttributes(typeof(FromBodyAttribute), true).Any());
+                    var allParametersAreSimpleType = parameterInfos.All(x => IsSimpleType(x.ParameterType));
+                    if (isPost && noParameterHasFromBodyAttribute && allParametersAreSimpleType)
+                    {
+                        throw new Exception(string.Format("{0}.{1} parameters are all of simple type and no one has FromBody attribute", controllerType.Name, methodInfo.Name));
+                    }
+
                     CodeVariableReferenceExpression httpBodyParameterVariableReference = null;
                     foreach (var parameterInfo in parameterInfos)
                     {

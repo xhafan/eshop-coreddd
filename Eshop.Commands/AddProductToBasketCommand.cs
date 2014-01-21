@@ -2,10 +2,10 @@
 
 namespace Eshop.Commands
 {
-    public class AddProductCommand : ICommand
+    public class AddProductToBasketCommand : ICommand
     {
         public int CustomerId { get; set; }
         public int ProductId { get; set; }
-        public int Count { get; set; }
+        public int Quantity { get; set; }
     }
 }

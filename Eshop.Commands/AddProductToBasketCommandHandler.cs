@@ -4,13 +4,13 @@ using Eshop.Domain;
 
 namespace Eshop.Commands
 {
-    public class AddProductCommandHandler : BaseCommandHandler<AddProductCommand>
+    public class AddProductToBasketCommandHandler : BaseCommandHandler<AddProductToBasketCommand>
     {
         private readonly IRepository<Customer> _customerRepository;
         private readonly IRepository<Product> _productRepository;
         private readonly ICustomerFactory _customerFactory;
 
-        public AddProductCommandHandler(
+        public AddProductToBasketCommandHandler(
             IRepository<Customer> customerRepository,
             IRepository<Product> productRepository,
             ICustomerFactory customerFactory)
@@ -20,7 +20,7 @@ namespace Eshop.Commands
             _customerFactory = customerFactory;
         }
 
-        public override void Execute(AddProductCommand command)
+        public override void Execute(AddProductToBasketCommand command)
         {
             var isNewCustomer = command.CustomerId == default(int);
             var customer = isNewCustomer
@@ -29,7 +29,7 @@ namespace Eshop.Commands
 
             var product = _productRepository.GetById(command.ProductId);               
             
-            customer.AddProductToBasket(product, command.Count);
+            customer.AddProductToBasket(product, command.Quantity);
             
             if (isNewCustomer) _customerRepository.Save(customer);
         }

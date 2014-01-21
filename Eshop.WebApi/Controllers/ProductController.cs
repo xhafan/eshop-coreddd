@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading;
 using System.Web.Http;
+using CoreDdd.Commands;
 using CoreDdd.Queries;
+using Eshop.Commands;
 using Eshop.Dtos;
 using Eshop.Queries;
 
@@ -11,10 +12,12 @@ namespace Eshop.WebApi.Controllers
     public class ProductController : ApiController
     {
         private readonly IQueryExecutor _queryExecutor;
+        private readonly ICommandExecutor _commandExecutor;
 
-        public ProductController(IQueryExecutor queryExecutor)
+        public ProductController(IQueryExecutor queryExecutor, ICommandExecutor commandExecutor)
         {
             _queryExecutor = queryExecutor;
+            _commandExecutor = commandExecutor;
         }
 
         public IEnumerable<ProductSummaryDto> Get(string searchText = "")
@@ -31,6 +34,11 @@ namespace Eshop.WebApi.Controllers
 
         public void AddProductToBasket([FromBody]int productId, int quantity)
         {            
+            _commandExecutor.Execute(new AddProductToBasketCommand
+                {
+                    ProductId = productId,
+                    Quantity = quantity
+                });
         }
 //
 //        public string Get(int id, bool flag)
