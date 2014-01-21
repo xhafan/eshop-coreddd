@@ -22,13 +22,13 @@ namespace Eshop.Commands.UnitTests
             const int productId = 23;
             _product = Stub<Product>();
             var productRepository = Stub<IRepository<Product>>().Stubs(x => x.GetById(productId)).Returns(_product);
-            var handler = new AddProductCommandHandler(customerRepository, productRepository, null);
+            var handler = new AddProductToBasketCommandHandler(customerRepository, productRepository, null);
 
-            handler.Execute(new AddProductCommand
+            handler.Execute(new AddProductToBasketCommand
                                 {
                                     CustomerId = customerId,
                                     ProductId = productId,
-                                    Count = Count
+                                    Quantity = Count
                                 });
         }
 

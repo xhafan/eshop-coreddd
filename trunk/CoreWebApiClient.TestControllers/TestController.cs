@@ -16,7 +16,17 @@ namespace CoreWebApiClient.TestControllers
 
         public void PostWithoutReturnValue([FromBody]TestDto dto, string value)
         {
-        }   
+        }
+
+        [HttpPost]
+        public void PostWithoutReturnValueAndWithoutFromBodyAttribute(TestDto dto, string value)
+        {
+        }
+
+        [HttpPost]
+        public void PostWithoutReturnValueAndWithoutComplexParameterType([FromBody]string value)
+        {
+        }
 
         public AnotherTestDto PostWithReturnValue([FromBody]TestDto dto, string value)
         {
@@ -26,6 +36,7 @@ namespace CoreWebApiClient.TestControllers
                     Name = dto.Name,
                     Value = value
                 };
-        }     
+        }
+
     }
 }

@@ -61,6 +61,10 @@
       <HintPath>..\packages\NHibernateProfiler.1.0.0.953\lib\Net40\HibernatingRhinos.Profiler.Appender.v4.0.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="NHibernate">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\NHibernate.3.3.2.4000\lib\Net35\NHibernate.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
@@ -196,6 +200,10 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Eshop.Commands\Eshop.Commands.csproj">
+      <Project>{7741E7CF-D604-479A-8A88-D44F3945170F}</Project>
+      <Name>Eshop.Commands</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Eshop.Dtos\Eshop.Dtos.csproj">
       <Project>{30936409-FE41-4AFC-BD33-643E428CA05E}</Project>
       <Name>Eshop.Dtos</Name>

@@ -22,10 +22,14 @@ namespace CoreWebApiClient.Tests
                 defaults: new { id = RouteParameter.Optional }
                 );
 
-            // Create server 
+            CreateServer(config);
+        }
+
+        private void CreateServer(HttpSelfHostConfiguration config)
+        {
             var server = new HttpSelfHostServer(config);
             server.OpenAsync().Wait();
-            Console.WriteLine("Self hosted web api server running on " + TestServerUrl);            
+            Console.WriteLine("Self hosted web api server running on " + TestServerUrl);
         }
     }
 }

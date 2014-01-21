@@ -45,6 +45,28 @@ namespace CoreWebApiClient.Tests.ControllerClients {
             return this.HttpClientPostAsync("PostWithoutReturnValue", dto, routeValues);
         }
         
+        public virtual void PostWithoutReturnValueAndWithoutFromBodyAttribute(CoreWebApiClient.TestControllers.TestDto dto, string value) {
+            System.Web.Routing.RouteValueDictionary routeValues = new System.Web.Routing.RouteValueDictionary();
+            routeValues.Add("value", value);
+            this.HttpClientPost("PostWithoutReturnValueAndWithoutFromBodyAttribute", dto, routeValues);
+        }
+        
+        public virtual System.Threading.Tasks.Task PostWithoutReturnValueAndWithoutFromBodyAttributeAsync(CoreWebApiClient.TestControllers.TestDto dto, string value) {
+            System.Web.Routing.RouteValueDictionary routeValues = new System.Web.Routing.RouteValueDictionary();
+            routeValues.Add("value", value);
+            return this.HttpClientPostAsync("PostWithoutReturnValueAndWithoutFromBodyAttribute", dto, routeValues);
+        }
+        
+        public virtual void PostWithoutReturnValueAndWithoutComplexParameterType(string value) {
+            System.Web.Routing.RouteValueDictionary routeValues = new System.Web.Routing.RouteValueDictionary();
+            this.HttpClientPost("PostWithoutReturnValueAndWithoutComplexParameterType", value, routeValues);
+        }
+        
+        public virtual System.Threading.Tasks.Task PostWithoutReturnValueAndWithoutComplexParameterTypeAsync(string value) {
+            System.Web.Routing.RouteValueDictionary routeValues = new System.Web.Routing.RouteValueDictionary();
+            return this.HttpClientPostAsync("PostWithoutReturnValueAndWithoutComplexParameterType", value, routeValues);
+        }
+        
         public virtual CoreWebApiClient.TestControllers.AnotherTestDto PostWithReturnValue(CoreWebApiClient.TestControllers.TestDto dto, string value) {
             System.Web.Routing.RouteValueDictionary routeValues = new System.Web.Routing.RouteValueDictionary();
             routeValues.Add("value", value);

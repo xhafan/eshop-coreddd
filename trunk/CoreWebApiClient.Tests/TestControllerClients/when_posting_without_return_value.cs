@@ -1,6 +1,5 @@
 ﻿using CoreWebApiClient.TestControllers;
 using NUnit.Framework;
-using Shouldly;
 
 namespace CoreWebApiClient.Tests.TestControllerClients
 {
@@ -14,7 +13,7 @@ namespace CoreWebApiClient.Tests.TestControllerClients
             const string name = "name";
             const string value = "value";
 
-            Should.NotThrow(() => ControllerClient.PostWithoutReturnValue(new TestDto { Id = id, Name = name }, value));
+            ControllerClient.PostWithoutReturnValue(new TestDto {Id = id, Name = name}, value);
         }
     }
 }
