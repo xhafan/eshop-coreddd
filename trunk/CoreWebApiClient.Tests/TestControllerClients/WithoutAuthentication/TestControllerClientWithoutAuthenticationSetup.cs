@@ -2,9 +2,9 @@
 using CoreWebApiClient.Tests.ControllerClients;
 using NUnit.Framework;
 
-namespace CoreWebApiClient.Tests.TestControllerClients
+namespace CoreWebApiClient.Tests.TestControllerClients.WithoutAuthentication
 {
-    public abstract class BaseTestControllerClientTest : BaseTest
+    public abstract class TestControllerClientWithoutAuthenticationSetup : BaseTest
     {
         protected TestControllerClient ControllerClient;
 

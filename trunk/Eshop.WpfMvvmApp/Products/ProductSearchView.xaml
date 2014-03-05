@@ -25,6 +25,7 @@
         <TextBox 
             Grid.Column="1"
             Text="{Binding SearchText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+            x:Name="SearchText"
             />
         <Button 
             Grid.Column="2"                

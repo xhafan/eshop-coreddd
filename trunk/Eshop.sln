@@ -44,6 +44,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{2DCBE07D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreMvvm.UnitTests", "CoreMvvm.UnitTests\CoreMvvm.UnitTests.csproj", "{D8F7DCC6-47CF-4CE1-B4D2-32E33F420A0D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreWebApi", "CoreWebApi\CoreWebApi.csproj", "{35918F1A-66F0-47E9-8720-2D2399C5A556}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -224,6 +226,16 @@ Global
 		{D8F7DCC6-47CF-4CE1-B4D2-32E33F420A0D}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{D8F7DCC6-47CF-4CE1-B4D2-32E33F420A0D}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{D8F7DCC6-47CF-4CE1-B4D2-32E33F420A0D}.Release|x86.ActiveCfg = Release|Any CPU
+		{35918F1A-66F0-47E9-8720-2D2399C5A556}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35918F1A-66F0-47E9-8720-2D2399C5A556}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35918F1A-66F0-47E9-8720-2D2399C5A556}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{35918F1A-66F0-47E9-8720-2D2399C5A556}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{35918F1A-66F0-47E9-8720-2D2399C5A556}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{35918F1A-66F0-47E9-8720-2D2399C5A556}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35918F1A-66F0-47E9-8720-2D2399C5A556}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35918F1A-66F0-47E9-8720-2D2399C5A556}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{35918F1A-66F0-47E9-8720-2D2399C5A556}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{35918F1A-66F0-47E9-8720-2D2399C5A556}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

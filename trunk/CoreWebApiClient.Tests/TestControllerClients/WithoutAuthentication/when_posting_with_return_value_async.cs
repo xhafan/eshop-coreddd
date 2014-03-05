@@ -1,10 +1,10 @@
 ﻿using CoreWebApiClient.TestControllers;
 using NUnit.Framework;
 
-namespace CoreWebApiClient.Tests.TestControllerClients
+namespace CoreWebApiClient.Tests.TestControllerClients.WithoutAuthentication
 {
     [TestFixture]
-    public class when_posting_with_return_value_async : BaseTestControllerClientTest
+    public class when_posting_with_return_value_async : TestControllerClientWithoutAuthenticationSetup
     {
         [Test]
         public async void post_with_return_value_async()

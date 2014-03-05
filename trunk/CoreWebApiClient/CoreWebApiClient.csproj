@@ -82,6 +82,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseApiControllerClient.cs" />
+    <Compile Include="IAuthenticationCookiePersister.cs" />
     <Compile Include="RoutesProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="FakeHttpContext.cs" />

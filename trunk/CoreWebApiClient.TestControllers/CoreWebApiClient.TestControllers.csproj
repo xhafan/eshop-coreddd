@@ -42,8 +42,16 @@
   <ItemGroup>
     <Compile Include="AnotherTestDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestAuthenticatedController.cs" />
     <Compile Include="TestController.cs" />
     <Compile Include="TestDto.cs" />
+    <Compile Include="TestSessionContext.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CoreWebApi\CoreWebApi.csproj">
+      <Project>{35918F1A-66F0-47E9-8720-2D2399C5A556}</Project>
+      <Name>CoreWebApi</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

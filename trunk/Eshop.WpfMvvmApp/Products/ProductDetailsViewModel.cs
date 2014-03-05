@@ -8,12 +8,14 @@ namespace Eshop.WpfMvvmApp.Products
     public class ProductDetailsViewModel : NotifyingObject
     {
         private readonly IProductControllerClient _productControllerClient;
+        private readonly IBasketControllerClient _basketControllerClient;
         private readonly RelayCommandAsync<int> _addToBasketCommand;
         private int _productId;
 
-        public ProductDetailsViewModel(IProductControllerClient productControllerClient)
+        public ProductDetailsViewModel(IProductControllerClient productControllerClient, IBasketControllerClient basketControllerClient)
         {
             _productControllerClient = productControllerClient;
+            _basketControllerClient = basketControllerClient;
 
             _addToBasketCommand = new RelayCommandAsync<int>(async x => await AddProductToBasket(x), CanAddProductToBasketExecute);
         }
@@ -35,7 +37,7 @@ namespace Eshop.WpfMvvmApp.Products
 
             IsBusy = true;
 
-            var productDetails = await _productControllerClient.GetAsync(productId);
+            var productDetails = await _productControllerClient.GetProductAsync(productId);
             Name = productDetails.Name;
             Description = productDetails.Description;
 
@@ -54,7 +56,7 @@ namespace Eshop.WpfMvvmApp.Products
         {
             IsBusy = true;
 
-            await _productControllerClient.AddProductToBasketAsync(_productId, quantity);
+            await _basketControllerClient.AddProductToBasketAsync(_productId, quantity);
             if (OnProductAddedToBasket!= null) await OnProductAddedToBasket();
 
             IsBusy = false;

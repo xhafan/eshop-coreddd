@@ -17,40 +17,32 @@ namespace Eshop.WpfMvvmApp.ControllerClients {
                 base(serverUrl, routes) {
         }
         
-        public virtual System.Collections.Generic.IEnumerable<Eshop.Dtos.ProductSummaryDto> Get(string searchText) {
+        public ProductControllerClient(string serverUrl, System.Web.Routing.RouteCollection routes, CoreWebApiClient.IAuthenticationCookiePersister authenticationCookiePersister) : 
+                base(serverUrl, routes, authenticationCookiePersister) {
+        }
+        
+        public virtual System.Collections.Generic.IEnumerable<Eshop.Dtos.ProductSummaryDto> GetSearchProducts(string searchText) {
             System.Web.Routing.RouteValueDictionary routeValues = new System.Web.Routing.RouteValueDictionary();
             routeValues.Add("searchText", searchText);
-            return this.HttpClientGet<System.Collections.Generic.IEnumerable<Eshop.Dtos.ProductSummaryDto>>("Get", routeValues);
+            return this.HttpClientGet<System.Collections.Generic.IEnumerable<Eshop.Dtos.ProductSummaryDto>>("GetSearchProducts", routeValues);
         }
         
-        public virtual System.Threading.Tasks.Task<System.Collections.Generic.IEnumerable<Eshop.Dtos.ProductSummaryDto>> GetAsync(string searchText) {
+        public virtual System.Threading.Tasks.Task<System.Collections.Generic.IEnumerable<Eshop.Dtos.ProductSummaryDto>> GetSearchProductsAsync(string searchText) {
             System.Web.Routing.RouteValueDictionary routeValues = new System.Web.Routing.RouteValueDictionary();
             routeValues.Add("searchText", searchText);
-            return this.HttpClientGetAsync<System.Collections.Generic.IEnumerable<Eshop.Dtos.ProductSummaryDto>>("Get", routeValues);
+            return this.HttpClientGetAsync<System.Collections.Generic.IEnumerable<Eshop.Dtos.ProductSummaryDto>>("GetSearchProducts", routeValues);
         }
         
-        public virtual Eshop.Dtos.ProductDto Get(int productId) {
+        public virtual Eshop.Dtos.ProductDto GetProduct(int productId) {
             System.Web.Routing.RouteValueDictionary routeValues = new System.Web.Routing.RouteValueDictionary();
             routeValues.Add("productId", productId);
-            return this.HttpClientGet<Eshop.Dtos.ProductDto>("Get", routeValues);
+            return this.HttpClientGet<Eshop.Dtos.ProductDto>("GetProduct", routeValues);
         }
         
-        public virtual System.Threading.Tasks.Task<Eshop.Dtos.ProductDto> GetAsync(int productId) {
+        public virtual System.Threading.Tasks.Task<Eshop.Dtos.ProductDto> GetProductAsync(int productId) {
             System.Web.Routing.RouteValueDictionary routeValues = new System.Web.Routing.RouteValueDictionary();
             routeValues.Add("productId", productId);
-            return this.HttpClientGetAsync<Eshop.Dtos.ProductDto>("Get", routeValues);
-        }
-        
-        public virtual void AddProductToBasket(int productId, int quantity) {
-            System.Web.Routing.RouteValueDictionary routeValues = new System.Web.Routing.RouteValueDictionary();
-            routeValues.Add("quantity", quantity);
-            this.HttpClientPost("AddProductToBasket", productId, routeValues);
-        }
-        
-        public virtual System.Threading.Tasks.Task AddProductToBasketAsync(int productId, int quantity) {
-            System.Web.Routing.RouteValueDictionary routeValues = new System.Web.Routing.RouteValueDictionary();
-            routeValues.Add("quantity", quantity);
-            return this.HttpClientPostAsync("AddProductToBasket", productId, routeValues);
+            return this.HttpClientGetAsync<Eshop.Dtos.ProductDto>("GetProduct", routeValues);
         }
     }
 }
