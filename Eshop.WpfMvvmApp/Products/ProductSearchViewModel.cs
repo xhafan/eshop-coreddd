@@ -39,7 +39,7 @@ namespace Eshop.WpfMvvmApp.Products
         {
             IsBusy = true;
 
-            var products = await _productControllerClient.GetAsync(searchText);
+            var products = await _productControllerClient.GetSearchProductsAsync(searchText);
             await OnProductSearched(products);
 
             IsBusy = false;

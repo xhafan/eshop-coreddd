@@ -8,7 +8,7 @@ namespace CoreWebApiClient.Tests
     [SetUpFixture]
     public class RunOncePerTestRun
     {
-        public const string TestServerUrl = "http://localhost:54321";
+        public const string TestServerUrl = "http://hafan:54321";
 
         [SetUp]
         public void SetUp()

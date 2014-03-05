@@ -12,7 +12,8 @@ namespace Eshop.WebApi.Controllers
             container.Register(
                 Classes.FromThisAssembly()
                        .BasedOn<IHttpController>()
-                       .Configure(x => x.LifestyleTransient()));
+                       .Configure(x => x.LifestyleTransient())
+                );
         }
     }
 }

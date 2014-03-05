@@ -7,6 +7,12 @@ namespace Eshop.WpfMvvmApp.Products
         public ProductSearchView()
         {
             InitializeComponent();
+            Loaded += OnLoaded;
+        }
+
+        void OnLoaded(object sender, System.Windows.RoutedEventArgs e)
+        {
+            SearchText.Focus();
         }
     }
 }

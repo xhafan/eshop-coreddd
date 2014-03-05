@@ -29,12 +29,13 @@ namespace Eshop.WpfMvvmApp.Products
 
             _productSearchResult.OnProductSelected += async productId =>
                 {
-                    await productDetails.LoadProduct(productId);
+                    await _productDetails.LoadProduct(productId);
                     CurrentViewModel = _productDetails;
                 };
 
             _productDetails.OnProductAddedToBasket += async () =>
                 {
+                    await _basket.LoadBasketItems();
                     CurrentViewModel = _basket;
                 };
         }

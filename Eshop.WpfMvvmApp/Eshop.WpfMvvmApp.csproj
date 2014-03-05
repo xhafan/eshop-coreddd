@@ -97,9 +97,13 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="ControllerClients\AuthenticationCookiePersister.cs" />
+    <Compile Include="ControllerClients\BasketControllerClient.cs" />
+    <Compile Include="ControllerClients\IBasketControllerClient.cs" />
     <Compile Include="ControllerClients\IProductControllerClient.cs" />
     <Compile Include="ControllerClients\ProductControllerClient.cs" />
-    <Compile Include="ControllerClients\ProductControllerClientInstaller.cs" />
+    <Compile Include="ControllerClients\ControllerClientInstaller.cs" />
+    <Compile Include="Products\BasketItemViewModel.cs" />
     <Compile Include="Products\BasketView.xaml.cs">
       <DependentUpon>BasketView.xaml</DependentUpon>
     </Compile>

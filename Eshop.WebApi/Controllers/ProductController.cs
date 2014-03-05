@@ -9,10 +9,10 @@ using Eshop.Queries;
 
 namespace Eshop.WebApi.Controllers
 {
-    public class ProductController : ApiController
+    public class ProductController : AuthenticatedController
     {
         private readonly IQueryExecutor _queryExecutor;
-        private readonly ICommandExecutor _commandExecutor;
+        private readonly ICommandExecutor _commandExecutor; 
 
         public ProductController(IQueryExecutor queryExecutor, ICommandExecutor commandExecutor)
         {
@@ -20,26 +20,18 @@ namespace Eshop.WebApi.Controllers
             _commandExecutor = commandExecutor;
         }
 
-        public IEnumerable<ProductSummaryDto> Get(string searchText = "")
+        public IEnumerable<ProductSummaryDto> GetSearchProducts(string searchText = "") // todo: investigate if "Get" could be removed from the name
         {
             var productDtos = _queryExecutor.Execute<ProductsQuery, ProductSummaryDto>(new ProductsQuery { SearchText = searchText });
             return productDtos.ToArray();
         }
 
-        public ProductDto Get(int productId)
+        public ProductDto GetProduct(int productId)
         {
             var productDtos = _queryExecutor.Execute<ProductDetailsQuery, ProductDto>(new ProductDetailsQuery { ProductId = productId });
             return productDtos.Single();
         }
 
-        public void AddProductToBasket([FromBody]int productId, int quantity)
-        {            
-            _commandExecutor.Execute(new AddProductToBasketCommand
-                {
-                    ProductId = productId,
-                    Quantity = quantity
-                });
-        }
 //
 //        public string Get(int id, bool flag)
 //        {

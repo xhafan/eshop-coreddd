@@ -17,6 +17,10 @@ namespace CoreWebApiClient.Tests.ControllerClients {
                 base(serverUrl, routes) {
         }
         
+        public TestControllerClient(string serverUrl, System.Web.Routing.RouteCollection routes, CoreWebApiClient.IAuthenticationCookiePersister authenticationCookiePersister) : 
+                base(serverUrl, routes, authenticationCookiePersister) {
+        }
+        
         public virtual CoreWebApiClient.TestControllers.AnotherTestDto Get(int id, string name, string value) {
             System.Web.Routing.RouteValueDictionary routeValues = new System.Web.Routing.RouteValueDictionary();
             routeValues.Add("id", id);

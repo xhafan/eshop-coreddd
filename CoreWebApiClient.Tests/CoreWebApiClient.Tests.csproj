@@ -32,8 +32,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CoreTest">
-      <HintPath>..\Eshop.UnitTests\bin\Debug\CoreTest.dll</HintPath>
+    <Reference Include="CoreDdd">
+      <HintPath>..\packagesTemp\CoreDdd\CoreDdd.dll</HintPath>
+    </Reference>
+    <Reference Include="CoreTest, Version=1.1.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packagesTemp\CoreTest\CoreTest.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Threading.Tasks">
       <HintPath>..\packages\Microsoft.Bcl.Async.1.0.16\lib\net40\Microsoft.Threading.Tasks.dll</HintPath>
@@ -46,6 +50,9 @@
     </Reference>
     <Reference Include="nunit.framework">
       <HintPath>..\packages\NUnit.2.6.1\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Rhino.Mocks">
+      <HintPath>..\packages\RhinoMocks.3.6.1\lib\net\Rhino.Mocks.dll</HintPath>
     </Reference>
     <Reference Include="Shouldly">
       <HintPath>..\Eshop.UnitTests\bin\Debug\Shouldly.dll</HintPath>
@@ -73,21 +80,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ControllerClients\ITestAuthenticatedControllerClient.cs" />
     <Compile Include="ControllerClients\ITestControllerClient.cs" />
+    <Compile Include="ControllerClients\TestAuthenticatedControllerClient.cs" />
     <Compile Include="ControllerClients\TestControllerClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RunOncePerTestRun.cs" />
-    <Compile Include="TestControllerClients\BaseTestControllerClientTest.cs" />
-    <Compile Include="TestControllerClients\when_getting.cs" />
-    <Compile Include="TestControllerClients\when_getting_async.cs" />
-    <Compile Include="TestControllerClients\when_posting_without_return_value_and_without_complex_parameter_type_async.cs" />
-    <Compile Include="TestControllerClients\when_posting_without_return_value_and_without_from_body_attribute.cs" />
-    <Compile Include="TestControllerClients\when_posting_without_return_value_and_without_complex_parameter_type.cs" />
-    <Compile Include="TestControllerClients\when_posting_without_return_value_and_without_from_body_attribute_async.cs" />
-    <Compile Include="TestControllerClients\when_posting_with_return_value_async.cs" />
-    <Compile Include="TestControllerClients\when_posting_without_return_value.cs" />
-    <Compile Include="TestControllerClients\when_posting_without_return_value_async.cs" />
-    <Compile Include="TestControllerClients\when_posting_with_return_value.cs" />
+    <Compile Include="TestControllerClients\WithAuthentication\TestAuthenticationCookiePersister.cs" />
+    <Compile Include="TestControllerClients\WithAuthentication\when_getting.cs" />
+    <Compile Include="TestControllerClients\WithAuthentication\when_getting_async.cs" />
+    <Compile Include="TestControllerClients\WithAuthentication\when_posting_without_return_value.cs" />
+    <Compile Include="TestControllerClients\WithAuthentication\when_posting_without_return_value_and_without_complex_parameter_type.cs" />
+    <Compile Include="TestControllerClients\WithAuthentication\when_posting_without_return_value_and_without_complex_parameter_type_async.cs" />
+    <Compile Include="TestControllerClients\WithAuthentication\when_posting_without_return_value_and_without_from_body_attribute.cs" />
+    <Compile Include="TestControllerClients\WithAuthentication\when_posting_without_return_value_and_without_from_body_attribute_async.cs" />
+    <Compile Include="TestControllerClients\WithAuthentication\when_posting_without_return_value_async.cs" />
+    <Compile Include="TestControllerClients\WithAuthentication\when_posting_with_return_value.cs" />
+    <Compile Include="TestControllerClients\WithAuthentication\when_posting_with_return_value_async.cs" />
+    <Compile Include="TestControllerClients\WithoutAuthentication\TestControllerClientWithoutAuthenticationSetup.cs" />
+    <Compile Include="TestControllerClients\WithAuthentication\TestControllerClientWithAuthenticationSetup.cs" />
+    <Compile Include="TestControllerClients\WithoutAuthentication\when_getting.cs" />
+    <Compile Include="TestControllerClients\WithoutAuthentication\when_getting_async.cs" />
+    <Compile Include="TestControllerClients\WithoutAuthentication\when_posting_without_return_value_and_without_complex_parameter_type_async.cs" />
+    <Compile Include="TestControllerClients\WithoutAuthentication\when_posting_without_return_value_and_without_from_body_attribute.cs" />
+    <Compile Include="TestControllerClients\WithoutAuthentication\when_posting_without_return_value_and_without_complex_parameter_type.cs" />
+    <Compile Include="TestControllerClients\WithoutAuthentication\when_posting_without_return_value_and_without_from_body_attribute_async.cs" />
+    <Compile Include="TestControllerClients\WithoutAuthentication\when_posting_with_return_value_async.cs" />
+    <Compile Include="TestControllerClients\WithoutAuthentication\when_posting_without_return_value.cs" />
+    <Compile Include="TestControllerClients\WithoutAuthentication\when_posting_without_return_value_async.cs" />
+    <Compile Include="TestControllerClients\WithoutAuthentication\when_posting_with_return_value.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CoreWebApiClient.TestControllers\CoreWebApiClient.TestControllers.csproj">
@@ -100,6 +121,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />

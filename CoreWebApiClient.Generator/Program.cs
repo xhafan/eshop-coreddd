@@ -11,9 +11,10 @@ using Microsoft.CSharp;
 
 namespace CoreWebApiClient.Generator
 {
+    // todo: support controller method like void Login() for get and post (no parameters, no return type; basically investigate all possible method combinations)
     internal class Program
     {
-        private static int Main(string[] args) // todo: add unit tests and integration tests - for multiple httpbody parameters etc
+        private static int Main(string[] args)
         {
             if (args.Length < 3)
             {
@@ -100,8 +101,20 @@ namespace CoreWebApiClient.Generator
                 constructor.Parameters.Add(new CodeParameterDeclarationExpression(typeof(RouteCollection), "routes"));
                 constructor.BaseConstructorArgs.Add(new CodeArgumentReferenceExpression("serverUrl"));
                 constructor.BaseConstructorArgs.Add(new CodeArgumentReferenceExpression("routes"));
-                class1.Members.Add(constructor);     
+                class1.Members.Add(constructor);
 
+                var constructorWithAuthentication = new CodeConstructor
+                    {
+                        Attributes = MemberAttributes.Public
+                    };
+                constructorWithAuthentication.Parameters.Add(new CodeParameterDeclarationExpression(typeof(string), "serverUrl"));
+                constructorWithAuthentication.Parameters.Add(new CodeParameterDeclarationExpression(typeof(RouteCollection), "routes"));
+                constructorWithAuthentication.Parameters.Add(new CodeParameterDeclarationExpression(typeof(IAuthenticationCookiePersister), "authenticationCookiePersister"));
+                constructorWithAuthentication.BaseConstructorArgs.Add(new CodeArgumentReferenceExpression("serverUrl"));
+                constructorWithAuthentication.BaseConstructorArgs.Add(new CodeArgumentReferenceExpression("routes"));
+                constructorWithAuthentication.BaseConstructorArgs.Add(new CodeArgumentReferenceExpression("authenticationCookiePersister"));
+                class1.Members.Add(constructorWithAuthentication);
+                
                 foreach (var methodInfo in methodInfos)
                 {
                     var method = new CodeMemberMethod {Name = methodInfo.Name, Attributes = MemberAttributes.Public };

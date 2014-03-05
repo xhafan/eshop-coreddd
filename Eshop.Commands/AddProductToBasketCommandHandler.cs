@@ -30,8 +30,12 @@ namespace Eshop.Commands
             var product = _productRepository.GetById(command.ProductId);               
             
             customer.AddProductToBasket(product, command.Quantity);
-            
-            if (isNewCustomer) _customerRepository.Save(customer);
+
+            if (isNewCustomer)
+            {
+                _customerRepository.Save(customer);
+                RaiseEvent(new CommandExecutedArgs { Args = customer.Id });
+            }
         }
     }
 }

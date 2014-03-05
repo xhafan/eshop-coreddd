@@ -56,6 +56,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomerFactories\when_creating_customer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="when_handling_add_product_to_basket_command_for_existing_customer.cs" />
     <Compile Include="when_handling_add_product_to_basket_command_for_new_customer.cs" />
