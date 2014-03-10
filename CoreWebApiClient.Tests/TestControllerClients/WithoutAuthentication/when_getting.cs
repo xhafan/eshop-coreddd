@@ -6,7 +6,7 @@ namespace CoreWebApiClient.Tests.TestControllerClients.WithoutAuthentication
     public class when_getting : TestControllerClientWithoutAuthenticationSetup
     {
         [Test]
-        public void get()
+        public void return_value_is_correct()
         {
             const int id = 23;
             const string name = "name";

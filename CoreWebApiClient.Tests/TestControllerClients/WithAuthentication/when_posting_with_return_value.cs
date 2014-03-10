@@ -17,7 +17,7 @@ namespace CoreWebApiClient.Tests.TestControllerClients.WithAuthentication
         }
 
         [Test]
-        public void post_with_return_value()
+        public void return_value_is_correct()
         {
             Act();
 

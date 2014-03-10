@@ -36,5 +36,13 @@ namespace CoreWebApiClient.Tests.ControllerClients {
         CoreWebApiClient.TestControllers.AnotherTestDto PostWithReturnValue(CoreWebApiClient.TestControllers.TestDto dto, string value);
         
         System.Threading.Tasks.Task<CoreWebApiClient.TestControllers.AnotherTestDto> PostWithReturnValueAsync(CoreWebApiClient.TestControllers.TestDto dto, string value);
+        
+        void AGetWithoutParameters();
+        
+        System.Threading.Tasks.Task AGetWithoutParametersAsync();
+        
+        int AGetWithoutParametersWithReturnValue();
+        
+        System.Threading.Tasks.Task<int> AGetWithoutParametersWithReturnValueAsync();
     }
 }

@@ -1,5 +1,4 @@
 ﻿using CoreWebApiClient.TestControllers;
-using CoreWebApiClient.Tests.TestControllerClients.WithoutAuthentication;
 using NUnit.Framework;
 
 namespace CoreWebApiClient.Tests.TestControllerClients.WithAuthentication
@@ -17,7 +16,7 @@ namespace CoreWebApiClient.Tests.TestControllerClients.WithAuthentication
         }
 
         [Test]
-        public void post_without_return_value_and_without_from_body_attribute()
+        public void does_not_throw()
         {
             Act();
         }

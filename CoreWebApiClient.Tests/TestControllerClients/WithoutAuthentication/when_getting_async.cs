@@ -6,7 +6,7 @@ namespace CoreWebApiClient.Tests.TestControllerClients.WithoutAuthentication
     public class when_getting_async : TestControllerClientWithoutAuthenticationSetup
     {
         [Test]
-        public async void get_async()
+        public async void return_value_is_correct()
         {
             const int id = 23;
             const string name = "name";
