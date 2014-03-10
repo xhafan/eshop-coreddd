@@ -7,7 +7,7 @@ namespace CoreWebApiClient.Tests.TestControllerClients.WithoutAuthentication
     public class when_posting_with_return_value : TestControllerClientWithoutAuthenticationSetup
     {
         [Test]
-        public void post_with_return_value()
+        public void return_value_is_correct()
         {
             const int id = 23;
             const string name = "name";

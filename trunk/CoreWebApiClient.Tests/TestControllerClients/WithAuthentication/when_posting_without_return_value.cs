@@ -16,7 +16,7 @@ namespace CoreWebApiClient.Tests.TestControllerClients.WithAuthentication
         }
 
         [Test]
-        public void post_without_return_value()
+        public void does_not_throw()
         {
             Act();
         }

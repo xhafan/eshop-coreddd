@@ -89,6 +89,10 @@
     <Compile Include="TestControllerClients\WithAuthentication\TestAuthenticationCookiePersister.cs" />
     <Compile Include="TestControllerClients\WithAuthentication\when_getting.cs" />
     <Compile Include="TestControllerClients\WithAuthentication\when_getting_async.cs" />
+    <Compile Include="TestControllerClients\WithAuthentication\when_getting_without_parameters_and_without_return_value.cs" />
+    <Compile Include="TestControllerClients\WithAuthentication\when_getting_without_parameters_and_without_return_value_async.cs" />
+    <Compile Include="TestControllerClients\WithAuthentication\when_getting_without_parameters_with_return_value.cs" />
+    <Compile Include="TestControllerClients\WithAuthentication\when_getting_without_parameters_with_return_value_async.cs" />
     <Compile Include="TestControllerClients\WithAuthentication\when_posting_without_return_value.cs" />
     <Compile Include="TestControllerClients\WithAuthentication\when_posting_without_return_value_and_without_complex_parameter_type.cs" />
     <Compile Include="TestControllerClients\WithAuthentication\when_posting_without_return_value_and_without_complex_parameter_type_async.cs" />
@@ -101,6 +105,10 @@
     <Compile Include="TestControllerClients\WithAuthentication\TestControllerClientWithAuthenticationSetup.cs" />
     <Compile Include="TestControllerClients\WithoutAuthentication\when_getting.cs" />
     <Compile Include="TestControllerClients\WithoutAuthentication\when_getting_async.cs" />
+    <Compile Include="TestControllerClients\WithoutAuthentication\when_getting_without_parameters_and_without_return_value.cs" />
+    <Compile Include="TestControllerClients\WithoutAuthentication\when_getting_without_parameters_and_without_return_value_async.cs" />
+    <Compile Include="TestControllerClients\WithoutAuthentication\when_getting_without_parameters_with_return_value.cs" />
+    <Compile Include="TestControllerClients\WithoutAuthentication\when_getting_without_parameters_with_return_value_async.cs" />
     <Compile Include="TestControllerClients\WithoutAuthentication\when_posting_without_return_value_and_without_complex_parameter_type_async.cs" />
     <Compile Include="TestControllerClients\WithoutAuthentication\when_posting_without_return_value_and_without_from_body_attribute.cs" />
     <Compile Include="TestControllerClients\WithoutAuthentication\when_posting_without_return_value_and_without_complex_parameter_type.cs" />

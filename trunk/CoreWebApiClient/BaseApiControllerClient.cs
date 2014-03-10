@@ -50,6 +50,21 @@ namespace CoreWebApiClient
             });
         }
 
+        protected void HttpClientGetNoReturnValue(string controllerActionName, RouteValueDictionary routeValues)
+        {
+            HttpClientGetNoReturnValueAsync(controllerActionName, routeValues).Wait();
+        }
+
+        protected async Task HttpClientGetNoReturnValueAsync(string controllerActionName, RouteValueDictionary routeValues)
+        {
+            var url = _buildUrl(_routes, controllerActionName, routeValues);
+            await ExecuteHttpClientActionAsync(url, async (client, cookies) =>
+                {
+                    var response = await client.GetAsync(url);
+                    _ensureSuccessStatusCode(response);
+                });
+        }
+
         protected void HttpClientPost(string controllerActionName, object parameter, RouteValueDictionary routeValues)
         {
             HttpClientPostAsync(controllerActionName, parameter, routeValues).Wait();

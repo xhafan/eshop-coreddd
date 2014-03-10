@@ -38,5 +38,15 @@ namespace CoreWebApiClient.TestControllers
                 };
         }
 
+        [HttpGet]
+        public void AGetWithoutParameters()
+        {            
+        }
+
+        [HttpGet]
+        public int AGetWithoutParametersWithReturnValue()
+        {
+            return 23;
+        }
     }
 }

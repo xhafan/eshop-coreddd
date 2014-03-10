@@ -13,7 +13,7 @@ namespace CoreWebApiClient.Tests.TestControllerClients.WithAuthentication
         }
 
         [Test]
-        public void post_without_return_value_and_without_complex_parameter_type_async()
+        public void does_not_throw()
         {
             Act();
         }

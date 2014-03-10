@@ -129,16 +129,37 @@ namespace CoreWebApiClient.Generator
                     
                     var parameterInfos = methodInfo.GetParameters();
 
-                    var isPost = methodInfo.GetCustomAttributes(typeof(HttpPostAttribute), true).Any();
-                    var numberOfHttpBodyParameters = 0;
-                    
-                    var noParameterHasFromBodyAttribute = !parameterInfos.Any(x => x.GetCustomAttributes(typeof(FromBodyAttribute), true).Any());
-                    var allParametersAreSimpleType = parameterInfos.All(x => IsSimpleType(x.ParameterType));
-                    if (isPost && noParameterHasFromBodyAttribute && allParametersAreSimpleType)
+                    if (methodInfo.GetCustomAttributes(typeof (HttpPutAttribute), true).Any() ||
+                        methodInfo.GetCustomAttributes(typeof (HttpDeleteAttribute), true).Any())
                     {
-                        throw new Exception(string.Format("{0}.{1} parameters are all of simple type and no one has FromBody attribute", controllerType.Name, methodInfo.Name));
+                        throw new Exception(string.Format("{0}.{1}: PUT and DELETE methods are not supported", controllerType.Name, methodInfo.Name));
                     }
 
+                    var methodHasHttpGetAttribute = methodInfo.GetCustomAttributes(typeof (HttpGetAttribute), true).Any();
+                    var methodHasHttpPostAttribute = methodInfo.GetCustomAttributes(typeof (HttpPostAttribute), true).Any();
+                    var atLeastOneParameterHasFromBodyAttribute = parameterInfos.Any(x => x.GetCustomAttributes(typeof(FromBodyAttribute), true).Any());
+                    var allParametersAreSimpleType = parameterInfos.All(x => IsSimpleType(x.ParameterType));
+                    
+                    if (methodHasHttpGetAttribute && atLeastOneParameterHasFromBodyAttribute)
+                    {
+                        throw new Exception(string.Format("{0}.{1}: HttpGet attribute and FromBody are not compatible", controllerType.Name, methodInfo.Name));
+                    }
+                    if (methodHasHttpGetAttribute && !allParametersAreSimpleType)
+                    {
+                        throw new Exception(string.Format("{0}.{1}: all parameters need to be of simple style when having HttpGet attribute", controllerType.Name, methodInfo.Name));
+                    }
+
+                    var isPost = methodHasHttpPostAttribute 
+                        || atLeastOneParameterHasFromBodyAttribute
+                        || !allParametersAreSimpleType;
+
+                    if (!isPost && !methodHasHttpGetAttribute && !methodInfo.Name.ToLower().StartsWith("get"))
+                    {
+                        throw new Exception(string.Format("{0}.{1}: add HttpGet attribute or rename the method to Get{1}", controllerType.Name, methodInfo.Name));
+                    }
+
+                    var numberOfHttpBodyParameters = 0;
+                    
                     CodeVariableReferenceExpression httpBodyParameterVariableReference = null;
                     foreach (var parameterInfo in parameterInfos)
                     {
@@ -190,7 +211,7 @@ namespace CoreWebApiClient.Generator
 
                     var codeMethodReferenceExpression = new CodeMethodReferenceExpression(
                         new CodeThisReferenceExpression(),
-                        isPost ? "HttpClientPost" : "HttpClientGet",
+                        isPost ? "HttpClientPost" : (returnTypeIsVoid ? "HttpClientGetNoReturnValue" : "HttpClientGet"),
                         typeParameters);
                     var statement = isPost
                         ? new CodeMethodInvokeExpression(codeMethodReferenceExpression, new CodePrimitiveExpression(methodInfo.Name), httpBodyParameterVariableReference, routeValuesReference)
@@ -198,7 +219,7 @@ namespace CoreWebApiClient.Generator
 
                     var asyncCodeMethodReferenceExpression = new CodeMethodReferenceExpression(
                         new CodeThisReferenceExpression(),
-                        isPost ? "HttpClientPostAsync" : "HttpClientGetAsync",
+                        isPost ? "HttpClientPostAsync" : (returnTypeIsVoid ? "HttpClientGetNoReturnValueAsync" : "HttpClientGetAsync"),
                         typeParameters);
                     var asyncStatement = isPost
                         ? new CodeMethodInvokeExpression(asyncCodeMethodReferenceExpression, new CodePrimitiveExpression(methodInfo.Name), httpBodyParameterVariableReference, routeValuesReference)

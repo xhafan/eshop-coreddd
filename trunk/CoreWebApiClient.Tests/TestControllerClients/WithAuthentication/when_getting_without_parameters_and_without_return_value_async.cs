@@ -3,19 +3,17 @@
 namespace CoreWebApiClient.Tests.TestControllerClients.WithAuthentication
 {
     [TestFixture]
-    public class when_posting_without_return_value_and_without_complex_parameter_type : TestControllerClientWithAuthenticationSetup
+    public class when_getting_without_parameters_and_without_return_value_async : TestControllerClientWithAuthenticationSetup
     {
-        const string Value = "value";
-
         protected override void Act()
         {
-            ControllerClient.PostWithoutReturnValueAndWithoutComplexParameterType(Value);
+            ControllerClient.AGetWithoutParametersAsync().Wait();
         }
 
         [Test]
         public void does_not_throw()
         {
             Act();
-        }
+        }   
     }
 }

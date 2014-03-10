@@ -94,5 +94,25 @@ namespace CoreWebApiClient.Tests.ControllerClients {
             routeValues.Add("value", value);
             return this.HttpClientPostAsync<CoreWebApiClient.TestControllers.AnotherTestDto>("PostWithReturnValue", dto, routeValues);
         }
+        
+        public virtual void AGetWithoutParameters() {
+            System.Web.Routing.RouteValueDictionary routeValues = new System.Web.Routing.RouteValueDictionary();
+            this.HttpClientGetNoReturnValue("AGetWithoutParameters", routeValues);
+        }
+        
+        public virtual System.Threading.Tasks.Task AGetWithoutParametersAsync() {
+            System.Web.Routing.RouteValueDictionary routeValues = new System.Web.Routing.RouteValueDictionary();
+            return this.HttpClientGetNoReturnValueAsync("AGetWithoutParameters", routeValues);
+        }
+        
+        public virtual int AGetWithoutParametersWithReturnValue() {
+            System.Web.Routing.RouteValueDictionary routeValues = new System.Web.Routing.RouteValueDictionary();
+            return this.HttpClientGet<int>("AGetWithoutParametersWithReturnValue", routeValues);
+        }
+        
+        public virtual System.Threading.Tasks.Task<int> AGetWithoutParametersWithReturnValueAsync() {
+            System.Web.Routing.RouteValueDictionary routeValues = new System.Web.Routing.RouteValueDictionary();
+            return this.HttpClientGetAsync<int>("AGetWithoutParametersWithReturnValue", routeValues);
+        }
     }
 }
