@@ -5,14 +5,18 @@ using CoreMvvm;
 
 namespace Eshop.WpfMvvmApp
 {
-    public class ViewModelInstaller : IWindsorInstaller
+    public class IoCInstaller : IWindsorInstaller
     {
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
             container.Register(
                 Classes.FromThisAssembly()
-                       .BasedOn<NotifyingObject>()                    
-                       .Configure(x => x.LifestyleTransient()));
+                       .BasedOn<NotifyingObject>()
+                       .Configure(x => x.LifestyleTransient()),
+                Component.For<IEventAggregator>()
+                         .ImplementedBy<EventAggregator>()
+                         .LifeStyle.Singleton
+                );
         }
     }
 }

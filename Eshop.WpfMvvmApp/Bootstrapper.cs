@@ -10,7 +10,7 @@ namespace Eshop.WpfMvvmApp
         {
             var container = new WindsorContainer();
             container.Install(
-                FromAssembly.Containing<ViewModelInstaller>()
+                FromAssembly.Containing<IoCInstaller>()
                 );
             IoC.Initialize(container);
         }

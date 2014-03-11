@@ -4,12 +4,14 @@ namespace Eshop.WpfMvvmApp.Products
 {
     public class ProductsViewModel : NotifyingObject
     {
+        private readonly IEventAggregator _eventAggregator;
         private readonly ProductSearchViewModel _productSearch;
         private readonly ProductSearchResultViewModel _productSearchResult;
         private readonly ProductDetailsViewModel _productDetails;
         private readonly BasketViewModel _basket;
 
         public ProductsViewModel(
+            IEventAggregator eventAggregator,
             ProductSearchViewModel productSearch,
             ProductSearchResultViewModel productSearchResult,
             ProductDetailsViewModel productDetails,
@@ -20,24 +22,25 @@ namespace Eshop.WpfMvvmApp.Products
             _productSearchResult = productSearchResult;
             _productDetails = productDetails;
             _basket = basket;
+            _eventAggregator = eventAggregator;
 
-            _productSearch.OnProductSearched += async products =>
+            _eventAggregator.Subscribe<ProductSearchedEvent>(async @event =>
                 {
-                    await _productSearchResult.PopulateSearchResult(products);
+                    await _productSearchResult.PopulateSearchResult(@event.Products);
                     CurrentViewModel = _productSearchResult;
-                };
+                });
 
-            _productSearchResult.OnProductSelected += async productId =>
+            _eventAggregator.Subscribe<ProductSelectedEvent>(async @event =>
                 {
-                    await _productDetails.LoadProduct(productId);
+                    await _productDetails.LoadProduct(@event.ProductId);
                     CurrentViewModel = _productDetails;
-                };
+                });
 
-            _productDetails.OnProductAddedToBasket += async () =>
+            _eventAggregator.Subscribe<ProductAddedToBasketEvent>(async @event =>
                 {
                     await _basket.LoadBasketItems();
                     CurrentViewModel = _basket;
-                };
+                });
         }
 
         public ProductSearchViewModel ProductSearch { get { return _productSearch; } }

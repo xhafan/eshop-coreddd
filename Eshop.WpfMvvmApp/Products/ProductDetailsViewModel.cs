@@ -9,13 +9,18 @@ namespace Eshop.WpfMvvmApp.Products
     {
         private readonly IProductControllerClient _productControllerClient;
         private readonly IBasketControllerClient _basketControllerClient;
+        private readonly IEventAggregator _eventAggregator;
         private readonly RelayCommandAsync<int> _addToBasketCommand;
         private int _productId;
 
-        public ProductDetailsViewModel(IProductControllerClient productControllerClient, IBasketControllerClient basketControllerClient)
+        public ProductDetailsViewModel(
+            IProductControllerClient productControllerClient, 
+            IBasketControllerClient basketControllerClient,
+            IEventAggregator eventAggregator)
         {
             _productControllerClient = productControllerClient;
             _basketControllerClient = basketControllerClient;
+            _eventAggregator = eventAggregator;
 
             _addToBasketCommand = new RelayCommandAsync<int>(async x => await AddProductToBasket(x), CanAddProductToBasketExecute);
         }
@@ -44,9 +49,6 @@ namespace Eshop.WpfMvvmApp.Products
             IsBusy = false;
         }
 
-        public delegate Task OnProductAddedToBasketHandler();
-        public event OnProductAddedToBasketHandler OnProductAddedToBasket;
-
         public bool CanAddProductToBasketExecute(int quantity)
         {
             return true;
@@ -57,7 +59,7 @@ namespace Eshop.WpfMvvmApp.Products
             IsBusy = true;
 
             await _basketControllerClient.AddProductToBasketAsync(_productId, quantity);
-            if (OnProductAddedToBasket!= null) await OnProductAddedToBasket();
+            await _eventAggregator.Publish(new ProductAddedToBasketEvent());
 
             IsBusy = false;
         }

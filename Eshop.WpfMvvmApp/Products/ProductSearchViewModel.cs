@@ -10,13 +10,15 @@ namespace Eshop.WpfMvvmApp.Products
     public class ProductSearchViewModel : NotifyingObject
     {
         private readonly IProductControllerClient _productControllerClient;
+        private readonly IEventAggregator _eventAggregator;
 
         private readonly RelayCommandAsync<string> _searchProductsCommand;
         
-        public ProductSearchViewModel(IProductControllerClient productControllerClient)
+        public ProductSearchViewModel(IProductControllerClient productControllerClient, IEventAggregator eventAggregator)
         {
             _productControllerClient = productControllerClient;
-        
+            _eventAggregator = eventAggregator;
+
             _searchProductsCommand = new RelayCommandAsync<string>(async x => await SearchProducts(x), CanSearchProductsExecute);
         }
 
@@ -26,9 +28,6 @@ namespace Eshop.WpfMvvmApp.Products
 
         public bool IsBusy { get; private set; } // todo: refactor this into some base view model
         public bool IsNotBusy { get { return !IsBusy; } }
-
-        public delegate Task OnProductSearchedHandler(IEnumerable<ProductSummaryDto> products);
-        public event OnProductSearchedHandler OnProductSearched;
 
         public bool CanSearchProductsExecute(string searchText)
         {
@@ -40,7 +39,7 @@ namespace Eshop.WpfMvvmApp.Products
             IsBusy = true;
 
             var products = await _productControllerClient.GetSearchProductsAsync(searchText);
-            await OnProductSearched(products);
+            await _eventAggregator.Publish(new ProductSearchedEvent { Products = products });
 
             IsBusy = false;
         }

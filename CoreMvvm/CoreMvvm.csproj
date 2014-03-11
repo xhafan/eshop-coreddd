@@ -67,6 +67,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseViewModelLocator.cs" />
+    <Compile Include="IEventAggregator.cs" />
+    <Compile Include="EventAggregator.cs" />
     <Compile Include="NotifyingObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RelayCommandAsync.cs" />

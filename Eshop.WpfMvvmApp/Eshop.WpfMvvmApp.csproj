@@ -108,10 +108,12 @@
       <DependentUpon>BasketView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Products\BasketViewModel.cs" />
+    <Compile Include="Products\ProductAddedToBasketEvent.cs" />
     <Compile Include="Products\ProductDetailsView.xaml.cs">
       <DependentUpon>ProductDetailsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Products\ProductDetailsViewModel.cs" />
+    <Compile Include="Products\ProductSearchedEvent.cs" />
     <Compile Include="Products\ProductSearchResultView.xaml.cs">
       <DependentUpon>ProductSearchResultView.xaml</DependentUpon>
     </Compile>
@@ -121,12 +123,13 @@
     <Compile Include="Products\ProductSearchView.xaml.cs">
       <DependentUpon>ProductSearchView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Products\ProductSelectedEvent.cs" />
     <Compile Include="Products\ProductsView.xaml.cs">
       <DependentUpon>ProductsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Products\ProductsViewModel.cs" />
     <Compile Include="Products\ProductViewModel.cs" />
-    <Compile Include="ViewModelInstaller.cs" />
+    <Compile Include="IoCInstaller.cs" />
     <Page Include="Main\MainView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
