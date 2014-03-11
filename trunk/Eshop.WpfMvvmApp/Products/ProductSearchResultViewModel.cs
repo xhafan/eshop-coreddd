@@ -10,12 +10,14 @@ namespace Eshop.WpfMvvmApp.Products
 {
     public class ProductSearchResultViewModel : NotifyingObject
     {
+        private readonly IEventAggregator _eventAggregator;
         private readonly ObservableCollection<ProductViewModel> _products = new ObservableCollection<ProductViewModel>();
         
         private readonly RelayCommandAsync<int> _selectProductCommand;
 
-        public ProductSearchResultViewModel()
+        public ProductSearchResultViewModel(IEventAggregator eventAggregator)
         {
+            _eventAggregator = eventAggregator;
             _selectProductCommand = new RelayCommandAsync<int>(async x => await SelectProduct(x), CanSelectProductExecute);
         }
 
@@ -35,12 +37,9 @@ namespace Eshop.WpfMvvmApp.Products
             return true;
         }
 
-        public delegate Task OnProductSelectedHandler(int productId);
-        public event OnProductSelectedHandler OnProductSelected;
-
         public async Task SelectProduct(int productId)
         {
-            if (OnProductSelected != null) await OnProductSelected(productId);
+            await _eventAggregator.Publish(new ProductSelectedEvent { ProductId = productId });
         }
     }
 }
