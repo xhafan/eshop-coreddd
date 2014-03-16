@@ -1,49 +1,49 @@
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using CoreMvvm;
+using Eshop.Dtos;
 
 namespace Eshop.WpfMvvmApp.Products
 {
-    public class ProductsViewModel : NotifyingObject
+    public class ProductsViewModel : NotifyingObject, IProductSearched, IProductSelected, IProductAddedToBasket
     {
-        private readonly IEventAggregator _eventAggregator;
         private readonly ProductSearchViewModel _productSearch;
         private readonly ProductSearchResultViewModel _productSearchResult;
         private readonly ProductDetailsViewModel _productDetails;
         private readonly BasketViewModel _basket;
 
         public ProductsViewModel(
-            IEventAggregator eventAggregator,
-            ProductSearchViewModel productSearch,
-            ProductSearchResultViewModel productSearchResult,
-            ProductDetailsViewModel productDetails,
+            IProductSearchViewModelFactory productSearchFactory,
+            IProductSearchResultViewModelFactory productSearchResultFactory,
+            IProductDetailsViewModelFactory productDetailsFactory,
             BasketViewModel basket
             )
         {
-            _productSearch = productSearch;
-            _productSearchResult = productSearchResult;
-            _productDetails = productDetails;
+            _productSearch = productSearchFactory.Create(this);
+            _productSearchResult = productSearchResultFactory.Create(this);
+            _productDetails = productDetailsFactory.Create(this);
             _basket = basket;
-            _eventAggregator = eventAggregator;
-
-            _eventAggregator.Subscribe<ProductSearchedEvent>(async @event =>
-                {
-                    await _productSearchResult.PopulateSearchResult(@event.Products);
-                    CurrentViewModel = _productSearchResult;
-                });
-
-            _eventAggregator.Subscribe<ProductSelectedEvent>(async @event =>
-                {
-                    await _productDetails.LoadProduct(@event.ProductId);
-                    CurrentViewModel = _productDetails;
-                });
-
-            _eventAggregator.Subscribe<ProductAddedToBasketEvent>(async @event =>
-                {
-                    await _basket.LoadBasketItems();
-                    CurrentViewModel = _basket;
-                });
         }
 
         public ProductSearchViewModel ProductSearch { get { return _productSearch; } }
         public NotifyingObject CurrentViewModel { get; private set; }
+        
+        public async Task ProductSearched(IEnumerable<ProductSummaryDto> products)
+        {
+            await _productSearchResult.PopulateSearchResult(products);
+            CurrentViewModel = _productSearchResult;
+        }
+
+        public async Task ProductSelected(int productId)
+        {
+            await _productDetails.LoadProduct(productId);
+            CurrentViewModel = _productDetails;
+        }
+
+        public async Task ProductAddedToBasket()
+        {
+            await _basket.LoadBasketItems();
+            CurrentViewModel = _basket;
+        }
     }
 }

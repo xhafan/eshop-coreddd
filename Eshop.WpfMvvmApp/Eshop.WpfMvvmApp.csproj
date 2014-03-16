@@ -108,12 +108,16 @@
       <DependentUpon>BasketView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Products\BasketViewModel.cs" />
-    <Compile Include="Products\ProductAddedToBasketEvent.cs" />
+    <Compile Include="Products\IProductAddedToBasket.cs" />
+    <Compile Include="Products\IProductDetailsViewModelFactory.cs" />
+    <Compile Include="Products\IProductSearched.cs" />
+    <Compile Include="Products\IProductSearchResultViewModelFactory.cs" />
+    <Compile Include="Products\IProductSearchViewModelFactory.cs" />
+    <Compile Include="Products\IProductSelected.cs" />
     <Compile Include="Products\ProductDetailsView.xaml.cs">
       <DependentUpon>ProductDetailsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Products\ProductDetailsViewModel.cs" />
-    <Compile Include="Products\ProductSearchedEvent.cs" />
     <Compile Include="Products\ProductSearchResultView.xaml.cs">
       <DependentUpon>ProductSearchResultView.xaml</DependentUpon>
     </Compile>
@@ -123,7 +127,6 @@
     <Compile Include="Products\ProductSearchView.xaml.cs">
       <DependentUpon>ProductSearchView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Products\ProductSelectedEvent.cs" />
     <Compile Include="Products\ProductsView.xaml.cs">
       <DependentUpon>ProductsView.xaml</DependentUpon>
     </Compile>

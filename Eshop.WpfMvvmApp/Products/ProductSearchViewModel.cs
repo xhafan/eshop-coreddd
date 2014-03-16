@@ -1,8 +1,6 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using System.Windows.Input;
 using CoreMvvm;
-using Eshop.Dtos;
 using Eshop.WpfMvvmApp.ControllerClients;
 
 namespace Eshop.WpfMvvmApp.Products
@@ -10,14 +8,14 @@ namespace Eshop.WpfMvvmApp.Products
     public class ProductSearchViewModel : NotifyingObject
     {
         private readonly IProductControllerClient _productControllerClient;
-        private readonly IEventAggregator _eventAggregator;
+        private readonly IProductSearched _productSearched;
 
         private readonly RelayCommandAsync<string> _searchProductsCommand;
-        
-        public ProductSearchViewModel(IProductControllerClient productControllerClient, IEventAggregator eventAggregator)
+
+        public ProductSearchViewModel(IProductControllerClient productControllerClient, IProductSearched productSearched)
         {
             _productControllerClient = productControllerClient;
-            _eventAggregator = eventAggregator;
+            _productSearched = productSearched;
 
             _searchProductsCommand = new RelayCommandAsync<string>(async x => await SearchProducts(x), CanSearchProductsExecute);
         }
@@ -39,7 +37,7 @@ namespace Eshop.WpfMvvmApp.Products
             IsBusy = true;
 
             var products = await _productControllerClient.GetSearchProductsAsync(searchText);
-            await _eventAggregator.Publish(new ProductSearchedEvent { Products = products });
+            await _productSearched.ProductSearched(products);
 
             IsBusy = false;
         }
