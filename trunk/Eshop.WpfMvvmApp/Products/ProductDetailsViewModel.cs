@@ -9,18 +9,19 @@ namespace Eshop.WpfMvvmApp.Products
     {
         private readonly IProductControllerClient _productControllerClient;
         private readonly IBasketControllerClient _basketControllerClient;
-        private readonly IEventAggregator _eventAggregator;
+        private readonly IProductAddedToBasket _productAddedToBasket;
         private readonly RelayCommandAsync<int> _addToBasketCommand;
         private int _productId;
 
         public ProductDetailsViewModel(
             IProductControllerClient productControllerClient, 
             IBasketControllerClient basketControllerClient,
-            IEventAggregator eventAggregator)
+            IProductAddedToBasket productAddedToBasket
+            )
         {
             _productControllerClient = productControllerClient;
             _basketControllerClient = basketControllerClient;
-            _eventAggregator = eventAggregator;
+            _productAddedToBasket = productAddedToBasket;
 
             _addToBasketCommand = new RelayCommandAsync<int>(async x => await AddProductToBasket(x), CanAddProductToBasketExecute);
         }
@@ -59,7 +60,7 @@ namespace Eshop.WpfMvvmApp.Products
             IsBusy = true;
 
             await _basketControllerClient.AddProductToBasketAsync(_productId, quantity);
-            await _eventAggregator.Publish(new ProductAddedToBasketEvent());
+            await _productAddedToBasket.ProductAddedToBasket();
 
             IsBusy = false;
         }

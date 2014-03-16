@@ -1,7 +1,9 @@
-﻿using Castle.MicroKernel.Registration;
+﻿using Castle.Facilities.TypedFactory;
+using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
 using CoreMvvm;
+using Eshop.WpfMvvmApp.Products;
 
 namespace Eshop.WpfMvvmApp
 {
@@ -13,9 +15,9 @@ namespace Eshop.WpfMvvmApp
                 Classes.FromThisAssembly()
                        .BasedOn<NotifyingObject>()
                        .Configure(x => x.LifestyleTransient()),
-                Component.For<IEventAggregator>()
-                         .ImplementedBy<EventAggregator>()
-                         .LifeStyle.Singleton
+                Component.For<IProductSearchViewModelFactory>().AsFactory(),
+                Component.For<IProductSearchResultViewModelFactory>().AsFactory(),
+                Component.For<IProductDetailsViewModelFactory>().AsFactory()
                 );
         }
     }
