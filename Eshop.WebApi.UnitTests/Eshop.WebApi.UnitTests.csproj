@@ -30,11 +30,24 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CoreDdd">
+      <HintPath>..\packagesTemp\CoreDdd\CoreDdd.dll</HintPath>
+    </Reference>
+    <Reference Include="CoreTest">
+      <HintPath>..\packagesTemp\CoreTest\CoreTest.dll</HintPath>
+    </Reference>
     <Reference Include="nunit.framework">
       <HintPath>..\packages\NUnit.2.6.2\lib\nunit.framework.dll</HintPath>
     </Reference>
+    <Reference Include="Rhino.Mocks">
+      <HintPath>..\packages\RhinoMocks.3.6.1\lib\net\Rhino.Mocks.dll</HintPath>
+    </Reference>
+    <Reference Include="Shouldly">
+      <HintPath>..\packages\Shouldly.1.1.1.1\lib\35\Shouldly.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -42,8 +55,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\BasketControllers\when_adding_product_to_basket.cs" />
+    <Compile Include="Controllers\BasketControllers\BasketControllerSetup.cs" />
+    <Compile Include="Controllers\BasketControllers\when_adding_product_to_basket_without_session_context.cs" />
+    <Compile Include="Controllers\BasketControllers\when_adding_product_to_basket_with_session_context.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CoreWebApi\CoreWebApi.csproj">
+      <Project>{35918F1A-66F0-47E9-8720-2D2399C5A556}</Project>
+      <Name>CoreWebApi</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Eshop.Commands\Eshop.Commands.csproj">
+      <Project>{7741E7CF-D604-479A-8A88-D44F3945170F}</Project>
+      <Name>Eshop.Commands</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Eshop.WebApi2\Eshop.WebApi2.csproj">
+      <Project>{94AA1AE8-9B91-4F98-95EE-F00EE1FAB4E9}</Project>
+      <Name>Eshop.WebApi2</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
