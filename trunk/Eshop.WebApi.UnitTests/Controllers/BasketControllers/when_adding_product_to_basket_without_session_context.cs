@@ -18,7 +18,7 @@ namespace Eshop.WebApi.UnitTests.Controllers.BasketControllers
         {
             base.Context();
 
-            BasketController.AddProductToBasket(ProductId, Quantity);
+            Controller.AddProductToBasket(ProductId, Quantity);
         }
 
         [Test]
@@ -32,8 +32,8 @@ namespace Eshop.WebApi.UnitTests.Controllers.BasketControllers
         {
             CommandExecutor.Raise(x => x.CommandExecuted += null, null, new CommandExecutedArgs { Args = GeneratedCustomerId });
             
-            BasketController.SessionContext.ShouldNotBe(null);
-            BasketController.SessionContext.CustomerId.ShouldBe(GeneratedCustomerId);
+            Controller.SessionContext.ShouldNotBe(null);
+            Controller.SessionContext.CustomerId.ShouldBe(GeneratedCustomerId);
         }
 
         private bool MatchingCommand(AddProductToBasketCommand command)

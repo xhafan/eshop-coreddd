@@ -12,6 +12,7 @@ using Microsoft.CSharp;
 namespace CoreWebApiClient.Generator
 {
     // todo: support controller method like void Login() for get and post (no parameters, no return type; basically investigate all possible method combinations)
+    // todo: refactor this for better readability
     internal class Program
     {
         private static int Main(string[] args)
