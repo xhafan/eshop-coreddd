@@ -33,6 +33,10 @@
     <Reference Include="CoreDdd">
       <HintPath>..\packagesTemp\CoreDdd\CoreDdd.dll</HintPath>
     </Reference>
+    <Reference Include="CoreDto, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packagesTemp\CoreDto\CoreDto.dll</HintPath>
+    </Reference>
     <Reference Include="CoreTest">
       <HintPath>..\packagesTemp\CoreTest\CoreTest.dll</HintPath>
     </Reference>
@@ -58,6 +62,10 @@
     <Compile Include="Controllers\BasketControllers\BasketControllerSetup.cs" />
     <Compile Include="Controllers\BasketControllers\when_adding_product_to_basket_without_session_context.cs" />
     <Compile Include="Controllers\BasketControllers\when_adding_product_to_basket_with_session_context.cs" />
+    <Compile Include="Controllers\BasketControllers\when_getting_basket_items.cs" />
+    <Compile Include="Controllers\ProductControllers\BasketControllerSetup.cs" />
+    <Compile Include="Controllers\ProductControllers\when_getting_product.cs" />
+    <Compile Include="Controllers\ProductControllers\when_searching_products.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -69,9 +77,17 @@
       <Project>{7741E7CF-D604-479A-8A88-D44F3945170F}</Project>
       <Name>Eshop.Commands</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Eshop.WebApi2\Eshop.WebApi2.csproj">
+    <ProjectReference Include="..\Eshop.Dtos\Eshop.Dtos.csproj">
+      <Project>{30936409-FE41-4AFC-BD33-643E428CA05E}</Project>
+      <Name>Eshop.Dtos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Eshop.Queries\Eshop.Queries.csproj">
+      <Project>{C9DC0C78-6CF7-4F49-A408-82C8495D000F}</Project>
+      <Name>Eshop.Queries</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Eshop.WebApi\Eshop.WebApi.csproj">
       <Project>{94AA1AE8-9B91-4F98-95EE-F00EE1FAB4E9}</Project>
-      <Name>Eshop.WebApi2</Name>
+      <Name>Eshop.WebApi</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

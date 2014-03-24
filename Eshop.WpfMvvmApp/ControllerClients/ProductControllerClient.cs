@@ -21,16 +21,16 @@ namespace Eshop.WpfMvvmApp.ControllerClients {
                 base(serverUrl, routes, authenticationCookiePersister) {
         }
         
-        public virtual System.Collections.Generic.IEnumerable<Eshop.Dtos.ProductSummaryDto> GetSearchProducts(string searchText) {
+        public virtual System.Collections.Generic.IEnumerable<Eshop.Dtos.ProductSummaryDto> SearchProducts(string searchedText) {
             System.Web.Routing.RouteValueDictionary routeValues = new System.Web.Routing.RouteValueDictionary();
-            routeValues.Add("searchText", searchText);
-            return this.HttpClientGet<System.Collections.Generic.IEnumerable<Eshop.Dtos.ProductSummaryDto>>("GetSearchProducts", routeValues);
+            routeValues.Add("searchedText", searchedText);
+            return this.HttpClientGet<System.Collections.Generic.IEnumerable<Eshop.Dtos.ProductSummaryDto>>("SearchProducts", routeValues);
         }
         
-        public virtual System.Threading.Tasks.Task<System.Collections.Generic.IEnumerable<Eshop.Dtos.ProductSummaryDto>> GetSearchProductsAsync(string searchText) {
+        public virtual System.Threading.Tasks.Task<System.Collections.Generic.IEnumerable<Eshop.Dtos.ProductSummaryDto>> SearchProductsAsync(string searchedText) {
             System.Web.Routing.RouteValueDictionary routeValues = new System.Web.Routing.RouteValueDictionary();
-            routeValues.Add("searchText", searchText);
-            return this.HttpClientGetAsync<System.Collections.Generic.IEnumerable<Eshop.Dtos.ProductSummaryDto>>("GetSearchProducts", routeValues);
+            routeValues.Add("searchedText", searchedText);
+            return this.HttpClientGetAsync<System.Collections.Generic.IEnumerable<Eshop.Dtos.ProductSummaryDto>>("SearchProducts", routeValues);
         }
         
         public virtual Eshop.Dtos.ProductDto GetProduct(int productId) {

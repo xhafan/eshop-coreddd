@@ -20,8 +20,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eshop.Queries", "Eshop.Quer
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eshop.Dtos", "Eshop.Dtos\Eshop.Dtos.csproj", "{30936409-FE41-4AFC-BD33-643E428CA05E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eshop.WebApi", "Eshop.WebApi\Eshop.WebApi.csproj", "{D6B9306B-F68A-422E-B5A6-940FB837FB3E}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreWebApiClient", "CoreWebApiClient\CoreWebApiClient.csproj", "{55E30B6D-3854-4A50-8820-1D14CC9AE339}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreWebApiClient.Generator", "CoreWebApiClient.Generator\CoreWebApiClient.Generator.csproj", "{55125C74-6B9C-4186-B088-8C4C4258D937}"
@@ -31,6 +29,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreMvvm", "CoreMvvm\CoreMvvm.csproj", "{876D3FEF-C834-4AE6-BEF4-5D952801C047}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreWebApiClient.TestControllers", "CoreWebApiClient.TestControllers\CoreWebApiClient.TestControllers.csproj", "{628CADCA-1F35-4F79-9B39-1AFE88E8AADE}"
+	ProjectSection(ProjectDependencies) = postProject
+		{55125C74-6B9C-4186-B088-8C4C4258D937} = {55125C74-6B9C-4186-B088-8C4C4258D937}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreWebApiClient.Tests", "CoreWebApiClient.Tests\CoreWebApiClient.Tests.csproj", "{67CC2AFA-E855-461E-9911-BEE64C253F1A}"
 EndProject
@@ -46,7 +47,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreMvvm.UnitTests", "CoreM
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreWebApi", "CoreWebApi\CoreWebApi.csproj", "{35918F1A-66F0-47E9-8720-2D2399C5A556}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eshop.WebApi2", "Eshop.WebApi2\Eshop.WebApi2.csproj", "{94AA1AE8-9B91-4F98-95EE-F00EE1FAB4E9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eshop.WebApi", "Eshop.WebApi\Eshop.WebApi.csproj", "{94AA1AE8-9B91-4F98-95EE-F00EE1FAB4E9}"
+	ProjectSection(ProjectDependencies) = postProject
+		{55125C74-6B9C-4186-B088-8C4C4258D937} = {55125C74-6B9C-4186-B088-8C4C4258D937}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eshop.WebApi.UnitTests", "Eshop.WebApi.UnitTests\Eshop.WebApi.UnitTests.csproj", "{7E33C348-3CB7-489A-AEE7-3B9C1A87F5D4}"
 EndProject
@@ -130,16 +134,6 @@ Global
 		{30936409-FE41-4AFC-BD33-643E428CA05E}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{30936409-FE41-4AFC-BD33-643E428CA05E}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{30936409-FE41-4AFC-BD33-643E428CA05E}.Release|x86.ActiveCfg = Release|Any CPU
-		{D6B9306B-F68A-422E-B5A6-940FB837FB3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D6B9306B-F68A-422E-B5A6-940FB837FB3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D6B9306B-F68A-422E-B5A6-940FB837FB3E}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{D6B9306B-F68A-422E-B5A6-940FB837FB3E}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{D6B9306B-F68A-422E-B5A6-940FB837FB3E}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{D6B9306B-F68A-422E-B5A6-940FB837FB3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D6B9306B-F68A-422E-B5A6-940FB837FB3E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D6B9306B-F68A-422E-B5A6-940FB837FB3E}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{D6B9306B-F68A-422E-B5A6-940FB837FB3E}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{D6B9306B-F68A-422E-B5A6-940FB837FB3E}.Release|x86.ActiveCfg = Release|Any CPU
 		{55E30B6D-3854-4A50-8820-1D14CC9AE339}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{55E30B6D-3854-4A50-8820-1D14CC9AE339}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{55E30B6D-3854-4A50-8820-1D14CC9AE339}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU

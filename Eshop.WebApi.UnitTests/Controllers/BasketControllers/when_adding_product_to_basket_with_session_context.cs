@@ -1,5 +1,5 @@
 ﻿using Eshop.Commands;
-using Eshop.WebApi2.Controllers;
+using Eshop.WebApi.Controllers;
 using NUnit.Framework;
 using Rhino.Mocks;
 using Shouldly;
@@ -17,9 +17,9 @@ namespace Eshop.WebApi.UnitTests.Controllers.BasketControllers
         public override void Context()
         {
             base.Context();
-            BasketController.SessionContext = new SessionContext { CustomerId = CustomerId };
+            Controller.SessionContext = new SessionContext { CustomerId = CustomerId };
 
-            BasketController.AddProductToBasket(ProductId, Quantity);
+            Controller.AddProductToBasket(ProductId, Quantity);
         }
 
         [Test]

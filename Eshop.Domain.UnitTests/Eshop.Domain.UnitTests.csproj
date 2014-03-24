@@ -41,9 +41,6 @@
     <Reference Include="CoreUtils">
       <HintPath>..\packagesTemp\CoreUtils\CoreUtils.dll</HintPath>
     </Reference>
-    <Reference Include="Eshop.Domain">
-      <HintPath>..\Eshop.WebApi\Bin\Eshop.Domain.dll</HintPath>
-    </Reference>
     <Reference Include="nunit.framework">
       <HintPath>..\packages\NUnit.2.6.1\lib\nunit.framework.dll</HintPath>
     </Reference>
@@ -79,6 +76,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Eshop.Domain\Eshop.Domain.csproj">
+      <Project>{bb2a7f85-ebb7-4143-af9a-e90c48cb5d28}</Project>
+      <Name>Eshop.Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
