@@ -3,19 +3,15 @@ using Eshop.WpfMvvmApp.Products;
 
 namespace Eshop.WpfMvvmApp.Main
 {
-    public class MainViewModel : NotifyingObject
+    public class MainViewModel : BaseViewModel
     {
-        private readonly ProductsViewModel _productsViewModel;
-
         public MainViewModel(
             ProductsViewModel productsViewModel
             )
         {
-            _productsViewModel = productsViewModel;
-
-            CurrentViewModel = _productsViewModel;
+            CurrentViewModel = productsViewModel;
         }
 
-        public NotifyingObject CurrentViewModel { get; private set; }
+        public BaseViewModel CurrentViewModel { get; private set; }
     }
 }

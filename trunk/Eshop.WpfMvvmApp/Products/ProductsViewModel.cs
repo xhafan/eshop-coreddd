@@ -5,12 +5,14 @@ using Eshop.Dtos;
 
 namespace Eshop.WpfMvvmApp.Products
 {
-    public class ProductsViewModel : NotifyingObject, IProductSearched, IProductSelected, IProductAddedToBasket
+    public class ProductsViewModel : BaseViewModel, IProductSearched, IProductSelected, IProductAddedToBasket
     {
         private readonly ProductSearchViewModel _productSearch;
         private readonly ProductSearchResultViewModel _productSearchResult;
         private readonly ProductDetailsViewModel _productDetails;
         private readonly BasketViewModel _basket;
+
+        protected ProductsViewModel() {}
 
         public ProductsViewModel(
             IProductSearchViewModelFactory productSearchFactory,
@@ -26,7 +28,7 @@ namespace Eshop.WpfMvvmApp.Products
         }
 
         public ProductSearchViewModel ProductSearch { get { return _productSearch; } }
-        public NotifyingObject CurrentViewModel { get; private set; }
+        public BaseViewModel CurrentViewModel { get; private set; }
         
         public async Task ProductSearched(IEnumerable<ProductSummaryDto> products)
         {

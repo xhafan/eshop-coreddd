@@ -13,7 +13,7 @@ namespace Eshop.WpfMvvmApp
         {
             container.Register(
                 Classes.FromThisAssembly()
-                       .BasedOn<NotifyingObject>()
+                       .BasedOn<BaseViewModel>()
                        .Configure(x => x.LifestyleTransient()),
                 Component.For<IProductSearchViewModelFactory>().AsFactory(),
                 Component.For<IProductSearchResultViewModelFactory>().AsFactory(),

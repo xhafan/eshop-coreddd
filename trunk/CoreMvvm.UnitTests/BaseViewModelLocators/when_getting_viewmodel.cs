@@ -34,7 +34,7 @@ namespace CoreMvvm.UnitTests.BaseViewModelLocators
             IoC.Initialize(null);
         }
 
-        private class TestViewModel : NotifyingObject
+        private class TestViewModel : BaseViewModel
         {            
         }
 

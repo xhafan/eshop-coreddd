@@ -3,7 +3,7 @@ using Eshop.Dtos;
 
 namespace Eshop.WpfMvvmApp.Products
 {
-    public class BasketItemViewModel : NotifyingObject
+    public class BasketItemViewModel : BaseViewModel
     {
         private readonly int _productId;
         private readonly string _productName;
