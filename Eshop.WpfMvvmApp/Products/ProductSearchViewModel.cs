@@ -5,7 +5,7 @@ using Eshop.WpfMvvmApp.ControllerClients;
 
 namespace Eshop.WpfMvvmApp.Products
 {
-    public class ProductSearchViewModel : NotifyingObject
+    public class ProductSearchViewModel : BaseViewModel
     {
         private readonly IProductControllerClient _productControllerClient;
         private readonly IProductSearched _productSearched;

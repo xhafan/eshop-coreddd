@@ -8,7 +8,7 @@ using Eshop.Dtos;
 
 namespace Eshop.WpfMvvmApp.Products
 {
-    public class ProductSearchResultViewModel : NotifyingObject
+    public class ProductSearchResultViewModel : BaseViewModel
     {
         private readonly IProductSelected _productSelected;
         private readonly ObservableCollection<ProductViewModel> _products = new ObservableCollection<ProductViewModel>();

@@ -6,7 +6,7 @@ using Eshop.WpfMvvmApp.ControllerClients;
 
 namespace Eshop.WpfMvvmApp.Products
 {
-    public class BasketViewModel : NotifyingObject
+    public class BasketViewModel : BaseViewModel
     {
         private readonly IBasketControllerClient _basketControllerClient;
         private readonly ObservableCollection<BasketItemViewModel> _basketItems = new ObservableCollection<BasketItemViewModel>();
