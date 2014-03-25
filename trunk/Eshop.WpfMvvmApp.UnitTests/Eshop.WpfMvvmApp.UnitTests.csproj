@@ -36,6 +36,10 @@
     <Reference Include="CoreDdd">
       <HintPath>..\packagesTemp\CoreDdd\CoreDdd.dll</HintPath>
     </Reference>
+    <Reference Include="CoreDto, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packagesTemp\CoreDto\CoreDto.dll</HintPath>
+    </Reference>
     <Reference Include="CoreTest">
       <HintPath>..\packagesTemp\CoreTest\CoreTest.dll</HintPath>
     </Reference>
@@ -73,6 +77,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main\MainViewModels\when_constructing.cs" />
+    <Compile Include="Products\BasketItemViewModels\when_constructing.cs" />
+    <Compile Include="Products\BasketViewModels\when_loading_basket_items.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -82,6 +88,10 @@
     <ProjectReference Include="..\CoreMvvm\CoreMvvm.csproj">
       <Project>{876D3FEF-C834-4AE6-BEF4-5D952801C047}</Project>
       <Name>CoreMvvm</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Eshop.Dtos\Eshop.Dtos.csproj">
+      <Project>{30936409-FE41-4AFC-BD33-643E428CA05E}</Project>
+      <Name>Eshop.Dtos</Name>
     </ProjectReference>
     <ProjectReference Include="..\Eshop.WpfMvvmApp\Eshop.WpfMvvmApp.csproj">
       <Project>{1215bff9-7abb-487b-a7d9-3e9533700621}</Project>
