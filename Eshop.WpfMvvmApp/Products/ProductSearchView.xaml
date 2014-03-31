@@ -32,7 +32,6 @@
             Content="Go" 
             Command="{Binding SearchProductsCommand}"
             CommandParameter="{Binding SearchText}"
-            IsEnabled="{Binding IsNotBusy}"
             IsDefault="True"
             />
     </Grid>

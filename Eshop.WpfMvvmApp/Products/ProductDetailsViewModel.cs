@@ -23,14 +23,10 @@ namespace Eshop.WpfMvvmApp.Products
             _basketControllerClient = basketControllerClient;
             _productAddedToBasket = productAddedToBasket;
 
-            _addToBasketCommand = new RelayCommandAsync<int>(async x => await AddProductToBasket(x), CanAddProductToBasketExecute);
+            _addToBasketCommand = new RelayCommandAsync<int>(async x => await _addProductToBasket(x), _canAddProductToBasketExecute);
         }
 
         public ICommand AddToBasketCommand { get { return _addToBasketCommand; } }
-
-
-        public bool IsBusy { get; private set; } // todo: refactor this into some base view model
-        public bool IsNotBusy { get { return !IsBusy; } }
 
         public string Name { get; private set; }
         public string Description { get; private set; }
@@ -41,29 +37,20 @@ namespace Eshop.WpfMvvmApp.Products
         {
             _productId = productId;
 
-            IsBusy = true;
-
             var productDetails = await _productControllerClient.GetProductAsync(productId);
             Name = productDetails.Name;
             Description = productDetails.Description;
-
-            IsBusy = false;
         }
 
-        public bool CanAddProductToBasketExecute(int quantity)
+        private bool _canAddProductToBasketExecute(int quantity)
         {
             return true;
         }
 
-        public async Task AddProductToBasket(int quantity)
+        private async Task _addProductToBasket(int quantity)
         {
-            IsBusy = true;
-
             await _basketControllerClient.AddProductToBasketAsync(_productId, quantity);
             await _productAddedToBasket.ProductAddedToBasket();
-
-            IsBusy = false;
         }
-
     }
 }

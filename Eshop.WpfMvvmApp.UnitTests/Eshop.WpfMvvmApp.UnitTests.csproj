@@ -55,6 +55,7 @@
     <Reference Include="nunit.framework">
       <HintPath>..\packages\NUnit.2.6.2\lib\nunit.framework.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationCore" />
     <Reference Include="Rhino.Mocks">
       <HintPath>..\packages\RhinoMocks.3.6.1\lib\net\Rhino.Mocks.dll</HintPath>
     </Reference>
@@ -79,6 +80,10 @@
     <Compile Include="Main\MainViewModels\when_constructing.cs" />
     <Compile Include="Products\BasketItemViewModels\when_constructing.cs" />
     <Compile Include="Products\BasketViewModels\when_loading_basket_items.cs" />
+    <Compile Include="Products\ProductDetailsViewModels\ProductDetailsViewModelWithLoadedProductSetup.cs" />
+    <Compile Include="Products\ProductDetailsViewModels\when_can_execute_add_to_basket_command.cs" />
+    <Compile Include="Products\ProductDetailsViewModels\when_executing_add_to_basket_command.cs" />
+    <Compile Include="Products\ProductDetailsViewModels\when_loading_product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
