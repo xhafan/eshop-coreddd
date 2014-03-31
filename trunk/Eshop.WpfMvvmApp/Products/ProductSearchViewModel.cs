@@ -5,7 +5,7 @@ using Eshop.WpfMvvmApp.ControllerClients;
 
 namespace Eshop.WpfMvvmApp.Products
 {
-    public class ProductSearchViewModel : BaseViewModel
+    public class ProductSearchViewModel : BaseViewModel  // todo: test me
     {
         private readonly IProductControllerClient _productControllerClient;
         private readonly IProductSearched _productSearched;
@@ -24,9 +24,6 @@ namespace Eshop.WpfMvvmApp.Products
 
         public ICommand SearchProductsCommand { get { return _searchProductsCommand; } }
 
-        public bool IsBusy { get; private set; } // todo: refactor this into some base view model
-        public bool IsNotBusy { get { return !IsBusy; } }
-
         public bool CanSearchProductsExecute(string searchText)
         {
             return true;
@@ -34,12 +31,8 @@ namespace Eshop.WpfMvvmApp.Products
 
         public async Task SearchProducts(string searchText)
         {
-            IsBusy = true;
-
             var products = await _productControllerClient.SearchProductsAsync(searchText);
-            await _productSearched.ProductSearched(products);
-
-            IsBusy = false;
+            _productSearched.ProductSearched(products);
         }
     }
 }

@@ -5,7 +5,7 @@ using Eshop.Dtos;
 
 namespace Eshop.WpfMvvmApp.Products
 {
-    public class ProductsViewModel : BaseViewModel, IProductSearched, IProductSelected, IProductAddedToBasket
+    public class ProductsViewModel : BaseViewModel, IProductSearched, IProductSelected, IProductAddedToBasket // todo: test me
     {
         private readonly ProductSearchViewModel _productSearch;
         private readonly ProductSearchResultViewModel _productSearchResult;
@@ -30,9 +30,9 @@ namespace Eshop.WpfMvvmApp.Products
         public ProductSearchViewModel ProductSearch { get { return _productSearch; } }
         public BaseViewModel CurrentViewModel { get; private set; }
         
-        public async Task ProductSearched(IEnumerable<ProductSummaryDto> products)
+        public void ProductSearched(IEnumerable<ProductSummaryDto> products)
         {
-            await _productSearchResult.PopulateSearchResult(products);
+            _productSearchResult.PopulateSearchResult(products);
             CurrentViewModel = _productSearchResult;
         }
 

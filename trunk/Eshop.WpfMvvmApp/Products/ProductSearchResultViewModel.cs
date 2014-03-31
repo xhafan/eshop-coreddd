@@ -18,26 +18,25 @@ namespace Eshop.WpfMvvmApp.Products
         public ProductSearchResultViewModel(IProductSelected productSelected)
         {
             _productSelected = productSelected;
-            _selectProductCommand = new RelayCommandAsync<int>(async x => await SelectProduct(x), CanSelectProductExecute);
+            _selectProductCommand = new RelayCommandAsync<int>(async x => await _selectProduct(x), _canSelectProductExecute);
         }
 
         public ObservableCollection<ProductViewModel> Products { get { return _products; } }
 
         public ICommand SelectProductCommand { get { return _selectProductCommand; } }
 
-        public Task PopulateSearchResult(IEnumerable<ProductSummaryDto> products)
+        public void PopulateSearchResult(IEnumerable<ProductSummaryDto> products)
         {
-            Products.Clear();
-            products.Each(x => Products.Add(new ProductViewModel(x.Id, x.Name)));
-            return TaskEx.FromResult(0); // todo: extract this to TaskEx.CompletedTask(); or sth
+            _products.Clear();
+            products.Each(x => _products.Add(new ProductViewModel(x.Id, x.Name)));
         }
         
-        public bool CanSelectProductExecute(int productId)
+        private bool _canSelectProductExecute(int productId)
         {
             return true;
         }
 
-        public async Task SelectProduct(int productId)
+        private async Task _selectProduct(int productId)
         {
             await _productSelected.ProductSelected(productId);
         }
