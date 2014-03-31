@@ -84,6 +84,10 @@
     <Compile Include="Products\ProductDetailsViewModels\when_can_execute_add_to_basket_command.cs" />
     <Compile Include="Products\ProductDetailsViewModels\when_executing_add_to_basket_command.cs" />
     <Compile Include="Products\ProductDetailsViewModels\when_loading_product.cs" />
+    <Compile Include="Products\ProductSearchResultViewModels\ProductSearchResultViewModelSetup.cs" />
+    <Compile Include="Products\ProductSearchResultViewModels\when_can_execute_select_product_command.cs" />
+    <Compile Include="Products\ProductSearchResultViewModels\when_executing_select_product_command.cs" />
+    <Compile Include="Products\ProductSearchResultViewModels\when_populating_search_result.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

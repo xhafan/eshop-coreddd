@@ -23,7 +23,7 @@ namespace Eshop.WpfMvvmApp.UnitTests.Products.ProductDetailsViewModels
         }
 
         [Test]
-        public void execute_notifies_that_product_is_added_to_basket()
+        public void product_added_to_basket_service_is_notified()
         {
             ProductAddedToBasket.AssertWasCalled(x => x.ProductAddedToBasket());
         }
