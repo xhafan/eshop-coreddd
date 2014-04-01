@@ -13,6 +13,8 @@ namespace Eshop.WpfMvvmApp.Products
         private readonly RelayCommandAsync<int> _addToBasketCommand;
         private int _productId;
 
+        protected ProductDetailsViewModel() {}
+
         public ProductDetailsViewModel(
             IProductControllerClient productControllerClient, 
             IBasketControllerClient basketControllerClient,
@@ -33,7 +35,7 @@ namespace Eshop.WpfMvvmApp.Products
         
         public int Quantity { get; set; }
 
-        public async Task LoadProduct(int productId)
+        public virtual async Task LoadProduct(int productId)
         {
             _productId = productId;
 

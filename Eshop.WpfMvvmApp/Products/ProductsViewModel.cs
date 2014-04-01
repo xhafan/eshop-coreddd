@@ -5,7 +5,7 @@ using Eshop.Dtos;
 
 namespace Eshop.WpfMvvmApp.Products
 {
-    public class ProductsViewModel : BaseViewModel, IProductSearched, IProductSelected, IProductAddedToBasket // todo: test me
+    public class ProductsViewModel : BaseViewModel, IProductSearched, IProductSelected, IProductAddedToBasket
     {
         private readonly ProductSearchViewModel _productSearch;
         private readonly ProductSearchResultViewModel _productSearchResult;

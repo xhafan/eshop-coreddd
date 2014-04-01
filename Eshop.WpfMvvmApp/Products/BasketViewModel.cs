@@ -11,6 +11,8 @@ namespace Eshop.WpfMvvmApp.Products
         private readonly IBasketControllerClient _basketControllerClient;
         private readonly ObservableCollection<BasketItemViewModel> _basketItems = new ObservableCollection<BasketItemViewModel>();
 
+        protected BasketViewModel() {}
+
         public BasketViewModel(IBasketControllerClient basketControllerClient)
         {
             _basketControllerClient = basketControllerClient;
@@ -18,7 +20,7 @@ namespace Eshop.WpfMvvmApp.Products
        
         public ObservableCollection<BasketItemViewModel> BasketItems { get { return _basketItems; } }
 
-        public async Task LoadBasketItems()
+        public virtual async Task LoadBasketItems()
         {
             var basketItemDtos = await _basketControllerClient.GetBasketItemsAsync();
             _basketItems.Clear();

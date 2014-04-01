@@ -12,6 +12,8 @@ namespace Eshop.WpfMvvmApp.Products
 
         private readonly RelayCommandAsync<string> _searchProductsCommand;
 
+        protected ProductSearchViewModel() {}
+
         public ProductSearchViewModel(IProductControllerClient productControllerClient, IProductSearched productSearched)
         {
             _productControllerClient = productControllerClient;

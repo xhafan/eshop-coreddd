@@ -91,6 +91,11 @@
     <Compile Include="Products\ProductSearchViewModels\ProductSearchViewModelSetup.cs" />
     <Compile Include="Products\ProductSearchViewModels\when_can_execute_search_products_command.cs" />
     <Compile Include="Products\ProductSearchViewModels\when_executing_search_products_command.cs" />
+    <Compile Include="Products\ProductsViewModels\ProductsViewModelSetup.cs" />
+    <Compile Include="Products\ProductsViewModels\when_getting_product_search_view_model.cs" />
+    <Compile Include="Products\ProductsViewModels\when_product_is_added_to_basket.cs" />
+    <Compile Include="Products\ProductsViewModels\when_product_is_searched.cs" />
+    <Compile Include="Products\ProductsViewModels\when_product_is_selected.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
