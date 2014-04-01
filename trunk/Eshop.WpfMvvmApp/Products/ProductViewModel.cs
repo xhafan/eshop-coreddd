@@ -2,7 +2,7 @@ using CoreMvvm;
 
 namespace Eshop.WpfMvvmApp.Products
 {
-    public class ProductViewModel : BaseViewModel // todo: test me
+    public class ProductViewModel : BaseViewModel
     {
         public ProductViewModel(int id, string name)
         {

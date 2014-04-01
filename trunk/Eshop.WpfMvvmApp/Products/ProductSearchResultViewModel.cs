@@ -15,6 +15,8 @@ namespace Eshop.WpfMvvmApp.Products
         
         private readonly RelayCommandAsync<int> _selectProductCommand;
 
+        protected ProductSearchResultViewModel() {}
+
         public ProductSearchResultViewModel(IProductSelected productSelected)
         {
             _productSelected = productSelected;
@@ -25,7 +27,7 @@ namespace Eshop.WpfMvvmApp.Products
 
         public ICommand SelectProductCommand { get { return _selectProductCommand; } }
 
-        public void PopulateSearchResult(IEnumerable<ProductSummaryDto> products)
+        public virtual void PopulateSearchResult(IEnumerable<ProductSummaryDto> products)
         {
             _products.Clear();
             products.Each(x => _products.Add(new ProductViewModel(x.Id, x.Name)));
