@@ -12,7 +12,7 @@ namespace Eshop.WpfMvvmApp.UnitTests.Products.ProductSearchResultViewModels
         [SetUp]
         public virtual void Context()
         {
-            ProductSelected = Stub<IProductSelected>();
+            ProductSelected = Mock<IProductSelected>();
             ViewModel = new ProductSearchResultViewModel(ProductSelected);
         }
     }

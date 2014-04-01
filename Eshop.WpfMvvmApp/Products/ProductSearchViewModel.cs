@@ -5,7 +5,7 @@ using Eshop.WpfMvvmApp.ControllerClients;
 
 namespace Eshop.WpfMvvmApp.Products
 {
-    public class ProductSearchViewModel : BaseViewModel  // todo: test me
+    public class ProductSearchViewModel : BaseViewModel
     {
         private readonly IProductControllerClient _productControllerClient;
         private readonly IProductSearched _productSearched;
@@ -17,19 +17,19 @@ namespace Eshop.WpfMvvmApp.Products
             _productControllerClient = productControllerClient;
             _productSearched = productSearched;
 
-            _searchProductsCommand = new RelayCommandAsync<string>(async x => await SearchProducts(x), CanSearchProductsExecute);
+            _searchProductsCommand = new RelayCommandAsync<string>(async x => await _searchProducts(x), _canSearchProductsExecute);
         }
 
         public string SearchText { get; set; }
 
         public ICommand SearchProductsCommand { get { return _searchProductsCommand; } }
 
-        public bool CanSearchProductsExecute(string searchText)
+        private bool _canSearchProductsExecute(string searchText)
         {
             return true;
         }
 
-        public async Task SearchProducts(string searchText)
+        private async Task _searchProducts(string searchText)
         {
             var products = await _productControllerClient.SearchProductsAsync(searchText);
             _productSearched.ProductSearched(products);

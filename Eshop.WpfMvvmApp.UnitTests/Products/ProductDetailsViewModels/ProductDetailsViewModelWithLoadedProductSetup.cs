@@ -29,8 +29,8 @@ namespace Eshop.WpfMvvmApp.UnitTests.Products.ProductDetailsViewModels
                     Description = ProductDescription
                 };
             ProductControllerClient = Stub<IProductControllerClient>().Stubs(x => x.GetProductAsync(ProductId)).Returns(TaskEx.FromResult(productDto));
-            BasketControllerClient = Stub<IBasketControllerClient>();
-            ProductAddedToBasket = Stub<IProductAddedToBasket>();
+            BasketControllerClient = Mock<IBasketControllerClient>();
+            ProductAddedToBasket = Mock<IProductAddedToBasket>();
             ViewModel = new ProductDetailsViewModel(ProductControllerClient, BasketControllerClient, ProductAddedToBasket);
             await ViewModel.LoadProduct(ProductId);
         }
