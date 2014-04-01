@@ -88,6 +88,9 @@
     <Compile Include="Products\ProductSearchResultViewModels\when_can_execute_select_product_command.cs" />
     <Compile Include="Products\ProductSearchResultViewModels\when_executing_select_product_command.cs" />
     <Compile Include="Products\ProductSearchResultViewModels\when_populating_search_result.cs" />
+    <Compile Include="Products\ProductSearchViewModels\ProductSearchViewModelSetup.cs" />
+    <Compile Include="Products\ProductSearchViewModels\when_can_execute_search_products_command.cs" />
+    <Compile Include="Products\ProductSearchViewModels\when_executing_search_products_command.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
