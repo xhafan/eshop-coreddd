@@ -19,21 +19,23 @@ namespace Eshop.IntegrationTests.Database.Queries
         private Product _productTwo;
         private const string ProductOneName = "product one name";
         private const string ProductTwoName = "product two name";
-        private const int ProductOneCount = 23;
-        private const int ProductTwoCount = 24;
+        private const int ProductOneQuantity = 23;
+        private const int ProductTwoQuantity = 24;
+        private const decimal ProductOnePrice = 45.6m;
+        private const decimal ProductTwoPrice = 56.7m;
 
         protected override void PersistenceContext()
         {
-            _productOne = new ProductObjectMother().NewEntity(ProductOneName);
-            _productTwo = new ProductObjectMother().NewEntity(ProductTwoName);
+            _productOne = new ProductObjectMother().NewEntity(ProductOneName, "product one description", ProductOnePrice);
+            _productTwo = new ProductObjectMother().NewEntity(ProductTwoName, "product two description", ProductTwoPrice);
             _customer = new CustomerObjectMother().NewEntity();
             _customer.BasketItems.AsSet().AddAll(new[]
                                                     {
-                                                        new BasketItemObjectMother().NewEntity(_customer, _productOne, ProductOneCount),
-                                                        new BasketItemObjectMother().NewEntity(_customer, _productTwo, ProductTwoCount),
+                                                        new BasketItemObjectMother().NewEntity(_customer, _productOne, ProductOneQuantity),
+                                                        new BasketItemObjectMother().NewEntity(_customer, _productTwo, ProductTwoQuantity),
                                                     });
             var anotherCustomer = new CustomerObjectMother().NewEntity();
-            anotherCustomer.BasketItems.AsSet().AddAll(new[] { new BasketItemObjectMother().NewEntity(anotherCustomer, _productOne, ProductOneCount) });
+            anotherCustomer.BasketItems.AsSet().AddAll(new[] { new BasketItemObjectMother().NewEntity(anotherCustomer, _productOne, ProductOneQuantity) });
 
             Save(_productOne, _productTwo, _customer, anotherCustomer);
         }
@@ -53,13 +55,15 @@ namespace Eshop.IntegrationTests.Database.Queries
             result.CustomerId.ShouldBe(_customer.Id);
             result.ProductId.ShouldBe(_productOne.Id);
             result.ProductName.ShouldBe(ProductOneName);
-            result.Count.ShouldBe(ProductOneCount);
+            result.ProductPrice.ShouldBe(ProductOnePrice);
+            result.Quantity.ShouldBe(ProductOneQuantity);
             
             result = _results.Last();
             result.CustomerId.ShouldBe(_customer.Id);
             result.ProductId.ShouldBe(_productTwo.Id);
             result.ProductName.ShouldBe(ProductTwoName);
-            result.Count.ShouldBe(ProductTwoCount);
+            result.ProductPrice.ShouldBe(ProductTwoPrice);
+            result.Quantity.ShouldBe(ProductTwoQuantity);
         }
     }
 }

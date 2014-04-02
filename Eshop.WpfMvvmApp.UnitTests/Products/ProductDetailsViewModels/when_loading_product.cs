@@ -7,15 +7,21 @@ namespace Eshop.WpfMvvmApp.UnitTests.Products.ProductDetailsViewModels
     public class when_loading_product : ProductDetailsViewModelWithLoadedProductSetup
     {
         [Test]
-        public void NameIsSet()
+        public void name_is_set()
         {
             ViewModel.Name.ShouldBe(ProductName);
         }
 
         [Test]
-        public void DescriptionIsSet()
+        public void description_is_set()
         {
             ViewModel.Description.ShouldBe(ProductDescription);
+        }
+
+        [Test]
+        public void price_is_set()
+        {
+            ViewModel.Price.ShouldBe(ProductPrice);
         }
     }
 }

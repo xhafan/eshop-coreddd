@@ -26,8 +26,9 @@ namespace Eshop.IntegrationTests.Database
         public void retrieved_product_is_the_same()
         {
             _retrievedProduct.ShouldBe(_product);
-            _retrievedProduct.Name.ShouldBe(ProductObjectMother.ProductName);
-            _retrievedProduct.Description.ShouldBe(ProductObjectMother.ProductDescription);
+            _retrievedProduct.Name.ShouldBe(ProductObjectMother.Name);
+            _retrievedProduct.Description.ShouldBe(ProductObjectMother.Description);
+            _retrievedProduct.Price.ShouldBe(ProductObjectMother.Price);
         }
     }
 }

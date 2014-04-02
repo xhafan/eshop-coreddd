@@ -8,14 +8,23 @@
     mc:Ignorable="d" 
     d:DesignHeight="300" d:DesignWidth="300"
     d:DataContext="{d:DesignInstance products:BasketViewModel}">
-    <Grid>
-        <ItemsControl
-            ItemsSource="{Binding BasketItems}">
-            <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                    <TextBlock Text="{Binding ProductName}"/>
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ItemsControl>
-    </Grid>
+    <DockPanel>
+        <Label DockPanel.Dock="Top">Shopping Basket</Label>
+        <ListView 
+            ItemsSource="{Binding BasketItems}"
+            >
+            <ListView.View>
+                <GridView>
+                    <GridView.ColumnHeaderContainerStyle>
+                        <Style TargetType="{x:Type GridViewColumnHeader}">
+                            <Setter Property="Visibility" Value="Collapsed" />
+                        </Style>
+                    </GridView.ColumnHeaderContainerStyle>
+                    <GridViewColumn DisplayMemberBinding="{Binding ProductName}"/>
+                    <GridViewColumn Header="Price" DisplayMemberBinding="{Binding ProductPrice, StringFormat=c}"/>
+                    <GridViewColumn Header="Quantity" DisplayMemberBinding="{Binding Quantity}"/>
+                </GridView>
+            </ListView.View>           
+        </ListView>
+    </DockPanel>
 </UserControl>

@@ -59,6 +59,7 @@ alter table [OrderItem]  drop constraint FK_OrderItem_Product
         Id INT not null,
        Name NVARCHAR(MAX) not null,
        Description NVARCHAR(MAX) not null,
+       Price DECIMAL(19,5) not null,
        primary key (Id)
     )
 
