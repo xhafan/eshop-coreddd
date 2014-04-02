@@ -8,6 +8,7 @@ select
     Id
     , Name
     , [Description]
+    , Price
 from Product
 
 go

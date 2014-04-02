@@ -14,12 +14,10 @@ namespace Eshop.IntegrationTests.Database.Queries
     {
         private IEnumerable<ProductDto> _results;
         private Product _product;
-        private const string ProductName = "product name";
-        private const string ProductDescription = "product name";
 
         protected override void PersistenceContext()
         {
-            _product = new ProductObjectMother().NewEntity(ProductName, ProductDescription);
+            _product = new ProductObjectMother().NewEntity();
             Save(_product);
         }
 
@@ -35,8 +33,9 @@ namespace Eshop.IntegrationTests.Database.Queries
             _results.Count().ShouldBe(1);
             var dto = _results.First();
             dto.Id.ShouldBe(_product.Id);
-            dto.Name.ShouldBe(ProductName);
-            dto.Description.ShouldBe(ProductDescription);
+            dto.Name.ShouldBe(ProductObjectMother.Name);
+            dto.Description.ShouldBe(ProductObjectMother.Description);
+            dto.Price.ShouldBe(ProductObjectMother.Price);
         }
     }
 }

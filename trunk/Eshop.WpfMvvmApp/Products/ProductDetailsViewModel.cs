@@ -32,6 +32,7 @@ namespace Eshop.WpfMvvmApp.Products
 
         public string Name { get; private set; }
         public string Description { get; private set; }
+        public decimal Price { get; private set; }
         
         public int Quantity { get; set; }
 
@@ -42,6 +43,7 @@ namespace Eshop.WpfMvvmApp.Products
             var productDetails = await _productControllerClient.GetProductAsync(productId);
             Name = productDetails.Name;
             Description = productDetails.Description;
+            Price = productDetails.Price;
         }
 
         private bool _canAddProductToBasketExecute(int quantity)

@@ -14,6 +14,7 @@ namespace Eshop.WpfMvvmApp.UnitTests.Products.ProductDetailsViewModels
         protected const int Quantity = 34;
         protected const string ProductName = "product name";
         protected const string ProductDescription = "product description";
+        protected const decimal ProductPrice = 45.6m;
         protected IBasketControllerClient BasketControllerClient;
         protected IProductControllerClient ProductControllerClient;
         protected IProductAddedToBasket ProductAddedToBasket;
@@ -26,12 +27,14 @@ namespace Eshop.WpfMvvmApp.UnitTests.Products.ProductDetailsViewModels
                 {
                     Id = ProductId,
                     Name = ProductName,
-                    Description = ProductDescription
+                    Description = ProductDescription,
+                    Price = ProductPrice
                 };
             ProductControllerClient = Stub<IProductControllerClient>().Stubs(x => x.GetProductAsync(ProductId)).Returns(TaskEx.FromResult(productDto));
             BasketControllerClient = Mock<IBasketControllerClient>();
             ProductAddedToBasket = Mock<IProductAddedToBasket>();
             ViewModel = new ProductDetailsViewModel(ProductControllerClient, BasketControllerClient, ProductAddedToBasket);
+            
             await ViewModel.LoadProduct(ProductId);
         }
     }

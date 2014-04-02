@@ -10,11 +10,12 @@ namespace Eshop.Domain.UnitTests.Products
         private Product _product;
         private const string ProductName = "product name";
         private const string ProductDescription = "product description";
+        private const decimal Price = 23.4m;
 
         [SetUp]
         public void Context()
         {
-            _product = new Product(ProductName, ProductDescription);
+            _product = new Product(ProductName, ProductDescription, Price);
         }
 
         [Test]
@@ -28,5 +29,11 @@ namespace Eshop.Domain.UnitTests.Products
         {
             _product.Description.ShouldBe(ProductDescription);
         }
+
+        [Test]
+        public void price_is_set()
+        {
+            _product.Price.ShouldBe(Price);
+        }    
     }
 }

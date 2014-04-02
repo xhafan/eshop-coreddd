@@ -12,6 +12,7 @@ namespace Eshop.WpfMvvmApp.UnitTests.Products.BasketItemViewModels
         private const int ProductId = 23;
         private const string ProductName = "product name";
         private const int Quantity = 34;
+        private const decimal ProductPrice = 45.6m;
         private BasketItemViewModel _viewModel;
 
         [SetUp]
@@ -21,7 +22,8 @@ namespace Eshop.WpfMvvmApp.UnitTests.Products.BasketItemViewModels
                 {
                     ProductId = ProductId,
                     ProductName = ProductName,
-                    Count = Quantity
+                    ProductPrice = ProductPrice,
+                    Quantity = Quantity
                 };
 
             _viewModel = new BasketItemViewModel(basketItemDto);
@@ -37,6 +39,12 @@ namespace Eshop.WpfMvvmApp.UnitTests.Products.BasketItemViewModels
         public void product_name_is_correct()
         {
             _viewModel.ProductName.ShouldBe(ProductName);
+        }
+
+        [Test]
+        public void price_is_correct()
+        {
+            _viewModel.ProductPrice.ShouldBe(ProductPrice);
         }
 
         [Test]
