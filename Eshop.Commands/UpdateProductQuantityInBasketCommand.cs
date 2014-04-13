@@ -2,7 +2,7 @@ using CoreDdd.Commands;
 
 namespace Eshop.Commands
 {
-    public class UpdateProductCountInBasketCommand : ICommand
+    public class UpdateProductQuantityInBasketCommand : ICommand
     {
         public int CustomerId { get; set; }
         public int ProductId { get; set; }

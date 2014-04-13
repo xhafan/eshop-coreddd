@@ -78,7 +78,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main\MainViewModels\when_constructing.cs" />
+    <Compile Include="Products\BasketItemViewModels\BasketItemViewModelSetup.cs" />
+    <Compile Include="Products\BasketItemViewModels\when_can_update_quantity.cs" />
     <Compile Include="Products\BasketItemViewModels\when_constructing.cs" />
+    <Compile Include="Products\BasketViewModels\BasketViewModelSetup.cs" />
+    <Compile Include="Products\BasketViewModels\BasketViewModelWithLoadedBasketItemsSetup.cs" />
+    <Compile Include="Products\BasketViewModels\when_can_execute_update_product_quantity_command.cs" />
+    <Compile Include="Products\BasketViewModels\when_executing_update_product_quantity_command.cs" />
     <Compile Include="Products\BasketViewModels\when_loading_basket_items.cs" />
     <Compile Include="Products\ProductDetailsViewModels\ProductDetailsViewModelWithLoadedProductSetup.cs" />
     <Compile Include="Products\ProductDetailsViewModels\when_can_execute_add_to_basket_command.cs" />

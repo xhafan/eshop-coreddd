@@ -8,23 +8,89 @@
     mc:Ignorable="d" 
     d:DesignHeight="300" d:DesignWidth="300"
     d:DataContext="{d:DesignInstance products:BasketViewModel}">
-    <DockPanel>
+    <DockPanel Grid.IsSharedSizeScope="True">
         <Label DockPanel.Dock="Top">Shopping Basket</Label>
-        <ListView 
+        <Grid DockPanel.Dock="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition SharedSizeGroup="ColumnTwo" />
+                <ColumnDefinition SharedSizeGroup="ColumnThree" />
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="Price" Grid.Column="1"/>
+            <TextBlock Text="Quantity" Grid.Column="2"/>
+        </Grid>
+        <ItemsControl 
+            DockPanel.Dock="Top"
             ItemsSource="{Binding BasketItems}"
             >
-            <ListView.View>
-                <GridView>
-                    <GridView.ColumnHeaderContainerStyle>
-                        <Style TargetType="{x:Type GridViewColumnHeader}">
-                            <Setter Property="Visibility" Value="Collapsed" />
-                        </Style>
-                    </GridView.ColumnHeaderContainerStyle>
-                    <GridViewColumn DisplayMemberBinding="{Binding ProductName}"/>
-                    <GridViewColumn Header="Price" DisplayMemberBinding="{Binding ProductPrice, StringFormat=c}"/>
-                    <GridViewColumn Header="Quantity" DisplayMemberBinding="{Binding Quantity}"/>
-                </GridView>
-            </ListView.View>           
-        </ListView>
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition SharedSizeGroup="ColumnTwo" />
+                            <ColumnDefinition SharedSizeGroup="ColumnThree" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <TextBlock 
+                            Grid.Column="0" 
+                            Grid.Row="0" 
+                            Text="{Binding ProductName}" 
+                            VerticalAlignment="Center"/>
+                        <TextBlock 
+                            Grid.Column="1" 
+                            Grid.Row="0" 
+                            Text="{Binding ProductPrice, StringFormat=c}" 
+                            HorizontalAlignment="Center" 
+                            VerticalAlignment="Center" 
+                            />
+                        <TextBox 
+                            Grid.Column="2"
+                            Grid.Row="0"
+                            Text="{Binding UpdatedQuantity, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                            HorizontalAlignment="Center" 
+                            VerticalAlignment="Center" 
+                            Width="32" 
+                            TextAlignment="Center" 
+                            />
+                        <TextBlock
+                            Grid.Column="2"
+                            Grid.Row="1"
+                            >
+                            <TextBlock.Style>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="Visibility" Value="Hidden"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding CanUpdateQuantity}" Value="True">
+                                            <Setter Property="Visibility" Value="Visible" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBlock.Style>
+                            <Hyperlink 
+                                Command="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ItemsControl}}, Path=DataContext.UpdateProductQuantityCommand}" 
+                                CommandParameter="{Binding ProductId}"
+                                TextDecorations="Underline"
+                                >
+                                Update
+                            </Hyperlink>
+                        </TextBlock>                        
+                    </Grid>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+            <TextBlock Text="Subtotal:"/>
+            <TextBlock Text="{Binding Subtotal, StringFormat=c}"/>
+        </StackPanel>
     </DockPanel>
 </UserControl>
