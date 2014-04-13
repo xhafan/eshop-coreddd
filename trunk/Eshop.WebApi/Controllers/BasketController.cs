@@ -42,5 +42,9 @@ namespace Eshop.WebApi.Controllers
             var productDtos = _queryExecutor.Execute<BasketItemsQuery, BasketItemDto>(new BasketItemsQuery { CustomerId = SessionContext.CustomerId });
             return productDtos.ToArray();
         }
+
+        public void UpdateProductQuantity([FromBody]int productId, int quantity)
+        {           
+        }
     }
 }

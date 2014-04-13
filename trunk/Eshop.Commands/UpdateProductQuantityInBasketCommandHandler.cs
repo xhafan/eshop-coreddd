@@ -4,12 +4,12 @@ using Eshop.Domain;
 
 namespace Eshop.Commands
 {
-    public class UpdateProductCountInBasketCommandHandler : BaseCommandHandler<UpdateProductCountInBasketCommand>
+    public class UpdateProductQuantityInBasketCommandHandler : BaseCommandHandler<UpdateProductQuantityInBasketCommand>
     {
         private readonly IRepository<Customer> _customerRepository;
         private readonly IRepository<Product> _productRepository;
 
-        public UpdateProductCountInBasketCommandHandler(
+        public UpdateProductQuantityInBasketCommandHandler(
             IRepository<Customer> customerRepository,
             IRepository<Product> productRepository)
         {
@@ -17,7 +17,7 @@ namespace Eshop.Commands
             _productRepository = productRepository;
         }
 
-        public override void Execute(UpdateProductCountInBasketCommand command)
+        public override void Execute(UpdateProductQuantityInBasketCommand command)
         {
             var customer = _customerRepository.GetById(command.CustomerId);
             var product = _productRepository.Load(command.ProductId);

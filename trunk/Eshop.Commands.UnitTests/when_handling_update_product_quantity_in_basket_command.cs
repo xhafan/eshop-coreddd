@@ -7,7 +7,7 @@ using Rhino.Mocks;
 namespace Eshop.Commands.UnitTests
 {
     [TestFixture]
-    public class when_handling_update_product_count_in_basket_command : BaseTest
+    public class when_handling_update_product_quantity_in_basket_command : BaseTest
     {
         private const int NewCount = 34;
         private Customer _customer;
@@ -22,9 +22,9 @@ namespace Eshop.Commands.UnitTests
             const int productId = 23;
             _product = Stub<Product>();
             var productRepository = Stub<IRepository<Product>>().Stubs(x => x.Load(productId)).Returns(_product);
-            var handler = new UpdateProductCountInBasketCommandHandler(customerRepository, productRepository);
+            var handler = new UpdateProductQuantityInBasketCommandHandler(customerRepository, productRepository);
 
-            handler.Execute(new UpdateProductCountInBasketCommand
+            handler.Execute(new UpdateProductQuantityInBasketCommand
                                 {
                                     CustomerId = customerId,
                                     ProductId = productId,
@@ -33,7 +33,7 @@ namespace Eshop.Commands.UnitTests
         }
 
         [Test]
-        public void update_product_count_in_basket_is_called_on_customer()
+        public void update_product_quantity_in_basket_is_called_on_customer()
         {
             _customer.AssertWasCalled(x => x.UpdateProductCountInBasket(_product, NewCount));
         }
