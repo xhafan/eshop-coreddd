@@ -81,7 +81,7 @@
                                 CommandParameter="{Binding ProductId}"
                                 TextDecorations="Underline"
                                 >
-                                Update
+                                <Run Text="{Binding UpdateAction, Mode=OneWay}" />
                             </Hyperlink>
                         </TextBlock>                        
                     </Grid>

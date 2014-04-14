@@ -44,7 +44,13 @@ namespace Eshop.WebApi.Controllers
         }
 
         public void UpdateProductQuantity([FromBody]int productId, int quantity)
-        {           
+        {
+            _commandExecutor.Execute(new UpdateProductQuantityInBasketCommand
+                {
+                    CustomerId = SessionContext.CustomerId,
+                    ProductId = productId,
+                    Quantity = quantity
+                });
         }
     }
 }

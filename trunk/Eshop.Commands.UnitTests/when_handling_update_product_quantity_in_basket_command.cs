@@ -21,14 +21,14 @@ namespace Eshop.Commands.UnitTests
             var customerRepository = Stub<IRepository<Customer>>().Stubs(x => x.GetById(customerId)).Returns(_customer);
             const int productId = 23;
             _product = Stub<Product>();
-            var productRepository = Stub<IRepository<Product>>().Stubs(x => x.Load(productId)).Returns(_product);
+            var productRepository = Stub<IRepository<Product>>().Stubs(x => x.GetById(productId)).Returns(_product);
             var handler = new UpdateProductQuantityInBasketCommandHandler(customerRepository, productRepository);
 
             handler.Execute(new UpdateProductQuantityInBasketCommand
                                 {
                                     CustomerId = customerId,
                                     ProductId = productId,
-                                    NewCount = NewCount
+                                    Quantity = NewCount
                                 });
         }
 
