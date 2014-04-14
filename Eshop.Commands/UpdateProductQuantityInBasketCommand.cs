@@ -6,6 +6,6 @@ namespace Eshop.Commands
     {
         public int CustomerId { get; set; }
         public int ProductId { get; set; }
-        public int NewCount { get; set; }
+        public int Quantity { get; set; }
     }
 }

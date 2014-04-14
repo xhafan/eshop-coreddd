@@ -8,10 +8,10 @@ using Shouldly;
 namespace Eshop.WpfMvvmApp.UnitTests.Products.BasketViewModels
 {
     [TestFixture]
-    public class when_executing_update_product_quantity_command : BasketViewModelWithLoadedBasketItemsSetup
+    public class when_executing_update_product_quantity_command_with_quantity_set_to_zero : BasketViewModelWithLoadedBasketItemsSetup
     {
         private BasketItemViewModel _basketItem;
-        private const int UpdatedQuantity = 67;
+        private const int UpdatedQuantity = 0;
 
         [SetUp]
         public override void Context()
@@ -31,9 +31,9 @@ namespace Eshop.WpfMvvmApp.UnitTests.Products.BasketViewModels
         }
 
         [Test]
-        public void product_quantity_is_updated()
+        public void product_is_removed()
         {
-            _basketItem.Quantity.ShouldBe(UpdatedQuantity);
+            ViewModel.BasketItems.ShouldNotContain(_basketItem);
         }
     }
 }

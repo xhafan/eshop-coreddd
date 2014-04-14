@@ -38,8 +38,16 @@ namespace Eshop.WpfMvvmApp.Products
 
         private async Task _updateProductQuantity(int productId)
         {
-            var updatedQuantity = _basketItems.First(x => x.ProductId == productId).UpdatedQuantity;
-            await _basketControllerClient.UpdateProductQuantityAsync(productId, updatedQuantity);
+            var basketItem = _basketItems.First(x => x.ProductId == productId);
+            await _basketControllerClient.UpdateProductQuantityAsync(productId, basketItem.UpdatedQuantity);
+            if (basketItem.UpdatedQuantity == 0)
+            {
+                _basketItems.Remove(basketItem);
+            }
+            else
+            {
+                basketItem.UpdateQuantity();
+            }
         }
     }
 }

@@ -20,9 +20,9 @@ namespace Eshop.Commands
         public override void Execute(UpdateProductQuantityInBasketCommand command)
         {
             var customer = _customerRepository.GetById(command.CustomerId);
-            var product = _productRepository.Load(command.ProductId);
+            var product = _productRepository.GetById(command.ProductId);
 
-            customer.UpdateProductCountInBasket(product, command.NewCount);
+            customer.UpdateProductCountInBasket(product, command.Quantity);
         }
     }
 }
