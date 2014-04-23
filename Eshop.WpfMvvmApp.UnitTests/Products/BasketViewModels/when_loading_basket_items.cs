@@ -10,8 +10,15 @@ namespace Eshop.WpfMvvmApp.UnitTests.Products.BasketViewModels
         [Test]
         public void basket_items_are_loaded()
         {
-            ViewModel.BasketItems.Count.ShouldBe(1);
-            ViewModel.BasketItems.First().ProductId.ShouldBe(ProductId);
+            ViewModel.BasketItems.Count.ShouldBe(2);
+            ViewModel.BasketItems.First().ProductId.ShouldBe(ProductOneId);
+            ViewModel.BasketItems.ElementAt(1).ProductId.ShouldBe(ProductTwoId);
+        }
+
+        [Test]
+        public void subtotal_is_refreshed()
+        {
+            ViewModel.Subtotal.ShouldBe(264.6m);
         }
     }
 }

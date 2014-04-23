@@ -13,6 +13,7 @@ namespace Eshop.WpfMvvmApp.Products
         private readonly IBasketControllerClient _basketControllerClient;
         private readonly ObservableCollection<BasketItemViewModel> _basketItems = new ObservableCollection<BasketItemViewModel>();
         private readonly RelayCommandAsync<int> _updateProductQuantityCommand;
+
         protected BasketViewModel() {}
 
         public BasketViewModel(IBasketControllerClient basketControllerClient)
@@ -22,14 +23,32 @@ namespace Eshop.WpfMvvmApp.Products
         }
        
         public ObservableCollection<BasketItemViewModel> BasketItems { get { return _basketItems; } }
-        public decimal Subtotal { get { return 23.45m; } }
+        public decimal Subtotal { get; private set; }
         public ICommand UpdateProductQuantityCommand { get { return _updateProductQuantityCommand; } }
+
         public virtual async Task LoadBasketItems()
         {
             var basketItemDtos = await _basketControllerClient.GetBasketItemsAsync();
             _basketItems.Clear();
-            basketItemDtos.Each(x => _basketItems.Add(new BasketItemViewModel(x)));
+            basketItemDtos.Each(x =>
+            {
+                var basketItem = new BasketItemViewModel(x);
+                basketItem.PropertyChanged += (sender, args) =>
+                {
+                    if (args.PropertyName == "Quantity")
+                    {
+                        _updateSubtotal();
+                    }
+                };
+                _basketItems.Add(basketItem);
+            });
+            _updateSubtotal();
         }
+
+        private void _updateSubtotal()
+        {
+            Subtotal = _basketItems.Sum(x => x.Quantity * x.ProductPrice);
+        } 
 
         private bool _canUpdateProductQuantityExecute(int productId)
         {
@@ -40,13 +59,10 @@ namespace Eshop.WpfMvvmApp.Products
         {
             var basketItem = _basketItems.First(x => x.ProductId == productId);
             await _basketControllerClient.UpdateProductQuantityAsync(productId, basketItem.UpdatedQuantity);
-            if (basketItem.UpdatedQuantity == 0)
+            basketItem.UpdateQuantity();
+            if (basketItem.Quantity == 0)
             {
                 _basketItems.Remove(basketItem);
-            }
-            else
-            {
-                basketItem.UpdateQuantity();
             }
         }
     }

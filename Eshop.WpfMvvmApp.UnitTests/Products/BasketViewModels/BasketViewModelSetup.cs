@@ -7,7 +7,8 @@ namespace Eshop.WpfMvvmApp.UnitTests.Products.BasketViewModels
 {
     public abstract class BasketViewModelSetup : BaseTest
     {
-        protected const int ProductId = 23;
+        protected const int ProductOneId = 23;
+        protected const int ProductTwoId = 24;
         protected BasketViewModel ViewModel;
         protected IBasketControllerClient BasketControllerClient;
 
