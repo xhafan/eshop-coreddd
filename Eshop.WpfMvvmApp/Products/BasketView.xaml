@@ -5,6 +5,8 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:products="clr-namespace:Eshop.WpfMvvmApp.Products"
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+    xmlns:behaviours="clr-namespace:Eshop.WpfMvvmApp.Behaviours"
     mc:Ignorable="d" 
     d:DesignHeight="300" d:DesignWidth="300"
     d:DataContext="{d:DesignInstance products:BasketViewModel}">
@@ -61,7 +63,11 @@
                             VerticalAlignment="Center" 
                             Width="32" 
                             TextAlignment="Center" 
-                            />
+                            >
+                            <i:Interaction.Behaviors>
+                                <behaviours:PositiveNumbersTextBoxBehavior />
+                            </i:Interaction.Behaviors>
+                        </TextBox>
                         <TextBlock
                             Grid.Column="2"
                             Grid.Row="1"
