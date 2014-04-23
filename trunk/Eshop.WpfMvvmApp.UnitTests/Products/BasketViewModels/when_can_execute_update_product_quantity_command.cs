@@ -13,7 +13,7 @@ namespace Eshop.WpfMvvmApp.UnitTests.Products.BasketViewModels
         {
             base.Context();
 
-            _canExecute = ViewModel.UpdateProductQuantityCommand.CanExecute(ProductId);
+            _canExecute = ViewModel.UpdateProductQuantityCommand.CanExecute(ProductOneId);
         }
 
         [Test]

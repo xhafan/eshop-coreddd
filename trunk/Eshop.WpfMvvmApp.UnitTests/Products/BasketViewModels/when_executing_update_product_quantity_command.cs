@@ -17,11 +17,11 @@ namespace Eshop.WpfMvvmApp.UnitTests.Products.BasketViewModels
         public override void Context()
         {
             base.Context();
-            _basketItem = ViewModel.BasketItems.First(x => x.ProductId == ProductId);
+            _basketItem = ViewModel.BasketItems.First(x => x.ProductId == ProductOneId);
             _basketItem.UpdatedQuantity = UpdatedQuantity;
-            BasketControllerClient.Expect(x => x.UpdateProductQuantityAsync(ProductId, UpdatedQuantity)).Return(TaskEx.FromResult(0));
+            BasketControllerClient.Expect(x => x.UpdateProductQuantityAsync(ProductOneId, UpdatedQuantity)).Return(TaskEx.FromResult(0));
             
-            ViewModel.UpdateProductQuantityCommand.Execute(ProductId);
+            ViewModel.UpdateProductQuantityCommand.Execute(ProductOneId);
         }
 
         [Test]
