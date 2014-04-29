@@ -84,7 +84,9 @@
     <Compile Include="Products\BasketItemViewModels\when_getting_update_action.cs" />
     <Compile Include="Products\BasketViewModels\BasketViewModelSetup.cs" />
     <Compile Include="Products\BasketViewModels\BasketViewModelWithLoadedBasketItemsSetup.cs" />
+    <Compile Include="Products\BasketViewModels\when_can_execute_proceed_to_checkout_command.cs" />
     <Compile Include="Products\BasketViewModels\when_can_execute_update_product_quantity_command.cs" />
+    <Compile Include="Products\BasketViewModels\when_executing_proceed_to_checkout_command.cs" />
     <Compile Include="Products\BasketViewModels\when_executing_update_product_quantity_command.cs" />
     <Compile Include="Products\BasketViewModels\when_executing_update_product_quantity_command_with_quantity_set_to_zero.cs" />
     <Compile Include="Products\BasketViewModels\when_loading_basket_items.cs" />
@@ -102,6 +104,7 @@
     <Compile Include="Products\ProductSearchViewModels\when_executing_search_products_command.cs" />
     <Compile Include="Products\ProductsViewModels\ProductsViewModelSetup.cs" />
     <Compile Include="Products\ProductsViewModels\when_getting_product_search_view_model.cs" />
+    <Compile Include="Products\ProductsViewModels\when_proceeded_to_checkout.cs" />
     <Compile Include="Products\ProductsViewModels\when_product_is_added_to_basket.cs" />
     <Compile Include="Products\ProductsViewModels\when_product_is_searched.cs" />
     <Compile Include="Products\ProductsViewModels\when_product_is_selected.cs" />

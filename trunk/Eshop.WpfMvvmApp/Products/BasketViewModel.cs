@@ -11,20 +11,25 @@ namespace Eshop.WpfMvvmApp.Products
     public class BasketViewModel : BaseViewModel
     {
         private readonly IBasketControllerClient _basketControllerClient;
+        private readonly IOnProceedingToCheckout _onProceedingToCheckout;
         private readonly ObservableCollection<BasketItemViewModel> _basketItems = new ObservableCollection<BasketItemViewModel>();
         private readonly RelayCommandAsync<int> _updateProductQuantityCommand;
+        private readonly RelayCommandAsync<object> _proceedToCheckoutCommand;
 
         protected BasketViewModel() {}
 
-        public BasketViewModel(IBasketControllerClient basketControllerClient)
+        public BasketViewModel(IBasketControllerClient basketControllerClient, IOnProceedingToCheckout onProceedingToCheckout)
         {
             _basketControllerClient = basketControllerClient;
-            _updateProductQuantityCommand = new RelayCommandAsync<int>(async x => await _updateProductQuantity(x), _canUpdateProductQuantityExecute);
+            _onProceedingToCheckout = onProceedingToCheckout;
+            _updateProductQuantityCommand = new RelayCommandAsync<int>(async x => await _updateProductQuantity(x), x => true);
+            _proceedToCheckoutCommand = new RelayCommandAsync<object>(async x => await _proceedToCheckout(), x => true);
         }
        
         public ObservableCollection<BasketItemViewModel> BasketItems { get { return _basketItems; } }
         public decimal Subtotal { get; private set; }
         public ICommand UpdateProductQuantityCommand { get { return _updateProductQuantityCommand; } }
+        public ICommand ProceedToCheckoutCommand { get { return _proceedToCheckoutCommand; } }
 
         public virtual async Task LoadBasketItems()
         {
@@ -48,11 +53,6 @@ namespace Eshop.WpfMvvmApp.Products
         private void _updateSubtotal()
         {
             Subtotal = _basketItems.Sum(x => x.Quantity * x.ProductPrice);
-        } 
-
-        private bool _canUpdateProductQuantityExecute(int productId)
-        {
-            return true;
         }
 
         private async Task _updateProductQuantity(int productId)
@@ -64,6 +64,11 @@ namespace Eshop.WpfMvvmApp.Products
             {
                 _basketItems.Remove(basketItem);
             }
+        }
+
+        private async Task _proceedToCheckout()
+        {
+            await _onProceedingToCheckout.ProceededToCheckout();
         }
     }
 }

@@ -5,12 +5,18 @@ using Eshop.Dtos;
 
 namespace Eshop.WpfMvvmApp.Products
 {
-    public class ProductsViewModel : BaseViewModel, IProductSearched, IProductSelected, IProductAddedToBasket
+    public class ProductsViewModel : 
+        BaseViewModel, 
+        IProductSearched, 
+        IProductSelected, 
+        IProductAddedToBasket,
+        IOnProceedingToCheckout
     {
         private readonly ProductSearchViewModel _productSearch;
         private readonly ProductSearchResultViewModel _productSearchResult;
         private readonly ProductDetailsViewModel _productDetails;
         private readonly BasketViewModel _basket;
+        private readonly ReviewOrderViewModel _reviewOrder;
 
         protected ProductsViewModel() {}
 
@@ -18,13 +24,15 @@ namespace Eshop.WpfMvvmApp.Products
             IProductSearchViewModelFactory productSearchFactory,
             IProductSearchResultViewModelFactory productSearchResultFactory,
             IProductDetailsViewModelFactory productDetailsFactory,
-            BasketViewModel basket
+            IBasketViewModelFactory basketViewModelFactory,
+            IReviewOrderViewModelFactory reviewOrderViewModelFactory
             )
         {
             _productSearch = productSearchFactory.Create(this);
             _productSearchResult = productSearchResultFactory.Create(this);
             _productDetails = productDetailsFactory.Create(this);
-            _basket = basket;
+            _basket = basketViewModelFactory.Create(this);
+            _reviewOrder = reviewOrderViewModelFactory.Create();
         }
 
         public ProductSearchViewModel ProductSearch { get { return _productSearch; } }
@@ -46,6 +54,12 @@ namespace Eshop.WpfMvvmApp.Products
         {
             await _basket.LoadBasketItems();
             CurrentViewModel = _basket;
+        }
+
+        public async Task ProceededToCheckout()
+        {
+            await _reviewOrder.LoadBasketItems();
+            CurrentViewModel = _reviewOrder;
         }
     }
 }

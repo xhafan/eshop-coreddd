@@ -11,12 +11,14 @@ namespace Eshop.WpfMvvmApp.UnitTests.Products.BasketViewModels
         protected const int ProductTwoId = 24;
         protected BasketViewModel ViewModel;
         protected IBasketControllerClient BasketControllerClient;
+        protected IOnProceedingToCheckout OnProceedingToCheckout;
 
         [SetUp]
         public virtual void Context()
         {
             BasketControllerClient = Mock<IBasketControllerClient>();
-            ViewModel = new BasketViewModel(BasketControllerClient);
+            OnProceedingToCheckout = Mock<IOnProceedingToCheckout>();
+            ViewModel = new BasketViewModel(BasketControllerClient, OnProceedingToCheckout);
         }
     }
 }

@@ -17,7 +17,9 @@ namespace Eshop.WpfMvvmApp
                        .Configure(x => x.LifestyleTransient()),
                 Component.For<IProductSearchViewModelFactory>().AsFactory(),
                 Component.For<IProductSearchResultViewModelFactory>().AsFactory(),
-                Component.For<IProductDetailsViewModelFactory>().AsFactory()
+                Component.For<IProductDetailsViewModelFactory>().AsFactory(),
+                Component.For<IBasketViewModelFactory>().AsFactory(),
+                Component.For<IReviewOrderViewModelFactory>().AsFactory()
                 );
         }
     }
