@@ -23,6 +23,9 @@
         <DataTemplate DataType="{x:Type products:BasketViewModel}">
             <products:BasketView />
         </DataTemplate>
+        <DataTemplate DataType="{x:Type products:ReviewOrderViewModel}">
+            <products:ReviewOrderView />
+        </DataTemplate>        
 
         <Style TargetType="TextBlock" x:Key="HoverUnderlineStyle">
             <Style.Triggers>

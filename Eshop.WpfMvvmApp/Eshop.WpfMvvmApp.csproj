@@ -115,12 +115,15 @@
       <DependentUpon>BasketView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Products\BasketViewModel.cs" />
+    <Compile Include="Products\IBasketViewModelFactory.cs" />
+    <Compile Include="Products\IOnProceedingToCheckout.cs" />
     <Compile Include="Products\IProductAddedToBasket.cs" />
     <Compile Include="Products\IProductDetailsViewModelFactory.cs" />
     <Compile Include="Products\IProductSearched.cs" />
     <Compile Include="Products\IProductSearchResultViewModelFactory.cs" />
     <Compile Include="Products\IProductSearchViewModelFactory.cs" />
     <Compile Include="Products\IProductSelected.cs" />
+    <Compile Include="Products\IReviewOrderViewModelFactory.cs" />
     <Compile Include="Products\ProductDetailsView.xaml.cs">
       <DependentUpon>ProductDetailsView.xaml</DependentUpon>
     </Compile>
@@ -172,9 +175,17 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Products\ReviewOrderView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main\MainViewModel.cs" />
+    <Compile Include="Products\ReviewOrderView.xaml.cs">
+      <DependentUpon>ReviewOrderView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Products\ReviewOrderViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

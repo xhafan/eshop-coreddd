@@ -6,16 +6,16 @@ namespace Eshop.WpfMvvmApp
     {
         protected override void OnStartup(StartupEventArgs e)
         {
+            DispatcherUnhandledException += (sender, args) =>
+            {
+                args.Handled = true;
+
+                MessageBox.Show(args.Exception.ToString(), "Error");
+            };
+
             base.OnStartup(e);
 
-            Bootstrapper.Run();
-
-            Current.DispatcherUnhandledException += (sender, args) =>
-                {
-                    args.Handled = true;
-
-                    MessageBox.Show(args.Exception.ToString(), "Error");
-                };
+            Bootstrapper.Run();            
         }
     }
 }
