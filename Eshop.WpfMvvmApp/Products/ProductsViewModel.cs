@@ -10,7 +10,8 @@ namespace Eshop.WpfMvvmApp.Products
         IProductSearched, 
         IProductSelected, 
         IProductAddedToBasket,
-        IOnProceedingToCheckout
+        IOnProceedingToCheckout,
+        IOnPlacingOrder
     {
         private readonly ProductSearchViewModel _productSearch;
         private readonly ProductSearchResultViewModel _productSearchResult;
@@ -32,7 +33,7 @@ namespace Eshop.WpfMvvmApp.Products
             _productSearchResult = productSearchResultFactory.Create(this);
             _productDetails = productDetailsFactory.Create(this);
             _basket = basketViewModelFactory.Create(this);
-            _reviewOrder = reviewOrderViewModelFactory.Create();
+            _reviewOrder = reviewOrderViewModelFactory.Create(this);
         }
 
         public ProductSearchViewModel ProductSearch { get { return _productSearch; } }
@@ -60,6 +61,10 @@ namespace Eshop.WpfMvvmApp.Products
         {
             await _reviewOrder.LoadBasketItems();
             CurrentViewModel = _reviewOrder;
+        }
+
+        public async Task OrderPlaced()
+        {
         }
     }
 }

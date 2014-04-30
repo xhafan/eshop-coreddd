@@ -116,6 +116,7 @@
     </Compile>
     <Compile Include="Products\BasketViewModel.cs" />
     <Compile Include="Products\IBasketViewModelFactory.cs" />
+    <Compile Include="Products\IOnPlacingOrder.cs" />
     <Compile Include="Products\IOnProceedingToCheckout.cs" />
     <Compile Include="Products\IProductAddedToBasket.cs" />
     <Compile Include="Products\IProductDetailsViewModelFactory.cs" />

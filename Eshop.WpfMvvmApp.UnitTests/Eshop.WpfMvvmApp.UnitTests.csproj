@@ -108,6 +108,10 @@
     <Compile Include="Products\ProductsViewModels\when_product_is_added_to_basket.cs" />
     <Compile Include="Products\ProductsViewModels\when_product_is_searched.cs" />
     <Compile Include="Products\ProductsViewModels\when_product_is_selected.cs" />
+    <Compile Include="Products\ReviewOrderViewModels\BasketViewModelSetup.cs" />
+    <Compile Include="Products\ReviewOrderViewModels\BasketViewModelWithLoadedBasketItemsSetup.cs" />
+    <Compile Include="Products\ReviewOrderViewModels\when_executing_place_order_command.cs" />
+    <Compile Include="Products\ReviewOrderViewModels\when_loading_basket_items.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
