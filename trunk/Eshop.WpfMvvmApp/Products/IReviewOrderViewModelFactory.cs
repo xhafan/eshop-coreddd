@@ -2,6 +2,6 @@
 {
     public interface IReviewOrderViewModelFactory
     {
-        ReviewOrderViewModel Create();
+        ReviewOrderViewModel Create(IOnPlacingOrder onPlacingOrder);
     }
 }

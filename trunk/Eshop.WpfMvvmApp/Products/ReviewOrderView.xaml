@@ -8,7 +8,79 @@
     mc:Ignorable="d" 
     d:DesignHeight="300" d:DesignWidth="300"
     d:DataContext="{d:DesignInstance products:ReviewOrderViewModel}">
-    <DockPanel>
-        <TextBlock Text="Review Order"/>
+    <DockPanel 
+        Grid.IsSharedSizeScope="True"
+        VerticalAlignment="Top"
+        >
+        <Label DockPanel.Dock="Top">Review Your Order</Label>
+        <Grid DockPanel.Dock="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition SharedSizeGroup="ColumnTwo" />
+                <ColumnDefinition SharedSizeGroup="ColumnThree" />
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="Price" Grid.Column="1"/>
+            <TextBlock Text="Quantity" Grid.Column="2"/>
+        </Grid>
+        <ItemsControl 
+            DockPanel.Dock="Top"
+            ItemsSource="{Binding BasketItems}"
+            >
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition SharedSizeGroup="ColumnTwo" />
+                            <ColumnDefinition SharedSizeGroup="ColumnThree" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock 
+                            Grid.Column="0" 
+                            Grid.Row="0" 
+                            Text="{Binding ProductName}" 
+                            VerticalAlignment="Center"
+                            />
+                        <TextBlock 
+                            Grid.Column="1" 
+                            Grid.Row="0" 
+                            Text="{Binding ProductPrice, StringFormat=c}" 
+                            HorizontalAlignment="Center" 
+                            VerticalAlignment="Center" 
+                            />
+                        <TextBlock 
+                            Grid.Column="2"
+                            Grid.Row="0"
+                            Text="{Binding Quantity}" 
+                            HorizontalAlignment="Center" 
+                            VerticalAlignment="Center" 
+                            />
+                    </Grid>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+        <StackPanel 
+            DockPanel.Dock="Top"
+            Orientation="Horizontal" 
+            HorizontalAlignment="Right"
+            >
+            <TextBlock Text="Subtotal:"/>
+            <TextBlock Text="{Binding Subtotal, StringFormat=c}"/>
+        </StackPanel>
+        <StackPanel 
+            DockPanel.Dock="Top"
+            Orientation="Horizontal" 
+            HorizontalAlignment="Right"
+            >
+            <Button 
+                Content="Place Order"
+                Command="{Binding PlaceOrderCommand}"
+                />
+        </StackPanel>
     </DockPanel>
 </UserControl>

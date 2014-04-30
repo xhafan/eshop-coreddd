@@ -38,7 +38,7 @@ namespace Eshop.WpfMvvmApp.UnitTests.Products.ProductsViewModels
             BasketViewModelFactory = Stub<IBasketViewModelFactory>()
                 .Stubs(x => x.Create(Arg<IOnProceedingToCheckout>.Matches(p => p is ProductsViewModel))).Returns(Basket);
             ReviewOrderViewModelFactory = Stub<IReviewOrderViewModelFactory>()
-                .Stubs(x => x.Create()).Returns(ReviewOrder);
+                .Stubs(x => x.Create(Arg<IOnPlacingOrder>.Matches(p => p is ProductsViewModel))).Returns(ReviewOrder);
             
             ViewModel = new ProductsViewModel(
                 ProductSearchViewModelFactory, 
