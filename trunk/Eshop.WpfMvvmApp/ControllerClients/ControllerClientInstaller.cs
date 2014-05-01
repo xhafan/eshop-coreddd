@@ -16,14 +16,27 @@ namespace Eshop.WpfMvvmApp.ControllerClients
                     routes = RoutesProvider.GetDefaultRoutes()
                 };
             container.Register(
+                
                 Component.For<IProductControllerClient>()
                          .ImplementedBy<ProductControllerClient>()
                          .DependsOn(dependenciesAsAnonymousType)
                          .LifeStyle.Transient,
+
                 Component.For<IBasketControllerClient>()
                          .ImplementedBy<BasketControllerClient>()
                          .DependsOn(dependenciesAsAnonymousType)
                          .LifeStyle.Transient,
+
+                Component.For<IDeliveryAddressControllerClient>()
+                         .ImplementedBy<DeliveryAddressControllerClient>()
+                         .DependsOn(dependenciesAsAnonymousType)
+                         .LifeStyle.Transient,
+
+                Component.For<IOrderControllerClient>()
+                         .ImplementedBy<OrderControllerClient>()
+                         .DependsOn(dependenciesAsAnonymousType)
+                         .LifeStyle.Transient,
+
                 Component.For<IAuthenticationCookiePersister>()
                          .ImplementedBy<AuthenticationCookiePersister>()
                          .LifeStyle.Singleton

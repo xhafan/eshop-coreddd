@@ -54,6 +54,8 @@
   <ItemGroup>
     <Compile Include="BasketItemDto.cs" />
     <Compile Include="BasketItemDtoAutoMap.cs" />
+    <Compile Include="DeliveryAddressDto.cs" />
+    <Compile Include="DeliveryAddressDtoAutoMap.cs" />
     <Compile Include="ProductDto.cs" />
     <Compile Include="ProductDtoAutoMap.cs" />
     <Compile Include="ProductSummaryDto.cs" />

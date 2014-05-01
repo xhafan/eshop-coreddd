@@ -64,6 +64,9 @@
     <Compile Include="Controllers\BasketControllers\when_adding_product_to_basket_with_session_context.cs" />
     <Compile Include="Controllers\BasketControllers\when_getting_basket_items.cs" />
     <Compile Include="Controllers\BasketControllers\when_updating_product_quantity.cs" />
+    <Compile Include="Controllers\DeliveryAddressControllers\DeliveryAddressControllerSetup.cs" />
+    <Compile Include="Controllers\DeliveryAddressControllers\when_getting_delivery_address.cs" />
+    <Compile Include="Controllers\DeliveryAddressControllers\when_setting_delivery_address.cs" />
     <Compile Include="Controllers\ProductControllers\BasketControllerSetup.cs" />
     <Compile Include="Controllers\ProductControllers\when_getting_product.cs" />
     <Compile Include="Controllers\ProductControllers\when_searching_products.cs" />

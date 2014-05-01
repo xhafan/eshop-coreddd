@@ -19,7 +19,8 @@ namespace Eshop.WpfMvvmApp
                 Component.For<IProductSearchResultViewModelFactory>().AsFactory(),
                 Component.For<IProductDetailsViewModelFactory>().AsFactory(),
                 Component.For<IBasketViewModelFactory>().AsFactory(),
-                Component.For<IReviewOrderViewModelFactory>().AsFactory()
+                Component.For<IReviewOrderViewModelFactory>().AsFactory(),
+                Component.For<IDeliveryAddressViewModelFactory>().AsFactory()
                 );
         }
     }

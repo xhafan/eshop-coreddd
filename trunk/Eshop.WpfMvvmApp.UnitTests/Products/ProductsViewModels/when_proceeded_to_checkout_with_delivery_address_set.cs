@@ -6,12 +6,13 @@ using Shouldly;
 namespace Eshop.WpfMvvmApp.UnitTests.Products.ProductsViewModels
 {
     [TestFixture]
-    public class when_proceeded_to_checkout : ProductsViewModelSetup
+    public class when_proceeded_to_checkout_with_delivery_address_set : ProductsViewModelSetup
     {
         [SetUp]
         public async override void Context()
         {
             base.Context();
+            DeliveryAddressControllerClient.Stubs(x => x.GetDeliveryAddressAsync()).Returns(TaskEx.FromResult("delivery address"));
             ReviewOrder.Expect(x => x.LoadBasketItems()).Return(TaskEx.FromResult(0));
 
             await ViewModel.ProceededToCheckout();

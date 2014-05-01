@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using CoreMvvm;
 using Eshop.Dtos;
+using Eshop.WpfMvvmApp.ControllerClients;
 
 namespace Eshop.WpfMvvmApp.Products
 {
@@ -11,29 +12,36 @@ namespace Eshop.WpfMvvmApp.Products
         IProductSelected, 
         IProductAddedToBasket,
         IOnProceedingToCheckout,
-        IOnPlacingOrder
+        IOnPlacingOrder,
+        IOnDeliveryAddressSet
     {
+        private readonly IDeliveryAddressControllerClient _deliveryAddressControllerClient;
         private readonly ProductSearchViewModel _productSearch;
         private readonly ProductSearchResultViewModel _productSearchResult;
         private readonly ProductDetailsViewModel _productDetails;
         private readonly BasketViewModel _basket;
         private readonly ReviewOrderViewModel _reviewOrder;
+        private readonly DeliveryAddressViewModel _deliveryAddress;
 
         protected ProductsViewModel() {}
 
         public ProductsViewModel(
+            IDeliveryAddressControllerClient deliveryAddressControllerClient,
             IProductSearchViewModelFactory productSearchFactory,
             IProductSearchResultViewModelFactory productSearchResultFactory,
             IProductDetailsViewModelFactory productDetailsFactory,
             IBasketViewModelFactory basketViewModelFactory,
-            IReviewOrderViewModelFactory reviewOrderViewModelFactory
+            IReviewOrderViewModelFactory reviewOrderViewModelFactory,
+            IDeliveryAddressViewModelFactory deliveryAddressViewModelFactory
             )
         {
+            _deliveryAddressControllerClient = deliveryAddressControllerClient;
             _productSearch = productSearchFactory.Create(this);
             _productSearchResult = productSearchResultFactory.Create(this);
             _productDetails = productDetailsFactory.Create(this);
             _basket = basketViewModelFactory.Create(this);
             _reviewOrder = reviewOrderViewModelFactory.Create(this);
+            _deliveryAddress = deliveryAddressViewModelFactory.Create(this);
         }
 
         public ProductSearchViewModel ProductSearch { get { return _productSearch; } }
@@ -59,12 +67,23 @@ namespace Eshop.WpfMvvmApp.Products
 
         public async Task ProceededToCheckout()
         {
-            await _reviewOrder.LoadBasketItems();
-            CurrentViewModel = _reviewOrder;
+            var deliveryAddress = await _deliveryAddressControllerClient.GetDeliveryAddressAsync();
+            if (string.IsNullOrWhiteSpace(deliveryAddress))
+            {
+                CurrentViewModel = _deliveryAddress;
+                return;
+            }
+            await DeliveryAddressSet(deliveryAddress);
         }
 
         public async Task OrderPlaced()
         {
+        }
+
+        public async Task DeliveryAddressSet(string deliveryAddress)
+        {
+            await _reviewOrder.LoadBasketItems();
+            CurrentViewModel = _reviewOrder;
         }
     }
 }

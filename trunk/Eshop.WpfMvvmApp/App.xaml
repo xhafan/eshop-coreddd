@@ -25,7 +25,10 @@
         </DataTemplate>
         <DataTemplate DataType="{x:Type products:ReviewOrderViewModel}">
             <products:ReviewOrderView />
-        </DataTemplate>        
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type products:DeliveryAddressViewModel}">
+            <products:DeliveryAddressView />
+        </DataTemplate>
 
         <Style TargetType="TextBlock" x:Key="HoverUnderlineStyle">
             <Style.Triggers>
