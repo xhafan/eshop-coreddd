@@ -95,6 +95,7 @@
     <Compile Include="Controllers\AuthenticatedController.cs" />
     <Compile Include="Controllers\BasketController.cs" />
     <Compile Include="Controllers\ControllerInstaller.cs" />
+    <Compile Include="Controllers\DeliveryAddressController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\SessionContext.cs" />

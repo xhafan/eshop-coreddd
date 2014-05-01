@@ -106,8 +106,12 @@
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="ControllerClients\AuthenticationCookiePersister.cs" />
     <Compile Include="ControllerClients\BasketControllerClient.cs" />
+    <Compile Include="ControllerClients\DeliveryAddressControllerClient.cs" />
     <Compile Include="ControllerClients\IBasketControllerClient.cs" />
+    <Compile Include="ControllerClients\IDeliveryAddressControllerClient.cs" />
+    <Compile Include="ControllerClients\IOrderControllerClient.cs" />
     <Compile Include="ControllerClients\IProductControllerClient.cs" />
+    <Compile Include="ControllerClients\OrderControllerClient.cs" />
     <Compile Include="ControllerClients\ProductControllerClient.cs" />
     <Compile Include="ControllerClients\ControllerClientInstaller.cs" />
     <Compile Include="Products\BasketItemViewModel.cs" />
@@ -115,7 +119,13 @@
       <DependentUpon>BasketView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Products\BasketViewModel.cs" />
+    <Compile Include="Products\DeliveryAddressView.xaml.cs">
+      <DependentUpon>DeliveryAddressView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Products\DeliveryAddressViewModel.cs" />
     <Compile Include="Products\IBasketViewModelFactory.cs" />
+    <Compile Include="Products\IDeliveryAddressViewModelFactory.cs" />
+    <Compile Include="Products\IOnDeliveryAddressSet.cs" />
     <Compile Include="Products\IOnPlacingOrder.cs" />
     <Compile Include="Products\IOnProceedingToCheckout.cs" />
     <Compile Include="Products\IProductAddedToBasket.cs" />
@@ -157,6 +167,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Products\BasketView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Products\DeliveryAddressView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

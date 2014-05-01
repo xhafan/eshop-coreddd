@@ -91,6 +91,9 @@
     <Compile Include="Products\BasketViewModels\when_executing_update_product_quantity_command_with_quantity_set_to_zero.cs" />
     <Compile Include="Products\BasketViewModels\when_loading_basket_items.cs" />
     <Compile Include="Products\BasketViewModels\when_updating_basket_item_quantity.cs" />
+    <Compile Include="Products\DeliveryAddressViewModels\DeliveryAddressViewModelSetup.cs" />
+    <Compile Include="Products\DeliveryAddressViewModels\when_can_execute_set_delivery_address_command.cs" />
+    <Compile Include="Products\DeliveryAddressViewModels\when_executing_set_delivery_address_command.cs" />
     <Compile Include="Products\ProductDetailsViewModels\ProductDetailsViewModelWithLoadedProductSetup.cs" />
     <Compile Include="Products\ProductDetailsViewModels\when_can_execute_add_to_basket_command.cs" />
     <Compile Include="Products\ProductDetailsViewModels\when_executing_add_to_basket_command.cs" />
@@ -103,8 +106,10 @@
     <Compile Include="Products\ProductSearchViewModels\when_can_execute_search_products_command.cs" />
     <Compile Include="Products\ProductSearchViewModels\when_executing_search_products_command.cs" />
     <Compile Include="Products\ProductsViewModels\ProductsViewModelSetup.cs" />
+    <Compile Include="Products\ProductsViewModels\when_delivery_address_is_set.cs" />
     <Compile Include="Products\ProductsViewModels\when_getting_product_search_view_model.cs" />
-    <Compile Include="Products\ProductsViewModels\when_proceeded_to_checkout.cs" />
+    <Compile Include="Products\ProductsViewModels\when_proceeded_to_checkout_with_delivery_address_not_set.cs" />
+    <Compile Include="Products\ProductsViewModels\when_proceeded_to_checkout_with_delivery_address_set.cs" />
     <Compile Include="Products\ProductsViewModels\when_product_is_added_to_basket.cs" />
     <Compile Include="Products\ProductsViewModels\when_product_is_searched.cs" />
     <Compile Include="Products\ProductsViewModels\when_product_is_selected.cs" />
