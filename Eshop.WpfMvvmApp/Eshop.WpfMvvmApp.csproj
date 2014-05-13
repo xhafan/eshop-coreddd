@@ -135,6 +135,10 @@
     <Compile Include="Products\IProductSearchViewModelFactory.cs" />
     <Compile Include="Products\IProductSelected.cs" />
     <Compile Include="Products\IReviewOrderViewModelFactory.cs" />
+    <Compile Include="Products\OrderPlacedView.xaml.cs">
+      <DependentUpon>OrderPlacedView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Products\OrderPlacedViewModel.cs" />
     <Compile Include="Products\ProductDetailsView.xaml.cs">
       <DependentUpon>ProductDetailsView.xaml</DependentUpon>
     </Compile>
@@ -171,6 +175,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Products\DeliveryAddressView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Products\OrderPlacedView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
