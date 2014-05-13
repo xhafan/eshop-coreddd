@@ -16,6 +16,7 @@ namespace Eshop.WebApi.UnitTests.Controllers.OrderControllers
         public virtual void Context()
         {
             QueryExecutor = Stub<IQueryExecutor>();
+            CommandExecutor = Stub<ICommandExecutor>();
             Controller = new OrderController(QueryExecutor, CommandExecutor);
         }
     }
