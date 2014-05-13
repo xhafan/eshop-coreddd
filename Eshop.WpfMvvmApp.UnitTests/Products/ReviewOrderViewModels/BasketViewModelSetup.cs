@@ -12,13 +12,16 @@ namespace Eshop.WpfMvvmApp.UnitTests.Products.ReviewOrderViewModels
         protected ReviewOrderViewModel ViewModel;
         protected IBasketControllerClient BasketControllerClient;
         protected IOnPlacingOrder OnPlacingOrder;
+        protected IOrderControllerClient OrderControllerClient;
 
         [SetUp]
         public virtual void Context()
         {
             BasketControllerClient = Mock<IBasketControllerClient>();
+            OrderControllerClient = Stub<IOrderControllerClient>();
             OnPlacingOrder = Mock<IOnPlacingOrder>();
-            ViewModel = new ReviewOrderViewModel(BasketControllerClient, OnPlacingOrder);
+
+            ViewModel = new ReviewOrderViewModel(BasketControllerClient, OrderControllerClient, OnPlacingOrder);
         }
     }
 }

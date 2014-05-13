@@ -21,14 +21,14 @@ namespace Eshop.WpfMvvmApp.ControllerClients {
                 base(serverUrl, routes, authenticationCookiePersister) {
         }
         
-        public virtual void PlaceOrder(object obj) {
+        public virtual void PlaceOrder(object notUsed) {
             System.Web.Routing.RouteValueDictionary routeValues = new System.Web.Routing.RouteValueDictionary();
-            this.HttpClientPost("PlaceOrder", obj, routeValues);
+            this.HttpClientPost("PlaceOrder", notUsed, routeValues);
         }
         
-        public virtual System.Threading.Tasks.Task PlaceOrderAsync(object obj) {
+        public virtual System.Threading.Tasks.Task PlaceOrderAsync(object notUsed) {
             System.Web.Routing.RouteValueDictionary routeValues = new System.Web.Routing.RouteValueDictionary();
-            return this.HttpClientPostAsync("PlaceOrder", obj, routeValues);
+            return this.HttpClientPostAsync("PlaceOrder", notUsed, routeValues);
         }
     }
 }

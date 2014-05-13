@@ -11,15 +11,17 @@ namespace Eshop.WpfMvvmApp.Products
     public class ReviewOrderViewModel : BaseViewModel
     {
         private readonly IBasketControllerClient _basketControllerClient;
+        private readonly IOrderControllerClient _orderControllerClient;
         private readonly IOnPlacingOrder _onPlacingOrder;
         private readonly ObservableCollection<BasketItemViewModel> _basketItems = new ObservableCollection<BasketItemViewModel>();
         private readonly RelayCommandAsync<object> _placeOrderCommand;
         
         protected ReviewOrderViewModel() {}
-        
-        public ReviewOrderViewModel(IBasketControllerClient basketControllerClient, IOnPlacingOrder onPlacingOrder)
+
+        public ReviewOrderViewModel(IBasketControllerClient basketControllerClient, IOrderControllerClient orderControllerClient, IOnPlacingOrder onPlacingOrder)
         {
             _basketControllerClient = basketControllerClient;
+            _orderControllerClient = orderControllerClient;
             _onPlacingOrder = onPlacingOrder;
             _placeOrderCommand = new RelayCommandAsync<object>(async x => await _placeOrder());
         }
@@ -43,6 +45,7 @@ namespace Eshop.WpfMvvmApp.Products
 
         private async Task _placeOrder()
         {
+            await _orderControllerClient.PlaceOrderAsync(null);
             await _onPlacingOrder.OrderPlaced();
         }
     }

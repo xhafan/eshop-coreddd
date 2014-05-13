@@ -13,8 +13,8 @@ namespace Eshop.WpfMvvmApp.ControllerClients {
     
     public interface IOrderControllerClient {
         
-        void PlaceOrder(object obj);
+        void PlaceOrder(object notUsed);
         
-        System.Threading.Tasks.Task PlaceOrderAsync(object obj);
+        System.Threading.Tasks.Task PlaceOrderAsync(object notUsed);
     }
 }
