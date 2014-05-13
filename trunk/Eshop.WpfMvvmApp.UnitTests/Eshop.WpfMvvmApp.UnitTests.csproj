@@ -108,6 +108,7 @@
     <Compile Include="Products\ProductsViewModels\ProductsViewModelSetup.cs" />
     <Compile Include="Products\ProductsViewModels\when_delivery_address_is_set.cs" />
     <Compile Include="Products\ProductsViewModels\when_getting_product_search_view_model.cs" />
+    <Compile Include="Products\ProductsViewModels\when_order_is_placed.cs" />
     <Compile Include="Products\ProductsViewModels\when_proceeded_to_checkout_with_delivery_address_not_set.cs" />
     <Compile Include="Products\ProductsViewModels\when_proceeded_to_checkout_with_delivery_address_set.cs" />
     <Compile Include="Products\ProductsViewModels\when_product_is_added_to_basket.cs" />

@@ -22,6 +22,7 @@ namespace Eshop.WpfMvvmApp.Products
         private readonly BasketViewModel _basket;
         private readonly ReviewOrderViewModel _reviewOrder;
         private readonly DeliveryAddressViewModel _deliveryAddress;
+        private readonly OrderPlacedViewModel _orderPlaced;
 
         protected ProductsViewModel() {}
 
@@ -42,6 +43,7 @@ namespace Eshop.WpfMvvmApp.Products
             _basket = basketViewModelFactory.Create(this);
             _reviewOrder = reviewOrderViewModelFactory.Create(this);
             _deliveryAddress = deliveryAddressViewModelFactory.Create(this);
+            _orderPlaced = new OrderPlacedViewModel();
         }
 
         public ProductSearchViewModel ProductSearch { get { return _productSearch; } }
@@ -78,6 +80,7 @@ namespace Eshop.WpfMvvmApp.Products
 
         public async Task OrderPlaced()
         {
+            CurrentViewModel = _orderPlaced;
         }
 
         public async Task DeliveryAddressSet(string deliveryAddress)
