@@ -7,17 +7,21 @@ namespace Eshop.Commands
     public class PlaceOrderCommandHandler : BaseCommandHandler<PlaceOrderCommand>
     {
         private readonly IRepository<Customer> _customerRepository;
+        private readonly IRepository<Order> _orderRepository;
 
-        public PlaceOrderCommandHandler(IRepository<Customer> customerRepository)            
+        public PlaceOrderCommandHandler(IRepository<Customer> customerRepository, IRepository<Order> orderRepository)
         {
             _customerRepository = customerRepository;
+            _orderRepository = orderRepository;
         }
 
         public override void Execute(PlaceOrderCommand command)
         {
             var customer = _customerRepository.GetById(command.CustomerId);
 
-            customer.PlaceOrder();
+            var newOrder = customer.PlaceOrder();
+
+            _orderRepository.Save(newOrder);
         }
     }
 }

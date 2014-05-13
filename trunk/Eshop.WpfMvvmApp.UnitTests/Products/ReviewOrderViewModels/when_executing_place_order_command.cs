@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using System.Threading.Tasks;
+using NUnit.Framework;
 using Rhino.Mocks;
 
 namespace Eshop.WpfMvvmApp.UnitTests.Products.ReviewOrderViewModels
@@ -11,8 +12,15 @@ namespace Eshop.WpfMvvmApp.UnitTests.Products.ReviewOrderViewModels
         {
             base.Context();
             OnPlacingOrder.Expect(x => x.OrderPlaced());
+            OrderControllerClient.Expect(x => x.PlaceOrderAsync(Arg<object>.Is.Anything)).Return(TaskEx.FromResult(0));
 
             ViewModel.PlaceOrderCommand.Execute(null);
+        }
+
+        [Test]
+        public void order_is_placed()
+        {
+            OrderControllerClient.VerifyAllExpectations();
         }
 
         [Test]

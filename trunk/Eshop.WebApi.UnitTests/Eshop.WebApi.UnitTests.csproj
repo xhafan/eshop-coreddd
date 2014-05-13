@@ -67,6 +67,8 @@
     <Compile Include="Controllers\DeliveryAddressControllers\DeliveryAddressControllerSetup.cs" />
     <Compile Include="Controllers\DeliveryAddressControllers\when_getting_delivery_address.cs" />
     <Compile Include="Controllers\DeliveryAddressControllers\when_setting_delivery_address.cs" />
+    <Compile Include="Controllers\OrderControllers\OrderControllerSetup.cs" />
+    <Compile Include="Controllers\OrderControllers\when_placing_order.cs" />
     <Compile Include="Controllers\ProductControllers\BasketControllerSetup.cs" />
     <Compile Include="Controllers\ProductControllers\when_getting_product.cs" />
     <Compile Include="Controllers\ProductControllers\when_searching_products.cs" />

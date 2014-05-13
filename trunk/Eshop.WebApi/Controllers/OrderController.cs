@@ -1,5 +1,6 @@
 ﻿using CoreDdd.Commands;
 using CoreDdd.Queries;
+using Eshop.Commands;
 
 namespace Eshop.WebApi.Controllers
 {
@@ -14,8 +15,9 @@ namespace Eshop.WebApi.Controllers
             _commandExecutor = commandExecutor;
         }
 
-        public void PlaceOrder(object obj) // todo: allow HttpPost without parameters
+        public void PlaceOrder(object notUsed) // todo: allow HttpPost without parameters?
         {
+            _commandExecutor.Execute(new PlaceOrderCommand { CustomerId = SessionContext.CustomerId });
         }
     }
 }

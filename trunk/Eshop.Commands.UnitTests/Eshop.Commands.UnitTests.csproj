@@ -60,7 +60,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="when_handling_add_product_to_basket_command_for_existing_customer.cs" />
     <Compile Include="when_handling_add_product_to_basket_command_for_new_customer.cs" />
-    <Compile Include="when_handling_place_order_command.cs" />
+    <Compile Include="PlaceOrderCommandHandlers\when_handling_place_order_command.cs" />
     <Compile Include="when_handling_set_delivery_address_command.cs" />
     <Compile Include="when_handling_update_product_quantity_in_basket_command.cs" />
   </ItemGroup>
