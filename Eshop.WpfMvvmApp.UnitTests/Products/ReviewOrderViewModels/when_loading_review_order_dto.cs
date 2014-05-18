@@ -5,7 +5,7 @@ using Shouldly;
 namespace Eshop.WpfMvvmApp.UnitTests.Products.ReviewOrderViewModels
 {
     [TestFixture]
-    public class when_loading_basket_items : ReviewOrderViewModelWithLoadedBasketItemsSetup
+    public class when_loading_review_order_dto : ReviewOrderViewModelWithLoadedReviewOrderDtoSetup
     {
         [Test]
         public void basket_items_are_loaded()
@@ -19,6 +19,12 @@ namespace Eshop.WpfMvvmApp.UnitTests.Products.ReviewOrderViewModels
         public void subtotal_is_refreshed()
         {
             ViewModel.Subtotal.ShouldBe(264.6m);
+        }
+
+        [Test]
+        public void delivery_address_is_loaded()
+        {
+            ViewModel.DeliveryAddress.ShouldBe(DeliveryAddress);
         }
     }
 }

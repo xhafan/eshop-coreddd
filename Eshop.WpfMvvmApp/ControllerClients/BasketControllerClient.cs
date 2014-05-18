@@ -33,14 +33,14 @@ namespace Eshop.WpfMvvmApp.ControllerClients {
             return this.HttpClientPostAsync("AddProductToBasket", productId, routeValues);
         }
         
-        public virtual System.Collections.Generic.IEnumerable<Eshop.Dtos.BasketItemDto> GetBasketItems() {
+        public virtual Eshop.Dtos.BasketItemDto[] GetBasketItems() {
             System.Web.Routing.RouteValueDictionary routeValues = new System.Web.Routing.RouteValueDictionary();
-            return this.HttpClientGet<System.Collections.Generic.IEnumerable<Eshop.Dtos.BasketItemDto>>("GetBasketItems", routeValues);
+            return this.HttpClientGet<Eshop.Dtos.BasketItemDto[]>("GetBasketItems", routeValues);
         }
         
-        public virtual System.Threading.Tasks.Task<System.Collections.Generic.IEnumerable<Eshop.Dtos.BasketItemDto>> GetBasketItemsAsync() {
+        public virtual System.Threading.Tasks.Task<Eshop.Dtos.BasketItemDto[]> GetBasketItemsAsync() {
             System.Web.Routing.RouteValueDictionary routeValues = new System.Web.Routing.RouteValueDictionary();
-            return this.HttpClientGetAsync<System.Collections.Generic.IEnumerable<Eshop.Dtos.BasketItemDto>>("GetBasketItems", routeValues);
+            return this.HttpClientGetAsync<Eshop.Dtos.BasketItemDto[]>("GetBasketItems", routeValues);
         }
         
         public virtual void UpdateProductQuantity(int productId, int quantity) {

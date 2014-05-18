@@ -10,7 +10,6 @@ namespace Eshop.WpfMvvmApp.Products
 {
     public class ReviewOrderViewModel : BaseViewModel
     {
-        private readonly IBasketControllerClient _basketControllerClient;
         private readonly IOrderControllerClient _orderControllerClient;
         private readonly IOnPlacingOrder _onPlacingOrder;
         private readonly ObservableCollection<BasketItemViewModel> _basketItems = new ObservableCollection<BasketItemViewModel>();
@@ -18,9 +17,8 @@ namespace Eshop.WpfMvvmApp.Products
         
         protected ReviewOrderViewModel() {}
 
-        public ReviewOrderViewModel(IBasketControllerClient basketControllerClient, IOrderControllerClient orderControllerClient, IOnPlacingOrder onPlacingOrder)
+        public ReviewOrderViewModel(IOrderControllerClient orderControllerClient, IOnPlacingOrder onPlacingOrder)
         {
-            _basketControllerClient = basketControllerClient;
             _orderControllerClient = orderControllerClient;
             _onPlacingOrder = onPlacingOrder;
             _placeOrderCommand = new RelayCommandAsync<object>(async x => await _placeOrder());
@@ -29,13 +27,15 @@ namespace Eshop.WpfMvvmApp.Products
         public ObservableCollection<BasketItemViewModel> BasketItems { get { return _basketItems; } }
         public decimal Subtotal { get; private set; }
         public ICommand PlaceOrderCommand { get { return _placeOrderCommand; } }
+        public string DeliveryAddress { get; private set; }
 
-        public virtual async Task LoadBasketItems()
+        public virtual async Task LoadReviewOrderData()
         {
-            var basketItemDtos = await _basketControllerClient.GetBasketItemsAsync();
+            var reviewOrderDto = await _orderControllerClient.GetReviewOrderDtoAsync();
             _basketItems.Clear();
-            basketItemDtos.Each(x => _basketItems.Add(new BasketItemViewModel(x)));
+            reviewOrderDto.BasketItems.Each(x => _basketItems.Add(new BasketItemViewModel(x)));
             _updateSubtotal();
+            DeliveryAddress = reviewOrderDto.DeliveryAddress.DeliveryAddress;
         }
 
         private void _updateSubtotal()

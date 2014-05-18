@@ -1,13 +1,14 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Eshop.Dtos;
 using NUnit.Framework;
 using Rhino.Mocks;
 
 namespace Eshop.WpfMvvmApp.UnitTests.Products.ReviewOrderViewModels
 {
-    public abstract class ReviewOrderViewModelWithLoadedBasketItemsSetup : ReviewOrderViewModelSetup
+    public abstract class ReviewOrderViewModelWithLoadedReviewOrderDtoSetup : ReviewOrderViewModelSetup
     {
+        protected const string DeliveryAddress = "delivery address";
+
         [SetUp]
         public override async void Context()
         {
@@ -27,9 +28,15 @@ namespace Eshop.WpfMvvmApp.UnitTests.Products.ReviewOrderViewModels
                     Quantity = 3
                 },
             };
-            BasketControllerClient.Stubs(x => x.GetBasketItemsAsync()).Returns(TaskEx.FromResult<IEnumerable<BasketItemDto>>(basketItemDtos));
+            var deliveryAddressDto = new DeliveryAddressDto { DeliveryAddress = DeliveryAddress };
+            var reviewOrderDto = new ReviewOrderDto
+            {
+                BasketItems = basketItemDtos,
+                DeliveryAddress = deliveryAddressDto
+            };
+            OrderControllerClient.Stubs(x => x.GetReviewOrderDtoAsync()).Returns(TaskEx.FromResult(reviewOrderDto));
 
-            await ViewModel.LoadBasketItems();
+            await ViewModel.LoadReviewOrderData();
         }
     }
 }

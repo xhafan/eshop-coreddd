@@ -13,7 +13,7 @@ namespace Eshop.WebApi.UnitTests.Controllers.BasketControllers
     {
         private const int CustomerId = 23;
         private BasketItemDto[] _basketItemDtos;
-        private IEnumerable<BasketItemDto> _retrievedBasketItems;
+        private BasketItemDto[] _retrievedBasketItems;
 
         [SetUp]
         public override void Context()

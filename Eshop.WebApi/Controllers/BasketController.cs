@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Web.Http;
 using CoreDdd.Commands;
 using CoreDdd.Queries;
@@ -37,7 +36,7 @@ namespace Eshop.WebApi.Controllers
             SessionContext = new SessionContext { CustomerId = generatedCustomerId };
         }
 
-        public IEnumerable<BasketItemDto> GetBasketItems()
+        public BasketItemDto[] GetBasketItems()
         {
             var productDtos = _queryExecutor.Execute<BasketItemsQuery, BasketItemDto>(new BasketItemsQuery { CustomerId = SessionContext.CustomerId });
             return productDtos.ToArray();

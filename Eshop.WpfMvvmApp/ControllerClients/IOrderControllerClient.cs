@@ -16,5 +16,9 @@ namespace Eshop.WpfMvvmApp.ControllerClients {
         void PlaceOrder(object notUsed);
         
         System.Threading.Tasks.Task PlaceOrderAsync(object notUsed);
+        
+        Eshop.Dtos.ReviewOrderDto GetReviewOrderDto();
+        
+        System.Threading.Tasks.Task<Eshop.Dtos.ReviewOrderDto> GetReviewOrderDtoAsync();
     }
 }

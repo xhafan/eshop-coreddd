@@ -30,5 +30,15 @@ namespace Eshop.WpfMvvmApp.ControllerClients {
             System.Web.Routing.RouteValueDictionary routeValues = new System.Web.Routing.RouteValueDictionary();
             return this.HttpClientPostAsync("PlaceOrder", notUsed, routeValues);
         }
+        
+        public virtual Eshop.Dtos.ReviewOrderDto GetReviewOrderDto() {
+            System.Web.Routing.RouteValueDictionary routeValues = new System.Web.Routing.RouteValueDictionary();
+            return this.HttpClientGet<Eshop.Dtos.ReviewOrderDto>("GetReviewOrderDto", routeValues);
+        }
+        
+        public virtual System.Threading.Tasks.Task<Eshop.Dtos.ReviewOrderDto> GetReviewOrderDtoAsync() {
+            System.Web.Routing.RouteValueDictionary routeValues = new System.Web.Routing.RouteValueDictionary();
+            return this.HttpClientGetAsync<Eshop.Dtos.ReviewOrderDto>("GetReviewOrderDto", routeValues);
+        }
     }
 }

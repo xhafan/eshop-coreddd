@@ -13,6 +13,8 @@
         VerticalAlignment="Top"
         >
         <Label DockPanel.Dock="Top">Review Your Order</Label>
+        <Label DockPanel.Dock="Top">Delivery address</Label>
+        <TextBlock DockPanel.Dock="Top" Text="{Binding DeliveryAddress}" />
         <Grid DockPanel.Dock="Top">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>

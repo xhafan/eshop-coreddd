@@ -61,6 +61,7 @@
     <Compile Include="ProductSummaryDto.cs" />
     <Compile Include="ProductSummaryDtoAutoMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReviewOrderDto.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -5,7 +5,7 @@ using Rhino.Mocks;
 namespace Eshop.WpfMvvmApp.UnitTests.Products.ReviewOrderViewModels
 {
     [TestFixture]
-    public class when_executing_place_order_command : ReviewOrderViewModelWithLoadedBasketItemsSetup
+    public class when_executing_place_order_command : ReviewOrderViewModelWithLoadedReviewOrderDtoSetup
     {
         [SetUp]
         public override void Context()
