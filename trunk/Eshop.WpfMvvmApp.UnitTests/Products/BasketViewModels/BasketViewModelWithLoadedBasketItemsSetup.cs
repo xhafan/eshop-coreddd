@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Eshop.Dtos;
 using NUnit.Framework;
 using Rhino.Mocks;
@@ -27,7 +26,7 @@ namespace Eshop.WpfMvvmApp.UnitTests.Products.BasketViewModels
                     Quantity = 3
                 },
             };
-            BasketControllerClient.Stubs(x => x.GetBasketItemsAsync()).Returns(TaskEx.FromResult<IEnumerable<BasketItemDto>>(basketItemDtos));
+            BasketControllerClient.Stubs(x => x.GetBasketItemsAsync()).Returns(TaskEx.FromResult(basketItemDtos));
 
             await ViewModel.LoadBasketItems();
         }

@@ -13,7 +13,7 @@ namespace Eshop.WpfMvvmApp.UnitTests.Products.ProductsViewModels
         {
             base.Context();
             DeliveryAddressControllerClient.Stubs(x => x.GetDeliveryAddressAsync()).Returns(TaskEx.FromResult("delivery address"));
-            ReviewOrder.Expect(x => x.LoadBasketItems()).Return(TaskEx.FromResult(0));
+            ReviewOrder.Expect(x => x.LoadReviewOrderData()).Return(TaskEx.FromResult(0));
 
             await ViewModel.ProceededToCheckout();
         }

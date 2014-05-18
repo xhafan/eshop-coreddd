@@ -17,9 +17,9 @@ namespace Eshop.WpfMvvmApp.ControllerClients {
         
         System.Threading.Tasks.Task AddProductToBasketAsync(int productId, int quantity);
         
-        System.Collections.Generic.IEnumerable<Eshop.Dtos.BasketItemDto> GetBasketItems();
+        Eshop.Dtos.BasketItemDto[] GetBasketItems();
         
-        System.Threading.Tasks.Task<System.Collections.Generic.IEnumerable<Eshop.Dtos.BasketItemDto>> GetBasketItemsAsync();
+        System.Threading.Tasks.Task<Eshop.Dtos.BasketItemDto[]> GetBasketItemsAsync();
         
         void UpdateProductQuantity(int productId, int quantity);
         

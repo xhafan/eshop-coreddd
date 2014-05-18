@@ -85,7 +85,7 @@ namespace Eshop.WpfMvvmApp.Products
 
         public async Task DeliveryAddressSet(string deliveryAddress)
         {
-            await _reviewOrder.LoadBasketItems();
+            await _reviewOrder.LoadReviewOrderData();
             CurrentViewModel = _reviewOrder;
         }
     }
