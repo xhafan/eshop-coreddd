@@ -9,7 +9,7 @@ namespace Eshop.WpfMvvmApp.UnitTests.Products.ProductSearchViewModels
     [TestFixture]
     public class when_executing_search_products_command : ProductSearchViewModelSetup
     {
-        private IEnumerable<ProductSummaryDto> _productSummaryDtos;
+        private ProductSummaryDto[] _productSummaryDtos;
         private const string SearchText = "search text";
 
         [SetUp]
