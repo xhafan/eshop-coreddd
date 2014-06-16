@@ -13,9 +13,9 @@ namespace Eshop.WpfMvvmApp.ControllerClients {
     
     public interface IProductControllerClient {
         
-        System.Collections.Generic.IEnumerable<Eshop.Dtos.ProductSummaryDto> SearchProducts(string searchedText);
+        Eshop.Dtos.ProductSummaryDto[] SearchProducts(string searchedText);
         
-        System.Threading.Tasks.Task<System.Collections.Generic.IEnumerable<Eshop.Dtos.ProductSummaryDto>> SearchProductsAsync(string searchedText);
+        System.Threading.Tasks.Task<Eshop.Dtos.ProductSummaryDto[]> SearchProductsAsync(string searchedText);
         
         Eshop.Dtos.ProductDto GetProduct(int productId);
         
