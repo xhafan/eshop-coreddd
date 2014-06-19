@@ -124,6 +124,7 @@
       <DependentUpon>DeliveryAddressView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Products\DeliveryAddressViewModel.cs" />
+    <Compile Include="Products\DeliveryAddressViewModel2.cs" />
     <Compile Include="Products\IBasketViewModelFactory.cs" />
     <Compile Include="Products\IDeliveryAddressViewModelFactory.cs" />
     <Compile Include="Products\IOnDeliveryAddressSet.cs" />
@@ -214,6 +215,7 @@
       <DependentUpon>ReviewOrderView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Products\ReviewOrderViewModel.cs" />
+    <Compile Include="Products\ReviewOrderViewModel2.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
