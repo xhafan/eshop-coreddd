@@ -24,7 +24,7 @@ namespace Eshop.WpfMvvmApp.Products
         public int Quantity { get; private set; }
         public int UpdatedQuantity { get; set; }
         public bool CanUpdateQuantity { get { return Quantity != UpdatedQuantity; } }
-        public string UpdateAction { get { return UpdatedQuantity == 0 ? "Remove" : "Update"; } }
+        public string UpdateAction { get { return UpdatedQuantity == 0 ? "Remove" : "Update"; } } // todo : is this tested in chicago tests?
 
         public void UpdateQuantity()
         {
