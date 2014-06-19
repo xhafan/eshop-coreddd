@@ -11,18 +11,23 @@ namespace Eshop.WpfMvvmApp.Products
     public class BasketViewModel2 : BaseViewModel
     {
         private readonly IBasketControllerClient _basketControllerClient;
+        private readonly ProductsViewModel2 _products;
         private readonly ObservableCollection<BasketItemViewModel> _basketItems = new ObservableCollection<BasketItemViewModel>();
         private readonly RelayCommandAsync<int> _updateProductQuantityCommand;
+        private readonly RelayCommandAsync<object> _proceedToCheckoutCommand;
 
-        public BasketViewModel2(IBasketControllerClient basketControllerClient)
+        public BasketViewModel2(IBasketControllerClient basketControllerClient, ProductsViewModel2 products)
         {
             _basketControllerClient = basketControllerClient;
+            _products = products;
             _updateProductQuantityCommand = new RelayCommandAsync<int>(async x => await _updateProductQuantity(x), x => true);
+            _proceedToCheckoutCommand = new RelayCommandAsync<object>(async x => await _proceedToCheckout(), x => true);
         }
 
         public ObservableCollection<BasketItemViewModel> BasketItems { get { return _basketItems; } }
         public decimal Subtotal { get; private set; }
         public ICommand UpdateProductQuantityCommand { get { return _updateProductQuantityCommand; } }
+        public ICommand ProceedToCheckoutCommand { get { return _proceedToCheckoutCommand; } }
 
         public virtual async Task LoadBasketItems()
         {
@@ -59,5 +64,9 @@ namespace Eshop.WpfMvvmApp.Products
             }
         }
 
+        private async Task _proceedToCheckout()
+        {
+            await _products.ProceededToCheckout();
+        }
     }
 }

@@ -60,5 +60,10 @@ namespace Eshop.WpfMvvmApp.UnitTests.Chicago.Products.ProductsViewModels
         {
             return (BasketViewModel2)ViewModel.CurrentViewModel;
         }
+
+        protected ReviewOrderViewModel2 GetCurrentViewModelAsReviewOrder()
+        {
+            return (ReviewOrderViewModel2)ViewModel.CurrentViewModel;
+        }
     }
 }
