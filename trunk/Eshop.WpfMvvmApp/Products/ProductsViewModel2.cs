@@ -26,9 +26,9 @@ namespace Eshop.WpfMvvmApp.Products
             _deliveryAddressControllerClient = deliveryAddressControllerClient;
             _productSearch = new ProductSearchViewModel2(productControllerClient, this);
             _productSearchResult = new ProductSearchResultViewModel2(this);
-            _productDetails = new ProductDetailsViewModel2(this, productControllerClient, basketControllerClient);
+            _productDetails = new ProductDetailsViewModel2(productControllerClient, basketControllerClient, this);
             _basket = new BasketViewModel2(basketControllerClient, this);
-            _deliveryAddress = new DeliveryAddressViewModel2();
+            _deliveryAddress = new DeliveryAddressViewModel2(_deliveryAddressControllerClient, this);
             _reviewOrder = new ReviewOrderViewModel2(orderControllerClient);
         }
 
@@ -61,6 +61,11 @@ namespace Eshop.WpfMvvmApp.Products
                 CurrentViewModel = _deliveryAddress;
                 return;
             }
+            await LoadReviewOrder();
+        }
+
+        public async Task LoadReviewOrder()
+        {
             await _reviewOrder.LoadReviewOrderData();
             CurrentViewModel = _reviewOrder;
         }
