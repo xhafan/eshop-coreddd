@@ -13,11 +13,11 @@ namespace Eshop.WpfMvvmApp.UnitTests.Chicago.Products.ProductsViewModels
         public override void Context()
         {
             base.Context();
-            DeliveryAddressControllerClient.Stubs(x => x.GetDeliveryAddressAsync()).Returns(TaskEx.FromResult(""));
+            StubNoDeliveryAddressOnControllerClient();
 
-            GetCurrentViewModelAsBasket().ProceedToCheckoutCommand.Execute(null);
+            ProceedToCheckout();
         }
-
+        
         [Test]
         public void current_view_model_is_set()
         {

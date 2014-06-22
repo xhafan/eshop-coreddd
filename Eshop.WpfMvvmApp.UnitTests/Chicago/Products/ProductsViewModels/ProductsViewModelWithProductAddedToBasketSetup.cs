@@ -65,5 +65,20 @@ namespace Eshop.WpfMvvmApp.UnitTests.Chicago.Products.ProductsViewModels
         {
             return (ReviewOrderViewModel2)ViewModel.CurrentViewModel;
         }
+
+        protected void ProceedToCheckout()
+        {
+            GetCurrentViewModelAsBasket().ProceedToCheckoutCommand.Execute(null);
+        }
+
+        protected void StubNoDeliveryAddressOnControllerClient()
+        {
+            DeliveryAddressControllerClient.Stubs(x => x.GetDeliveryAddressAsync()).Returns(TaskEx.FromResult(""));
+        }
+
+        protected DeliveryAddressViewModel2 GetCurrentViewModelAsDeliveryAddress()
+        {
+            return (DeliveryAddressViewModel2)ViewModel.CurrentViewModel;
+        }
     }
 }

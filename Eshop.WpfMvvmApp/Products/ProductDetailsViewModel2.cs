@@ -1,5 +1,4 @@
-﻿using System.Security.Principal;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using System.Windows.Input;
 using CoreMvvm;
 using Eshop.WpfMvvmApp.ControllerClients;
@@ -8,20 +7,21 @@ namespace Eshop.WpfMvvmApp.Products
 {
     public class ProductDetailsViewModel2 : BaseViewModel
     {
-        private readonly ProductsViewModel2 _productsViewModel;
         private readonly IProductControllerClient _productControllerClient;
         private readonly IBasketControllerClient _basketControllerClient;
+        private readonly ProductsViewModel2 _productsViewModel;
         private readonly RelayCommandAsync<int> _addToBasketCommand;
         private int _productId;
 
         public ProductDetailsViewModel2(
-            ProductsViewModel2 productsViewModel, 
             IProductControllerClient productControllerClient, 
-            IBasketControllerClient basketControllerClient)
+            IBasketControllerClient basketControllerClient,
+            ProductsViewModel2 productsViewModel
+            )
         {
-            _productsViewModel = productsViewModel;
             _productControllerClient = productControllerClient;
             _basketControllerClient = basketControllerClient;
+            _productsViewModel = productsViewModel;
             _addToBasketCommand = new RelayCommandAsync<int>(async x => await _addProductToBasket(x));
         }
 
