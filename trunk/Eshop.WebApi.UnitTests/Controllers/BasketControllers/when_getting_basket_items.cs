@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Eshop.Dtos;
+﻿using Eshop.Dtos;
 using Eshop.Queries;
 using Eshop.WebApi.Controllers;
 using NUnit.Framework;
