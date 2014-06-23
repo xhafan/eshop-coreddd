@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using CoreTest;
+using Eshop.Tests.Common.Builders;
 using NUnit.Framework;
 using Rhino.Mocks;
 using Shouldly;
@@ -17,7 +18,7 @@ namespace Eshop.Domain.UnitTests.Orders
         [SetUp]
         public void Context()
         {
-            _product = Stub<Product>();
+            _product = new ProductBuilder().Build();
             var basketItem = Stub<BasketItem>()
                 .Stubs(x => x.Product).Returns(_product)
                 .Stubs(x => x.Count).Returns(Count);

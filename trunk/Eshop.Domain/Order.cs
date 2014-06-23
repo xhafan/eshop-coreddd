@@ -8,9 +8,6 @@ namespace Eshop.Domain
     public class Order : Entity, IAggregateRoot
     {
         private readonly Iesi.Collections.Generic.ISet<OrderItem> _orderItems = new HashedSet<OrderItem>();
-        public virtual IEnumerable<OrderItem> OrderItems { get { return _orderItems; } }
-
-        public virtual string DeliveryAddress { get; protected set; }
 
         protected Order() {}
 
@@ -18,6 +15,10 @@ namespace Eshop.Domain
         {
             _orderItems.AddAll(basketItems.Select(x => new OrderItem(this, x.Product, x.Count)).ToList());
             DeliveryAddress = deliveryAddress;
+
         }
+        
+        public virtual IEnumerable<OrderItem> OrderItems { get { return _orderItems; } }
+        public virtual string DeliveryAddress { get; protected set; }
     }
 }

@@ -3,8 +3,8 @@ using System.Linq;
 using CoreTest;
 using Eshop.Domain;
 using Eshop.Dtos;
-using Eshop.IntegrationTests.Database.ObjectMothers;
 using Eshop.Queries;
+using Eshop.Tests.Common.Builders;
 using NUnit.Framework;
 using Shouldly;
 
@@ -26,16 +26,37 @@ namespace Eshop.IntegrationTests.Database.Queries
 
         protected override void PersistenceContext()
         {
-            _productOne = new ProductObjectMother().NewEntity(ProductOneName, "product one description", ProductOnePrice);
-            _productTwo = new ProductObjectMother().NewEntity(ProductTwoName, "product two description", ProductTwoPrice);
-            _customer = new CustomerObjectMother().NewEntity();
+            _productOne = new ProductBuilder()
+                .WithName(ProductOneName)
+                .WithPrice(ProductOnePrice)
+                .Build();
+            _productTwo = new ProductBuilder()
+                .WithName(ProductTwoName)
+                .WithPrice(ProductTwoPrice)
+                .Build();
+            _customer = new CustomerBuilder().Build();
             _customer.BasketItems.AsSet().AddAll(new[]
-                                                    {
-                                                        new BasketItemObjectMother().NewEntity(_customer, _productOne, ProductOneQuantity),
-                                                        new BasketItemObjectMother().NewEntity(_customer, _productTwo, ProductTwoQuantity),
-                                                    });
-            var anotherCustomer = new CustomerObjectMother().NewEntity();
-            anotherCustomer.BasketItems.AsSet().AddAll(new[] { new BasketItemObjectMother().NewEntity(anotherCustomer, _productOne, ProductOneQuantity) });
+            {
+                new BasketItemBuilder()
+                    .WithCustomer(_customer)
+                    .WithProduct(_productOne)
+                    .WithQuantity(ProductOneQuantity)
+                    .Build(),
+                new BasketItemBuilder()
+                    .WithCustomer(_customer)
+                    .WithProduct(_productTwo)
+                    .WithQuantity(ProductTwoQuantity)
+                    .Build()
+            });
+            var anotherCustomer = new CustomerBuilder().Build();
+            anotherCustomer.BasketItems.AsSet().AddAll(new[]
+            {
+                new BasketItemBuilder()
+                    .WithCustomer(anotherCustomer)
+                    .WithProduct(_productOne)
+                    .WithQuantity(ProductOneQuantity)
+                    .Build()
+            });
 
             Save(_productOne, _productTwo, _customer, anotherCustomer);
         }

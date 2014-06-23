@@ -2,8 +2,8 @@ using System.Collections.Generic;
 using System.Linq;
 using Eshop.Domain;
 using Eshop.Dtos;
-using Eshop.IntegrationTests.Database.ObjectMothers;
 using Eshop.Queries;
+using Eshop.Tests.Common.Builders;
 using NUnit.Framework;
 using Shouldly;
 
@@ -17,8 +17,8 @@ namespace Eshop.IntegrationTests.Database.Queries
 
         protected override void PersistenceContext()
         {
-            var customerOne = new CustomerObjectMother().NewEntity();
-            _customerTwo = new CustomerObjectMother().NewEntity();
+            var customerOne = new CustomerBuilder().Build();
+            _customerTwo = new CustomerBuilder().Build();
             _customerTwo.SetDeliveryAddress("delivery address");
             
             Save(customerOne, _customerTwo);
