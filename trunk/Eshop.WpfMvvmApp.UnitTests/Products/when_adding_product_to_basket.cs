@@ -4,7 +4,7 @@ using NUnit.Framework;
 using Rhino.Mocks;
 using Shouldly;
 
-namespace Eshop.WpfMvvmApp.UnitTests.Chicago.Products.ProductsViewModels
+namespace Eshop.WpfMvvmApp.UnitTests.Products
 {
     [TestFixture]
     public class when_adding_product_to_basket : ProductsViewModelWithProductAddedToBasketSetup

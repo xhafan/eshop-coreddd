@@ -1,7 +1,7 @@
 ﻿using NUnit.Framework;
 using Shouldly;
 
-namespace Eshop.WpfMvvmApp.UnitTests.Chicago.Products.ProductsViewModels
+namespace Eshop.WpfMvvmApp.UnitTests.Products
 {
     [TestFixture]
     public class when_can_set_delivery_address : ProductsViewModelWithProductAddedToBasketSetup

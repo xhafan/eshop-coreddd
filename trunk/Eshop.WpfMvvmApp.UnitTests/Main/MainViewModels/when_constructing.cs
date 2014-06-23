@@ -1,6 +1,7 @@
 ﻿using CoreTest;
 using Eshop.WpfMvvmApp.Main;
 using Eshop.WpfMvvmApp.Products;
+using Eshop.WpfMvvmApp.UnitTests.Products;
 using NUnit.Framework;
 using Shouldly;
 
@@ -15,7 +16,7 @@ namespace Eshop.WpfMvvmApp.UnitTests.Main.MainViewModels
         [SetUp]
         public void Context()
         {
-            _productsViewModel = Stub<ProductsViewModel>();
+            _productsViewModel = new ProductsViewModelBuilder().Build();
 
             _viewModel = new MainViewModel(_productsViewModel);
         }

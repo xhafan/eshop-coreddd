@@ -3,7 +3,7 @@ using Eshop.WpfMvvmApp.Products;
 using NUnit.Framework;
 using Shouldly;
 
-namespace Eshop.WpfMvvmApp.UnitTests.Chicago.Products.ProductsViewModels
+namespace Eshop.WpfMvvmApp.UnitTests.Products
 {
     public abstract class base_review_order_loaded_test : ProductsViewModelWithProductAddedToBasketSetup
     {

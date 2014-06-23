@@ -4,7 +4,7 @@ using Eshop.WpfMvvmApp.Products;
 using NUnit.Framework;
 using Rhino.Mocks;
 
-namespace Eshop.WpfMvvmApp.UnitTests.Chicago.Products.ProductsViewModels
+namespace Eshop.WpfMvvmApp.UnitTests.Products
 {
     public abstract class ProductsViewModelWithSearchedProductsSetup : ProductsViewModelSetup
     {
