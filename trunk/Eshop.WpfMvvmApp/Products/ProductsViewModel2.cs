@@ -15,6 +15,7 @@ namespace Eshop.WpfMvvmApp.Products
         private readonly BasketViewModel2 _basket;
         private readonly DeliveryAddressViewModel2 _deliveryAddress;
         private readonly ReviewOrderViewModel2 _reviewOrder;
+        private readonly OrderPlacedViewModel _orderPlaced;
 
         public ProductsViewModel2(
             IProductControllerClient productControllerClient, 
@@ -29,7 +30,8 @@ namespace Eshop.WpfMvvmApp.Products
             _productDetails = new ProductDetailsViewModel2(productControllerClient, basketControllerClient, this);
             _basket = new BasketViewModel2(basketControllerClient, this);
             _deliveryAddress = new DeliveryAddressViewModel2(_deliveryAddressControllerClient, this);
-            _reviewOrder = new ReviewOrderViewModel2(orderControllerClient);
+            _reviewOrder = new ReviewOrderViewModel2(orderControllerClient, this);
+            _orderPlaced = new OrderPlacedViewModel();
         }
 
         public BaseViewModel CurrentViewModel { get; private set; }
@@ -68,6 +70,11 @@ namespace Eshop.WpfMvvmApp.Products
         {
             await _reviewOrder.LoadReviewOrderData();
             CurrentViewModel = _reviewOrder;
+        }
+
+        public void OrderPlaced()
+        {
+            CurrentViewModel = _orderPlaced;
         }
     }
 }

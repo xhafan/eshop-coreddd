@@ -13,6 +13,7 @@ namespace Eshop.WpfMvvmApp.UnitTests.Chicago.Products.ProductsViewModels
         protected const decimal ProductTwoPrice = 57.8m;
         protected const int ProductOneQuantity = 2;
         protected const int ProductTwoQuantity = 3;
+        protected const string DeliveryAddress = "delivery address";
 
         [SetUp]
         public override void Context()
@@ -79,6 +80,43 @@ namespace Eshop.WpfMvvmApp.UnitTests.Chicago.Products.ProductsViewModels
         protected DeliveryAddressViewModel2 GetCurrentViewModelAsDeliveryAddress()
         {
             return (DeliveryAddressViewModel2)ViewModel.CurrentViewModel;
+        }
+
+        protected void StubReviewOrderDataOnControllerClient()
+        {
+            OrderControllerClient.Stubs(x => x.GetReviewOrderDtoAsync()).Returns(TaskEx.FromResult(GetReviewOrderDto()));
+        }
+
+
+        private ReviewOrderDto GetReviewOrderDto()
+        {
+            var basketItemDtos = new[]
+            {
+                new BasketItemDto
+                {
+                    ProductId = ProductOneId,
+                    ProductPrice = ProductOnePrice,
+                    Quantity = ProductOneQuantity
+                },
+                new BasketItemDto
+                {
+                    ProductId = ProductTwoId,
+                    ProductPrice = ProductTwoPrice,
+                    Quantity = ProductTwoQuantity
+                },
+            };
+            var deliveryAddressDto = new DeliveryAddressDto { DeliveryAddress = DeliveryAddress };
+            var reviewOrderDto = new ReviewOrderDto
+            {
+                BasketItems = basketItemDtos,
+                DeliveryAddress = deliveryAddressDto
+            };
+            return reviewOrderDto;
+        }
+
+        protected void StubExistingDeliveryAddressOnControllerClient()
+        {
+            DeliveryAddressControllerClient.Stubs(x => x.GetDeliveryAddressAsync()).Returns(TaskEx.FromResult(DeliveryAddress));
         }
     }
 }
