@@ -2,7 +2,7 @@
 using NUnit.Framework;
 using Shouldly;
 
-namespace Eshop.WpfMvvmApp.UnitTests.Chicago.Products.ProductsViewModels
+namespace Eshop.WpfMvvmApp.UnitTests.Products
 {
     [TestFixture]
     public class when_selecting_product_from_search_result : ProductsViewModelWithSelectedProductFromSearchResultSetup

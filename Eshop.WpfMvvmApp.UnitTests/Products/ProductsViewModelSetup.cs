@@ -3,7 +3,7 @@ using Eshop.WpfMvvmApp.ControllerClients;
 using Eshop.WpfMvvmApp.Products;
 using NUnit.Framework;
 
-namespace Eshop.WpfMvvmApp.UnitTests.Chicago.Products.ProductsViewModels
+namespace Eshop.WpfMvvmApp.UnitTests.Products
 {
     public abstract class ProductsViewModelSetup : BaseTest
     {
@@ -21,12 +21,12 @@ namespace Eshop.WpfMvvmApp.UnitTests.Chicago.Products.ProductsViewModels
             DeliveryAddressControllerClient = Mock<IDeliveryAddressControllerClient>();
             OrderControllerClient = Mock<IOrderControllerClient>();
 
-            ViewModel = new ProductsViewModel(
-                ProductControllerClient, 
-                BasketControllerClient, 
-                DeliveryAddressControllerClient,
-                OrderControllerClient
-                );
+            ViewModel = new ProductsViewModelBuilder()
+                .WithProductControllerClient(ProductControllerClient)
+                .WithBasketControllerClient(BasketControllerClient)
+                .WithDeliveryAddressControllerClient(DeliveryAddressControllerClient)
+                .WithOrderControllerClient(OrderControllerClient)
+                .Build();
         }
     }
 }
