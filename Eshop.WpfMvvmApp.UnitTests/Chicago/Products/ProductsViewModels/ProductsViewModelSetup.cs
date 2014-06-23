@@ -7,7 +7,7 @@ namespace Eshop.WpfMvvmApp.UnitTests.Chicago.Products.ProductsViewModels
 {
     public abstract class ProductsViewModelSetup : BaseTest
     {
-        protected ProductsViewModel2 ViewModel;
+        protected ProductsViewModel ViewModel;
         protected IProductControllerClient ProductControllerClient;
         protected IBasketControllerClient BasketControllerClient;
         protected IDeliveryAddressControllerClient DeliveryAddressControllerClient;
@@ -21,7 +21,7 @@ namespace Eshop.WpfMvvmApp.UnitTests.Chicago.Products.ProductsViewModels
             DeliveryAddressControllerClient = Mock<IDeliveryAddressControllerClient>();
             OrderControllerClient = Mock<IOrderControllerClient>();
 
-            ViewModel = new ProductsViewModel2(
+            ViewModel = new ProductsViewModel(
                 ProductControllerClient, 
                 BasketControllerClient, 
                 DeliveryAddressControllerClient,

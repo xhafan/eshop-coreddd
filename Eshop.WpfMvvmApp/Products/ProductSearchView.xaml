@@ -10,9 +10,6 @@
     d:DataContext="{d:DesignInstance products:ProductSearchViewModel}"
     >
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition />
-        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="*"/>

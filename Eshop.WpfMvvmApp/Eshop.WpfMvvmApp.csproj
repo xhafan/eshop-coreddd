@@ -119,24 +119,10 @@
       <DependentUpon>BasketView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Products\BasketViewModel.cs" />
-    <Compile Include="Products\BasketViewModel2.cs" />
     <Compile Include="Products\DeliveryAddressView.xaml.cs">
       <DependentUpon>DeliveryAddressView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Products\DeliveryAddressViewModel.cs" />
-    <Compile Include="Products\DeliveryAddressViewModel2.cs" />
-    <Compile Include="Products\IBasketViewModelFactory.cs" />
-    <Compile Include="Products\IDeliveryAddressViewModelFactory.cs" />
-    <Compile Include="Products\IOnDeliveryAddressSet.cs" />
-    <Compile Include="Products\IOnPlacingOrder.cs" />
-    <Compile Include="Products\IOnProceedingToCheckout.cs" />
-    <Compile Include="Products\IProductAddedToBasket.cs" />
-    <Compile Include="Products\IProductDetailsViewModelFactory.cs" />
-    <Compile Include="Products\IProductSearched.cs" />
-    <Compile Include="Products\IProductSearchResultViewModelFactory.cs" />
-    <Compile Include="Products\IProductSearchViewModelFactory.cs" />
-    <Compile Include="Products\IProductSelected.cs" />
-    <Compile Include="Products\IReviewOrderViewModelFactory.cs" />
     <Compile Include="Products\OrderPlacedView.xaml.cs">
       <DependentUpon>OrderPlacedView.xaml</DependentUpon>
     </Compile>
@@ -145,23 +131,19 @@
       <DependentUpon>ProductDetailsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Products\ProductDetailsViewModel.cs" />
-    <Compile Include="Products\ProductDetailsViewModel2.cs" />
     <Compile Include="Products\ProductSearchResultView.xaml.cs">
       <DependentUpon>ProductSearchResultView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Products\ProductSearchResultViewModel.cs" />
-    <Compile Include="Products\ProductSearchResultViewModel2.cs" />
-    <Compile Include="Products\ProductSearchViewModel.cs" />
     <Compile Include="Main\MainViewModelLocator.cs" />
     <Compile Include="Products\ProductSearchView.xaml.cs">
       <DependentUpon>ProductSearchView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Products\ProductSearchViewModel2.cs" />
+    <Compile Include="Products\ProductSearchViewModel.cs" />
     <Compile Include="Products\ProductsView.xaml.cs">
       <DependentUpon>ProductsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Products\ProductsViewModel.cs" />
-    <Compile Include="Products\ProductsViewModel2.cs" />
     <Compile Include="Products\ProductViewModel.cs" />
     <Compile Include="IoCInstaller.cs" />
     <Page Include="Main\MainView.xaml">
@@ -215,7 +197,6 @@
       <DependentUpon>ReviewOrderView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Products\ReviewOrderViewModel.cs" />
-    <Compile Include="Products\ReviewOrderViewModel2.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

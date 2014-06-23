@@ -8,15 +8,13 @@ namespace Eshop.WpfMvvmApp.Products
     public class DeliveryAddressViewModel : BaseViewModel
     {
         private readonly IDeliveryAddressControllerClient _deliveryAddressControllerClient;
-        private readonly IOnDeliveryAddressSet _onDeliveryAddressSet;
         private readonly RelayCommandAsync<string> _setDeliveryAddressCommand;
+        private readonly ProductsViewModel _products;
 
-        protected DeliveryAddressViewModel() {}
-
-        public DeliveryAddressViewModel(IDeliveryAddressControllerClient deliveryAddressControllerClient, IOnDeliveryAddressSet onDeliveryAddressSet)
+        public DeliveryAddressViewModel(IDeliveryAddressControllerClient deliveryAddressControllerClient, ProductsViewModel products)
         {
+            _products = products;
             _deliveryAddressControllerClient = deliveryAddressControllerClient;
-            _onDeliveryAddressSet = onDeliveryAddressSet;
             _setDeliveryAddressCommand = new RelayCommandAsync<string>(async x => await _setDeliveryAddress(x), _canSetDeliveryAddressExecute);
         }
 
@@ -27,11 +25,11 @@ namespace Eshop.WpfMvvmApp.Products
         {
             return !string.IsNullOrWhiteSpace(deliveryAddress);
         }
-
+        
         private async Task _setDeliveryAddress(string deliveryAddress)
         {
             await _deliveryAddressControllerClient.SetDeliveryAddressAsync(deliveryAddress);
-            await _onDeliveryAddressSet.DeliveryAddressSet(deliveryAddress);
+            await _products.LoadReviewOrder();
         }
     }
 }

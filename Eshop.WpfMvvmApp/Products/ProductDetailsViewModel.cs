@@ -9,52 +9,41 @@ namespace Eshop.WpfMvvmApp.Products
     {
         private readonly IProductControllerClient _productControllerClient;
         private readonly IBasketControllerClient _basketControllerClient;
-        private readonly IProductAddedToBasket _productAddedToBasket;
+        private readonly ProductsViewModel _productsViewModel;
         private readonly RelayCommandAsync<int> _addToBasketCommand;
         private int _productId;
-
-        protected ProductDetailsViewModel() {}
 
         public ProductDetailsViewModel(
             IProductControllerClient productControllerClient, 
             IBasketControllerClient basketControllerClient,
-            IProductAddedToBasket productAddedToBasket
+            ProductsViewModel productsViewModel
             )
         {
             _productControllerClient = productControllerClient;
             _basketControllerClient = basketControllerClient;
-            _productAddedToBasket = productAddedToBasket;
-
-            _addToBasketCommand = new RelayCommandAsync<int>(async x => await _addProductToBasket(x), _canAddProductToBasketExecute);
+            _productsViewModel = productsViewModel;
+            _addToBasketCommand = new RelayCommandAsync<int>(async x => await _addProductToBasket(x));
         }
-
-        public ICommand AddToBasketCommand { get { return _addToBasketCommand; } }
 
         public string Name { get; private set; }
         public string Description { get; private set; }
         public decimal Price { get; private set; }
-        
-        public int Quantity { get; set; }
+        public int Quantity { get; set; }                
+        public ICommand AddToBasketCommand { get { return _addToBasketCommand; } }
 
-        public virtual async Task LoadProduct(int productId)
+        public async Task LoadProduct(int productId)
         {
             _productId = productId;
-
             var productDetails = await _productControllerClient.GetProductAsync(productId);
             Name = productDetails.Name;
             Description = productDetails.Description;
             Price = productDetails.Price;
         }
 
-        private bool _canAddProductToBasketExecute(int quantity)
-        {
-            return true;
-        }
-
         private async Task _addProductToBasket(int quantity)
         {
             await _basketControllerClient.AddProductToBasketAsync(_productId, quantity);
-            await _productAddedToBasket.ProductAddedToBasket();
+            await _productsViewModel.ProductAddedToBasket();
         }
     }
 }

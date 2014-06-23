@@ -10,37 +10,28 @@ namespace Eshop.WpfMvvmApp.Products
 {
     public class ProductSearchResultViewModel : BaseViewModel
     {
-        private readonly IProductSelected _productSelected;
+        private readonly ProductsViewModel _productsViewModel;
         private readonly ObservableCollection<ProductViewModel> _products = new ObservableCollection<ProductViewModel>();
-        
         private readonly RelayCommandAsync<int> _selectProductCommand;
 
-        protected ProductSearchResultViewModel() {}
-
-        public ProductSearchResultViewModel(IProductSelected productSelected)
+        public ProductSearchResultViewModel(ProductsViewModel productsViewModel)
         {
-            _productSelected = productSelected;
-            _selectProductCommand = new RelayCommandAsync<int>(async x => await _selectProduct(x), _canSelectProductExecute);
+            _productsViewModel = productsViewModel;
+            _selectProductCommand = new RelayCommandAsync<int>(async x => await _selectProduct(x));
         }
 
         public ObservableCollection<ProductViewModel> Products { get { return _products; } }
-
         public ICommand SelectProductCommand { get { return _selectProductCommand; } }
 
-        public virtual void PopulateSearchResult(IEnumerable<ProductSummaryDto> products)
+        public void PopulateSearchResult(IEnumerable<ProductSummaryDto> products)
         {
             _products.Clear();
             products.Each(x => _products.Add(new ProductViewModel(x.Id, x.Name)));
         }
-        
-        private bool _canSelectProductExecute(int productId)
-        {
-            return true;
-        }
 
         private async Task _selectProduct(int productId)
         {
-            await _productSelected.ProductSelected(productId);
+            await _productsViewModel.ProductSelected(productId);
         }
     }
 }
