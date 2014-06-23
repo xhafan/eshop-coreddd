@@ -5,10 +5,10 @@ using Eshop.WpfMvvmApp.UnitTests.Products;
 using NUnit.Framework;
 using Shouldly;
 
-namespace Eshop.WpfMvvmApp.UnitTests.Main.MainViewModels
+namespace Eshop.WpfMvvmApp.UnitTests.Main
 {
     [TestFixture]
-    public class when_constructing : BaseTest
+    public class when_constructing_main_view_model : BaseTest
     {
         private MainViewModel _viewModel;
         private ProductsViewModel _productsViewModel;

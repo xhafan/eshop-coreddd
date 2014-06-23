@@ -93,7 +93,7 @@
     <Compile Include="Products\when_searching_product.cs" />
     <Compile Include="Products\when_selecting_product_from_search_result.cs" />
     <Compile Include="Products\when_updating_product_quantity_in_basket.cs" />
-    <Compile Include="Main\MainViewModels\when_constructing.cs" />
+    <Compile Include="Main\when_constructing_main_view_model.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
