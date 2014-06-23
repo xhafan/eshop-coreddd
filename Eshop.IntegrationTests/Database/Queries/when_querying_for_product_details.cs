@@ -2,8 +2,8 @@
 using System.Linq;
 using Eshop.Domain;
 using Eshop.Dtos;
-using Eshop.IntegrationTests.Database.ObjectMothers;
 using Eshop.Queries;
+using Eshop.Tests.Common.Builders;
 using NUnit.Framework;
 using Shouldly;
 
@@ -17,7 +17,7 @@ namespace Eshop.IntegrationTests.Database.Queries
 
         protected override void PersistenceContext()
         {
-            _product = new ProductObjectMother().NewEntity();
+            _product = new ProductBuilder().Build();
             Save(_product);
         }
 
@@ -33,9 +33,9 @@ namespace Eshop.IntegrationTests.Database.Queries
             _results.Count().ShouldBe(1);
             var dto = _results.First();
             dto.Id.ShouldBe(_product.Id);
-            dto.Name.ShouldBe(ProductObjectMother.Name);
-            dto.Description.ShouldBe(ProductObjectMother.Description);
-            dto.Price.ShouldBe(ProductObjectMother.Price);
+            dto.Name.ShouldBe(ProductBuilder.Name);
+            dto.Description.ShouldBe(ProductBuilder.Description);
+            dto.Price.ShouldBe(ProductBuilder.Price);
         }
     }
 }

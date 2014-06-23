@@ -94,10 +94,6 @@
     <Compile Include="Database\BaseEshopPersistenceTest.cs" />
     <Compile Include="Database\BaseEshopSimplePersistenceTest.cs" />
     <Compile Include="Database\EshopAggregateRootTypesToClearProvider.cs" />
-    <Compile Include="Database\ObjectMothers\BasketItemObjectMother.cs" />
-    <Compile Include="Database\ObjectMothers\CustomerObjectMother.cs" />
-    <Compile Include="Database\ObjectMothers\OrderObjectMother.cs" />
-    <Compile Include="Database\ObjectMothers\ProductObjectMother.cs" />
     <Compile Include="Database\Queries\when_querying_for_basket_items.cs" />
     <Compile Include="Database\Queries\when_querying_for_delivery_address.cs" />
     <Compile Include="Database\Queries\when_querying_for_products.cs" />
@@ -139,6 +135,10 @@
     <ProjectReference Include="..\Eshop.Queries\Eshop.Queries.csproj">
       <Project>{C9DC0C78-6CF7-4F49-A408-82C8495D000F}</Project>
       <Name>Eshop.Queries</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Eshop.Tests.Common\Eshop.Tests.Common.csproj">
+      <Project>{0B122A54-AC42-4BEB-8A61-E7DD26DF0CD7}</Project>
+      <Name>Eshop.Tests.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\Eshop.WpfMvvmApp\Eshop.WpfMvvmApp.csproj">
       <Project>{1215bff9-7abb-487b-a7d9-3e9533700621}</Project>

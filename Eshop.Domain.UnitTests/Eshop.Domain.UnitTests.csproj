@@ -82,6 +82,10 @@
       <Project>{bb2a7f85-ebb7-4143-af9a-e90c48cb5d28}</Project>
       <Name>Eshop.Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Eshop.Tests.Common\Eshop.Tests.Common.csproj">
+      <Project>{0B122A54-AC42-4BEB-8A61-E7DD26DF0CD7}</Project>
+      <Name>Eshop.Tests.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

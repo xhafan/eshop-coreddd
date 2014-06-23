@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using CoreTest;
 using Eshop.Domain;
-using Eshop.IntegrationTests.Database.ObjectMothers;
+using Eshop.Tests.Common.Builders;
 using NUnit.Framework;
 using Shouldly;
 
@@ -17,9 +17,12 @@ namespace Eshop.IntegrationTests.Database
 
         protected override void PersistenceContext()
         {
-            _product = new ProductObjectMother().NewEntity();
-            _customer = new CustomerObjectMother().NewEntity();
-            _basketItem = new BasketItemObjectMother().NewEntity(_customer, _product);
+            _product = new ProductBuilder().Build();
+            _customer = new CustomerBuilder().Build();
+            _basketItem = new BasketItemBuilder()
+                .WithCustomer(_customer)
+                .WithProduct(_product)
+                .Build();
             _customer.BasketItems.AsSet().Add(_basketItem);
             Save(_product, _customer);
         }
@@ -44,7 +47,7 @@ namespace Eshop.IntegrationTests.Database
             basketItem.ShouldBe(_basketItem);
             basketItem.Customer.ShouldBe(_customer);
             basketItem.Product.ShouldBe(_product);
-            basketItem.Count.ShouldBe(BasketItemObjectMother.Count);
+            basketItem.Count.ShouldBe(BasketItemBuilder.Quantity);
         }
     }
 }

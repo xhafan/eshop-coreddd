@@ -1,5 +1,5 @@
 using Eshop.Domain;
-using Eshop.IntegrationTests.Database.ObjectMothers;
+using Eshop.Tests.Common.Builders;
 using NUnit.Framework;
 using Shouldly;
 
@@ -13,7 +13,7 @@ namespace Eshop.IntegrationTests.Database
 
         protected override void PersistenceContext()
         {
-            _product = new ProductObjectMother().NewEntity();
+            _product = new ProductBuilder().Build();
             Save(_product);
         }
 
@@ -26,9 +26,9 @@ namespace Eshop.IntegrationTests.Database
         public void retrieved_product_is_the_same()
         {
             _retrievedProduct.ShouldBe(_product);
-            _retrievedProduct.Name.ShouldBe(ProductObjectMother.Name);
-            _retrievedProduct.Description.ShouldBe(ProductObjectMother.Description);
-            _retrievedProduct.Price.ShouldBe(ProductObjectMother.Price);
+            _retrievedProduct.Name.ShouldBe(ProductBuilder.Name);
+            _retrievedProduct.Description.ShouldBe(ProductBuilder.Description);
+            _retrievedProduct.Price.ShouldBe(ProductBuilder.Price);
         }
     }
 }
