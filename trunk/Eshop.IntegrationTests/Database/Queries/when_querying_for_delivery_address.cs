@@ -38,6 +38,6 @@ namespace Eshop.IntegrationTests.Database.Queries
             var result = _results.First();
             result.CustomerId.ShouldBe(_customerTwo.Id);
             result.DeliveryAddress.ShouldBe("delivery address");
-                    }
+        }
     }
 }
