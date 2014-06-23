@@ -6,52 +6,40 @@ using Eshop.WpfMvvmApp.ControllerClients;
 
 namespace Eshop.WpfMvvmApp.Products
 {
-    public class ProductsViewModel : 
-        BaseViewModel, 
-        IProductSearched, 
-        IProductSelected, 
-        IProductAddedToBasket,
-        IOnProceedingToCheckout,
-        IOnPlacingOrder,
-        IOnDeliveryAddressSet
+    public class ProductsViewModel : BaseViewModel
     {
         private readonly IDeliveryAddressControllerClient _deliveryAddressControllerClient;
         private readonly ProductSearchViewModel _productSearch;
         private readonly ProductSearchResultViewModel _productSearchResult;
         private readonly ProductDetailsViewModel _productDetails;
         private readonly BasketViewModel _basket;
-        private readonly ReviewOrderViewModel _reviewOrder;
         private readonly DeliveryAddressViewModel _deliveryAddress;
+        private readonly ReviewOrderViewModel _reviewOrder;
         private readonly OrderPlacedViewModel _orderPlaced;
 
-        protected ProductsViewModel() {}
-
         public ProductsViewModel(
-            IDeliveryAddressControllerClient deliveryAddressControllerClient,
-            IProductSearchViewModelFactory productSearchFactory,
-            IProductSearchResultViewModelFactory productSearchResultFactory,
-            IProductDetailsViewModelFactory productDetailsFactory,
-            IBasketViewModelFactory basketViewModelFactory,
-            IReviewOrderViewModelFactory reviewOrderViewModelFactory,
-            IDeliveryAddressViewModelFactory deliveryAddressViewModelFactory
+            IProductControllerClient productControllerClient, 
+            IBasketControllerClient basketControllerClient, 
+            IDeliveryAddressControllerClient deliveryAddressControllerClient, 
+            IOrderControllerClient orderControllerClient
             )
         {
             _deliveryAddressControllerClient = deliveryAddressControllerClient;
-            _productSearch = productSearchFactory.Create(this);
-            _productSearchResult = productSearchResultFactory.Create(this);
-            _productDetails = productDetailsFactory.Create(this);
-            _basket = basketViewModelFactory.Create(this);
-            _reviewOrder = reviewOrderViewModelFactory.Create(this);
-            _deliveryAddress = deliveryAddressViewModelFactory.Create(this);
+            _productSearch = new ProductSearchViewModel(productControllerClient, this);
+            _productSearchResult = new ProductSearchResultViewModel(this);
+            _productDetails = new ProductDetailsViewModel(productControllerClient, basketControllerClient, this);
+            _basket = new BasketViewModel(basketControllerClient, this);
+            _deliveryAddress = new DeliveryAddressViewModel(_deliveryAddressControllerClient, this);
+            _reviewOrder = new ReviewOrderViewModel(orderControllerClient, this);
             _orderPlaced = new OrderPlacedViewModel();
         }
 
-        public ProductSearchViewModel ProductSearch { get { return _productSearch; } }
         public BaseViewModel CurrentViewModel { get; private set; }
+        public ProductSearchViewModel ProductSearch { get { return _productSearch; } }
         
-        public void ProductSearched(IEnumerable<ProductSummaryDto> products)
+        public void ProductSearched(IEnumerable<ProductSummaryDto> searchedProducts)
         {
-            _productSearchResult.PopulateSearchResult(products);
+            _productSearchResult.PopulateSearchResult(searchedProducts);
             CurrentViewModel = _productSearchResult;
         }
 
@@ -75,18 +63,18 @@ namespace Eshop.WpfMvvmApp.Products
                 CurrentViewModel = _deliveryAddress;
                 return;
             }
-            await DeliveryAddressSet(deliveryAddress);
+            await LoadReviewOrder();
         }
 
-        public async Task OrderPlaced()
-        {
-            CurrentViewModel = _orderPlaced;
-        }
-
-        public async Task DeliveryAddressSet(string deliveryAddress)
+        public async Task LoadReviewOrder()
         {
             await _reviewOrder.LoadReviewOrderData();
             CurrentViewModel = _reviewOrder;
+        }
+
+        public void OrderPlaced()
+        {
+            CurrentViewModel = _orderPlaced;
         }
     }
 }

@@ -11,7 +11,7 @@ namespace Eshop.WpfMvvmApp.UnitTests.Chicago.Products.ProductsViewModels
     public class when_updating_product_quantity_in_basket : ProductsViewModelWithProductAddedToBasketSetup
     {
         private BasketItemViewModel _basketItem;
-        private BasketViewModel2 _basket;
+        private BasketViewModel _basket;
         private const int UpdatedQuantity = 4;
 
         [SetUp]

@@ -11,21 +11,19 @@ namespace Eshop.WpfMvvmApp.Products
     public class BasketViewModel : BaseViewModel
     {
         private readonly IBasketControllerClient _basketControllerClient;
-        private readonly IOnProceedingToCheckout _onProceedingToCheckout;
+        private readonly ProductsViewModel _products;
         private readonly ObservableCollection<BasketItemViewModel> _basketItems = new ObservableCollection<BasketItemViewModel>();
         private readonly RelayCommandAsync<int> _updateProductQuantityCommand;
         private readonly RelayCommandAsync<object> _proceedToCheckoutCommand;
 
-        protected BasketViewModel() {}
-
-        public BasketViewModel(IBasketControllerClient basketControllerClient, IOnProceedingToCheckout onProceedingToCheckout)
+        public BasketViewModel(IBasketControllerClient basketControllerClient, ProductsViewModel products)
         {
             _basketControllerClient = basketControllerClient;
-            _onProceedingToCheckout = onProceedingToCheckout;
-            _updateProductQuantityCommand = new RelayCommandAsync<int>(async x => await _updateProductQuantity(x), x => true);
-            _proceedToCheckoutCommand = new RelayCommandAsync<object>(async x => await _proceedToCheckout(), x => true);
+            _products = products;
+            _updateProductQuantityCommand = new RelayCommandAsync<int>(async x => await _updateProductQuantity(x));
+            _proceedToCheckoutCommand = new RelayCommandAsync<object>(async x => await _proceedToCheckout());
         }
-       
+
         public ObservableCollection<BasketItemViewModel> BasketItems { get { return _basketItems; } }
         public decimal Subtotal { get; private set; }
         public ICommand UpdateProductQuantityCommand { get { return _updateProductQuantityCommand; } }
@@ -44,7 +42,7 @@ namespace Eshop.WpfMvvmApp.Products
                     {
                         _updateSubtotal();
                     }
-                };
+                }; 
                 _basketItems.Add(basketItem);
             });
             _updateSubtotal();
@@ -68,7 +66,7 @@ namespace Eshop.WpfMvvmApp.Products
 
         private async Task _proceedToCheckout()
         {
-            await _onProceedingToCheckout.ProceededToCheckout();
+            await _products.ProceededToCheckout();
         }
     }
 }

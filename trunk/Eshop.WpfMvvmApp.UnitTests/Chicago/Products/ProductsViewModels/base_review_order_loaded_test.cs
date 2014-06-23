@@ -17,7 +17,7 @@ namespace Eshop.WpfMvvmApp.UnitTests.Chicago.Products.ProductsViewModels
         [Test]
         public void current_view_model_is_set()
         {
-            ViewModel.CurrentViewModel.ShouldBeTypeOf<ReviewOrderViewModel2>();
+            ViewModel.CurrentViewModel.ShouldBeTypeOf<ReviewOrderViewModel>();
         }
 
         [Test]

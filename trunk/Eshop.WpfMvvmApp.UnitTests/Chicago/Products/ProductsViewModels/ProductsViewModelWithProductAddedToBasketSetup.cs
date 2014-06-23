@@ -57,14 +57,14 @@ namespace Eshop.WpfMvvmApp.UnitTests.Chicago.Products.ProductsViewModels
             BasketControllerClient.Stubs(x => x.GetBasketItemsAsync()).Returns(TaskEx.FromResult(basketItemDtos));
         }
 
-        protected BasketViewModel2 GetCurrentViewModelAsBasket()
+        protected BasketViewModel GetCurrentViewModelAsBasket()
         {
-            return (BasketViewModel2)ViewModel.CurrentViewModel;
+            return (BasketViewModel)ViewModel.CurrentViewModel;
         }
 
-        protected ReviewOrderViewModel2 GetCurrentViewModelAsReviewOrder()
+        protected ReviewOrderViewModel GetCurrentViewModelAsReviewOrder()
         {
-            return (ReviewOrderViewModel2)ViewModel.CurrentViewModel;
+            return (ReviewOrderViewModel)ViewModel.CurrentViewModel;
         }
 
         protected void ProceedToCheckout()
@@ -77,9 +77,9 @@ namespace Eshop.WpfMvvmApp.UnitTests.Chicago.Products.ProductsViewModels
             DeliveryAddressControllerClient.Stubs(x => x.GetDeliveryAddressAsync()).Returns(TaskEx.FromResult(""));
         }
 
-        protected DeliveryAddressViewModel2 GetCurrentViewModelAsDeliveryAddress()
+        protected DeliveryAddressViewModel GetCurrentViewModelAsDeliveryAddress()
         {
-            return (DeliveryAddressViewModel2)ViewModel.CurrentViewModel;
+            return (DeliveryAddressViewModel)ViewModel.CurrentViewModel;
         }
 
         protected void StubReviewOrderDataOnControllerClient()

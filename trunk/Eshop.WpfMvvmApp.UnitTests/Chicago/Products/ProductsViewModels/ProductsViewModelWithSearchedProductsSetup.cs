@@ -33,9 +33,9 @@ namespace Eshop.WpfMvvmApp.UnitTests.Chicago.Products.ProductsViewModels
                     .Returns(TaskEx.FromResult(new[] {new ProductSummaryDto {Id = ProductOneId, Name = ProductOneName}}));
         }
 
-        protected ProductSearchResultViewModel2 GetCurrentViewModelAsProductSearchResult()
+        protected ProductSearchResultViewModel GetCurrentViewModelAsProductSearchResult()
         {
-            return (ProductSearchResultViewModel2)ViewModel.CurrentViewModel;
+            return (ProductSearchResultViewModel)ViewModel.CurrentViewModel;
         }
     }
 }

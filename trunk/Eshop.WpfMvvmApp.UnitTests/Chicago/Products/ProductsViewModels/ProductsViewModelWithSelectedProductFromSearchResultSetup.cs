@@ -38,9 +38,9 @@ namespace Eshop.WpfMvvmApp.UnitTests.Chicago.Products.ProductsViewModels
             ProductControllerClient.Stubs(x => x.GetProductAsync(ProductOneId)).Returns(TaskEx.FromResult(productDto));
         }
 
-        protected ProductDetailsViewModel2 GetCurrentViewModelAsProductDetails()
+        protected ProductDetailsViewModel GetCurrentViewModelAsProductDetails()
         {
-            return (ProductDetailsViewModel2)ViewModel.CurrentViewModel;
+            return (ProductDetailsViewModel)ViewModel.CurrentViewModel;
         }
     }
 }
