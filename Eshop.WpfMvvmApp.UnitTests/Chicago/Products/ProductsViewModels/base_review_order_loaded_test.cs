@@ -1,27 +1,17 @@
 ﻿using System.Linq;
-using System.Threading.Tasks;
-using Eshop.Dtos;
 using Eshop.WpfMvvmApp.Products;
 using NUnit.Framework;
-using Rhino.Mocks;
 using Shouldly;
 
 namespace Eshop.WpfMvvmApp.UnitTests.Chicago.Products.ProductsViewModels
 {
     public abstract class base_review_order_loaded_test : ProductsViewModelWithProductAddedToBasketSetup
     {
-        protected const string DeliveryAddress = "delivery address";
-
         [SetUp]
         public override void Context()
         {
             base.Context();
             StubReviewOrderDataOnControllerClient();
-        }
-
-        private void StubReviewOrderDataOnControllerClient()
-        {
-            OrderControllerClient.Stubs(x => x.GetReviewOrderDtoAsync()).Returns(TaskEx.FromResult(GetReviewOrderDto()));
         }
 
         [Test]
@@ -49,32 +39,6 @@ namespace Eshop.WpfMvvmApp.UnitTests.Chicago.Products.ProductsViewModels
         public void delivery_address_is_loaded()
         {
             GetCurrentViewModelAsReviewOrder().DeliveryAddress.ShouldBe(DeliveryAddress);
-        }
-
-        private ReviewOrderDto GetReviewOrderDto()
-        {
-            var basketItemDtos = new[]
-            {
-                new BasketItemDto
-                {
-                    ProductId = ProductOneId,
-                    ProductPrice = ProductOnePrice,
-                    Quantity = ProductOneQuantity
-                },
-                new BasketItemDto
-                {
-                    ProductId = ProductTwoId,
-                    ProductPrice = ProductTwoPrice,
-                    Quantity = ProductTwoQuantity
-                },
-            };
-            var deliveryAddressDto = new DeliveryAddressDto {DeliveryAddress = DeliveryAddress};
-            var reviewOrderDto = new ReviewOrderDto
-            {
-                BasketItems = basketItemDtos,
-                DeliveryAddress = deliveryAddressDto
-            };
-            return reviewOrderDto;
         }
     }
 }

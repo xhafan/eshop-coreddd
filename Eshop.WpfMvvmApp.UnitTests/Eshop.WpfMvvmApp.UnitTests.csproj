@@ -84,6 +84,7 @@
     <Compile Include="Chicago\Products\ProductsViewModels\ProductsViewModelWithSelectedProductFromSearchResultSetup.cs" />
     <Compile Include="Chicago\Products\ProductsViewModels\when_adding_product_to_basket.cs" />
     <Compile Include="Chicago\Products\ProductsViewModels\when_can_set_delivery_address.cs" />
+    <Compile Include="Chicago\Products\ProductsViewModels\when_placing_order.cs" />
     <Compile Include="Chicago\Products\ProductsViewModels\when_proceeding_to_checkout_with_delivery_address_not_set.cs" />
     <Compile Include="Chicago\Products\ProductsViewModels\when_proceeding_to_checkout_with_delivery_address_set.cs" />
     <Compile Include="Chicago\Products\ProductsViewModels\when_setting_delivery_address.cs" />

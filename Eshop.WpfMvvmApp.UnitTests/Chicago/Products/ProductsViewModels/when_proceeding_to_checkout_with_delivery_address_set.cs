@@ -1,6 +1,4 @@
-﻿using System.Threading.Tasks;
-using NUnit.Framework;
-using Rhino.Mocks;
+﻿using NUnit.Framework;
 
 namespace Eshop.WpfMvvmApp.UnitTests.Chicago.Products.ProductsViewModels
 {
@@ -14,11 +12,6 @@ namespace Eshop.WpfMvvmApp.UnitTests.Chicago.Products.ProductsViewModels
             StubExistingDeliveryAddressOnControllerClient();
 
             ProceedToCheckout();
-        }
-
-        private void StubExistingDeliveryAddressOnControllerClient()
-        {
-            DeliveryAddressControllerClient.Stubs(x => x.GetDeliveryAddressAsync()).Returns(TaskEx.FromResult(DeliveryAddress));
         }
     }
 }
