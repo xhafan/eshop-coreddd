@@ -1,5 +1,4 @@
 ﻿using System.Linq;
-using CoreTest;
 using Eshop.Domain;
 using Eshop.Tests.Common.Builders;
 using NUnit.Framework;
@@ -13,17 +12,13 @@ namespace Eshop.IntegrationTests.Database
         private Customer _customer;
         private Customer _retrievedCustomer;
         private Product _product;
-        private BasketItem _basketItem;
 
         protected override void PersistenceContext()
         {
             _product = new ProductBuilder().Build();
-            _customer = new CustomerBuilder().Build();
-            _basketItem = new BasketItemBuilder()
-                .WithCustomer(_customer)
-                .WithProduct(_product)
+            _customer = new CustomerBuilder()
+                .WithProductInBasket(_product, 23)
                 .Build();
-            _customer.BasketItems.AsSet().Add(_basketItem);
             Save(_product, _customer);
         }
 
@@ -44,10 +39,10 @@ namespace Eshop.IntegrationTests.Database
         {
             _retrievedCustomer.BasketItems.Count().ShouldBe(1);
             var basketItem = _retrievedCustomer.BasketItems.First();
-            basketItem.ShouldBe(_basketItem);
+            basketItem.ShouldBe(_customer.BasketItems.First()); 
             basketItem.Customer.ShouldBe(_customer);
             basketItem.Product.ShouldBe(_product);
-            basketItem.Quantity.ShouldBe(BasketItemBuilder.Quantity);
+            basketItem.Quantity.ShouldBe(23);
         }
     }
 }

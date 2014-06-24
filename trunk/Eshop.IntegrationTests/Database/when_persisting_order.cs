@@ -9,6 +9,7 @@ namespace Eshop.IntegrationTests.Database
     [TestFixture]
     public class when_persisting_order : BaseEshopSimplePersistenceTest
     {
+        private const int ProductQuantity = 23;
         private Order _order;
         private Order _retrievedOrder;
         private Product _product;
@@ -16,10 +17,12 @@ namespace Eshop.IntegrationTests.Database
         protected override void PersistenceContext()
         {
             _product = new ProductBuilder().Build();
-            var customer = new CustomerBuilder().Build();
+            var customer = new CustomerBuilder()
+                .WithProductInBasket(_product, ProductQuantity)
+                .WithDeliveryAddress()
+                .Build();
             _order = new OrderBuilder()
                 .WithCustomer(customer)
-                .WithProduct(_product)
                 .Build();
             Save(_product, _order);
         }
@@ -33,7 +36,7 @@ namespace Eshop.IntegrationTests.Database
         public void properties_are_correctly_set()
         {
             _retrievedOrder.ShouldBe(_order);
-            _retrievedOrder.DeliveryAddress.ShouldBe(OrderBuilder.DeliveryAddress);
+            _retrievedOrder.DeliveryAddress.ShouldBe(CustomerBuilder.DeliveryAddress);
         }
 
         [Test]
@@ -44,7 +47,7 @@ namespace Eshop.IntegrationTests.Database
             orderItem.ShouldBe(_order.OrderItems.First());
             orderItem.Order.ShouldBe(_order);
             orderItem.Product.ShouldBe(_product);
-            orderItem.Quantity.ShouldBe(BasketItemBuilder.Quantity);
+            orderItem.Quantity.ShouldBe(ProductQuantity);
         }
     }
 }
