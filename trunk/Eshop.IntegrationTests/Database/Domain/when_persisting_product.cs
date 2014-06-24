@@ -3,7 +3,7 @@ using Eshop.Tests.Common.Builders;
 using NUnit.Framework;
 using Shouldly;
 
-namespace Eshop.IntegrationTests.Database
+namespace Eshop.IntegrationTests.Database.Domain
 {
     [TestFixture]
     public class when_persisting_product : BaseEshopSimplePersistenceTest

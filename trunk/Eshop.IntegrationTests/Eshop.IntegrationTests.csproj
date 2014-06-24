@@ -98,10 +98,10 @@
     <Compile Include="Database\Queries\when_querying_for_delivery_address.cs" />
     <Compile Include="Database\Queries\when_querying_for_products.cs" />
     <Compile Include="Database\Queries\when_querying_for_product_details.cs" />
-    <Compile Include="Database\when_persisting_order.cs" />
-    <Compile Include="Database\when_persisting_product.cs" />
+    <Compile Include="Database\Domain\when_persisting_order.cs" />
+    <Compile Include="Database\Domain\when_persisting_product.cs" />
     <Compile Include="RunOncePerTestRun.cs" />
-    <Compile Include="Database\when_persisting_customer.cs" />
+    <Compile Include="Database\Domain\when_persisting_customer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WpfMvvmApp\ControllerClients\AuthenticationCookiePersisters\when_getting_persistent_cookie_which_cannot_be_deserialized.cs" />
     <Compile Include="WpfMvvmApp\ControllerClients\AuthenticationCookiePersisters\when_getting_persistent_cookie_which_does_not_exist.cs" />
