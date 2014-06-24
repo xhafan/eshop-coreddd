@@ -4,7 +4,7 @@ using Eshop.Domain;
 using NUnit.Framework;
 using Rhino.Mocks;
 
-namespace Eshop.Commands.UnitTests
+namespace Eshop.Commands.UnitTests.UpdateProductQuantityInBasketCommandHandlers
 {
     [TestFixture]
     public class when_handling_update_product_quantity_in_basket_command : BaseTest

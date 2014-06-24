@@ -4,7 +4,7 @@ using Eshop.Domain;
 using NUnit.Framework;
 using Rhino.Mocks;
 
-namespace Eshop.Commands.UnitTests
+namespace Eshop.Commands.UnitTests.AddProductToBasketCommandHandlers
 {
     [TestFixture]
     public class when_handling_add_product_to_basket_command_for_existing_customer : BaseTest

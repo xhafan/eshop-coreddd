@@ -4,7 +4,7 @@ using Eshop.Domain;
 using NUnit.Framework;
 using Rhino.Mocks;
 
-namespace Eshop.Commands.UnitTests
+namespace Eshop.Commands.UnitTests.SetDeliveryAddressCommandHandlers
 {
     [TestFixture]
     public class when_handling_set_delivery_address_command : BaseTest

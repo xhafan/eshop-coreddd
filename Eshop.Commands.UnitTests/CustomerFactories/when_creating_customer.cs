@@ -20,7 +20,7 @@ namespace Eshop.Commands.UnitTests.CustomerFactories
         [Test]
         public void customer_is_created()
         {
-            _customer.ShouldNotBe(null);
+            _customer.ShouldBeTypeOf<Customer>();
         }
     }
 }
