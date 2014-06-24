@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.Linq;
-using CoreTest;
 using Eshop.Domain;
 using Eshop.Dtos;
 using Eshop.Queries;
@@ -34,29 +33,13 @@ namespace Eshop.IntegrationTests.Database.Queries
                 .WithName(ProductTwoName)
                 .WithPrice(ProductTwoPrice)
                 .Build();
-            _customer = new CustomerBuilder().Build();
-            _customer.BasketItems.AsSet().AddAll(new[]
-            {
-                new BasketItemBuilder()
-                    .WithCustomer(_customer)
-                    .WithProduct(_productOne)
-                    .WithQuantity(ProductOneQuantity)
-                    .Build(),
-                new BasketItemBuilder()
-                    .WithCustomer(_customer)
-                    .WithProduct(_productTwo)
-                    .WithQuantity(ProductTwoQuantity)
-                    .Build()
-            });
-            var anotherCustomer = new CustomerBuilder().Build();
-            anotherCustomer.BasketItems.AsSet().AddAll(new[]
-            {
-                new BasketItemBuilder()
-                    .WithCustomer(anotherCustomer)
-                    .WithProduct(_productOne)
-                    .WithQuantity(ProductOneQuantity)
-                    .Build()
-            });
+            _customer = new CustomerBuilder()
+                .WithProductInBasket(_productOne, ProductOneQuantity)
+                .WithProductInBasket(_productTwo, ProductTwoQuantity)
+                .Build();
+            var anotherCustomer = new CustomerBuilder()
+                .WithProductInBasket(_productOne, ProductOneQuantity)
+                .Build();
 
             Save(_productOne, _productTwo, _customer, anotherCustomer);
         }
