@@ -44,7 +44,7 @@ namespace Eshop.IntegrationTests.Database
             orderItem.ShouldBe(_order.OrderItems.First());
             orderItem.Order.ShouldBe(_order);
             orderItem.Product.ShouldBe(_product);
-            orderItem.Count.ShouldBe(BasketItemBuilder.Quantity);
+            orderItem.Quantity.ShouldBe(BasketItemBuilder.Quantity);
         }
     }
 }

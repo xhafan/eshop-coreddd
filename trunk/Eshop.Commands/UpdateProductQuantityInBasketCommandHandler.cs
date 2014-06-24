@@ -22,7 +22,7 @@ namespace Eshop.Commands
             var customer = _customerRepository.GetById(command.CustomerId);
             var product = _productRepository.GetById(command.ProductId);
 
-            customer.UpdateProductCountInBasket(product, command.Quantity);
+            customer.UpdateProductQuantityInBasket(product, command.Quantity);
         }
     }
 }

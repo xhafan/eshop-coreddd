@@ -29,7 +29,7 @@ alter table [OrderItem]  drop constraint FK_OrderItem_Product
 
     create table [BasketItem] (
         Id INT not null,
-       Count INT not null,
+       Quantity INT not null,
        CustomerId INT not null,
        ProductId INT not null,
        primary key (Id)
@@ -49,7 +49,7 @@ alter table [OrderItem]  drop constraint FK_OrderItem_Product
 
     create table [OrderItem] (
         Id INT not null,
-       Count INT not null,
+       Quantity INT not null,
        OrderId INT not null,
        ProductId INT not null,
        primary key (Id)

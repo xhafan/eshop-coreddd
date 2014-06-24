@@ -59,18 +59,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BasketItems\when_adding_count.cs" />
-    <Compile Include="BasketItems\when_constructing_basket_item.cs" />
-    <Compile Include="BasketItems\when_updating_count.cs" />
+    <Compile Include="Customers\CustomerSetup.cs" />
+    <Compile Include="Customers\CustomerWithDeliveryAddressSetSetup.cs" />
+    <Compile Include="Customers\CustomerWithProductAddedToBasketSetup.cs" />
     <Compile Include="Customers\when_adding_another_product_of_the_same_type_to_basket.cs" />
     <Compile Include="Customers\when_adding_product_to_basket.cs" />
     <Compile Include="Customers\when_placing_order.cs" />
     <Compile Include="Customers\when_placing_order_without_delivery_address.cs" />
     <Compile Include="Customers\when_setting_delivery_address.cs" />
-    <Compile Include="Customers\when_updating_product_count_in_basket.cs" />
-    <Compile Include="Customers\when_updating_product_count_in_basket_to_zero.cs" />
-    <Compile Include="OrderItems\when_constructing_order_item.cs" />
-    <Compile Include="Orders\when_constructing_order.cs" />
+    <Compile Include="Customers\when_updating_product_quantity_in_basket.cs" />
+    <Compile Include="Customers\when_updating_product_quantity_in_basket_to_zero.cs" />
     <Compile Include="Products\when_constructing_product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

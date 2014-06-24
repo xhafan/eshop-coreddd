@@ -1,31 +1,24 @@
 using System.Linq;
-using CoreTest;
 using NUnit.Framework;
 using Shouldly;
 
 namespace Eshop.Domain.UnitTests.Customers
 {
     [TestFixture]
-    public class when_adding_another_product_of_the_same_type_to_basket : BaseTest
+    public class when_adding_another_product_of_the_same_type_to_basket : CustomerWithProductAddedToBasketSetup
     {
-        private Customer _customer;
-        private Product _product;
-
         [SetUp]
-        public void Context()
+        public override void Context()
         {
-            _product = Stub<Product>();
-            _customer = new Customer();
-            _customer.AddProductToBasket(_product, 1);
-
-            _customer.AddProductToBasket(_product, 1);
+            base.Context();
+            Customer.AddProductToBasket(Product, 2);
         }
 
         [Test]
-        public void product_count_is_updated()
+        public void product_quantity_is_updated()
         {
-            _customer.BasketItems.Count().ShouldBe(1);
-            _customer.BasketItems.First().Count.ShouldBe(2);
+            Customer.BasketItems.Count().ShouldBe(1);
+            Customer.BasketItems.First().Quantity.ShouldBe(25);
         }
     }
 }

@@ -10,7 +10,7 @@ select
     , bi.ProductId
     , p.Name            as ProductName
     , p.Price           as ProductPrice
-    , bi.[Count]        as Quantity
+    , bi.Quantity
 from BasketItem bi
 join Product p ON p.Id = bi.ProductId
 

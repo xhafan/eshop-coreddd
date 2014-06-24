@@ -6,25 +6,25 @@ namespace Eshop.Domain
     {
         protected BasketItem() {}
 
-        public BasketItem(Customer customer, Product product, int count)
+        public BasketItem(Customer customer, Product product, int quantity)
         {
             Customer = customer;
             Product = product;
-            Count = count;
+            Quantity = quantity;
         }
 
         public virtual Customer Customer { get; protected set; }
         public virtual Product Product { get; protected set; }
-        public virtual int Count { get; protected set; }
+        public virtual int Quantity { get; protected set; }
 
-        public virtual void AddCount(int count)
+        public virtual void AddQuantity(int quantity)
         {
-            Count += count;
+            Quantity += quantity;
         }
 
-        public virtual void UpdateCount(int count)
+        public virtual void UpdateQuantity(int quantity)
         {
-            Count = count;
+            Quantity = quantity;
         }
     }
 }
