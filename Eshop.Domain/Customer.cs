@@ -8,11 +8,9 @@ namespace Eshop.Domain
 {
     public class Customer : Entity, IAggregateRoot
     {
-        public const string MissingDeliveryAddressExceptionMessage = "Deliver address is not set";
-
         private readonly Iesi.Collections.Generic.ISet<BasketItem> _basketItems = new HashedSet<BasketItem>();
-        public virtual IEnumerable<BasketItem> BasketItems { get { return _basketItems; } }
 
+        public virtual IEnumerable<BasketItem> BasketItems { get { return _basketItems; } }
         public virtual string DeliveryAddress { get; protected set; }
 
         public virtual void AddProductToBasket(Product product, int count)
@@ -20,7 +18,7 @@ namespace Eshop.Domain
             var basketItemWithTheProduct = _basketItems.FirstOrDefault(x => x.Product == product);
             if (basketItemWithTheProduct != null)
             {
-                basketItemWithTheProduct.AddCount(count);
+                basketItemWithTheProduct.AddQuantity(count);
             }
             else
             {
@@ -28,7 +26,7 @@ namespace Eshop.Domain
             }
         }
 
-        public virtual void UpdateProductCountInBasket(Product product, int newCount)
+        public virtual void UpdateProductQuantityInBasket(Product product, int newCount)
         {
             var basketItem = _basketItems.First(x => x.Product == product);
             if (newCount == 0)
@@ -37,7 +35,7 @@ namespace Eshop.Domain
             }
             else
             {
-                basketItem.UpdateCount(newCount);
+                basketItem.UpdateQuantity(newCount);
             }
         }
 
@@ -48,7 +46,7 @@ namespace Eshop.Domain
 
         public virtual Order PlaceOrder()
         {
-            Guard.Hope(!string.IsNullOrWhiteSpace(DeliveryAddress), MissingDeliveryAddressExceptionMessage);
+            Guard.Hope(!string.IsNullOrWhiteSpace(DeliveryAddress), "Deliver address is not set");
 
             var order = new Order(_basketItems, DeliveryAddress);
             _basketItems.Clear();

@@ -9,9 +9,9 @@ namespace Eshop.Commands.UnitTests
     [TestFixture]
     public class when_handling_add_product_to_basket_command_for_new_customer : BaseTest
     {
-        private const int Count = 34;
+        private const int Quantity = 34;
         private const int CustomerId = 45;
-        private int customerIdRaisedByEvent;
+        private int _customerIdRaisedByEvent;
         private Customer _customer;
         private IRepository<Customer> _customerRepository;
         private Product _product;
@@ -26,20 +26,20 @@ namespace Eshop.Commands.UnitTests
             _customer = Mock<Customer>().Stubs(x => x.Id).Returns(CustomerId);
             var customerFactory = Stub<ICustomerFactory>().Stubs(x => x.Create()).Returns(_customer);
             var handler = new AddProductToBasketCommandHandler(_customerRepository, productRepository, customerFactory);
-            handler.CommandExecuted += (sender, args) => customerIdRaisedByEvent = (int)args.Args; // todo: refactor CoreDdd to support generic event handling
+            handler.CommandExecuted += (sender, args) => _customerIdRaisedByEvent = (int)args.Args; // todo: refactor CoreDdd to support generic event handling
 
             handler.Execute(new AddProductToBasketCommand
                                 {
                                     CustomerId = default(int),
                                     ProductId = productId,
-                                    Quantity = Count
+                                    Quantity = Quantity
                                 });
         }
 
         [Test]
         public void add_product_to_basket_is_called_on_customer()
         {
-            _customer.AssertWasCalled(x => x.AddProductToBasket(_product, Count));
+            _customer.AssertWasCalled(x => x.AddProductToBasket(_product, Quantity));
         }
 
         [Test]
@@ -51,7 +51,7 @@ namespace Eshop.Commands.UnitTests
         [Test]
         public void customer_id_is_raised_by_event()
         {
-            Assert.That(customerIdRaisedByEvent, Is.EqualTo(CustomerId));
+            Assert.That(_customerIdRaisedByEvent, Is.EqualTo(CustomerId));
         }
     }
 }

@@ -6,15 +6,15 @@ namespace Eshop.Domain
     {
         protected OrderItem() {}
 
-        public OrderItem(Order order, Product product, int count)
+        public OrderItem(Order order, Product product, int quantity)
         {
             Order = order;
             Product = product;
-            Count = count;
+            Quantity = quantity;
         }
 
         public virtual Order Order { get; protected set; }
         public virtual Product Product { get; protected set; }
-        public virtual int Count { get; protected set; }
+        public virtual int Quantity { get; protected set; }
     }
 }

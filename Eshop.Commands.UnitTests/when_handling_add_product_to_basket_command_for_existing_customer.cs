@@ -9,7 +9,7 @@ namespace Eshop.Commands.UnitTests
     [TestFixture]
     public class when_handling_add_product_to_basket_command_for_existing_customer : BaseTest
     {
-        private const int Count = 34;
+        private const int Quantity = 34;
         private Customer _customer;
         private Product _product;
 
@@ -28,14 +28,14 @@ namespace Eshop.Commands.UnitTests
                                 {
                                     CustomerId = customerId,
                                     ProductId = productId,
-                                    Quantity = Count
+                                    Quantity = Quantity
                                 });
         }
 
         [Test]
         public void add_product_to_basket_is_called_on_customer()
         {
-            _customer.AssertWasCalled(x => x.AddProductToBasket(_product, Count));
+            _customer.AssertWasCalled(x => x.AddProductToBasket(_product, Quantity));
         }
     }
 }

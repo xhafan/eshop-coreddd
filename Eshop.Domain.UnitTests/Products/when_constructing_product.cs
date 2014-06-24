@@ -1,4 +1,5 @@
 ﻿using CoreTest;
+using Eshop.Tests.Common.Builders;
 using NUnit.Framework;
 using Shouldly;
 
@@ -8,32 +9,29 @@ namespace Eshop.Domain.UnitTests.Products
     public class when_constructing_product : BaseTest
     {
         private Product _product;
-        private const string ProductName = "product name";
-        private const string ProductDescription = "product description";
-        private const decimal Price = 23.4m;
 
         [SetUp]
         public void Context()
         {
-            _product = new Product(ProductName, ProductDescription, Price);
+            _product = new ProductBuilder().Build();
         }
 
         [Test]
         public void name_is_set()
         {
-            _product.Name.ShouldBe(ProductName);
+            _product.Name.ShouldBe(ProductBuilder.Name);
         }
 
         [Test]
         public void description_is_set()
         {
-            _product.Description.ShouldBe(ProductDescription);
+            _product.Description.ShouldBe(ProductBuilder.Description);
         }
 
         [Test]
         public void price_is_set()
         {
-            _product.Price.ShouldBe(Price);
+            _product.Price.ShouldBe(ProductBuilder.Price);
         }    
     }
 }
