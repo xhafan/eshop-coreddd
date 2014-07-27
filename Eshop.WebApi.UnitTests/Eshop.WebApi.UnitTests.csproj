@@ -39,6 +39,9 @@
     <Reference Include="CoreTest">
       <HintPath>..\packagesTemp\CoreTest\CoreTest.dll</HintPath>
     </Reference>
+    <Reference Include="CoreUtils">
+      <HintPath>..\packagesTemp\CoreUtils\CoreUtils.dll</HintPath>
+    </Reference>
     <Reference Include="nunit.framework">
       <HintPath>..\packages\NUnit.2.6.2\lib\nunit.framework.dll</HintPath>
     </Reference>
