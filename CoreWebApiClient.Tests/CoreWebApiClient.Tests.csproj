@@ -32,9 +32,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CoreDdd">
-      <HintPath>..\packagesTemp\CoreDdd\CoreDdd.dll</HintPath>
-    </Reference>
     <Reference Include="CoreTest, Version=1.1.6.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packagesTemp\CoreTest\CoreTest.dll</HintPath>
@@ -50,9 +47,6 @@
     </Reference>
     <Reference Include="nunit.framework">
       <HintPath>..\packages\NUnit.2.6.1\lib\nunit.framework.dll</HintPath>
-    </Reference>
-    <Reference Include="Rhino.Mocks">
-      <HintPath>..\packages\RhinoMocks.3.6.1\lib\net\Rhino.Mocks.dll</HintPath>
     </Reference>
     <Reference Include="Shouldly">
       <HintPath>..\Eshop.UnitTests\bin\Debug\Shouldly.dll</HintPath>
