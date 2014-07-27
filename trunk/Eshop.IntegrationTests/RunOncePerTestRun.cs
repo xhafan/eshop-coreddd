@@ -1,7 +1,6 @@
-﻿using Castle.MicroKernel.Registration;
-using Castle.Windsor;
-using CoreDdd.Nhibernate.Configurations;
-using CoreDdd.Nhibernate.UnitOfWorks;
+﻿using Castle.Windsor;
+using Castle.Windsor.Installer;
+using CoreDdd.Nhibernate.Register.Castle;
 using CoreIoC;
 using CoreIoC.Castle;
 using Eshop.Infrastructure;
@@ -13,18 +12,15 @@ namespace Eshop.IntegrationTests
     public class RunOncePerTestRun
     {
         [SetUp]
-        public void SetUp() // todo: use installer?
+        public void SetUp()
         {
-            var windsorContainer = new WindsorContainer();
-            windsorContainer.Register(
-                Component.For<INhibernateConfigurator>()
-                    .ImplementedBy<EshopNhibernateConfigurator>()
-                    .LifeStyle.Singleton,
-                Component.For<NhibernateUnitOfWork>()
-                    .ImplementedBy<NhibernateUnitOfWork>()
-                    .LifeStyle.PerThread
+            NhibernateInstaller.SetUnitOfWorkLifeStyle(x => x.PerThread);
+            var container = new WindsorContainer();
+            container.Install(
+                FromAssembly.Containing<EshopNhibernateInstaller>(),
+                FromAssembly.Containing<NhibernateInstaller>()
                 );
-            IoC.Initialize(new CastleContainer(windsorContainer));
+            IoC.Initialize(new CastleContainer(container));
         }
     }
 }
