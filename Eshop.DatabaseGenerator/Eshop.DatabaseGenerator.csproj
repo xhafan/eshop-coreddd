@@ -43,6 +43,9 @@
     <Reference Include="CoreDdd">
       <HintPath>..\packagesTemp\CoreDdd\CoreDdd.dll</HintPath>
     </Reference>
+    <Reference Include="CoreDdd.Nhibernate">
+      <HintPath>..\packagesTemp\CoreDdd.Nhibernate\CoreDdd.Nhibernate.dll</HintPath>
+    </Reference>
     <Reference Include="HibernatingRhinos.Profiler.Appender.v4.0">
       <HintPath>..\packages\NHibernateProfiler.1.0.0.953\lib\Net40\HibernatingRhinos.Profiler.Appender.v4.0.dll</HintPath>
     </Reference>

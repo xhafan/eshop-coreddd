@@ -1,4 +1,4 @@
-using CoreDdd.Queries;
+using CoreDdd.Nhibernate.Queries;
 using Eshop.Dtos;
 using NHibernate;
 

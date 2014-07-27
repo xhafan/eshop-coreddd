@@ -2,6 +2,7 @@
 using Castle.Windsor;
 using Castle.Windsor.Installer;
 using CoreIoC;
+using CoreIoC.Castle;
 
 namespace Eshop.WpfMvvmApp
 {
@@ -14,7 +15,7 @@ namespace Eshop.WpfMvvmApp
             container.Install(
                 FromAssembly.Containing<IoCInstaller>()
                 );
-            IoC.Initialize(container);
+            IoC.Initialize(new CastleContainer(container));
         }
     }
 }

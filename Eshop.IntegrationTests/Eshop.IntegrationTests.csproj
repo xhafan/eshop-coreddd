@@ -34,17 +34,26 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Castle.Core">
-      <HintPath>..\packages\Castle.Core.3.0.0.4001\lib\net40-client\Castle.Core.dll</HintPath>
+      <HintPath>..\packages\Castle.Core.3.2.1\lib\net40-client\Castle.Core.dll</HintPath>
     </Reference>
     <Reference Include="Castle.Windsor">
-      <HintPath>..\packages\Castle.Windsor.3.0.0.4001\lib\net40\Castle.Windsor.dll</HintPath>
+      <HintPath>..\packages\Castle.Windsor.3.2.1\lib\net40\Castle.Windsor.dll</HintPath>
     </Reference>
     <Reference Include="CoreDdd, Version=1.1.7.1, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packagesTemp\CoreDdd\CoreDdd.dll</HintPath>
     </Reference>
-    <Reference Include="CoreDto">
-      <HintPath>..\packagesTemp\CoreDto\CoreDto.dll</HintPath>
+    <Reference Include="CoreDdd.Nhibernate">
+      <HintPath>..\packagesTemp\CoreDdd.Nhibernate\CoreDdd.Nhibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="CoreIntegrationTest.Nhibernate">
+      <HintPath>..\packagesTemp\CoreIntegrationTest.Nhibernate\CoreIntegrationTest.Nhibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="CoreIoC">
+      <HintPath>..\packagesTemp\CoreIoC\CoreIoC.dll</HintPath>
+    </Reference>
+    <Reference Include="CoreIoC.Castle">
+      <HintPath>..\packagesTemp\CoreIoC.Castle\CoreIoC.Castle.dll</HintPath>
     </Reference>
     <Reference Include="CoreTest, Version=1.1.6.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

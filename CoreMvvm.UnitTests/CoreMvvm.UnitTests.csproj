@@ -43,8 +43,14 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packagesTemp\CoreIoC\CoreIoC.dll</HintPath>
     </Reference>
+    <Reference Include="CoreIoC.Castle">
+      <HintPath>..\packagesTemp\CoreIoC.Castle\CoreIoC.Castle.dll</HintPath>
+    </Reference>
     <Reference Include="CoreTest">
       <HintPath>..\packagesTemp\CoreTest\CoreTest.dll</HintPath>
+    </Reference>
+    <Reference Include="CoreUtils">
+      <HintPath>..\packagesTemp\CoreUtils\CoreUtils.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Threading.Tasks">
       <HintPath>..\packages\Microsoft.Bcl.Async.1.0.16\lib\net40\Microsoft.Threading.Tasks.dll</HintPath>

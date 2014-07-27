@@ -1,8 +1,8 @@
-﻿using CoreDto;
+﻿using CoreDdd.Nhibernate;
 
 namespace Eshop.Dtos
 {
-    public class ProductDto : IDto
+    public class ProductDto : IAutoMappedDto
     {
         public int Id { get; set; }
         public string Name { get; set; }
