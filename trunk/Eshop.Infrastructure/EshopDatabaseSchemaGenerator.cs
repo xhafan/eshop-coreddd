@@ -1,5 +1,5 @@
-﻿using CoreDdd.DatabaseSchemaGenerators;
-using CoreDdd.Infrastructure;
+﻿using CoreDdd.Nhibernate.Configurations;
+using CoreDdd.Nhibernate.DatabaseSchemaGenerators;
 
 namespace Eshop.Infrastructure
 {
@@ -20,7 +20,7 @@ namespace Eshop.Infrastructure
 
         protected override INhibernateConfigurator GetNhibernateConfigurator()
         {
-            return UnitOfWorkInitializer.GetNhibernateConfigurator(false);
+            return new EshopNhibernateConfigurator(false);
         }
     }
 }

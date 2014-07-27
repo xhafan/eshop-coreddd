@@ -36,9 +36,8 @@
     <Reference Include="CoreDdd">
       <HintPath>..\packagesTemp\CoreDdd\CoreDdd.dll</HintPath>
     </Reference>
-    <Reference Include="CoreDto, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packagesTemp\CoreDto\CoreDto.dll</HintPath>
+    <Reference Include="CoreDdd.Nhibernate">
+      <HintPath>..\packagesTemp\CoreDdd.Nhibernate\CoreDdd.Nhibernate.dll</HintPath>
     </Reference>
     <Reference Include="CoreTest">
       <HintPath>..\packagesTemp\CoreTest\CoreTest.dll</HintPath>

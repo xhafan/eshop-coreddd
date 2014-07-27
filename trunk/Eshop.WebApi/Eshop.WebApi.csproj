@@ -50,12 +50,20 @@
     <Reference Include="CoreDdd">
       <HintPath>..\packagesTemp\CoreDdd\CoreDdd.dll</HintPath>
     </Reference>
-    <Reference Include="CoreDto, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packagesTemp\CoreDto\CoreDto.dll</HintPath>
+    <Reference Include="CoreDdd.Nhibernate">
+      <HintPath>..\packagesTemp\CoreDdd.Nhibernate\CoreDdd.Nhibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="CoreDdd.Nhibernate.Register.Castle">
+      <HintPath>..\packagesTemp\CoreDdd.Nhibernate.Register.Castle\CoreDdd.Nhibernate.Register.Castle.dll</HintPath>
+    </Reference>
+    <Reference Include="CoreDdd.Register.Castle">
+      <HintPath>..\packagesTemp\CoreDdd.Register.Castle\CoreDdd.Register.Castle.dll</HintPath>
     </Reference>
     <Reference Include="CoreIoC">
       <HintPath>..\packagesTemp\CoreIoC\CoreIoC.dll</HintPath>
+    </Reference>
+    <Reference Include="CoreIoC.Castle">
+      <HintPath>..\packagesTemp\CoreIoC.Castle\CoreIoC.Castle.dll</HintPath>
     </Reference>
     <Reference Include="HibernatingRhinos.Profiler.Appender.v4.0">
       <HintPath>..\packages\NHibernateProfiler.1.0.0.953\lib\Net40\HibernatingRhinos.Profiler.Appender.v4.0.dll</HintPath>

@@ -1,12 +1,13 @@
-﻿using System.Data;
-using System.Web.Http;
+﻿using System.Web.Http;
 using System.Web.Http.Dispatcher;
 using System.Web.Mvc;
 using Castle.Windsor;
 using Castle.Windsor.Installer;
-using CoreDdd.Infrastructure;
-using CoreDdd.Queries;
+using CoreDdd.Nhibernate.Register.Castle;
+using CoreDdd.Register.Castle;
+using CoreDdd.UnitOfWorks;
 using CoreIoC;
+using CoreIoC.Castle;
 using Eshop.Commands;
 using Eshop.Infrastructure;
 using Eshop.Queries;
@@ -27,36 +28,34 @@ namespace Eshop.WebApi
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
 
+            NhibernateInstaller.SetUnitOfWorkLifeStyle(x => x.PerWebRequest);
             var container = new WindsorContainer();
             container.Install(
                 FromAssembly.Containing<QueryExecutorInstaller>(),
                 FromAssembly.Containing<QueryHandlerInstaller>(),
                 FromAssembly.Containing<CommandHandlerInstaller>(),
-                FromAssembly.Containing<ControllerInstaller>()
+                FromAssembly.Containing<ControllerInstaller>(),
+                FromAssembly.Containing<NhibernateInstaller>(),
+                FromAssembly.Containing<EshopNhibernateInstaller>()
                 );
-            IoC.Initialize(container);
+            IoC.Initialize(new CastleContainer(container));
 
             GlobalConfiguration.Configuration.Services.Replace(typeof(IHttpControllerActivator), new IoCHttpControllerActivator());
-            UnitOfWorkInitializer.Initialize();
         }
 
         public virtual void Application_BeginRequest()
         {
-            UnitOfWork.Current.BeginTransaction(IsolationLevel.ReadCommitted);
-        }
-
-        public virtual void Application_EndRequest()
-        {
-            if (!UnitOfWork.IsStarted) return;
-            UnitOfWork.Current.TransactionalFlush();
-            UnitOfWork.Current.Dispose();
+            GetUnitOfWorkPerWebRequest().BeginTransaction();
         }
 
         public virtual void Application_Error()
         {
-            if (!UnitOfWork.IsStarted) return;
-            UnitOfWork.Current.TransactionalRollback();
-            UnitOfWork.Current.Dispose();
+            GetUnitOfWorkPerWebRequest().Rollback();
         }
+
+        private IUnitOfWork GetUnitOfWorkPerWebRequest()
+        {
+            return IoC.Resolve<IUnitOfWork>();
+        }  
     }
 }

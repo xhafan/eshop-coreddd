@@ -1,8 +1,9 @@
+using CoreIntegrationTest.Nhibernate;
 using CoreTest;
 
 namespace Eshop.IntegrationTests.Database
 {
-    public abstract class BaseEshopSimplePersistenceTest : BaseSimplePersistenceTest
+    public abstract class BaseEshopSimplePersistenceTest : BaseNhibernateSimplePersistenceTest
     {
         protected override IAggregateRootTypesToClearProvider GetAggregateRootTypesToClearProvider()
         {
