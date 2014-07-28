@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>CoreWebApiClient</id>
-    <version>1.0.0.0</version>
+    <version>1.1.0.0</version>
     <authors>xhafan</authors>
     <owners>xhafan</owners>
     <projectUrl>http://code.google.com/p/eshop-coreddd/source/browse/#svn%2Ftrunk%2FCoreWebApiClient</projectUrl>
@@ -10,9 +10,9 @@
     <description>CoreWebApiClient lib together with CoreWebApiClient.Generator app generates web api controller proxy clients to be used by wpf/webforms/console apps to connect to a web api server. Supports async/await for .NET 4 &amp; Windows XP</description>
     <tags>web api controller proxy client async</tags>
     <dependencies>
-      <dependency id="Microsoft.Bcl" version="1.0.19" />
-      <dependency id="Microsoft.Bcl.Async" version="1.0.16" />
-      <dependency id="Microsoft.Bcl.Build" version="1.0.7" />
+      <dependency id="Microsoft.Bcl" version="1.1.8" />
+      <dependency id="Microsoft.Bcl.Async" version="1.0.168" />
+      <dependency id="Microsoft.Bcl.Build" version="1.0.14" />
       <dependency id="Microsoft.Net.Http" version="2.1.10" />
     </dependencies>
   </metadata>

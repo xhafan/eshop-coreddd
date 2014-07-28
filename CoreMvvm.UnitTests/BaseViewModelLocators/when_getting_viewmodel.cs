@@ -1,6 +1,4 @@
-﻿using Castle.Windsor;
-using CoreIoC;
-using CoreIoC.Castle;
+﻿using CoreIoC;
 using CoreTest;
 using NUnit.Framework;
 using Rhino.Mocks;
@@ -18,8 +16,8 @@ namespace CoreMvvm.UnitTests.BaseViewModelLocators
         public void Context()
         {
             _viewModel = new TestViewModel();
-            var container = Stub<IWindsorContainer>().Stubs(x => x.Resolve<TestViewModel>()).Returns(_viewModel);
-            IoC.Initialize(new CastleContainer(container));
+            var container = Stub<IContainer>().Stubs(x => x.Resolve<TestViewModel>()).Returns(_viewModel);
+            IoC.Initialize(container);
             _viewModelLocator = new TestViewModelLocator();
         }
 
