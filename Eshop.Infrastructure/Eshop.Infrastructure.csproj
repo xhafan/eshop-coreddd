@@ -41,10 +41,10 @@
     </Reference>
     <Reference Include="CoreDdd, Version=1.1.7.1, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packagesTemp\CoreDdd\CoreDdd.dll</HintPath>
+      <HintPath>..\packages\CoreDdd.2.0.0\lib\net40\CoreDdd.dll</HintPath>
     </Reference>
     <Reference Include="CoreDdd.Nhibernate">
-      <HintPath>..\packagesTemp\CoreDdd.Nhibernate\CoreDdd.Nhibernate.dll</HintPath>
+      <HintPath>..\packages\CoreDdd.Nhibernate.2.0.0\lib\net40\CoreDdd.Nhibernate.dll</HintPath>
     </Reference>
     <Reference Include="HibernatingRhinos.Profiler.Appender.v4.0">
       <HintPath>..\packages\NHibernateProfiler.1.0.0.953\lib\Net40\HibernatingRhinos.Profiler.Appender.v4.0.dll</HintPath>

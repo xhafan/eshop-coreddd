@@ -34,10 +34,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CoreDdd">
-      <HintPath>..\packagesTemp\CoreDdd\CoreDdd.dll</HintPath>
+      <HintPath>..\packages\CoreDdd.2.0.0\lib\net40\CoreDdd.dll</HintPath>
     </Reference>
     <Reference Include="CoreUtils">
-      <HintPath>..\packagesTemp\CoreUtils\CoreUtils.dll</HintPath>
+      <HintPath>..\packages\CoreUtils.2.0.0\lib\net40\CoreUtils.dll</HintPath>
     </Reference>
     <Reference Include="FluentNHibernate">
       <HintPath>..\packages\FluentNHibernate.1.3.0.733\lib\FluentNHibernate.dll</HintPath>
