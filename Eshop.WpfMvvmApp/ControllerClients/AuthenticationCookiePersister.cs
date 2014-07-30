@@ -6,6 +6,7 @@ using CoreWebApiClient;
 
 namespace Eshop.WpfMvvmApp.ControllerClients
 {
+    // todo: move this to CoreMvvm library as a default persister?
     public class AuthenticationCookiePersister : IAuthenticationCookiePersister // todo: save cookie asynchronously in one thread - two threads might compete when writing the file
     {
         private static readonly string CurrentDomainFriendlyName = AppDomain.CurrentDomain.FriendlyName.Replace(" ", ".").Replace("vshost.", "");
