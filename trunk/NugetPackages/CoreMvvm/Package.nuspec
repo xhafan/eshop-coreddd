@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>CoreMvvm</id>
+    <version>1.0.0</version>
+    <authors>xhafan</authors>
+    <owners>xhafan</owners>
+    <projectUrl>http://xhafan.com/blog/</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Provides base view model and asynchronous relay command implementations for WPF MVVM</description>
+    <tags>WPF MVVM view model relay command async</tags>
+    <dependencies>
+      <dependency id="CoreIoC" version="2.0.0" />
+      <dependency id="Fody" version="1.13.11.1" />
+      <dependency id="Microsoft.Bcl" version="1.1.8" />
+      <dependency id="Microsoft.Bcl.Async" version="1.0.168" />
+      <dependency id="PropertyChanged.Fody" version="1.40.3" />
+    </dependencies>
+    <releaseNotes></releaseNotes>
+  </metadata>
+</package>

@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>CoreWebApi</id>
+    <version>1.0.0</version>
+    <authors>xhafan</authors>
+    <owners>xhafan</owners>
+    <projectUrl>http://xhafan.com/blog/</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Provides authentication attribute (to define session context type) and base authenticated controller implementation</description>
+    <tags>web api session context base authenticated controller</tags>
+    <dependencies>
+      <dependency id="Newtonsoft.Json" version="5.0.8" />
+    </dependencies>
+    <releaseNotes></releaseNotes>
+  </metadata>
+</package>
