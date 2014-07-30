@@ -81,6 +81,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\CoreSharedAssemblyInfo.cs">
+      <Link>Properties\CoreSharedAssemblyInfo.cs</Link>
+    </Compile>
     <Compile Include="BaseApiControllerClient.cs" />
     <Compile Include="IAuthenticationCookiePersister.cs" />
     <Compile Include="RoutesProvider.cs" />
