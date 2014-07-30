@@ -33,17 +33,17 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CoreDdd">
-      <HintPath>..\packagesTemp\CoreDdd\CoreDdd.dll</HintPath>
+      <HintPath>..\packages\CoreDdd.2.0.0\lib\net40\CoreDdd.dll</HintPath>
     </Reference>
     <Reference Include="CoreIoC, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packagesTemp\CoreIoC\CoreIoC.dll</HintPath>
+      <HintPath>..\packages\CoreIoC.2.0.0\lib\net40\CoreIoC.dll</HintPath>
     </Reference>
     <Reference Include="CoreTest">
-      <HintPath>..\packagesTemp\CoreTest\CoreTest.dll</HintPath>
+      <HintPath>..\packages\CoreTest.2.0.0\lib\net40\CoreTest.dll</HintPath>
     </Reference>
     <Reference Include="CoreUtils">
-      <HintPath>..\packagesTemp\CoreUtils\CoreUtils.dll</HintPath>
+      <HintPath>..\packages\CoreUtils.2.0.0\lib\net40\CoreUtils.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Threading.Tasks">
       <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.dll</HintPath>

@@ -34,7 +34,7 @@
   <ItemGroup>
     <Reference Include="CoreTest, Version=1.1.6.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packagesTemp\CoreTest\CoreTest.dll</HintPath>
+      <HintPath>..\packages\CoreTest.2.0.0\lib\net40\CoreTest.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Threading.Tasks">
       <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.dll</HintPath>

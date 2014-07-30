@@ -44,13 +44,13 @@
       <HintPath>..\packages\Castle.Windsor.3.2.1\lib\net40\Castle.Windsor.dll</HintPath>
     </Reference>
     <Reference Include="CoreIoC">
-      <HintPath>..\packagesTemp\CoreIoC\CoreIoC.dll</HintPath>
+      <HintPath>..\packages\CoreIoC.2.0.0\lib\net40\CoreIoC.dll</HintPath>
     </Reference>
     <Reference Include="CoreIoC.Castle">
-      <HintPath>..\packagesTemp\CoreIoC.Castle\CoreIoC.Castle.dll</HintPath>
+      <HintPath>..\packages\CoreIoC.Castle.2.0.0\lib\net40\CoreIoC.Castle.dll</HintPath>
     </Reference>
     <Reference Include="CoreUtils">
-      <HintPath>..\packagesTemp\CoreUtils\CoreUtils.dll</HintPath>
+      <HintPath>..\packages\CoreUtils.2.0.0\lib\net40\CoreUtils.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Expression.Interactions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\Microsoft.Expression.Interactions.dll</HintPath>

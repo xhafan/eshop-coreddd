@@ -34,7 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CoreIoC">
-      <HintPath>..\packagesTemp\CoreIoC\CoreIoC.dll</HintPath>
+      <HintPath>..\packages\CoreIoC.2.0.0\lib\net40\CoreIoC.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Threading.Tasks">
       <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.dll</HintPath>

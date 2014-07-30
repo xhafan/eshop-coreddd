@@ -40,10 +40,10 @@
       <HintPath>..\packages\Castle.Windsor.3.2.1\lib\net40\Castle.Windsor.dll</HintPath>
     </Reference>
     <Reference Include="CoreDdd">
-      <HintPath>..\packagesTemp\CoreDdd\CoreDdd.dll</HintPath>
+      <HintPath>..\packages\CoreDdd.2.0.0\lib\net40\CoreDdd.dll</HintPath>
     </Reference>
     <Reference Include="CoreDdd.Nhibernate">
-      <HintPath>..\packagesTemp\CoreDdd.Nhibernate\CoreDdd.Nhibernate.dll</HintPath>
+      <HintPath>..\packages\CoreDdd.Nhibernate.2.0.0\lib\net40\CoreDdd.Nhibernate.dll</HintPath>
     </Reference>
     <Reference Include="NHibernate">
       <HintPath>..\packages\NHibernate.3.3.2.4000\lib\Net35\NHibernate.dll</HintPath>
