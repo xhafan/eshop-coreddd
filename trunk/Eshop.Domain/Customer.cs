@@ -2,13 +2,12 @@
 using System.Linq;
 using CoreDdd.Domain;
 using CoreUtils;
-using Iesi.Collections.Generic;
 
 namespace Eshop.Domain
 {
     public class Customer : Entity, IAggregateRoot
     {
-        private readonly Iesi.Collections.Generic.ISet<BasketItem> _basketItems = new HashedSet<BasketItem>();
+        private readonly ICollection<BasketItem> _basketItems = new HashSet<BasketItem>();
 
         public virtual IEnumerable<BasketItem> BasketItems { get { return _basketItems; } }
         public virtual string DeliveryAddress { get; protected set; }

@@ -42,7 +42,7 @@
       <HintPath>..\packages\CoreDdd.2.0.0\lib\net40\CoreDdd.dll</HintPath>
     </Reference>
     <Reference Include="CoreDdd.Nhibernate">
-      <HintPath>..\packages\CoreDdd.Nhibernate.2.1.1\lib\net40\CoreDdd.Nhibernate.dll</HintPath>
+      <HintPath>..\packages\CoreDdd.Nhibernate.2.1.2\lib\net40\CoreDdd.Nhibernate.dll</HintPath>
     </Reference>
     <Reference Include="CoreIoC">
       <HintPath>..\packages\CoreIoC.2.0.0\lib\net40\CoreIoC.dll</HintPath>

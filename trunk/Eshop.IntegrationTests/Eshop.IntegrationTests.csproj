@@ -43,9 +43,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\CoreDdd.2.0.0\lib\net40\CoreDdd.dll</HintPath>
     </Reference>
-    <Reference Include="CoreDdd.Nhibernate, Version=2.1.1.31352, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="CoreDdd.Nhibernate, Version=2.1.2.38500, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\CoreDdd.Nhibernate.2.1.1\lib\net40\CoreDdd.Nhibernate.dll</HintPath>
+      <HintPath>..\packages\CoreDdd.Nhibernate.2.1.2\lib\net40\CoreDdd.Nhibernate.dll</HintPath>
     </Reference>
     <Reference Include="CoreDdd.Nhibernate.Register.Castle">
       <HintPath>..\packages\CoreDdd.Nhibernate.Register.Castle.2.0.0\lib\net40\CoreDdd.Nhibernate.Register.Castle.dll</HintPath>

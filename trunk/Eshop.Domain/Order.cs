@@ -1,19 +1,18 @@
 using System.Collections.Generic;
-using System.Linq;
 using CoreDdd.Domain;
-using Iesi.Collections.Generic;
+using CoreUtils.Extensions;
 
 namespace Eshop.Domain
 {
     public class Order : Entity, IAggregateRoot
     {
-        private readonly Iesi.Collections.Generic.ISet<OrderItem> _orderItems = new HashedSet<OrderItem>();
+        private readonly ICollection<OrderItem> _orderItems = new HashSet<OrderItem>();
 
         protected Order() {}
 
         public Order(IEnumerable<BasketItem> basketItems, string deliveryAddress)
         {
-            _orderItems.AddAll(basketItems.Select(x => new OrderItem(this, x.Product, x.Quantity)).ToList());
+            basketItems.Each(x => _orderItems.Add(new OrderItem(this, x.Product, x.Quantity)));
             DeliveryAddress = deliveryAddress;
 
         }
