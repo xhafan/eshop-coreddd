@@ -22,7 +22,7 @@ namespace Eshop.WebApi.Controllers
             return productDtos.ToArray();
         }
 
-        public ProductDto GetProduct(int productId) // todo: rename to get product details
+        public ProductDto GetProduct(int productId)
         {
             var productDtos = _queryExecutor.Execute<ProductDetailsQuery, ProductDto>(new ProductDetailsQuery { ProductId = productId });
             return productDtos.Single();            
