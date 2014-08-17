@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Reflection;
-using CoreDdd.Domain;
 using CoreDdd.Nhibernate.Configurations;
 using Eshop.Domain;
 using Eshop.Dtos;
@@ -33,24 +32,9 @@ namespace Eshop.Infrastructure
             return assembliesToMap.ToArray();
         }
 
-        protected override IEnumerable<Type> GetIncludeBaseTypes()
+        protected override IEnumerable<Type> GetIgnoreBaseTypes()
         {
-            yield return typeof(Entity<>);
-        }
-
-        protected override IEnumerable<Type> GetDiscriminatedTypes()
-        {
-            return new Type[0];
-        }
-
-        protected override bool ShouldMapDefaultConventions()
-        {
-            return true;
-        }
-
-        protected override Assembly GetAssemblyWithAdditionalConventions()
-        {
-            return null;
+            yield return typeof (ReviewOrderDto);
         }
     }
 }
