@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using CoreDdd.Nhibernate.Configurations;
 using Eshop.Domain;
+using Eshop.Domain.NhibernateMapping;
 using Eshop.Dtos;
 using HibernatingRhinos.Profiler.Appender.NHibernate;
 
@@ -27,7 +28,7 @@ namespace Eshop.Infrastructure
 
         protected override Assembly[] GetAssembliesToMap()
         {
-            var assembliesToMap = new List<Assembly> { typeof(Customer).Assembly };
+            var assembliesToMap = new List<Assembly> { typeof(Customer).Assembly, typeof(CustomerAutoMap).Assembly };
             if (_mapDtoAssembly) assembliesToMap.Add(typeof(ProductSummaryDto).Assembly);
             return assembliesToMap.ToArray();
         }

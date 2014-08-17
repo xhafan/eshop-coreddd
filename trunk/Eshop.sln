@@ -62,6 +62,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eshop.Tests.Common", "Eshop
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{D400E3BF-20C2-40AF-9510-D6E4001C121D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eshop.Domain.NhibernateMapping", "Eshop.Domain.NhibernateMapping\Eshop.Domain.NhibernateMapping.csproj", "{548AB886-06EB-4A24-8191-3630BD1144CA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -282,6 +284,16 @@ Global
 		{0B122A54-AC42-4BEB-8A61-E7DD26DF0CD7}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{0B122A54-AC42-4BEB-8A61-E7DD26DF0CD7}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{0B122A54-AC42-4BEB-8A61-E7DD26DF0CD7}.Release|x86.ActiveCfg = Release|Any CPU
+		{548AB886-06EB-4A24-8191-3630BD1144CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{548AB886-06EB-4A24-8191-3630BD1144CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{548AB886-06EB-4A24-8191-3630BD1144CA}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{548AB886-06EB-4A24-8191-3630BD1144CA}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{548AB886-06EB-4A24-8191-3630BD1144CA}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{548AB886-06EB-4A24-8191-3630BD1144CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{548AB886-06EB-4A24-8191-3630BD1144CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{548AB886-06EB-4A24-8191-3630BD1144CA}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{548AB886-06EB-4A24-8191-3630BD1144CA}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{548AB886-06EB-4A24-8191-3630BD1144CA}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
