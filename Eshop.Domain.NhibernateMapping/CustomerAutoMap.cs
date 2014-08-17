@@ -1,9 +1,9 @@
 using FluentNHibernate.Automapping;
 using FluentNHibernate.Automapping.Alterations;
 
-namespace Eshop.Domain
+namespace Eshop.Domain.NhibernateMapping
 {
-    public class CustomerAutoMap : IAutoMappingOverride<Customer> // todo : move to separate project to separate domain and persistence
+    public class CustomerAutoMap : IAutoMappingOverride<Customer>
     {
         public void Override(AutoMapping<Customer> mapping)
         {
