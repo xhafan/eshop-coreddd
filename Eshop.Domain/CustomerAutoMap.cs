@@ -3,7 +3,7 @@ using FluentNHibernate.Automapping.Alterations;
 
 namespace Eshop.Domain
 {
-    public class CustomerAutoMap : IAutoMappingOverride<Customer>
+    public class CustomerAutoMap : IAutoMappingOverride<Customer> // todo : move to separate project to separate domain and persistence
     {
         public void Override(AutoMapping<Customer> mapping)
         {

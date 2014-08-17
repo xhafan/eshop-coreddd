@@ -36,11 +36,13 @@
     <Reference Include="CoreDdd">
       <HintPath>..\packages\CoreDdd.2.0.0\lib\net40\CoreDdd.dll</HintPath>
     </Reference>
-    <Reference Include="CoreDdd.Nhibernate">
-      <HintPath>..\packages\CoreDdd.Nhibernate.2.0.0\lib\net40\CoreDdd.Nhibernate.dll</HintPath>
+    <Reference Include="CoreIoC, Version=2.0.0.36167, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\CoreIoC.2.0.0\lib\net40\CoreIoC.dll</HintPath>
     </Reference>
-    <Reference Include="CoreTest">
-      <HintPath>..\packages\CoreTest.2.0.0\lib\net40\CoreTest.dll</HintPath>
+    <Reference Include="CoreTest, Version=2.1.1.31352, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\CoreTest.2.1.1\lib\net40\CoreTest.dll</HintPath>
     </Reference>
     <Reference Include="CoreUtils">
       <HintPath>..\packages\CoreUtils.2.0.0\lib\net40\CoreUtils.dll</HintPath>
