@@ -12,25 +12,23 @@ namespace Eshop.Infrastructure
 {
     public class EshopNhibernateConfigurator : NhibernateConfigurator
     {
-        private readonly bool _mapDtoAssembly = true;
-
         public EshopNhibernateConfigurator()
+            : this(true)
+        {
+        }
+
+        public EshopNhibernateConfigurator(bool mapDtoAssembly)
+            : base(mapDtoAssembly)
         {
 #if(DEBUG)
             NHibernateProfiler.Initialize();
 #endif
         }
 
-        public EshopNhibernateConfigurator(bool mapDtoAssembly)
-            : this()
-        {
-            _mapDtoAssembly = mapDtoAssembly;
-        }
-
-        protected override Assembly[] GetAssembliesToMap()
+        protected override Assembly[] GetAssembliesToMap(bool mapDtoAssembly)
         {
             var assembliesToMap = new List<Assembly> { typeof(Customer).Assembly, typeof(CustomerAutoMap).Assembly };
-            if (_mapDtoAssembly) assembliesToMap.AddRange(new[] { typeof(ProductSummaryDto).Assembly, typeof(ProductSummaryDtoAutoMap).Assembly });
+            if (mapDtoAssembly) assembliesToMap.AddRange(new[] { typeof(ProductSummaryDto).Assembly, typeof(ProductSummaryDtoAutoMap).Assembly });
             return assembliesToMap.ToArray();
         }
 
