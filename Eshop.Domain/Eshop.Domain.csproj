@@ -39,9 +39,6 @@
     <Reference Include="CoreUtils">
       <HintPath>..\packages\CoreUtils.2.0.0\lib\net40\CoreUtils.dll</HintPath>
     </Reference>
-    <Reference Include="Iesi.Collections">
-      <HintPath>..\packages\Iesi.Collections.3.3.1.4000\lib\Net35\Iesi.Collections.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
