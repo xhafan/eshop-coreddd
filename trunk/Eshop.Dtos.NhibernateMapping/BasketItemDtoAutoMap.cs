@@ -1,7 +1,7 @@
 using FluentNHibernate.Automapping;
 using FluentNHibernate.Automapping.Alterations;
 
-namespace Eshop.Dtos
+namespace Eshop.Dtos.NhibernateMapping
 {
     public class BasketItemDtoAutoMap : IAutoMappingOverride<BasketItemDto> // todo: move this to separate assembly
     {
