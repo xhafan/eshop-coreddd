@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{36899DB2-3881-4699-96CF-DC71DDE2221C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CoreBus.WebSocket.Tests</RootNamespace>
+    <AssemblyName>CoreBus.WebSocket.Tests</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CoreDdd">
+      <HintPath>..\packages\CoreDdd.2.0.0\lib\net40\CoreDdd.dll</HintPath>
+    </Reference>
+    <Reference Include="CoreIoC">
+      <HintPath>..\packages\CoreIoC.2.0.0\lib\net40\CoreIoC.dll</HintPath>
+    </Reference>
+    <Reference Include="CoreTest">
+      <HintPath>..\packages\CoreTest.2.1.1\lib\net40\CoreTest.dll</HintPath>
+    </Reference>
+    <Reference Include="CoreUtils">
+      <HintPath>..\packages\CoreUtils.2.0.0\lib\net40\CoreUtils.dll</HintPath>
+    </Reference>
+    <Reference Include="JWT">
+      <HintPath>..\packages\JWT.1.3.2\lib\3.5\JWT.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>..\packages\NUnit.2.6.2\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Rhino.Mocks">
+      <HintPath>..\packages\RhinoMocks.3.6.1\lib\net\Rhino.Mocks.dll</HintPath>
+    </Reference>
+    <Reference Include="Shouldly">
+      <HintPath>..\packages\Shouldly.1.1.1.1\lib\35\Shouldly.dll</HintPath>
+    </Reference>
+    <Reference Include="SuperSocket.SocketEngine">
+      <HintPath>..\packages\SuperWebSocketNETServer.0.8\lib\net40\SuperSocket.SocketEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ClientIdExtractors\SuperWebSocketQueryStringJwtClientIdExtractorSpecification.cs" />
+    <Compile Include="ClientIdExtractors\SuperWebSocketQueryStringValueClientIdExtractorSpecification.cs" />
+    <Compile Include="ClientIdExtractors\IClientIdExtractorSpecification.cs" />
+    <Compile Include="ClientIdExtractors\when_sending_a_message.cs" />
+    <Compile Include="ClosingClient\CloseClientAct.cs" />
+    <Compile Include="ClosingClient\DisposeClientAct.cs" />
+    <Compile Include="ClosingClient\ICloseClientAct.cs" />
+    <Compile Include="CoreBusScenario.cs" />
+    <Compile Include="CoreBusScenarioBuilder.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ClosingClient\when_closing_client.cs" />
+    <Compile Include="StartingServerTwice\CloseClientAct.cs" />
+    <Compile Include="StartingServerTwice\DisposeServerAct.cs" />
+    <Compile Include="StartingServerTwice\ICloseClientAct.cs" />
+    <Compile Include="when_one_client_is_sending_messages_from_multiple_threads.cs" />
+    <Compile Include="when_sending_a_message.cs" />
+    <Compile Include="when_sending_message_to_server_which_is_not_started.cs" />
+    <Compile Include="when_sending_multiple_messages_from_client_to_server.cs" />
+    <Compile Include="when_sending_multiple_messages_from_multiple_clients_to_server.cs" />
+    <Compile Include="StartingServerTwice\when_starting_server_twice_on_the_same_port.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CoreBusClient.WebSocket4Net\CoreBusClient.WebSocket4Net.csproj">
+      <Project>{5C42D3CA-43CB-48CD-B44A-FBE5E9B13452}</Project>
+      <Name>CoreBusClient.WebSocket4Net</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CoreBusClient\CoreBusClient.csproj">
+      <Project>{E82B2E7D-A697-4926-8F66-20791C65E180}</Project>
+      <Name>CoreBusClient</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CoreBusServer.SuperWebSocket\CoreBusServer.SuperWebSocket.csproj">
+      <Project>{7255678A-36DD-4B98-AAF7-E030095D80F1}</Project>
+      <Name>CoreBusServer.SuperWebSocket</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CoreBusServer\CoreBusServer.csproj">
+      <Project>{704A2FF8-9888-4632-81FD-4CF564F12164}</Project>
+      <Name>CoreBusServer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
