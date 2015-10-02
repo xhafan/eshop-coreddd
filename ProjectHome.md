@@ -1,0 +1,1 @@
+EShop demo application build on CoreDdd library (http://nuget.org/packages/CoreDdd)
