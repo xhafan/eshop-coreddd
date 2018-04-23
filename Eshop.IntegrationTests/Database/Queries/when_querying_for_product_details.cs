@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using CoreDdd.Nhibernate.TestHelpers;
 using Eshop.Domain;
 using Eshop.Dtos;
 using Eshop.Queries;
@@ -10,19 +11,18 @@ using Shouldly;
 namespace Eshop.IntegrationTests.Database.Queries
 {
     [TestFixture]
-    public class when_querying_for_product_details : BaseEshopSimplePersistenceTest
+    public class when_querying_for_product_details : BasePersistenceTest
     {
         private IEnumerable<ProductDto> _results;
         private Product _product;
 
-        protected override void PersistenceContext()
+        [SetUp]
+        public void Context()
         {
             _product = new ProductBuilder().Build();
             Save(_product);
-        }
 
-        protected override void PersistenceQuery()
-        {
+
             var handler = new ProductDetailsQueryHandler();
             _results = handler.Execute<ProductDto>(new ProductDetailsQuery { ProductId = _product.Id });
         }

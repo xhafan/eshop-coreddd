@@ -25,16 +25,16 @@ namespace Eshop.Commands
             var isNewCustomer = command.CustomerId == default(int);
             var customer = isNewCustomer
                                ? _customerFactory.Create()
-                               : _customerRepository.GetById(command.CustomerId);
+                               : _customerRepository.Get(command.CustomerId);
 
-            var product = _productRepository.GetById(command.ProductId);               
+            var product = _productRepository.Get(command.ProductId);               
             
             customer.AddProductToBasket(product, command.Quantity);
 
             if (isNewCustomer)
             {
                 _customerRepository.Save(customer);
-                RaiseEvent(new CommandExecutedArgs { Args = customer.Id });
+                RaiseCommandExecutedEvent(new CommandExecutedArgs { Args = customer.Id });
             }
         }
     }

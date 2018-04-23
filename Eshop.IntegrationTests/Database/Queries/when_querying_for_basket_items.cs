@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using CoreDdd.Nhibernate.TestHelpers;
 using Eshop.Domain;
 using Eshop.Dtos;
 using Eshop.Queries;
@@ -10,7 +11,7 @@ using Shouldly;
 namespace Eshop.IntegrationTests.Database.Queries
 {
     [TestFixture]
-    public class when_querying_for_basket_items : BaseEshopSimplePersistenceTest
+    public class when_querying_for_basket_items : BasePersistenceTest
     {
         private IEnumerable<BasketItemDto> _results;
         private Customer _customer;
@@ -23,7 +24,8 @@ namespace Eshop.IntegrationTests.Database.Queries
         private const decimal ProductOnePrice = 45.6m;
         private const decimal ProductTwoPrice = 56.7m;
 
-        protected override void PersistenceContext()
+        [SetUp]
+        public void Context()
         {
             _productOne = new ProductBuilder()
                 .WithName(ProductOneName)
@@ -41,11 +43,11 @@ namespace Eshop.IntegrationTests.Database.Queries
                 .WithProductInBasket(_productOne, ProductOneQuantity)
                 .Build();
 
-            Save(_productOne, _productTwo, _customer, anotherCustomer);
-        }
+            Save(_productOne);
+            Save(_productTwo);
+            Save(_customer);
+            Save(anotherCustomer);
 
-        protected override void PersistenceQuery()
-        {
             var handler = new BasketItemsQueryHandler();
             _results = handler.Execute<BasketItemDto>(new BasketItemsQuery { CustomerId = _customer.Id });
         }

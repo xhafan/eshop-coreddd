@@ -19,7 +19,7 @@ namespace Eshop.Commands.UnitTests.PlaceOrderCommandHandlers
             const int customerId = 45;
             _customer = Mock<Customer>();
             
-            var customerRepository = Stub<IRepository<Customer>>().Stubs(x => x.GetById(customerId)).Returns(_customer);
+            var customerRepository = Stub<IRepository<Customer>>().Stubs(x => x.Get(customerId)).Returns(_customer);
             _orderRepository = Mock<IRepository<Order>>();
 
             _order = Stub<Order>();

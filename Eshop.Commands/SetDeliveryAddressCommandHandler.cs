@@ -15,7 +15,7 @@ namespace Eshop.Commands
 
         public override void Execute(SetDeliveryAddressCommand command)
         {
-            var customer = _customerRepository.GetById(command.CustomerId);
+            var customer = _customerRepository.Get(command.CustomerId);
           
             customer.SetDeliveryAddress(command.Address);
         }

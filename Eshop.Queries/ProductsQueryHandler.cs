@@ -6,7 +6,7 @@ namespace Eshop.Queries
 {
     public class ProductsQueryHandler : BaseQueryOverHandler<ProductsQuery>
     {
-        public override IQueryOver GetQueryOver<TResult>(ProductsQuery query)
+        protected override IQueryOver GetQueryOver<TResult>(ProductsQuery query)
         {
             return Session.QueryOver<ProductSummaryDto>()
                           .WhereRestrictionOn(x => x.Name).IsLike(string.Format("%{0}%", query.SearchText));

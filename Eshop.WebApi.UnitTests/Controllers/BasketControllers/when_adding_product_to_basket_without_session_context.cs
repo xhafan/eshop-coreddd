@@ -30,7 +30,7 @@ namespace Eshop.WebApi.UnitTests.Controllers.BasketControllers
         [Test]
         public void command_executed_event_handler_sets_session_context()
         {
-            CommandExecutor.Raise(x => x.CommandExecuted += null, null, new CommandExecutedArgs { Args = GeneratedCustomerId });
+            CommandExecutor.Raise(x => x.CommandExecuted += null, new CommandExecutedArgs { Args = GeneratedCustomerId });
             
             Controller.SessionContext.ShouldNotBe(null);
             Controller.SessionContext.CustomerId.ShouldBe(GeneratedCustomerId);

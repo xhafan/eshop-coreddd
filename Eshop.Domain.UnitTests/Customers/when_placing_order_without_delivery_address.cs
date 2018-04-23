@@ -15,7 +15,7 @@ namespace Eshop.Domain.UnitTests.Customers
         {
             base.Context();
 
-            _exception = Should.Throw<CoreException>(() => Customer.PlaceOrder());
+            _exception = Should.Throw<Exception>(() => Customer.PlaceOrder());
         }
 
         [Test]

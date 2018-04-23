@@ -18,10 +18,10 @@ namespace Eshop.Commands.UnitTests.AddProductToBasketCommandHandlers
         {
             const int customerId = 45;
             _customer = Mock<Customer>();
-            var customerRepository = Stub<IRepository<Customer>>().Stubs(x => x.GetById(customerId)).Returns(_customer);
+            var customerRepository = Stub<IRepository<Customer>>().Stubs(x => x.Get(customerId)).Returns(_customer);
             const int productId = 23;
             _product = Stub<Product>();
-            var productRepository = Stub<IRepository<Product>>().Stubs(x => x.GetById(productId)).Returns(_product);
+            var productRepository = Stub<IRepository<Product>>().Stubs(x => x.Get(productId)).Returns(_product);
             var handler = new AddProductToBasketCommandHandler(customerRepository, productRepository, null);
 
             handler.Execute(new AddProductToBasketCommand

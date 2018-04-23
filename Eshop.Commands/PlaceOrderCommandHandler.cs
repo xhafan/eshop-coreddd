@@ -17,7 +17,7 @@ namespace Eshop.Commands
 
         public override void Execute(PlaceOrderCommand command)
         {
-            var customer = _customerRepository.GetById(command.CustomerId);
+            var customer = _customerRepository.Get(command.CustomerId);
 
             var newOrder = customer.PlaceOrder();
 

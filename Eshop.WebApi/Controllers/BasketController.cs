@@ -30,7 +30,7 @@ namespace Eshop.WebApi.Controllers
                 });
         }
 
-        private void SetGeneratedCustomerIdToSessionContext(object sender, CommandExecutedArgs commandExecutedArgs)
+        private void SetGeneratedCustomerIdToSessionContext(CommandExecutedArgs commandExecutedArgs)
         {
             var generatedCustomerId = (int)commandExecutedArgs.Args;
             SessionContext = new SessionContext { CustomerId = generatedCustomerId };

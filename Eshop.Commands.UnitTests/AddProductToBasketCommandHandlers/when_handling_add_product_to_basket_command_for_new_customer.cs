@@ -22,11 +22,11 @@ namespace Eshop.Commands.UnitTests.AddProductToBasketCommandHandlers
             _customerRepository = Mock<IRepository<Customer>>();
             const int productId = 23;
             _product = Stub<Product>();
-            var productRepository = Stub<IRepository<Product>>().Stubs(x => x.GetById(productId)).Returns(_product);
+            var productRepository = Stub<IRepository<Product>>().Stubs(x => x.Get(productId)).Returns(_product);
             _customer = Mock<Customer>().Stubs(x => x.Id).Returns(CustomerId);
             var customerFactory = Stub<ICustomerFactory>().Stubs(x => x.Create()).Returns(_customer);
             var handler = new AddProductToBasketCommandHandler(_customerRepository, productRepository, customerFactory);
-            handler.CommandExecuted += (sender, args) => _customerIdRaisedByEvent = (int)args.Args; // todo: refactor CoreDdd to support generic event handling
+            handler.CommandExecuted += (args) => _customerIdRaisedByEvent = (int)args.Args; // todo: refactor CoreDdd to support generic event handling
 
             handler.Execute(new AddProductToBasketCommand
                                 {

@@ -1,4 +1,5 @@
 using System.Linq;
+using CoreDdd.Nhibernate.TestHelpers;
 using Eshop.Domain;
 using Eshop.Tests.Common.Builders;
 using NUnit.Framework;
@@ -7,14 +8,15 @@ using Shouldly;
 namespace Eshop.IntegrationTests.Database.Domain
 {
     [TestFixture]
-    public class when_persisting_order : BaseEshopSimplePersistenceTest
+    public class when_persisting_order : BasePersistenceTest
     {
         private const int ProductQuantity = 23;
         private Order _order;
         private Order _retrievedOrder;
         private Product _product;
 
-        protected override void PersistenceContext()
+        [SetUp]
+        public void Context()
         {
             _product = new ProductBuilder().Build();
             var customer = new CustomerBuilder()
@@ -24,11 +26,10 @@ namespace Eshop.IntegrationTests.Database.Domain
             _order = new OrderBuilder()
                 .WithCustomer(customer)
                 .Build();
-            Save(_product, _order);
-        }
+            Save(_product);
+            Save(_order);
 
-        protected override void PersistenceQuery()
-        {
+
             _retrievedOrder = Get<Order>(_order.Id);
         }
 

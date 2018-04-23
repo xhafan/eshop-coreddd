@@ -22,6 +22,8 @@
     <IISExpressUseClassicPipelineMode />
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -47,39 +49,41 @@
     <Reference Include="Castle.Windsor">
       <HintPath>..\packages\Castle.Windsor.3.2.1\lib\net40\Castle.Windsor.dll</HintPath>
     </Reference>
-    <Reference Include="CoreDdd">
-      <HintPath>..\packages\CoreDdd.2.0.0\lib\net40\CoreDdd.dll</HintPath>
+    <Reference Include="CoreDdd, Version=3.0.14.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CoreDdd.3.0.14-beta\lib\net40\CoreDdd.dll</HintPath>
     </Reference>
-    <Reference Include="CoreDdd.Nhibernate, Version=2.1.3.40070, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\CoreDdd.Nhibernate.2.1.3\lib\net40\CoreDdd.Nhibernate.dll</HintPath>
+    <Reference Include="CoreDdd.Nhibernate, Version=3.0.14.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CoreDdd.Nhibernate.3.0.14-beta\lib\net40\CoreDdd.Nhibernate.dll</HintPath>
     </Reference>
-    <Reference Include="CoreDdd.Nhibernate.Register.Castle">
-      <HintPath>..\packages\CoreDdd.Nhibernate.Register.Castle.2.0.0\lib\net40\CoreDdd.Nhibernate.Register.Castle.dll</HintPath>
+    <Reference Include="CoreDdd.Nhibernate.Register.Castle, Version=3.0.14.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CoreDdd.Nhibernate.Register.Castle.3.0.14-beta\lib\net40\CoreDdd.Nhibernate.Register.Castle.dll</HintPath>
     </Reference>
-    <Reference Include="CoreDdd.Register.Castle">
-      <HintPath>..\packages\CoreDdd.Register.Castle.2.0.0\lib\net40\CoreDdd.Register.Castle.dll</HintPath>
+    <Reference Include="CoreDdd.Register.Castle, Version=3.0.14.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CoreDdd.Register.Castle.3.0.14-beta\lib\net40\CoreDdd.Register.Castle.dll</HintPath>
     </Reference>
-    <Reference Include="CoreIoC">
-      <HintPath>..\packages\CoreIoC.2.0.0\lib\net40\CoreIoC.dll</HintPath>
+    <Reference Include="CoreIoC, Version=3.0.14.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CoreIoC.3.0.14-beta\lib\net40\CoreIoC.dll</HintPath>
     </Reference>
-    <Reference Include="CoreIoC.Castle">
-      <HintPath>..\packages\CoreIoC.Castle.2.0.0\lib\net40\CoreIoC.Castle.dll</HintPath>
+    <Reference Include="CoreIoC.Castle, Version=3.0.14.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CoreIoC.Castle.3.0.14-beta\lib\net40\CoreIoC.Castle.dll</HintPath>
     </Reference>
-    <Reference Include="CoreUtils, Version=2.0.0.36167, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\CoreUtils.2.0.0\lib\net40\CoreUtils.dll</HintPath>
+    <Reference Include="CoreUtils, Version=3.0.14.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CoreUtils.3.0.14-beta\lib\net40\CoreUtils.dll</HintPath>
     </Reference>
-    <Reference Include="Iesi.Collections">
-      <HintPath>..\packages\Iesi.Collections.3.2.0.1001\lib\Net35\Iesi.Collections.dll</HintPath>
+    <Reference Include="FluentNHibernate, Version=2.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentNHibernate.2.0.3.0\lib\net40\FluentNHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections, Version=4.0.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Iesi.Collections.4.0.4\lib\net40\Iesi.Collections.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="NHibernate">
-      <HintPath>..\packages\NHibernate.3.3.2.4000\lib\Net35\NHibernate.dll</HintPath>
+    <Reference Include="NHibernate, Version=4.1.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\packages\NHibernate.4.1.1.4000\lib\net40\NHibernate.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Abstractions" />
     <Reference Include="System.Web.Routing" />

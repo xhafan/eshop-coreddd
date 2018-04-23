@@ -17,7 +17,7 @@ namespace Eshop.Commands.UnitTests.SetDeliveryAddressCommandHandlers
         {
             const int customerId = 45;
             _customer = Mock<Customer>();
-            var customerRepository = Stub<IRepository<Customer>>().Stubs(x => x.GetById(customerId)).Returns(_customer);
+            var customerRepository = Stub<IRepository<Customer>>().Stubs(x => x.Get(customerId)).Returns(_customer);
             var handler = new SetDeliveryAddressCommandHandler(customerRepository);
 
             handler.Execute(new SetDeliveryAddressCommand

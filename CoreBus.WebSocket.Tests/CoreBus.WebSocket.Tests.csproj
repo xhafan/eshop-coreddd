@@ -32,17 +32,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CoreDdd">
-      <HintPath>..\packages\CoreDdd.2.0.0\lib\net40\CoreDdd.dll</HintPath>
-    </Reference>
-    <Reference Include="CoreIoC">
-      <HintPath>..\packages\CoreIoC.2.0.0\lib\net40\CoreIoC.dll</HintPath>
+    <Reference Include="CoreIoC, Version=3.0.14.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CoreIoC.3.0.14-beta\lib\net40\CoreIoC.dll</HintPath>
     </Reference>
     <Reference Include="CoreTest">
       <HintPath>..\packages\CoreTest.2.1.1\lib\net40\CoreTest.dll</HintPath>
     </Reference>
-    <Reference Include="CoreUtils">
-      <HintPath>..\packages\CoreUtils.2.0.0\lib\net40\CoreUtils.dll</HintPath>
+    <Reference Include="CoreUtils, Version=3.0.14.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CoreUtils.3.0.14-beta\lib\net40\CoreUtils.dll</HintPath>
     </Reference>
     <Reference Include="JWT">
       <HintPath>..\packages\JWT.1.3.2\lib\3.5\JWT.dll</HintPath>

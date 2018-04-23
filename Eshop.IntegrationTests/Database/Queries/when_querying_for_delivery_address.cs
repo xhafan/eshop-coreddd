@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using CoreDdd.Nhibernate.TestHelpers;
 using Eshop.Domain;
 using Eshop.Dtos;
 using Eshop.Queries;
@@ -10,22 +11,22 @@ using Shouldly;
 namespace Eshop.IntegrationTests.Database.Queries
 {
     [TestFixture]
-    public class when_querying_for_delivery_address : BaseEshopSimplePersistenceTest
+    public class when_querying_for_delivery_address : BasePersistenceTest
     {
         private Customer _customerTwo;
         private IEnumerable<DeliveryAddressDto> _results;
 
-        protected override void PersistenceContext()
+        [SetUp]
+        public void Context()
         {
             var customerOne = new CustomerBuilder().Build();
             _customerTwo = new CustomerBuilder().Build();
             _customerTwo.SetDeliveryAddress("delivery address");
             
-            Save(customerOne, _customerTwo);
-        }
+            Save(customerOne);
+            Save(_customerTwo);
 
-        protected override void PersistenceQuery()
-        {
+
             var handler = new DeliveryAddressQueryHandler();
             _results = handler.Execute<DeliveryAddressDto>(new DeliveryAddressQuery { CustomerId = _customerTwo.Id });
         }
