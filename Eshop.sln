@@ -1,16 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2037
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eshop.Domain", "Eshop.Domain\Eshop.Domain.csproj", "{BB2A7F85-EBB7-4143-AF9A-E90C48CB5D28}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{3467BB85-5076-413E-BAB3-CE07B01D0222}"
-	ProjectSection(SolutionItems) = preProject
-		.nuget\NuGet.Config = .nuget\NuGet.Config
-		.nuget\nuget.exe = .nuget\nuget.exe
-		.nuget\NuGet.targets = .nuget\NuGet.targets
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eshop.IntegrationTests", "Eshop.IntegrationTests\Eshop.IntegrationTests.csproj", "{ABBAD3A8-4B9B-4795-80E5-7FB9F8DF9A37}"
 EndProject
@@ -443,5 +436,8 @@ Global
 		{5C42D3CA-43CB-48CD-B44A-FBE5E9B13452} = {D400E3BF-20C2-40AF-9510-D6E4001C121D}
 		{7255678A-36DD-4B98-AAF7-E030095D80F1} = {D400E3BF-20C2-40AF-9510-D6E4001C121D}
 		{36899DB2-3881-4699-96CF-DC71DDE2221C} = {2DCBE07D-7286-4E3A-BC59-532626A5F063}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6BE8C9A6-45B2-424A-BF65-6D00481D03DC}
 	EndGlobalSection
 EndGlobal

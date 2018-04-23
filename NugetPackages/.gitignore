@@ -1,0 +1,5 @@
+CoreMvvm
+CoreWebApi
+CoreWebApiClient
+CoreWebApiClient.Generator
+*.nupkg
