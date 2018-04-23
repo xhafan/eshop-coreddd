@@ -1,0 +1,1 @@
+eshop-coreddd - eshop demo wpf/web api app demonstrating CoreDdd libs (https://github.com/xhafan/coreddd) usage. Kind of legacy code really.
