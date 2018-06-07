@@ -47,14 +47,14 @@
     <Reference Include="Castle.Windsor, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
       <HintPath>..\packages\Castle.Windsor.4.1.0\lib\net45\Castle.Windsor.dll</HintPath>
     </Reference>
-    <Reference Include="CoreIoC, Version=3.0.14.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\CoreIoC.3.0.15\lib\net40\CoreIoC.dll</HintPath>
+    <Reference Include="CoreIoC, Version=3.0.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CoreIoC.3.0.16\lib\net40\CoreIoC.dll</HintPath>
     </Reference>
-    <Reference Include="CoreIoC.Castle, Version=3.0.14.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\CoreIoC.Castle.3.0.15\lib\net45\CoreIoC.Castle.dll</HintPath>
+    <Reference Include="CoreIoC.Castle, Version=3.0.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CoreIoC.Castle.3.0.16\lib\net45\CoreIoC.Castle.dll</HintPath>
     </Reference>
-    <Reference Include="CoreUtils, Version=3.0.14.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\CoreUtils.3.0.15\lib\net40\CoreUtils.dll</HintPath>
+    <Reference Include="CoreUtils, Version=3.0.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CoreUtils.3.0.16\lib\net40\CoreUtils.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Expression.Interactions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\Microsoft.Expression.Interactions.dll</HintPath>
