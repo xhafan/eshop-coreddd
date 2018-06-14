@@ -39,14 +39,14 @@
     <Reference Include="Castle.Windsor">
       <HintPath>..\packages\Castle.Windsor.3.2.1\lib\net40\Castle.Windsor.dll</HintPath>
     </Reference>
-    <Reference Include="CoreDdd, Version=3.0.16.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\CoreDdd.3.0.16\lib\net40\CoreDdd.dll</HintPath>
+    <Reference Include="CoreDdd, Version=3.0.17.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CoreDdd.3.0.17\lib\net40\CoreDdd.dll</HintPath>
     </Reference>
-    <Reference Include="CoreIoC, Version=3.0.16.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\CoreIoC.3.0.16\lib\net40\CoreIoC.dll</HintPath>
+    <Reference Include="CoreIoC, Version=3.0.17.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CoreIoC.3.0.17\lib\net40\CoreIoC.dll</HintPath>
     </Reference>
-    <Reference Include="CoreUtils, Version=3.0.16.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\CoreUtils.3.0.16\lib\net40\CoreUtils.dll</HintPath>
+    <Reference Include="CoreUtils, Version=3.0.17.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CoreUtils.3.0.17\lib\net40\CoreUtils.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
