@@ -1,7 +1,6 @@
 ﻿using System;
 using CoreBusClient.WebSocket4Net;
 using CoreBusServer.SuperWebSocket;
-using CoreTest;
 using NUnit.Framework;
 using Shouldly;
 
@@ -9,7 +8,7 @@ namespace CoreBus.WebSocket.Tests.StartingServerTwice
 {
     [TestFixture(TypeArgs = new[] { typeof(CloseServerAct) })]
     [TestFixture(TypeArgs = new[] { typeof(DisposeServerAct) })]
-    public class when_starting_server_twice_on_the_same_port<TCloseServerAct> : BaseTest
+    public class when_starting_server_twice_on_the_same_port<TCloseServerAct>
         where TCloseServerAct : ICloseServerAct, new()
     {
         private CoreBusScenario _scenario;

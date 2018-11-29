@@ -1,13 +1,12 @@
 ﻿using CoreBusClient.WebSocket4Net;
 using CoreBusServer.SuperWebSocket;
-using CoreTest;
 using NUnit.Framework;
 using Shouldly;
 
 namespace CoreBus.WebSocket.Tests
 {
     [TestFixture]
-    public class when_sending_a_message : BaseTest
+    public class when_sending_a_message
     {
         private CoreBusScenario _scenario;
         private const string TestMessage = "Test message";

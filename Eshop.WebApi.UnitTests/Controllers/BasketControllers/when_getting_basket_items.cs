@@ -20,7 +20,7 @@ namespace Eshop.WebApi.UnitTests.Controllers.BasketControllers
             base.Context();
             Controller.SessionContext = new SessionContext {CustomerId = CustomerId};
             _basketItemDtos = new[] { new BasketItemDto() };
-            QueryExecutor.Stubs(x => x.Execute<BasketItemsQuery, BasketItemDto>(Arg<BasketItemsQuery>.Matches(p => p.CustomerId == CustomerId))).Returns(_basketItemDtos);
+            QueryExecutor.Stub(x => x.Execute<BasketItemsQuery, BasketItemDto>(Arg<BasketItemsQuery>.Matches(p => p.CustomerId == CustomerId))).Return(_basketItemDtos);
 
             _retrievedBasketItems = Controller.GetBasketItems();
         }

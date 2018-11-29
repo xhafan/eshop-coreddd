@@ -2,7 +2,6 @@
 using CoreBusClient;
 using CoreBusClient.WebSocket4Net;
 using CoreBusServer.SuperWebSocket;
-using CoreTest;
 using NUnit.Framework;
 using Shouldly;
 
@@ -10,7 +9,7 @@ namespace CoreBus.WebSocket.Tests.ClosingClient
 {
     [TestFixture(TypeArgs = new[] { typeof(CloseClientAct) })]
     [TestFixture(TypeArgs = new[] { typeof(DisposeClientAct) })]
-    public class when_closing_client<TCloseClientAct> : BaseTest
+    public class when_closing_client<TCloseClientAct>
         where TCloseClientAct : ICloseClientAct, new()
     {
         private CoreBusScenario _scenario;

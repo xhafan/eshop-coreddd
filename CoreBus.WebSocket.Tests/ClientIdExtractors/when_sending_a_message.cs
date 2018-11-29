@@ -1,6 +1,5 @@
 ﻿using CoreBusClient.WebSocket4Net;
 using CoreBusServer.SuperWebSocket;
-using CoreTest;
 using NUnit.Framework;
 using Shouldly;
 
@@ -8,7 +7,7 @@ namespace CoreBus.WebSocket.Tests.ClientIdExtractors
 {
     [TestFixture(TypeArgs = new[] { typeof(SuperWebSocketQueryStringValueClientIdExtractorSpecification) })]
     [TestFixture(TypeArgs = new[] { typeof(SuperWebSocketQueryStringJwtClientIdExtractorSpecification) })]
-    public class when_sending_a_message<TClientIdExtractorSpecification> : BaseTest
+    public class when_sending_a_message<TClientIdExtractorSpecification>
         where TClientIdExtractorSpecification : IClientIdExtractorSpecification, new()
     {
         private CoreBusScenario _scenario;

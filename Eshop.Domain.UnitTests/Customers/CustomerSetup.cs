@@ -1,10 +1,9 @@
-﻿using CoreTest;
-using Eshop.Tests.Common.Builders;
+﻿using Eshop.Tests.Common.Builders;
 using NUnit.Framework;
 
 namespace Eshop.Domain.UnitTests.Customers
 {
-    public abstract class CustomerSetup : BaseTest
+    public abstract class CustomerSetup
     {
         protected Customer Customer;
 

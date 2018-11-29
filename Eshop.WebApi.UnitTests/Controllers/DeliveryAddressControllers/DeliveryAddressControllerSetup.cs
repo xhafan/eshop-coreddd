@@ -1,12 +1,12 @@
 ﻿using CoreDdd.Commands;
 using CoreDdd.Queries;
-using CoreTest;
 using Eshop.WebApi.Controllers;
 using NUnit.Framework;
+using Rhino.Mocks;
 
 namespace Eshop.WebApi.UnitTests.Controllers.DeliveryAddressControllers
 {
-    public abstract class DeliveryAddressControllerSetup : BaseTest
+    public abstract class DeliveryAddressControllerSetup
     {
         protected IQueryExecutor QueryExecutor;
         protected ICommandExecutor CommandExecutor;
@@ -15,8 +15,8 @@ namespace Eshop.WebApi.UnitTests.Controllers.DeliveryAddressControllers
         [SetUp]
         public virtual void Context()
         {
-            QueryExecutor = Stub<IQueryExecutor>();
-            CommandExecutor = Stub<ICommandExecutor>();
+            QueryExecutor = MockRepository.GenerateStub<IQueryExecutor>();
+            CommandExecutor = MockRepository.GenerateStub<ICommandExecutor>();
             Controller = new DeliveryAddressController(QueryExecutor, CommandExecutor);
         }
     }

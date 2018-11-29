@@ -29,8 +29,8 @@ namespace Eshop.WpfMvvmApp.UnitTests.Products
         private void StubProductSearchResultFromControllerClient()
         {
             ProductControllerClient
-                .Stubs(x => x.SearchProductsAsync(SearchedText))
-                    .Returns(Task.FromResult(new[] {new ProductSummaryDto {Id = ProductOneId, Name = ProductOneName}}));
+                .Stub(x => x.SearchProductsAsync(SearchedText))
+                    .Return(Task.FromResult(new[] {new ProductSummaryDto {Id = ProductOneId, Name = ProductOneName}}));
         }
 
         protected ProductSearchResultViewModel GetCurrentViewModelAsProductSearchResult()

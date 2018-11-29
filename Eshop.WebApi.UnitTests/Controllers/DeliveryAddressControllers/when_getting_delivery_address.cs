@@ -19,8 +19,8 @@ namespace Eshop.WebApi.UnitTests.Controllers.DeliveryAddressControllers
             base.Context();
             Controller.SessionContext = new SessionContext { CustomerId = CustomerId };
             QueryExecutor
-                .Stubs(x => x.Execute<DeliveryAddressQuery, DeliveryAddressDto>(Arg<DeliveryAddressQuery>.Matches(p => MatchingQuery(p))))
-                    .Returns(new[] { new DeliveryAddressDto { DeliveryAddress = "delivery address"} });
+                .Stub(x => x.Execute<DeliveryAddressQuery, DeliveryAddressDto>(Arg<DeliveryAddressQuery>.Matches(p => MatchingQuery(p))))
+                    .Return(new[] { new DeliveryAddressDto { DeliveryAddress = "delivery address"} });
 
             _deliveryAddress = Controller.GetDeliveryAddress();
         }

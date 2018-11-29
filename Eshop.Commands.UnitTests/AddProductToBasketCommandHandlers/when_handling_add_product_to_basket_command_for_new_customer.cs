@@ -1,5 +1,4 @@
 ﻿using CoreDdd.Domain.Repositories;
-using CoreTest;
 using Eshop.Domain;
 using NUnit.Framework;
 using Rhino.Mocks;
@@ -7,7 +6,7 @@ using Rhino.Mocks;
 namespace Eshop.Commands.UnitTests.AddProductToBasketCommandHandlers
 {
     [TestFixture]
-    public class when_handling_add_product_to_basket_command_for_new_customer : BaseTest
+    public class when_handling_add_product_to_basket_command_for_new_customer
     {
         private const int Quantity = 34;
         private const int CustomerId = 45;
@@ -19,12 +18,15 @@ namespace Eshop.Commands.UnitTests.AddProductToBasketCommandHandlers
         [SetUp]
         public void Context()
         {
-            _customerRepository = Mock<IRepository<Customer>>();
+            _customerRepository = MockRepository.GenerateMock<IRepository<Customer>>();
             const int productId = 23;
-            _product = Stub<Product>();
-            var productRepository = Stub<IRepository<Product>>().Stubs(x => x.Get(productId)).Returns(_product);
-            _customer = Mock<Customer>().Stubs(x => x.Id).Returns(CustomerId);
-            var customerFactory = Stub<ICustomerFactory>().Stubs(x => x.Create()).Returns(_customer);
+            _product = MockRepository.GenerateStub<Product>();
+            var productRepository = MockRepository.GenerateStub<IRepository<Product>>();
+            productRepository.Stub(x => x.Get(productId)).Return(_product);
+            _customer = MockRepository.GenerateMock<Customer>();
+            _customer.Stub(x => x.Id).Return(CustomerId);
+            var customerFactory = MockRepository.GenerateStub<ICustomerFactory>();
+            customerFactory.Stub(x => x.Create()).Return(_customer);
             var handler = new AddProductToBasketCommandHandler(_customerRepository, productRepository, customerFactory);
             handler.CommandExecuted += (args) => _customerIdRaisedByEvent = (int)args.Args; // todo: refactor CoreDdd to support generic event handling
 

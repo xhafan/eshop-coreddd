@@ -1,11 +1,10 @@
 ﻿using System.Web.Security;
-using CoreTest;
 using CoreWebApiClient.Tests.ControllerClients;
 using NUnit.Framework;
 
 namespace CoreWebApiClient.Tests.TestControllerClients.WithAuthentication
 {
-    public abstract class TestControllerClientWithAuthenticationSetup : BaseTest
+    public abstract class TestControllerClientWithAuthenticationSetup
     {
         protected TestAuthenticatedControllerClient ControllerClient;
         protected IAuthenticationCookiePersister AuthenticationCookiePersister;

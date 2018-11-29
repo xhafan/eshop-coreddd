@@ -19,7 +19,7 @@ namespace Eshop.WebApi.UnitTests.Controllers.ProductControllers
             base.Context();
             const string searchedText = "searched text";
             _productSummaryDtos = new[] { new ProductSummaryDto() };
-            QueryExecutor.Stubs(x => x.Execute<ProductsQuery, ProductSummaryDto>(Arg<ProductsQuery>.Matches(p => p.SearchText == searchedText))).Returns(_productSummaryDtos);
+            QueryExecutor.Stub(x => x.Execute<ProductsQuery, ProductSummaryDto>(Arg<ProductsQuery>.Matches(p => p.SearchText == searchedText))).Return(_productSummaryDtos);
 
             _retrievedProducts = Controller.SearchProducts(searchedText);
         }

@@ -1,5 +1,4 @@
 ﻿using CoreIoC;
-using CoreTest;
 using NUnit.Framework;
 using Rhino.Mocks;
 using Shouldly;
@@ -7,7 +6,7 @@ using Shouldly;
 namespace CoreMvvm.UnitTests.BaseViewModelLocators
 {
     [TestFixture]
-    public class when_getting_viewmodel : BaseTest
+    public class when_getting_viewmodel
     {
         private TestViewModelLocator _viewModelLocator;
         private TestViewModel _viewModel;
@@ -16,7 +15,9 @@ namespace CoreMvvm.UnitTests.BaseViewModelLocators
         public void Context()
         {
             _viewModel = new TestViewModel();
-            var container = Stub<IContainer>().Stubs(x => x.Resolve<TestViewModel>()).Returns(_viewModel);
+            var container = MockRepository.GenerateStub<IContainer>();
+            container.Stub(x => x.Resolve<TestViewModel>()).Return(_viewModel);
+
             IoC.Initialize(container);
             _viewModelLocator = new TestViewModelLocator();
         }

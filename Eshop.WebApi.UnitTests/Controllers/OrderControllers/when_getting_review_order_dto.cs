@@ -23,10 +23,11 @@ namespace Eshop.WebApi.UnitTests.Controllers.OrderControllers
             _basketItemDtos = new[] { new BasketItemDto() };
             _deliveryAddressDto = new DeliveryAddressDto();
             QueryExecutor
-                .Stubs(x => x.Execute<BasketItemsQuery, BasketItemDto>(Arg<BasketItemsQuery>.Matches(p => p.CustomerId == CustomerId)))
-                    .Returns(_basketItemDtos)
-                .Stubs(x => x.Execute<DeliveryAddressQuery, DeliveryAddressDto>(Arg<DeliveryAddressQuery>.Matches(p => p.CustomerId == CustomerId)))
-                    .Returns(new[] { _deliveryAddressDto });
+                .Stub(x => x.Execute<BasketItemsQuery, BasketItemDto>(Arg<BasketItemsQuery>.Matches(p => p.CustomerId == CustomerId)))
+                    .Return(_basketItemDtos);
+            QueryExecutor
+                .Stub(x => x.Execute<DeliveryAddressQuery, DeliveryAddressDto>(Arg<DeliveryAddressQuery>.Matches(p => p.CustomerId == CustomerId)))
+                    .Return(new[] { _deliveryAddressDto });
 
             _reviewOrderDto = Controller.GetReviewOrderDto();
         }

@@ -54,7 +54,7 @@ namespace Eshop.WpfMvvmApp.UnitTests.Products
                     Quantity = ProductTwoQuantity
                 },
             };
-            BasketControllerClient.Stubs(x => x.GetBasketItemsAsync()).Returns(Task.FromResult(basketItemDtos));
+            BasketControllerClient.Stub(x => x.GetBasketItemsAsync()).Return(Task.FromResult(basketItemDtos));
         }
 
         protected BasketViewModel GetCurrentViewModelAsBasket()
@@ -74,7 +74,7 @@ namespace Eshop.WpfMvvmApp.UnitTests.Products
 
         protected void StubNoDeliveryAddressOnControllerClient()
         {
-            DeliveryAddressControllerClient.Stubs(x => x.GetDeliveryAddressAsync()).Returns(Task.FromResult(""));
+            DeliveryAddressControllerClient.Stub(x => x.GetDeliveryAddressAsync()).Return(Task.FromResult(""));
         }
 
         protected DeliveryAddressViewModel GetCurrentViewModelAsDeliveryAddress()
@@ -84,7 +84,7 @@ namespace Eshop.WpfMvvmApp.UnitTests.Products
 
         protected void StubReviewOrderDataOnControllerClient()
         {
-            OrderControllerClient.Stubs(x => x.GetReviewOrderDtoAsync()).Returns(Task.FromResult(GetReviewOrderDto()));
+            OrderControllerClient.Stub(x => x.GetReviewOrderDtoAsync()).Return(Task.FromResult(GetReviewOrderDto()));
         }
 
 
@@ -116,7 +116,7 @@ namespace Eshop.WpfMvvmApp.UnitTests.Products
 
         protected void StubExistingDeliveryAddressOnControllerClient()
         {
-            DeliveryAddressControllerClient.Stubs(x => x.GetDeliveryAddressAsync()).Returns(Task.FromResult(DeliveryAddress));
+            DeliveryAddressControllerClient.Stub(x => x.GetDeliveryAddressAsync()).Return(Task.FromResult(DeliveryAddress));
         }
     }
 }

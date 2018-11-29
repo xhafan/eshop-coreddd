@@ -44,10 +44,6 @@
     <Reference Include="CoreIoC, Version=3.2.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\CoreIoC.3.2.0\lib\net40\CoreIoC.dll</HintPath>
     </Reference>
-    <Reference Include="CoreTest, Version=2.1.1.31352, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\CoreTest.2.1.1\lib\net40\CoreTest.dll</HintPath>
-    </Reference>
     <Reference Include="CoreUtils, Version=3.2.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\CoreUtils.3.2.0\lib\net45\CoreUtils.dll</HintPath>
     </Reference>

@@ -1,13 +1,12 @@
 ﻿using CoreBusClient.WebSocket4Net;
 using CoreBusServer.SuperWebSocket;
-using CoreTest;
 using NUnit.Framework;
 using Shouldly;
 
 namespace CoreBus.WebSocket.Tests
 {
     [TestFixture]
-    public class when_sending_multiple_messages_from_client_to_server : BaseTest
+    public class when_sending_multiple_messages_from_client_to_server
     {
         private CoreBusScenario _scenario;
 

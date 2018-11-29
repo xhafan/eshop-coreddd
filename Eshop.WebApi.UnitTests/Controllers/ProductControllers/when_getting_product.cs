@@ -18,7 +18,7 @@ namespace Eshop.WebApi.UnitTests.Controllers.ProductControllers
         {
             base.Context();
             _productDto = new ProductDto();
-            QueryExecutor.Stubs(x => x.Execute<ProductDetailsQuery, ProductDto>(Arg<ProductDetailsQuery>.Matches(p => p.ProductId == ProductId))).Returns(new[] { _productDto });
+            QueryExecutor.Stub(x => x.Execute<ProductDetailsQuery, ProductDto>(Arg<ProductDetailsQuery>.Matches(p => p.ProductId == ProductId))).Return(new[] { _productDto });
 
             _retrievedProduct = Controller.GetProduct(ProductId);
         }

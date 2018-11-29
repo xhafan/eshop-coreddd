@@ -1,5 +1,4 @@
-﻿using CoreTest;
-using Eshop.WpfMvvmApp.Main;
+﻿using Eshop.WpfMvvmApp.Main;
 using Eshop.WpfMvvmApp.Products;
 using Eshop.WpfMvvmApp.UnitTests.Products;
 using NUnit.Framework;
@@ -8,7 +7,7 @@ using Shouldly;
 namespace Eshop.WpfMvvmApp.UnitTests.Main
 {
     [TestFixture]
-    public class when_constructing_main_view_model : BaseTest
+    public class when_constructing_main_view_model
     {
         private MainViewModel _viewModel;
         private ProductsViewModel _productsViewModel;

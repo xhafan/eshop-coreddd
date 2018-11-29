@@ -1,11 +1,11 @@
 ﻿using CoreDdd.Queries;
-using CoreTest;
 using Eshop.WebApi.Controllers;
 using NUnit.Framework;
+using Rhino.Mocks;
 
 namespace Eshop.WebApi.UnitTests.Controllers.ProductControllers
 {
-    public abstract class ProductControllerSetup : BaseTest
+    public abstract class ProductControllerSetup
     {
         protected IQueryExecutor QueryExecutor;
         protected ProductController Controller;
@@ -13,7 +13,7 @@ namespace Eshop.WebApi.UnitTests.Controllers.ProductControllers
         [SetUp]
         public virtual void Context()
         {
-            QueryExecutor = Stub<IQueryExecutor>();
+            QueryExecutor = MockRepository.GenerateStub<IQueryExecutor>();
             Controller = new ProductController(QueryExecutor);
         }
     }

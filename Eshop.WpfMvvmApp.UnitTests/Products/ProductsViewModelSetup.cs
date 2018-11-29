@@ -1,11 +1,11 @@
-﻿using CoreTest;
-using Eshop.WpfMvvmApp.ControllerClients;
+﻿using Eshop.WpfMvvmApp.ControllerClients;
 using Eshop.WpfMvvmApp.Products;
 using NUnit.Framework;
+using Rhino.Mocks;
 
 namespace Eshop.WpfMvvmApp.UnitTests.Products
 {
-    public abstract class ProductsViewModelSetup : BaseTest
+    public abstract class ProductsViewModelSetup
     {
         protected ProductsViewModel ViewModel;
         protected IProductControllerClient ProductControllerClient;
@@ -16,10 +16,10 @@ namespace Eshop.WpfMvvmApp.UnitTests.Products
         [SetUp]
         public virtual void Context()
         {
-            ProductControllerClient = Stub<IProductControllerClient>();
-            BasketControllerClient = Mock<IBasketControllerClient>();
-            DeliveryAddressControllerClient = Mock<IDeliveryAddressControllerClient>();
-            OrderControllerClient = Mock<IOrderControllerClient>();
+            ProductControllerClient = MockRepository.GenerateStub<IProductControllerClient>();
+            BasketControllerClient = MockRepository.GenerateMock<IBasketControllerClient>();
+            DeliveryAddressControllerClient = MockRepository.GenerateMock<IDeliveryAddressControllerClient>();
+            OrderControllerClient = MockRepository.GenerateMock<IOrderControllerClient>();
 
             ViewModel = new ProductsViewModelBuilder()
                 .WithProductControllerClient(ProductControllerClient)

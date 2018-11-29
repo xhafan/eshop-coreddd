@@ -1,5 +1,4 @@
 using CoreDdd.Domain.Repositories;
-using CoreTest;
 using Eshop.Domain;
 using NUnit.Framework;
 using Rhino.Mocks;
@@ -7,7 +6,7 @@ using Rhino.Mocks;
 namespace Eshop.Commands.UnitTests.UpdateProductQuantityInBasketCommandHandlers
 {
     [TestFixture]
-    public class when_handling_update_product_quantity_in_basket_command : BaseTest
+    public class when_handling_update_product_quantity_in_basket_command
     {
         private const int NewQuantity = 34;
         private Customer _customer;
@@ -17,11 +16,13 @@ namespace Eshop.Commands.UnitTests.UpdateProductQuantityInBasketCommandHandlers
         public void Context()
         {
             const int customerId = 45;
-            _customer = Mock<Customer>();
-            var customerRepository = Stub<IRepository<Customer>>().Stubs(x => x.Get(customerId)).Returns(_customer);
+            _customer = MockRepository.GenerateMock<Customer>();
+            var customerRepository = MockRepository.GenerateStub<IRepository<Customer>>();
+            customerRepository.Stub(x => x.Get(customerId)).Return(_customer);
             const int productId = 23;
-            _product = Stub<Product>();
-            var productRepository = Stub<IRepository<Product>>().Stubs(x => x.Get(productId)).Returns(_product);
+            _product = MockRepository.GenerateStub<Product>();
+            var productRepository = MockRepository.GenerateStub<IRepository<Product>>();
+            productRepository.Stub(x => x.Get(productId)).Return(_product);
             var handler = new UpdateProductQuantityInBasketCommandHandler(customerRepository, productRepository);
 
             handler.Execute(new UpdateProductQuantityInBasketCommand
