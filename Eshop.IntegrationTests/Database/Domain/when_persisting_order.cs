@@ -26,11 +26,11 @@ namespace Eshop.IntegrationTests.Database.Domain
             _order = new OrderBuilder()
                 .WithCustomer(customer)
                 .Build();
-            Save(_product);
-            Save(_order);
+            UnitOfWork.Save(_product);
+            UnitOfWork.Save(_order);
 
 
-            _retrievedOrder = Get<Order>(_order.Id);
+            _retrievedOrder = UnitOfWork.Get<Order>(_order.Id);
         }
 
         [Test]

@@ -37,8 +37,8 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CoreIoC, Version=3.0.17.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\CoreIoC.3.0.17\lib\net40\CoreIoC.dll</HintPath>
+    <Reference Include="CoreIoC, Version=3.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CoreIoC.3.2.0\lib\net40\CoreIoC.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Threading.Tasks">
       <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.dll</HintPath>

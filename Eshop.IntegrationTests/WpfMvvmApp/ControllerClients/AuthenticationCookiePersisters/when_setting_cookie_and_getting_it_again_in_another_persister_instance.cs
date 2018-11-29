@@ -1,7 +1,6 @@
 ﻿using System.IO;
 using System.Net;
 using System.Runtime.Serialization.Formatters.Binary;
-using CoreTest;
 using Eshop.WpfMvvmApp.ControllerClients;
 using NUnit.Framework;
 using Shouldly;
@@ -9,7 +8,7 @@ using Shouldly;
 namespace Eshop.IntegrationTests.WpfMvvmApp.ControllerClients.AuthenticationCookiePersisters
 {
     [TestFixture]
-    public class when_setting_cookie_and_getting_it_again_in_another_persister_instance : BaseTest
+    public class when_setting_cookie_and_getting_it_again_in_another_persister_instance
     {
         private const string CookieName = "cookie_name";
         private const string CookieValue = "cookie value";

@@ -36,7 +36,7 @@ namespace Eshop.WpfMvvmApp.UnitTests.Products
 
         private void ExpectPlacingOrderOnControllerClient()
         {
-            OrderControllerClient.Expect(x => x.PlaceOrderAsync(Arg<object>.Is.Anything)).Return(TaskEx.FromResult(0));
+            OrderControllerClient.Expect(x => x.PlaceOrderAsync(Arg<object>.Is.Anything)).Return(Task.FromResult(0));
         }
     }
 }

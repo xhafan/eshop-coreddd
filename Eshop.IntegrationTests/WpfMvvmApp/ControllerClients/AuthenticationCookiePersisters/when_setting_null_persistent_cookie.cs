@@ -1,12 +1,11 @@
-﻿using CoreTest;
-using Eshop.WpfMvvmApp.ControllerClients;
+﻿using Eshop.WpfMvvmApp.ControllerClients;
 using NUnit.Framework;
 using Shouldly;
 
 namespace Eshop.IntegrationTests.WpfMvvmApp.ControllerClients.AuthenticationCookiePersisters
 {
     [TestFixture]
-    public class when_setting_null_persistent_cookie : BaseTest
+    public class when_setting_null_persistent_cookie
     {
         private AuthenticationCookiePersister _authenticationCookiePersister;
 

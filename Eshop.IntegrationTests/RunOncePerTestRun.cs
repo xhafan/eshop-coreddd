@@ -11,14 +11,14 @@ namespace Eshop.IntegrationTests
     [SetUpFixture]
     public class RunOncePerTestRun
     {
-        [SetUp]
+        [OneTimeSetUp]
         public void SetUp()
         {
-            NhibernateInstaller.SetUnitOfWorkLifeStyle(x => x.PerThread);
+            CoreDddNhibernateInstaller.SetUnitOfWorkLifeStyle(x => x.PerThread);
             var container = new WindsorContainer();
             container.Install(
                 FromAssembly.Containing<EshopNhibernateInstaller>(),
-                FromAssembly.Containing<NhibernateInstaller>()
+                FromAssembly.Containing<CoreDddNhibernateInstaller>()
                 );
             IoC.Initialize(new CastleContainer(container));
         }

@@ -1,6 +1,5 @@
 ﻿using System.IO;
 using System.Net;
-using CoreTest;
 using Eshop.WpfMvvmApp.ControllerClients;
 using NUnit.Framework;
 using Shouldly;
@@ -8,7 +7,7 @@ using Shouldly;
 namespace Eshop.IntegrationTests.WpfMvvmApp.ControllerClients.AuthenticationCookiePersisters
 {
     [TestFixture]
-    public class when_getting_persistent_cookie_which_cannot_be_deserialized : BaseTest
+    public class when_getting_persistent_cookie_which_cannot_be_deserialized
     {
         private Cookie _cookie;
 

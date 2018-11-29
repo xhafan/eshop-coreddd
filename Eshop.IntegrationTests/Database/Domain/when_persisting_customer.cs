@@ -21,11 +21,11 @@ namespace Eshop.IntegrationTests.Database.Domain
             _customer = new CustomerBuilder()
                 .WithProductInBasket(_product, 23)
                 .Build();
-            Save(_product);
-            Save(_customer);
+            UnitOfWork.Save(_product);
+            UnitOfWork.Save(_customer);
 
 
-            _retrievedCustomer = Get<Customer>(_customer.Id);
+            _retrievedCustomer = UnitOfWork.Get<Customer>(_customer.Id);
         }
 
         [Test]

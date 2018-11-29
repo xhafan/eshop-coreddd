@@ -16,9 +16,9 @@ namespace Eshop.IntegrationTests.Database.Domain
         public void Context()
         {
             _product = new ProductBuilder().Build();
-            Save(_product);
+            UnitOfWork.Save(_product);
 
-            _retrievedProduct = Get<Product>(_product.Id);
+            _retrievedProduct = UnitOfWork.Get<Product>(_product.Id);
         }
 
         [Test]

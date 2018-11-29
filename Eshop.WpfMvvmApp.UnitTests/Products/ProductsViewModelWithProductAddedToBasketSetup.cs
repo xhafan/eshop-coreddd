@@ -32,7 +32,7 @@ namespace Eshop.WpfMvvmApp.UnitTests.Products
 
         private void ExpectProductAddedToBasket()
         {
-            BasketControllerClient.Expect(x => x.AddProductToBasketAsync(ProductOneId, ProductOneQuantity)).Return(TaskEx.FromResult(0));
+            BasketControllerClient.Expect(x => x.AddProductToBasketAsync(ProductOneId, ProductOneQuantity)).Return(Task.FromResult(0));
         }
 
         private void StubBasketItemsFromControllerClient()
@@ -54,7 +54,7 @@ namespace Eshop.WpfMvvmApp.UnitTests.Products
                     Quantity = ProductTwoQuantity
                 },
             };
-            BasketControllerClient.Stubs(x => x.GetBasketItemsAsync()).Returns(TaskEx.FromResult(basketItemDtos));
+            BasketControllerClient.Stubs(x => x.GetBasketItemsAsync()).Returns(Task.FromResult(basketItemDtos));
         }
 
         protected BasketViewModel GetCurrentViewModelAsBasket()
@@ -74,7 +74,7 @@ namespace Eshop.WpfMvvmApp.UnitTests.Products
 
         protected void StubNoDeliveryAddressOnControllerClient()
         {
-            DeliveryAddressControllerClient.Stubs(x => x.GetDeliveryAddressAsync()).Returns(TaskEx.FromResult(""));
+            DeliveryAddressControllerClient.Stubs(x => x.GetDeliveryAddressAsync()).Returns(Task.FromResult(""));
         }
 
         protected DeliveryAddressViewModel GetCurrentViewModelAsDeliveryAddress()
@@ -84,7 +84,7 @@ namespace Eshop.WpfMvvmApp.UnitTests.Products
 
         protected void StubReviewOrderDataOnControllerClient()
         {
-            OrderControllerClient.Stubs(x => x.GetReviewOrderDtoAsync()).Returns(TaskEx.FromResult(GetReviewOrderDto()));
+            OrderControllerClient.Stubs(x => x.GetReviewOrderDtoAsync()).Returns(Task.FromResult(GetReviewOrderDto()));
         }
 
 
@@ -116,7 +116,7 @@ namespace Eshop.WpfMvvmApp.UnitTests.Products
 
         protected void StubExistingDeliveryAddressOnControllerClient()
         {
-            DeliveryAddressControllerClient.Stubs(x => x.GetDeliveryAddressAsync()).Returns(TaskEx.FromResult(DeliveryAddress));
+            DeliveryAddressControllerClient.Stubs(x => x.GetDeliveryAddressAsync()).Returns(Task.FromResult(DeliveryAddress));
         }
     }
 }

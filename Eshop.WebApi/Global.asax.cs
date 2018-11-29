@@ -28,14 +28,14 @@ namespace Eshop.WebApi
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
 
-            NhibernateInstaller.SetUnitOfWorkLifeStyle(x => x.PerWebRequest);
+            CoreDddNhibernateInstaller.SetUnitOfWorkLifeStyle(x => x.PerWebRequest);
             var container = new WindsorContainer();
             container.Install(
-                FromAssembly.Containing<QueryExecutorInstaller>(),
+                FromAssembly.Containing<CoreDddInstaller>(),
+                FromAssembly.Containing<CoreDddNhibernateInstaller>(),
                 FromAssembly.Containing<QueryHandlerInstaller>(),
                 FromAssembly.Containing<CommandHandlerInstaller>(),
                 FromAssembly.Containing<ControllerInstaller>(),
-                FromAssembly.Containing<NhibernateInstaller>(),
                 FromAssembly.Containing<EshopNhibernateInstaller>()
                 );
             IoC.Initialize(new CastleContainer(container));

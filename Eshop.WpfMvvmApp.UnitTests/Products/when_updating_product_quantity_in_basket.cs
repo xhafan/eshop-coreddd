@@ -21,7 +21,7 @@ namespace Eshop.WpfMvvmApp.UnitTests.Products
             _basket = GetCurrentViewModelAsBasket();
             _basketItem = _basket.BasketItems.First(x => x.ProductId == ProductOneId);
             _basketItem.UpdatedQuantity = UpdatedQuantity;
-            BasketControllerClient.Expect(x => x.UpdateProductQuantityAsync(ProductOneId, UpdatedQuantity)).Return(TaskEx.FromResult(0));
+            BasketControllerClient.Expect(x => x.UpdateProductQuantityAsync(ProductOneId, UpdatedQuantity)).Return(Task.FromResult(0));
 
             _basket.UpdateProductQuantityCommand.Execute(ProductOneId);
         }

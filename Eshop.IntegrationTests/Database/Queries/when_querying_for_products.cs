@@ -24,11 +24,11 @@ namespace Eshop.IntegrationTests.Database.Queries
         {
             _productOne = new ProductBuilder().WithName(ProductOneName).Build();
             _productTwo = new ProductBuilder().WithName(ProductTwoName).Build();
-            Save(_productOne);
-            Save(_productTwo);
+            UnitOfWork.Save(_productOne);
+            UnitOfWork.Save(_productTwo);
 
 
-            var handler = new ProductsQueryHandler();
+            var handler = new ProductsQueryHandler(UnitOfWork);
             _results = handler.Execute<ProductSummaryDto>(new ProductsQuery { SearchText = "one" });
         }
 

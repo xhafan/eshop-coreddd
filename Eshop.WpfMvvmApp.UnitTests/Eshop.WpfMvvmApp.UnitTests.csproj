@@ -38,27 +38,18 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CoreDdd, Version=3.0.17.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\CoreDdd.3.0.17\lib\net45\CoreDdd.dll</HintPath>
+    <Reference Include="CoreDdd, Version=3.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CoreDdd.3.2.0\lib\net45\CoreDdd.dll</HintPath>
     </Reference>
-    <Reference Include="CoreIoC, Version=3.0.17.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\CoreIoC.3.0.17\lib\net40\CoreIoC.dll</HintPath>
+    <Reference Include="CoreIoC, Version=3.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CoreIoC.3.2.0\lib\net40\CoreIoC.dll</HintPath>
     </Reference>
     <Reference Include="CoreTest, Version=2.1.1.31352, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\CoreTest.2.1.1\lib\net40\CoreTest.dll</HintPath>
     </Reference>
-    <Reference Include="CoreUtils, Version=3.0.17.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\CoreUtils.3.0.17\lib\net40\CoreUtils.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Threading.Tasks">
-      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Threading.Tasks.Extensions">
-      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.Extensions.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Threading.Tasks.Extensions.Desktop">
-      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.Extensions.Desktop.dll</HintPath>
+    <Reference Include="CoreUtils, Version=3.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CoreUtils.3.2.0\lib\net45\CoreUtils.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
       <HintPath>..\packages\NUnit.2.6.2\lib\nunit.framework.dll</HintPath>
@@ -73,6 +64,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -122,13 +114,6 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
-  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets'))" />
-  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

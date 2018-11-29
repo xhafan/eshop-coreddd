@@ -30,7 +30,7 @@ namespace Eshop.WpfMvvmApp.UnitTests.Products
         {
             ProductControllerClient
                 .Stubs(x => x.SearchProductsAsync(SearchedText))
-                    .Returns(TaskEx.FromResult(new[] {new ProductSummaryDto {Id = ProductOneId, Name = ProductOneName}}));
+                    .Returns(Task.FromResult(new[] {new ProductSummaryDto {Id = ProductOneId, Name = ProductOneName}}));
         }
 
         protected ProductSearchResultViewModel GetCurrentViewModelAsProductSearchResult()

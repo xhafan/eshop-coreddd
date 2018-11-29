@@ -43,12 +43,12 @@ namespace Eshop.IntegrationTests.Database.Queries
                 .WithProductInBasket(_productOne, ProductOneQuantity)
                 .Build();
 
-            Save(_productOne);
-            Save(_productTwo);
-            Save(_customer);
-            Save(anotherCustomer);
+            UnitOfWork.Save(_productOne);
+            UnitOfWork.Save(_productTwo);
+            UnitOfWork.Save(_customer);
+            UnitOfWork.Save(anotherCustomer);
 
-            var handler = new BasketItemsQueryHandler();
+            var handler = new BasketItemsQueryHandler(UnitOfWork);
             _results = handler.Execute<BasketItemDto>(new BasketItemsQuery { CustomerId = _customer.Id });
         }
 

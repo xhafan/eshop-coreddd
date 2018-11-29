@@ -10,26 +10,25 @@ using HibernatingRhinos.Profiler.Appender.NHibernate;
 
 namespace Eshop.Infrastructure
 {
-    public class EshopNhibernateConfigurator : NhibernateConfigurator
+    public class EshopNhibernateConfigurator : BaseNhibernateConfigurator
     {
-        public EshopNhibernateConfigurator()
-            : this(true)
-        {
-        }
-
-        public EshopNhibernateConfigurator(bool mapDtoAssembly)
-            : base(mapDtoAssembly)
+        public EshopNhibernateConfigurator(bool shouldMapDtos = true)
+            : base(shouldMapDtos)
         {
 #if(DEBUG)
             NHibernateProfiler.Initialize();
 #endif
         }
 
-        protected override Assembly[] GetAssembliesToMap(bool mapDtoAssembly)
+        protected override Assembly[] GetAssembliesToMap()
         {
-            var assembliesToMap = new List<Assembly> { typeof(Customer).Assembly, typeof(CustomerAutoMap).Assembly };
-            if (mapDtoAssembly) assembliesToMap.AddRange(new[] { typeof(ProductSummaryDto).Assembly, typeof(ProductSummaryDtoAutoMap).Assembly });
-            return assembliesToMap.ToArray();
+            return new[]
+            {
+                typeof(Customer).Assembly,
+                typeof(CustomerAutoMap).Assembly,
+                typeof(ProductSummaryDto).Assembly,
+                typeof(ProductSummaryDtoAutoMap).Assembly
+            };
         }
 
         protected override IEnumerable<Type> GetIgnoreBaseTypes()

@@ -25,7 +25,7 @@ namespace Eshop.WpfMvvmApp.UnitTests.Products
 
         private void ExpectDeliveryAddressIsSetOnControllerClient()
         {
-            DeliveryAddressControllerClient.Expect(x => x.SetDeliveryAddressAsync(DeliveryAddress)).Return(TaskEx.FromResult(0));
+            DeliveryAddressControllerClient.Expect(x => x.SetDeliveryAddressAsync(DeliveryAddress)).Return(Task.FromResult(0));
         }
 
         [Test]

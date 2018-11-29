@@ -35,7 +35,7 @@ namespace Eshop.WpfMvvmApp.UnitTests.Products
                 Price = ProductOnePrice
             };
 
-            ProductControllerClient.Stubs(x => x.GetProductAsync(ProductOneId)).Returns(TaskEx.FromResult(productDto));
+            ProductControllerClient.Stubs(x => x.GetProductAsync(ProductOneId)).Returns(Task.FromResult(productDto));
         }
 
         protected ProductDetailsViewModel GetCurrentViewModelAsProductDetails()

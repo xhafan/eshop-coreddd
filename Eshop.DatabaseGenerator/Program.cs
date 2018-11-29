@@ -1,4 +1,5 @@
-﻿using Eshop.Infrastructure;
+﻿using CoreDdd.Nhibernate.DatabaseSchemaGenerators;
+using Eshop.Infrastructure;
 
 namespace Eshop.DatabaseGenerator
 {
@@ -6,7 +7,10 @@ namespace Eshop.DatabaseGenerator
     {
         static void Main(string[] args)
         {
-            var schemaGenerator = new EshopDatabaseSchemaGenerator(@"..\..\..\Eshop.Database\eshop_generated_database_schema.sql");
+            var schemaGenerator = new DatabaseSchemaGenerator(
+                @"..\..\..\Eshop.Database\eshop_generated_database_schema.sql",
+                new EshopNhibernateConfigurator(shouldMapDtos: false)
+            );
             schemaGenerator.Generate();
         }
     }

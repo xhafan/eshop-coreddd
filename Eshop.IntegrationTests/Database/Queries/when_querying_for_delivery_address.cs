@@ -22,12 +22,12 @@ namespace Eshop.IntegrationTests.Database.Queries
             var customerOne = new CustomerBuilder().Build();
             _customerTwo = new CustomerBuilder().Build();
             _customerTwo.SetDeliveryAddress("delivery address");
-            
-            Save(customerOne);
-            Save(_customerTwo);
+
+            UnitOfWork.Save(customerOne);
+            UnitOfWork.Save(_customerTwo);
 
 
-            var handler = new DeliveryAddressQueryHandler();
+            var handler = new DeliveryAddressQueryHandler(UnitOfWork);
             _results = handler.Execute<DeliveryAddressDto>(new DeliveryAddressQuery { CustomerId = _customerTwo.Id });
         }
 

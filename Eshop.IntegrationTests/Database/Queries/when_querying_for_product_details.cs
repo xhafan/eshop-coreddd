@@ -20,10 +20,10 @@ namespace Eshop.IntegrationTests.Database.Queries
         public void Context()
         {
             _product = new ProductBuilder().Build();
-            Save(_product);
+            UnitOfWork.Save(_product);
 
 
-            var handler = new ProductDetailsQueryHandler();
+            var handler = new ProductDetailsQueryHandler(UnitOfWork);
             _results = handler.Execute<ProductDto>(new ProductDetailsQuery { ProductId = _product.Id });
         }
 
